@@ -121,7 +121,7 @@ a { color: inherit; text-decoration: none; }
 .h2 {
   font-family: var(--f-head);
   font-weight: 500;
-  font-size: 48px;
+  font-size: 52px;
   line-height: 1.2;
   letter-spacing: -.01em;
   color: var(--c-ink);
@@ -139,15 +139,14 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
   font-size: 20px;
   letter-spacing: -.01em;
-  color: var(--c-blue);
+  color: #504e52
 }
 .eyebrow--cond {
-  font-family: var(--f-cond);
+  font-family: var(--f-head);
   font-weight: 600;
-  font-size: 12px;
+  font-size: 20px;
   letter-spacing: 1.68px;
-  text-transform: uppercase;
-  color: var(--c-grey);
+  color: #504e52
 }
 .lead   { font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.5; color: var(--c-ink-2); margin: 0; }
 .body   { font-family: var(--f-body); font-weight: 400; font-size: 18px; line-height: 1.5; color: var(--c-ink); margin: 0; }
@@ -177,7 +176,7 @@ a { color: inherit; text-decoration: none; }
 .btn:active { transform: translateY(1px); }
 .btn .icon  { font-size: 24px; }
 
-.btn--primary   { background: var(--c-blue); color: #fff; box-shadow: inset 0 0 0 1px var(--c-blue); }
+.btn--primary   { background: #2DA2DB; color: #fff; box-shadow: inset 0 0 0 1px var(--c-blue); }
 .btn--secondary { background: #fff; color: var(--c-grey); box-shadow: inset 0 0 0 1px rgba(6,3,9,.15); }
 .btn--ghost     { color: #fff; }
 .btn--ghost:hover { background: rgba(255,255,255,.14); filter: none; }
@@ -288,9 +287,9 @@ a { color: inherit; text-decoration: none; }
 .footer__top { display: flex; gap: 80px; align-items: flex-start; }
 .footer__logo { width: 138px; height: 50px; object-fit: contain; flex-shrink: 0; }
 .footer__cols { display: flex; gap: 20px; flex-grow: 1; }
-.footer__col { flex: 1; display: flex; flex-direction: column; gap: 12px; min-width: 130px; }
-.footer__col h2 { margin: 0; font-family: var(--f-alt); font-weight: 500; font-size: 14px; color: #4e4b59; }
-.footer__col a { font-family: var(--f-body); font-size: 14px; color: #6b6873; transition: color .15s; }
+.footer__col { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 130px; }
+.footer__col h2 { margin: 0 0 10px; font-family: var(--f-alt); font-weight: 500; font-size: 14px; line-height: 16px; color: #4e4b59; }
+.footer__col a { font-family: "Open Sans", var(--f-body); font-weight: 300; font-size: 12px; line-height: 19px; color: #8c8a97; transition: color .15s; }
 .footer__col a:hover { color: var(--c-blue); }
 .footer__certs { width: 320px; height: 67px; object-fit: contain; }
 .footer__bar { height: 50px; background: #008ac7; display: flex; align-items: center; justify-content: center; }
@@ -327,6 +326,20 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .minicard p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.3; color: var(--c-ink); }
 
 /* Feature card row (bordered grid) */
+/* "Why industry leaders choose iottag" — 500 / grow two-column (Figma 500|700, gap 80) */
+.why-cols { display: flex; align-items: center; gap: 80px; }
+.why-cols__head { width: 500px; flex-shrink: 0; }
+.why-cols__body { flex: 1; min-width: 0; }
+
+/* Executive Insight — text left, image right; stacks on mobile (no flex-wrap on desktop) */
+.exec-row { display: flex; align-items: center; gap: 40px; width: 100%; }
+
+/* Vector Tag field photo — source JPG is stored portrait; rotate 90° to show landscape.
+   The wrapper holds the final landscape box; the img is sized swapped then rotated so it
+   fills the box exactly (rotation alone doesn't reflow the layout). */
+.tag-photo { width: 400px; height: 225px; position: relative; overflow: hidden; border-radius: var(--r-md); }
+.tag-photo img { position: absolute; top: 50%; left: 50%; width: 225px; height: 400px; object-fit: cover; transform: translate(-50%, -50%) rotate(-90deg); }
+
 .feature-row { display: flex; border-radius: var(--r-md); box-shadow: inset 0 0 0 1px var(--c-line); overflow: hidden; }
 .feature-card { flex: 1; padding: 40px 24px; display: flex; flex-direction: column; gap: 16px; transition: background .2s ease; }
 .feature-card:hover { background: var(--c-blue-pale); }
@@ -340,7 +353,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; background: var(--c-blue); }
 .dot--orange { background: var(--c-orange); }
 .info-card { flex: 1; background: #fff; border-radius: var(--r-md); padding: 24px 40px; display: flex; flex-direction: column; gap: 8px; }
-.info-card__cols { display: flex; gap: 8px; }
+.info-card__cols { display: flex; gap: 16px; }
 .info-card__cols > div { flex: 1; }
 
 /* Brand strip */
@@ -351,7 +364,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .brand-card span { font-family: var(--f-head); font-weight: 700; font-size: 18px; color: #555; text-align: center; }
 .dots { display: flex; gap: 8px; align-items: center; }
 .dots span { width: 8px; height: 8px; border-radius: 50%; background: #b3c5cf; }
-.dots span.is-active { width: 24px; border-radius: 4px; background: var(--c-blue); }
+.dots span.is-active { background: var(--c-blue); }
 
 /* Brand logo marquee (single auto-scrolling row) */
 .brand-marquee { width: 100%; overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
@@ -383,7 +396,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .lens-tile--src  { --tile-bg: #fdf1e3; --tile-ic: var(--c-orange); }  /* peach data source */
 .lens-tile--dest { --tile-bg: #e9f3f9; --tile-ic: var(--c-blue);   }  /* blue outcome     */
 .lens-center {
-  width: 150px; height: 150px; border-radius: 50%; background: #fff;
+  width: 130px; height: 130px; border-radius: 50%; background: #fff;
   box-shadow: 0 0 0 8px var(--c-blue-pale), inset 0 0 0 1.5px var(--c-blue-light);
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
 }
@@ -431,7 +444,6 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .worldmap img {
   position: absolute; left: -40px; top: 0; width: 720px; height: 360px; object-fit: contain;
   opacity: .55;
-  filter: brightness(0) saturate(100%) invert(64%) sepia(64%) saturate(1000%) hue-rotate(170deg);
 }
 .worldmap .pin { position: absolute; color: var(--c-orange); }
 
@@ -440,6 +452,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .checklist__item { display: flex; align-items: center; gap: 8px; font-family: var(--f-body); font-size: 18px; color: var(--c-ink); }
 .checklist__box { width: 28px; height: 28px; flex-shrink: 0; border-radius: var(--r-sm); border: .8px solid var(--c-blue-tint); display: flex; align-items: center; justify-content: center; }
 .checklist__box .icon { font-size: 16px; color: var(--c-blue); }
+.checklist__box .checklist__ic { width: 16px; height: 16px; object-fit: contain; }
 
 /* Capability list */
 .cap-list { display: flex; flex-direction: column; gap: 16px; }
@@ -451,7 +464,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   box-sizing: content-box;
   padding: 9px;                       /* -> 40x40 tile */
   flex-shrink: 0;
-  background: var(--c-blue-pale);     /* #E9F3F9 */
+  background: #E9F3F9;     /* #E9F3F9 */
   border-radius: var(--r-md);         /* 8px */
 }
 
@@ -528,6 +541,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 
 /* Split media block (image + copy, dark overlay) */
 .media-block {
+  position: relative;
   border-radius: var(--r-md);
   overflow: hidden;
   padding: 64px 80px;
@@ -535,9 +549,16 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   gap: 60px;
   align-items: center;
   border: 1px solid rgba(6,3,9,.15);
+  /* fallback background (pages that still pass --bg); the home page layers a real <img> + overlay below */
   background: var(--grad-dark), var(--bg, #0c477d) center/cover no-repeat;
   color: #fff;
 }
+/* Real image behind the block — object-position moves the framing */
+.media-block__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+/* #053750 fill so the white text stays legible */
+.media-block__overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, #053750 0%, rgba(5,55,80,.72) 45%, rgba(5,55,80,.62) 100%); }
+/* keep the copy + video above the image + overlay */
+.media-block__copy, .media-block .video-thumb { position: relative; z-index: 2; }
 .media-block .h2 { color: #fff; font-size: 44px; }
 .media-block .body { color: #fff; font-size: 20px; }
 .media-block__copy { flex-grow: 1; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
@@ -555,13 +576,14 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 }
 .video-thumb__play:hover { transform: scale(1.06); }
 .video-thumb__play .icon { font-size: 40px; color: #fff; }
+.video-thumb__tri { display: block; width: 30px; height: 30px; margin-left: 4px; }   /* solid white play triangle, optically centred */
 
 /* Highlight bar (end-to-end accountability) */
 .highlight {
   background: var(--c-blue-pale);
-  border: 1px solid var(--c-blue);
+  border-left: 1px solid var(--c-blue);
   border-left-width: 2px;
-  border-radius: var(--r-sm);
+  /* border-radius: var(--r-sm); */
   padding: 40px;
   display: flex;
   gap: 120px;
@@ -579,8 +601,15 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   align-items: center;
   gap: 32px;
   border: 1px solid rgba(6,3,9,.15);
-  background: var(--grad-dark-strong), var(--bg) center/cover no-repeat;
+  /* fallback background (used by pages that still pass --bg); the home page layers a real <img> + overlay below */
+  background: linear-gradient(180deg, #053750 0%, rgba(5,55,80,.72) 45%, rgba(5,55,80,.62) 100%), var(--bg) center/cover no-repeat;
 }
+/* Real image behind the CTA — object-position is the knob to move the framing (see below) */
+.cta-band__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; z-index: 0; }
+/* #053750 fill, strongest at the top, easing to a steady tint so white text stays legible */
+.cta-band__overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, #053750 0%, rgba(5,55,80,.72) 45%, rgba(5,55,80,.62) 100%); }
+/* keep the text/buttons above the image + overlay */
+.cta-band > .stack, .cta-band > .row { position: relative; z-index: 2; }
 .cta-band .h2 { color: #f2f2f2; font-family: var(--f-alt); font-weight: 700; font-size: 52px; text-align: center; white-space: pre-line; }
 .cta-band p { max-width: 800px; font-family: var(--f-body); font-weight: 600; font-size: 18px; text-align: center; line-height: 1.5; color: #f2f2f2; margin: 0; }
 
@@ -603,6 +632,10 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   .media-block, .highlight { flex-direction: column; gap: 40px; align-items: flex-start; }
   .video-thumb { width: 100%; }
   .lens { transform: scale(.8); transform-origin: top center; }
+  .why-cols { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .why-cols__head { width: 100%; }
+  .exec-row { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .exec-row img { width: 100%; height: auto; }
 }
 @media (max-width: 640px) {
   :root { --pad-x: 20px; }
