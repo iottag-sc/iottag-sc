@@ -162,24 +162,28 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   gap: 8px;
   height: 44px;
-  padding: 0 24px;
+  padding: 10px 24px;
   border: 0;
   border-radius: var(--r-md);
-  font-family: var(--f-ui);
+  font-family: var(--f-head);        /* Oswald / Heading Tagline */
   font-weight: 600;
   font-size: 16px;
+  line-height: 150%;
   cursor: pointer;
   text-decoration: none;
   transition: filter .15s ease, background .15s ease, transform .1s ease;
 }
 .btn:hover  { filter: brightness(1.06); }
 .btn:active { transform: translateY(1px); }
-.btn .icon  { font-size: 18px; }
+.btn .icon  { font-size: 24px; }
 
 .btn--primary   { background: var(--c-blue); color: #fff; box-shadow: inset 0 0 0 1px var(--c-blue); }
-.btn--secondary { background: #fff; color: var(--c-grey); box-shadow: inset 0 0 0 1px rgba(0,0,0,.15); }
-.btn--ghost     { background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.4); }
-.btn--lg        { padding: 0 32px; }
+.btn--secondary { background: #fff; color: var(--c-grey); box-shadow: inset 0 0 0 1px rgba(6,3,9,.15); }
+.btn--ghost     { color: #fff; }
+.btn--ghost:hover { background: rgba(255,255,255,.14); filter: none; }
+.btn--lg        { padding: 10px 32px; }
+/* full-width button with label left / icon right (factor cards) */
+.btn--block     { width: 100%; justify-content: space-between; }
 
 /* 6. HEADER / NAV ------------------------------------------------------- */
 .site-header {
@@ -202,9 +206,7 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: none;
 }
 .brand { display: flex; align-items: center; gap: 9px; flex-grow: 1; }
-.brand__mark { flex-shrink: 0; }
-.brand__name { font-family: var(--f-alt); font-weight: 500; font-size: 24px; color: #fff; letter-spacing: -.5px; }
-.brand__tm   { font-size: 9px; color: var(--c-blue-light); align-self: flex-start; margin-top: 6px; }
+/* .brand__logo { display: block; height: 32px; width: auto; flex-shrink: 0; } */
 
 .nav { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
 .nav__item { position: static; height: var(--nav-h); display: flex; align-items: center; }
@@ -306,6 +308,7 @@ a { color: inherit; text-decoration: none; }
 }
 a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px var(--c-blue); transform: translateY(-3px); }
 .card__icon { font-size: 40px; color: var(--c-blue); }
+.card__ic { width: 40px; height: 40px; display: block; }   /* SVG icons keep their own baked-in colours */
 
 /* Outlined mini cards (factors) */
 .minicard {
@@ -364,20 +367,60 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .lens__row--bottom { align-items: flex-start; }
 .lens-tile {
   display: flex; flex-direction: column; align-items: center; gap: 6px;
-  padding: 14px 8px; border-radius: 14px; background: var(--c-surface);
+  padding: 14px 8px; border-radius: 14px;
+  /* Per-tile colours: override --tile-bg / --tile-ic inline on any tile.
+     e.g. <div class="lens-tile" style="--tile-bg:#eef1f6;--tile-ic:#5b6b8c"> */
+  background: var(--tile-bg, var(--c-surface));
   text-align: center;
 }
 .lens-tile span:last-child { font-family: var(--f-body); font-size: 11px; line-height: 1.2; color: var(--c-ink-2); white-space: pre-line; }
-.lens-tile .icon { font-size: 22px; color: var(--c-blue); }
+.lens-tile .icon { font-size: 22px; color: var(--tile-ic, var(--c-blue)); }
+.lens-tile__ic { width: 24px; height: 24px; display: block; }   /* SVG icons keep their own baked-in colours */
 .lens--lg .lens-tile { padding: 18px 12px; border-radius: var(--r-lg); gap: 8px; }
 .lens--lg .lens-tile span:last-child { font-size: 13px; line-height: 1.35; }
 .lens--lg .lens-tile .icon { font-size: 24px; }
-.lens-tile--src { background: #fdf6e5; }
-.lens-tile--src .icon { color: var(--c-orange); }
+/* Named presets — each just sets the two variables */
+.lens-tile--src  { --tile-bg: #fdf1e3; --tile-ic: var(--c-orange); }  /* peach data source */
+.lens-tile--dest { --tile-bg: #e9f3f9; --tile-ic: var(--c-blue);   }  /* blue outcome     */
 .lens-center {
   width: 150px; height: 150px; border-radius: 50%; background: #fff;
-  box-shadow: 0 0 0 10px var(--c-blue-tint), inset 0 0 0 1px var(--c-blue-light);
+  box-shadow: 0 0 0 8px var(--c-blue-pale), inset 0 0 0 1.5px var(--c-blue-light);
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+}
+
+/* Home "Unified Operational Lens" — everything is absolutely positioned in a
+   single 540x380 coordinate system shared with the SVG (viewBox 0 0 540 380),
+   so tiles arc around the hub and the connector lines land exactly on them.
+   Each tile carries its own left/top inline (easy to nudge per Figma). */
+.lens--diagram { position: relative; width: 540px; height: 380px; }
+.lens--diagram .lens__row { display: contents; }   /* row wrappers no longer lay out — tiles position themselves */
+.lens--diagram .lens-tile {
+  position: absolute; z-index: 1; width: 82px; min-height: 74px;
+  justify-content: center; margin: 0;
+}
+.lens--diagram .lens__row--bottom .lens-tile { width: 96px; }
+.lens--diagram .lens-center { position: absolute; z-index: 1; left: 195px; top: 115px; margin: 0; }
+.lens__links { position: absolute; top: 0; left: 0; width: 540px; height: 380px; z-index: 0; pointer-events: none; }
+
+/* Light pulse travelling from the hub outward along every connector.
+   pathLength="100" on each line normalises length, so a single dash
+   pattern + one shared keyframe fires all lines simultaneously. */
+.lens__pulse { filter: drop-shadow(0 0 6px rgba(45,162,219,.9)); }
+.lens__pulse line {
+  stroke: var(--c-blue-light);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  /* 18u beam + 182u gap (period 200 = 2x path) → one beam, then a pause */
+  stroke-dasharray: 18 182;
+  stroke-dashoffset: 0;
+  animation: lens-pulse 2.6s linear infinite;
+}
+@keyframes lens-pulse {
+  from { stroke-dashoffset: 0; }      /* beam at hub centre (hidden under circle) */
+  to   { stroke-dashoffset: -200; }   /* 0->100 rides out to tiles, 100->200 = pause */
+}
+@media (prefers-reduced-motion: reduce) {
+  .lens__pulse { display: none; }   /* respect users who opt out of motion */
 }
 .lens-center span { font-family: var(--f-body); font-weight: 700; font-size: 13px; line-height: 1.2; text-align: center; color: var(--c-ink-2); white-space: pre-line; }
 .lens--lg .lens-center { width: 160px; height: 160px; gap: 8px; }
@@ -403,6 +446,14 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .cap-list__item { display: flex; align-items: center; gap: 12px; font-family: var(--f-body); font-size: 16px; color: var(--c-ink); }
 .cap-list__item .icon { font-size: 22px; color: var(--c-grey-2); }
 .cap-list__item--on .icon { color: var(--c-blue); }
+.cap-list__ic {                       /* SVG icons keep their own baked-in colours */
+  width: 22px; height: 22px;          /* icon glyph size */
+  box-sizing: content-box;
+  padding: 9px;                       /* -> 40x40 tile */
+  flex-shrink: 0;
+  background: var(--c-blue-pale);     /* #E9F3F9 */
+  border-radius: var(--r-md);         /* 8px */
+}
 
 /* Environmental tiles grid */
 .env-grid { display: grid; grid-template-columns: repeat(5, 1fr); width: 100%; border-radius: var(--r-md); overflow: hidden; background: #fff; box-shadow: inset 0 0 0 1px var(--c-line); }
@@ -419,6 +470,36 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   display: flex; align-items: center; justify-content: center;
 }
 .placeholder span { font-family: "Roboto Mono", monospace; font-size: 13px; color: #9a9a9a; letter-spacing: .04em; }
+
+/* Content slider (factors — dark framed dashboard) */
+.slider {
+  position: relative;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  background: #0b2a3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 60px;
+}
+.slider__shot {
+  width: 100%;
+  max-width: 760px;
+  border-radius: 8px;
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,.6);
+  object-fit: cover;
+}
+.slider__dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+.slider__dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.55); }
+.slider__dots span.is-active { background: var(--c-blue); }
 
 /* 9. PAGE SECTIONS ------------------------------------------------------ */
 
