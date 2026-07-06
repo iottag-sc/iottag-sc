@@ -88,7 +88,9 @@ function initVideoCarousel() {
   document.querySelectorAll('[data-video-carousel]').forEach((carousel) => {
     const track = carousel.querySelector('.video-carousel__track');
     const slides = [...carousel.querySelectorAll('.video-carousel__slide')];
-    const dots = [...carousel.querySelectorAll('.slider__dots > *')];
+    // minicards in the same section act as tabs (data-slide="<index>")
+    const scope = carousel.closest('section') || document;
+    const tabs = [...scope.querySelectorAll('.minicard[data-slide]')];
     const AUTO_MS = 6000;
     let index = 0;
     let timer = null;
@@ -109,14 +111,20 @@ function initVideoCarousel() {
       index = (i + slides.length) % slides.length;
       stopVideos();
       track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach((d, n) => d.classList.toggle('is-active', n === index));
+      tabs.forEach((tab) => tab.classList.toggle('minicard--active', Number(tab.dataset.slide) === index));
     };
     const startAuto = () => {
       clearInterval(timer);
       timer = setInterval(() => { if (!isPlaying()) goTo(index + 1); }, AUTO_MS);
     };
 
-    dots.forEach((dot, n) => dot.addEventListener('click', () => goTo(n)));
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;   // let the Learn More link navigate
+        goTo(Number(tab.dataset.slide));
+        startAuto();                          // reset the auto-advance timer
+      });
+    });
     slides.forEach((slide) => {
       const btn = slide.querySelector('.video-thumb__play');
       if (!btn) return;
