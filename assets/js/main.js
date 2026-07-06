@@ -56,10 +56,30 @@ function initNavToggle() {
   });
 }
 
-/* ---- video placeholders ----------------------------------------------- */
+/* ---- sticky header color state --------------------------------------- */
+function initHeaderScroll() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  const updateHeaderState = () => {
+    header.classList.toggle('site-header--scrolled', window.scrollY > 8);
+  };
+
+  updateHeaderState();
+  window.addEventListener('scroll', updateHeaderState, { passive: true });
+}
+
+/* ---- video overlays ---------------------------------------------------- */
 function initVideoButtons() {
   document.querySelectorAll('[data-video]').forEach((btn) => {
-    btn.addEventListener('click', () => console.log('Play video:', btn.dataset.video || '(demo)'));
+    const thumb = btn.closest('.video-thumb');
+    const video = thumb && thumb.querySelector('video');
+    btn.addEventListener('click', () => {
+      if (!video) { console.log('Play video:', btn.dataset.video || '(demo)'); return; }
+      thumb.classList.add('is-playing');
+      video.controls = true;
+      video.play();
+    });
   });
 }
 
@@ -82,6 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await injectPartials();   // nav/footer must exist before wiring the hooks below
   setActiveNav();
   initNavToggle();
+  initHeaderScroll();
   initVideoButtons();
   initBrandDots();
 });
