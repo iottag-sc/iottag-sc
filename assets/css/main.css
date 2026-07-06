@@ -548,8 +548,30 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   display: flex;
   gap: 8px;
 }
-.slider__dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.55); }
-.slider__dots span.is-active { background: var(--c-blue); }
+.slider__dots span,
+.slider__dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: rgba(255,255,255,.55); }
+.slider__dots button { cursor: pointer; }
+.slider__dots span.is-active,
+.slider__dots button.is-active { background: var(--c-blue); }
+
+/* Video carousel banner (click-to-play slides) */
+.video-carousel {
+  position: relative;
+  width: 100%;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  background: #0b2a3a;
+}
+.video-carousel__track { display: flex; height: 100%; transition: transform .5s ease; }
+.video-carousel__slide {
+  position: relative; flex: 0 0 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+.video-carousel__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.video-carousel__slide iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-carousel__slide .video-thumb__play { position: relative; z-index: 2; }
+.video-carousel__slide.is-playing .video-thumb__play { display: none; }
 
 /* 9. PAGE SECTIONS ------------------------------------------------------ */
 
