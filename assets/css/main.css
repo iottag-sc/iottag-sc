@@ -348,6 +348,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 /* Outlined mini cards (factors) */
 .minicard {
   flex: 1;
+  min-height: 180px;   /* fixed height: hover reveals the button without growing the card */
   border-radius: var(--r-md);
   box-shadow: inset 0 0 0 1px var(--c-line);
   padding: 20px 24px;
@@ -360,10 +361,18 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .minicard--active { background: var(--c-blue-pale); box-shadow: inset 0 0 0 1px var(--c-blue); }
 .minicard:hover   { background: var(--c-blue-pale); box-shadow: inset 0 0 0 1px var(--c-blue); }
 .minicard[data-slide] { cursor: pointer; }
-/* Learn More: hidden until hover/keyboard focus — space stays reserved so the row doesn't jump */
-.minicard .btn--block { margin-top: 16px; justify-content: center; opacity: 0; transition: opacity .15s; }
+/* Learn More: collapsed by default so the copy sits vertically centred;
+   on hover/focus it expands and pushes the copy up */
+.minicard .btn--block {
+  justify-content: center;
+  opacity: 0;
+  max-height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  transition: opacity .15s, max-height .2s ease, margin-top .2s ease;
+}
 .minicard:hover .btn--block,
-.minicard:focus-within .btn--block { opacity: 1; }
+.minicard:focus-within .btn--block { opacity: 1; max-height: 44px; margin-top: 16px; }
 .minicard p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.3; color: var(--c-ink); }
 
 /* Feature card row (bordered grid) */
