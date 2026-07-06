@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&family=Open+Sans:wght@300;400;600&family=Barlow+Condensed:wght@500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
-  <link rel="stylesheet" href="assets/css/main.css?v=22">
+  <link rel="stylesheet" href="assets/css/main.css?v=25">
   <link rel="canonical" href="https://www.iottag.com/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
@@ -40,6 +40,15 @@
     "@type": "WebSite",
     "name": "iottag",
     "url": "https://www.iottag.com"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Track anything that moves",
+    "description": "By combining engineering, data science, operational technology and field expertise, iottag helps organisations solve complex operational challenges with confidence.",
+    "thumbnailUrl": "https://www.iottag.com/assets/img/video-thumb.jpg",
+    "contentUrl": "https://iottag.com/wp-content/uploads/2025/03/Track-anything-that-moves.mp4",
+    "uploadDate": "2025-03-01"
   }
 ]
   </script>
@@ -247,7 +256,7 @@ Supporting owners, contractors, operators and project teams across mining, tunne
       </div>
 
       <!-- brand strip -->
-      <div class="brand-strip" style="padding:0 64px 60px;">
+      <div class="brand-strip full-bleed" style="padding:0 0 60px;">
         <div class="brand-marquee">
           <div class="brand-marquee__track">
             <div class="brand-card"><img src="assets/img/logo-bhp.png" alt="BHP" width="120" height="80"></div>
@@ -326,7 +335,10 @@ Supporting owners, contractors, operators and project teams across mining, tunne
             <p class="body">By combining engineering, data science, operational technology and field expertise, iottag helps organisations solve complex operational challenges with confidence.</p>
             <a class="btn btn--primary" href="company/index.html">Why iottag <span class="icon">arrow_right_alt</span></a>
           </div>
-          <div class="video-thumb" style="background-image:url('assets/img/video-thumb.jpg');">
+          <div class="video-thumb">
+            <video class="video-thumb__video" preload="none" playsinline poster="assets/img/video-thumb.jpg" width="480" height="271">
+              <source src="https://iottag.com/wp-content/uploads/2025/03/Track-anything-that-moves.mp4" type="video/mp4">
+            </video>
             <button class="video-thumb__play" data-video="why-iottag" aria-label="Play video"><img class="video-thumb__tri" src="assets/icon/videoplay.svg" alt="" width="46" height="46"></button>
           </div>
         </div>
@@ -395,7 +407,7 @@ Supporting owners, contractors, operators and project teams across mining, tunne
         </div>
         <img src="assets/img/AdobeStock_65630929.png" alt="Leadership team reviewing iottag portfolio dashboards during a boardroom presentation" width="460" height="240" loading="lazy" style="flex-shrink:0;border-radius:var(--r-md);object-fit:cover;">
       </div>
-      <div class="row gap-40 wrap" style="width:100%;align-items:stretch;">
+      <div class="row gap-40 wrap" style="align-items:stretch;">
         <div class="grow card" style="display:flex;flex-direction:column;gap:20px;">
           <span class="eyebrow" style="padding-bottom:12px;color:var(--c-ink);">Leadership Outcomes</span>
           <div class="row gap-20">
@@ -413,23 +425,23 @@ Supporting owners, contractors, operators and project teams across mining, tunne
             </div>
           </div>
         </div>
-        <div class="card" style="width:460px;flex-shrink:0;display:flex;flex-direction:column;gap:20px;">
+        <div class="card" style="width:500px;flex-shrink:0;display:flex;flex-direction:column;gap:20px;">
           <span class="eyebrow" style="padding-bottom:12px;color:var(--c-ink);">Designed For</span>
           <div class="stack gap-24">
             <div class="stack gap-8">
               <span class="eyebrow--cond" style="font-size:16px;letter-spacing:.48px;text-transform:none;">Mining</span>
               <div class="row center gap-8 wrap" style="font-family:var(--f-body);font-size:14px;color:var(--c-ink);">
-                <span>Contractors</span><span style="color:var(--c-blue);">&rarr;</span>
-                <span>Site management</span><span style="color:var(--c-blue);">&rarr;</span>
-                <span>Corporate Leadership</span>
+                <span class="role-pill">Contractors</span><span style="color:var(--c-blue);">&rarr;</span>
+                <span class="role-pill">Site management</span><span style="color:var(--c-blue);">&rarr;</span>
+                <span class="role-pill">Corporate Leadership</span>
               </div>
             </div>
             <div class="stack gap-8">
               <span class="eyebrow--cond" style="font-size:16px;letter-spacing:.48px;text-transform:none;">Tunnelling &amp; Infrastructure</span>
               <div class="row center gap-8 wrap" style="font-family:var(--f-body);font-size:14px;color:var(--c-ink);">
-                <span>Subcontractors</span><span style="color:var(--c-blue);">&rarr;</span>
-                <span>Main contractor / JV</span><span style="color:var(--c-blue);">&rarr;</span>
-                <span>Asset Owner</span>
+                <span class="role-pill">Subcontractors</span><span style="color:var(--c-blue);">&rarr;</span>
+                <span class="role-pill">Main contractor / JV</span><span style="color:var(--c-blue);">&rarr;</span>
+                <span class="role-pill">Asset Owner</span>
               </div>
             </div>
           </div>
