@@ -547,6 +547,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   transform: translateX(-50%);
   display: flex;
   gap: 8px;
+  margin-bottom: 15px;
 }
 .slider__dots span,
 .slider__dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: rgba(255,255,255,.55); }
@@ -558,6 +559,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .video-carousel {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;   /* matches the 1920x1080 videos — no pillar-boxing */
   border-radius: var(--r-md);
   overflow: hidden;
   border: 1px solid var(--c-line);
@@ -569,7 +571,10 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   display: flex; align-items: center; justify-content: center;
 }
 .video-carousel__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.video-carousel__slide iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-carousel__slide iframe,
+.video-carousel__slide video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+/* while playing, show the whole frame instead of cropping */
+.video-carousel__slide.is-playing video { object-fit: contain; background: #0b2a3a; }
 .video-carousel__slide .video-thumb__play { position: relative; z-index: 2; }
 .video-carousel__slide.is-playing .video-thumb__play { display: none; }
 

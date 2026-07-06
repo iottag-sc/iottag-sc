@@ -93,11 +93,15 @@ function initVideoCarousel() {
     let index = 0;
     let timer = null;
 
-    const isPlaying = () => !!carousel.querySelector('iframe');
+    const isPlaying = () =>
+      !!carousel.querySelector('iframe') ||
+      [...carousel.querySelectorAll('video')].some((v) => !v.paused);
     const stopVideos = () => {
       slides.forEach((slide) => {
         const frame = slide.querySelector('iframe');
         if (frame) frame.remove();
+        const vid = slide.querySelector('video');
+        if (vid) { vid.pause(); vid.controls = false; }
         slide.classList.remove('is-playing');
       });
     };
@@ -115,14 +119,20 @@ function initVideoCarousel() {
     dots.forEach((dot, n) => dot.addEventListener('click', () => goTo(n)));
     slides.forEach((slide) => {
       const btn = slide.querySelector('.video-thumb__play');
-      if (!btn || !slide.dataset.embed) return;
+      if (!btn) return;
+      const vid = slide.querySelector('video');
       btn.addEventListener('click', () => {
-        const frame = document.createElement('iframe');
-        frame.src = slide.dataset.embed;
-        frame.allow = 'autoplay; encrypted-media; fullscreen';
-        frame.allowFullscreen = true;
-        frame.title = btn.getAttribute('aria-label') || 'Video';
-        slide.appendChild(frame);
+        if (vid) {
+          vid.controls = true;
+          vid.play();
+        } else if (slide.dataset.embed) {
+          const frame = document.createElement('iframe');
+          frame.src = slide.dataset.embed;
+          frame.allow = 'autoplay; encrypted-media; fullscreen';
+          frame.allowFullscreen = true;
+          frame.title = btn.getAttribute('aria-label') || 'Video';
+          slide.appendChild(frame);
+        } else return;
         slide.classList.add('is-playing');
       });
     });
