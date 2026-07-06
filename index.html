@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&family=Open+Sans:wght@300;400;600&family=Barlow+Condensed:wght@500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
-  <link rel="stylesheet" href="assets/css/main.css?v=25">
+  <link rel="stylesheet" href="assets/css/main.css?v=26">
   <link rel="canonical" href="https://www.iottag.com/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
@@ -181,10 +181,20 @@ Modeling</span></div>
               <p>Understand the factors influencing operational performance</p>
             </div>
           </div>
-          <div class="slider" style="height:508px;">
-            <img class="slider__shot" src="assets/img/exec-dashboard.png" alt="iottag operational dashboard showing indoor tracking of workforce and assets across a tunnel project" width="1786" height="1196" loading="lazy">
-            <div class="slider__dots" aria-hidden="true">
-              <span class="is-active"></span><span></span><span></span>
+          <div class="video-carousel" style="height:508px;" data-video-carousel>
+            <div class="video-carousel__track">
+              <div class="video-carousel__slide" data-embed="https://www.youtube.com/embed/saoaPVbPkLo?rel=0&autoplay=1">
+                <img class="video-carousel__poster" src="https://img.youtube.com/vi/saoaPVbPkLo/maxresdefault.jpg" alt="iottag operational intelligence platform video" width="1280" height="720" loading="lazy">
+                <button class="video-thumb__play" aria-label="Play video 1"><img class="video-thumb__tri" src="assets/icon/videoplay.svg" alt="" width="46" height="46"></button>
+              </div>
+              <!-- TODO: thay data-embed + poster bằng link video thứ 2 khi có link chính thức -->
+              <div class="video-carousel__slide" data-embed="https://www.youtube.com/embed/saoaPVbPkLo?rel=0&autoplay=1">
+                <img class="video-carousel__poster" src="https://img.youtube.com/vi/saoaPVbPkLo/maxresdefault.jpg" alt="iottag operational intelligence platform video" width="1280" height="720" loading="lazy">
+                <button class="video-thumb__play" aria-label="Play video 2"><img class="video-thumb__tri" src="assets/icon/videoplay.svg" alt="" width="46" height="46"></button>
+              </div>
+            </div>
+            <div class="slider__dots">
+              <button type="button" class="is-active" aria-label="Video 1"></button><button type="button" aria-label="Video 2"></button>
             </div>
           </div>
         </div>

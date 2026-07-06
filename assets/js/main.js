@@ -83,6 +83,56 @@ function initVideoButtons() {
   });
 }
 
+/* ---- video carousel (factors banner) ----------------------------------- */
+function initVideoCarousel() {
+  document.querySelectorAll('[data-video-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector('.video-carousel__track');
+    const slides = [...carousel.querySelectorAll('.video-carousel__slide')];
+    const dots = [...carousel.querySelectorAll('.slider__dots > *')];
+    const AUTO_MS = 6000;
+    let index = 0;
+    let timer = null;
+
+    const isPlaying = () => !!carousel.querySelector('iframe');
+    const stopVideos = () => {
+      slides.forEach((slide) => {
+        const frame = slide.querySelector('iframe');
+        if (frame) frame.remove();
+        slide.classList.remove('is-playing');
+      });
+    };
+    const goTo = (i) => {
+      index = (i + slides.length) % slides.length;
+      stopVideos();
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, n) => d.classList.toggle('is-active', n === index));
+    };
+    const startAuto = () => {
+      clearInterval(timer);
+      timer = setInterval(() => { if (!isPlaying()) goTo(index + 1); }, AUTO_MS);
+    };
+
+    dots.forEach((dot, n) => dot.addEventListener('click', () => goTo(n)));
+    slides.forEach((slide) => {
+      const btn = slide.querySelector('.video-thumb__play');
+      if (!btn || !slide.dataset.embed) return;
+      btn.addEventListener('click', () => {
+        const frame = document.createElement('iframe');
+        frame.src = slide.dataset.embed;
+        frame.allow = 'autoplay; encrypted-media; fullscreen';
+        frame.allowFullscreen = true;
+        frame.title = btn.getAttribute('aria-label') || 'Video';
+        slide.appendChild(frame);
+        slide.classList.add('is-playing');
+      });
+    });
+
+    carousel.addEventListener('mouseenter', () => clearInterval(timer));
+    carousel.addEventListener('mouseleave', startAuto);
+    startAuto();
+  });
+}
+
 /* ---- brand carousel dots (decorative) --------------------------------- */
 function initBrandDots() {
   document.querySelectorAll('[data-dots]').forEach((group) => {
@@ -104,5 +154,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   initNavToggle();
   initHeaderScroll();
   initVideoButtons();
+  initVideoCarousel();
   initBrandDots();
 });
