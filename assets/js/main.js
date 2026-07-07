@@ -44,6 +44,21 @@ function setActiveNav() {
   if (link) link.setAttribute('aria-current', 'page');
 }
 
+/* ---- top-level nav links: menu-only on desktop ------------------------ */
+/* The hub index pages are not used — on desktop the top-level items only
+   open their mega-menu; navigation happens through the menu options.
+   On mobile the mega-menu is hidden (display:none), so the top-level links
+   must keep navigating — hence the computed-style check. */
+function initTopNavLinks() {
+  document.querySelectorAll('.nav__item > .nav__link[data-nav]').forEach((link) => {
+    link.setAttribute('aria-haspopup', 'true');
+    link.addEventListener('click', (e) => {
+      const menu = link.parentElement.querySelector('.megamenu');
+      if (menu && getComputedStyle(menu).display !== 'none') e.preventDefault();
+    });
+  });
+}
+
 /* ---- mobile nav toggle ------------------------------------------------ */
 function initNavToggle() {
   const toggle = document.getElementById('nav-toggle');
@@ -186,6 +201,7 @@ function initBrandDots() {
 document.addEventListener('DOMContentLoaded', async () => {
   await injectPartials();   // nav/footer must exist before wiring the hooks below
   setActiveNav();
+  initTopNavLinks();
   initNavToggle();
   initHeaderScroll();
   initVideoButtons();
