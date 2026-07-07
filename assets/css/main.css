@@ -60,7 +60,11 @@
 /* 2. BASE / RESET ------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* render the whole site at 80% — equivalent to opening the page at 80% browser zoom */
+  zoom: 0.8;
+}
 
 body {
   margin: 0;
