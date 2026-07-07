@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vector Tag — Technology | iottag</title>
   <meta name="description" content="The Vector Tag is a purpose-built industrial wearable for workforce visibility and emergency response.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/platform.css">
+  <link rel="stylesheet" href="../../assets/css/technology.css">
   <link rel="canonical" href="https://www.iottag.com/technology/vector-tag/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
@@ -12,11 +19,11 @@
   <meta property="og:title" content="Vector Tag — Technology | iottag">
   <meta property="og:description" content="The Vector Tag is a purpose-built industrial wearable for workforce visibility and emergency response.">
   <meta property="og:url" content="https://www.iottag.com/technology/vector-tag/">
-  <meta property="og:image" content="https://www.iottag.com/assets/img/hero-bg.jpg">
+  <meta property="og:image" content="https://www.iottag.com/assets/img/technology/vt-hero-bg.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Vector Tag — Technology | iottag">
   <meta name="twitter:description" content="The Vector Tag is a purpose-built industrial wearable for workforce visibility and emergency response.">
-  <meta name="twitter:image" content="https://www.iottag.com/assets/img/hero-bg.jpg">
+  <meta name="twitter:image" content="https://www.iottag.com/assets/img/technology/vt-hero-bg.jpg">
   <script type="application/ld+json">
 [
   {
@@ -57,93 +64,465 @@
   }
 ]
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
-  <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body data-base="../../" data-page="technology">
 
   <div data-include="../../partials/header.html"></div>
 
   <main>
-    <section class="hero hero--short">
-      <img class="hero__bg" src="../../assets/img/hero-bg.jpg" alt="" width="1440" height="560" fetchpriority="high">
-      <div class="hero__content hero__content--wide">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../index.html">Home</a> <span aria-hidden="true">/</span>
-          <a href="../../technology/index.html">Technology</a> <span aria-hidden="true">/</span>
-          <span aria-current="page">Vector Tag</span>
-        </nav>
-        <div class="stack gap-8">
-          <h1 class="h1">Vector Tag</h1>
-          <p class="hero__kicker">The industrial wearable at the core</p>
-        </div>
-        <p class="hero__text">At the centre of the iottag ecosystem is the Vector Tag — a purpose-built industrial wearable designed to support workforce visibility, emergency response and operational awareness.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="../../company/contact/index.html">Book a Demonstration</a>
-          <a class="btn btn--ghost" href="../../technology/index.html">Back to Technology</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container row gap-60 wrap" style="align-items:flex-start;">
-        <div class="grow stack gap-16" style="min-width:320px;">
-          <h2 class="h2">Overview</h2>
-          <p class="body">At the centre of the iottag ecosystem is the Vector Tag — a purpose-built industrial wearable designed to support workforce visibility, emergency response and operational awareness.</p>
-          <p class="body">Deployed across critical operations environments, iottag transforms operational complexity into actionable intelligence — giving every team a single, shared understanding of what is happening on the ground.</p>
-        </div>
-        <div class="stack gap-16 grow" style="min-width:300px;">
-          <h2 class="h2" style="font-size:24px;">Key capabilities</h2>
-          <ul class="cap-list" style="list-style:none;margin:0;padding:0;">
-            <li class="cap-list__item cap-list__item--on"><span class="icon" aria-hidden="true">location_searching</span>Granular positioning</li>
-            <li class="cap-list__item cap-list__item--on"><span class="icon" aria-hidden="true">sos</span>SOS emergency activation</li>
-            <li class="cap-list__item cap-list__item--on"><span class="icon" aria-hidden="true">personal_injury</span>Fall &amp; man down detection</li>
-            <li class="cap-list__item cap-list__item--on"><span class="icon" aria-hidden="true">battery_charging_full</span>Ultra-long battery life</li>
-          </ul>
+    <!-- ===== HERO ===== -->
+    <section class="hero hero--photo">
+      <img class="hero__bg" src="../../assets/img/technology/vt-hero-bg.jpg" alt="" width="1920" height="1080" fetchpriority="high">
+      <div class="hero__ovl--eh" aria-hidden="true"></div>
+      <div class="hero__content" style="width:100%;max-width:1312px;">
+        <div class="stack gap-32" style="max-width:606px;">
+          <div class="stack gap-8">
+            <h1 class="h1">Engineered For
+Demanding Operations</h1>
+            <p class="hero__kicker" style="color:#fff;">Purpose-Built Technology Designed, Supported And Maintained By iottag</p>
+            <p class="hero__text" style="font-weight:400;font-size:16px;max-width:584px;">Operational environments require more than software.</p>
+            <p class="hero__text" style="font-weight:400;font-size:16px;max-width:584px;">They require technology that performs reliably, integrates seamlessly and can be supported over the long term.</p>
+            <p class="hero__text" style="font-weight:400;font-size:16px;max-width:584px;">iottag designs, engineers, supports and maintains the core components of its Operational Intelligence Platform, providing organisations with a single partner responsible for performance across the entire solution lifecycle.</p>
+            <p class="hero__text" style="font-weight:400;font-size:16px;max-width:584px;">From industrial wearables and positioning infrastructure through to software, analytics and operational dashboards, every component is designed to work together as part of a unified operational ecosystem.</p>
+          </div>
+          <div class="hero__actions">
+            <a class="btn btn--secondary" href="../../company/contact/index.html">Speak With An Engineer</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section--pale section">
-      <div class="container stack gap-40">
-        <h2 class="h2 text-center">More in Technology</h2>
-        <div class="row gap-20 wrap">
-          <a class="card grow" href="../../technology/engineering-hardware/index.html" style="min-width:260px;text-decoration:none;">
-            <h3 class="h3">Engineering &amp; Hardware</h3>
-            <p class="body body--sm" style="margin-top:8px;">Purpose-built, supported and maintained</p>
-            <span class="eyebrow" style="font-size:14px;margin-top:12px;display:inline-flex;gap:6px;align-items:center;">Explore <span class="icon" aria-hidden="true">arrow_right_alt</span></span>
-          </a>
-          <a class="card grow" href="../../technology/positioning-technologies/index.html" style="min-width:260px;text-decoration:none;">
-            <h3 class="h3">Positioning Technologies</h3>
-            <p class="body body--sm" style="margin-top:8px;">Granular positioning everywhere</p>
-            <span class="eyebrow" style="font-size:14px;margin-top:12px;display:inline-flex;gap:6px;align-items:center;">Explore <span class="icon" aria-hidden="true">arrow_right_alt</span></span>
-          </a>
-          <a class="card grow" href="../../technology/iot-security-governance/index.html" style="min-width:260px;text-decoration:none;">
-            <h3 class="h3">IoT Security &amp; Governance</h3>
-            <p class="body body--sm" style="margin-top:8px;">Enterprise-grade security and control</p>
-            <span class="eyebrow" style="font-size:14px;margin-top:12px;display:inline-flex;gap:6px;align-items:center;">Explore <span class="icon" aria-hidden="true">arrow_right_alt</span></span>
-          </a>
-          <a class="card grow" href="../../technology/integrations-ecosystem/index.html" style="min-width:260px;text-decoration:none;">
-            <h3 class="h3">Integrations &amp; Ecosystem</h3>
-            <p class="body body--sm" style="margin-top:8px;">Connect existing operational systems</p>
-            <span class="eyebrow" style="font-size:14px;margin-top:12px;display:inline-flex;gap:6px;align-items:center;">Explore <span class="icon" aria-hidden="true">arrow_right_alt</span></span>
-          </a>
+    <!-- ===== END-TO-END ACCOUNTABILITY ===== -->
+    <section class="section stack gap-80">
+      <div class="row gap-40 center wrap">
+        <div class="grow stack gap-24" style="flex-basis:0;min-width:320px;">
+          <h2 class="h2">End-To-End Accountability</h2>
+          <p class="body" style="color:#060309;">Many operational technology solutions rely on multiple vendors</p>
+          <p class="body" style="color:#060309;">While each component may perform independently, organisations are often left managing complexity, integration challenges and fragmented support models.</p>
+        </div>
+        <div class="sys-grid" style="width:660px;max-width:100%;gap:20px;">
+          <div class="sys-grid__col" style="gap:20px;">
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--orange"><img src="../../assets/icon/vt-server.svg" alt="" width="20" height="20"></span>Hardware from one supplier</div>
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--orange"><span class="icon" aria-hidden="true" style="font-size:20px;color:#f4813e;">arrows_output</span></span>Positioning technology from a third</div>
+          </div>
+          <div class="sys-grid__col" style="gap:20px;">
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--orange"><img src="../../assets/icon/vt-code-xml.svg" alt="" width="20" height="20"></span>Software from another</div>
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--orange"><img src="../../assets/icon/vt-support-agent.svg" alt="" width="20" height="20"></span>Support provided by someone else</div>
+          </div>
+        </div>
+      </div>
+      <div class="approach-bar">
+        <div class="approach-bar__copy">
+          <h3 class="approach-bar__title">iottag takes a different approach</h3>
+          <p class="approach-bar__text">By designing, supporting and maintaining the core components of the solution, organisations benefit from tighter integration, stronger reliability and a single point of accountability throughout deployment, operation and ongoing support.</p>
+        </div>
+        <ul class="approach-bar__list">
+          <li><img src="../../assets/icon/vt-check.svg" alt="" width="24" height="24">One Platform</li>
+          <li><img src="../../assets/icon/vt-check.svg" alt="" width="24" height="24">One Technology Ecosystem</li>
+          <li><img src="../../assets/icon/vt-check.svg" alt="" width="24" height="24">One Support Partner</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== THE VECTOR TAG ===== -->
+    <section class="section--pale section" id="vector-tag">
+      <div class="row gap-40" style="align-items:flex-start;flex-wrap:wrap;">
+        <div class="grow stack gap-40" style="flex-basis:0;min-width:320px;">
+          <div class="stack" style="gap:30px;">
+            <h2 class="h2">The Vector Tag</h2>
+            <p class="vt-kicker">Purpose-Built For Workforce Visibility And Operational Awareness</p>
+          </div>
+          <p class="body" style="color:#060309;">At the centre of the iottag technology ecosystem is the Vector Tag.</p>
+          <p class="body" style="color:#060309;">A purpose-built industrial wearable designed specifically for demanding operational environments where workforce visibility, emergency response and operational awareness are critical.</p>
+          <p class="body" style="color:#060309;">Unlike consumer-grade devices or repurposed hardware, the Vector Tag has been engineered for real-world deployment across mining, tunnelling, infrastructure and industrial environments.</p>
+          <div class="stack gap-20">
+            <h3 class="vt-kicker">Key capabilities</h3>
+            <div class="sys-grid" style="gap:8px 12px;">
+              <div class="sys-grid__col" style="gap:8px;">
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-mountain-snow.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Granular Positioning</div>
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-e911.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>SOS Emergency Activation</div>
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-falling.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Fall Detection</div>
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-personal-injury.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Man Down</div>
+              </div>
+              <div class="sys-grid__col" style="gap:8px;">
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-release-alert.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Impact Detection</div>
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-fire.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Heat Stress</div>
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-touch-app.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Tap-On / Tap-Off</div>
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-track-changes.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Vehicle Proximity</div>
+              </div>
+              <div class="sys-grid__col" style="gap:8px;">
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-bell.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Remote Alarming</div>
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-water-drop.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Water Ingress</div>
+                <div class="sys-item"><span class="sys-item__ic sys-item__ic--card"><img src="../../assets/icon/vt-battery-bolt.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Ultra-Long Battery Life</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tag-viz">
+          <p class="tag-viz__label" style="left:285px;top:31px;">D81 Vector Tag</p>
+          <img class="tag-viz__d81" src="../../assets/img/technology/eh-tag-d81.png" alt="iottag D81 Vector Tag industrial wearable, rear view" width="227" height="376" loading="lazy">
+          <p class="tag-viz__label" style="left:124px;top:277px;">Tag in Cradle</p>
+          <img class="tag-viz__cradle" src="../../assets/img/technology/eh-tag-cradle.png" alt="Vector Tag seated in its charging cradle" width="250" height="358" loading="lazy">
+          <div class="tag-viz__controls" aria-hidden="true">
+            <span class="tag-viz__btn"><img src="../../assets/icon/vt-redo.svg" alt="" width="24" height="24" loading="lazy"></span>
+            <span class="tag-viz__360">360<img src="../../assets/icon/vt-360.svg" alt="" width="24" height="24" loading="lazy"></span>
+            <span class="tag-viz__btn"><img src="../../assets/icon/vt-undo.svg" alt="" width="24" height="24" loading="lazy"></span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="cta-band" style="--bg:url('/assets/img/cta-bg.jpg');">
+    <!-- ===== ENGINEERED TO SUPPORT CRITICAL OPERATIONS ===== -->
+    <section class="section stack gap-80">
+      <h2 class="h2 text-center">Engineered To Support Critical Operations</h2>
+      <div class="vt-feature">
+        <div class="vt-feature__list">
+          <div class="vt-feature__item">
+            <h3>Granular Positioning</h3>
+            <p>High-accuracy workforce visibility across complex operational environments.</p>
+          </div>
+          <div class="vt-feature__item">
+            <h3>Emergency Response</h3>
+            <p>SOS activation with location awareness and operational context.</p>
+          </div>
+          <div class="vt-feature__item">
+            <h3>Fall &amp; Man-Down Detection</h3>
+            <p>Automated identification of workforce welfare events.</p>
+          </div>
+          <div class="vt-feature__item">
+            <h3>Vehicle Proximity Awareness</h3>
+            <p>Supports workforce and vehicle interaction management.</p>
+          </div>
+          <div class="vt-feature__item">
+            <h3>Tap-On / Tap-Off Access Control</h3>
+            <p>Seamless workforce accountability and location confirmation.</p>
+          </div>
+        </div>
+        <img class="vt-feature__img" src="../../assets/img/technology/vt-feature-1.jpg" alt="Worker wearing the Vector Tag in an underground operational environment" width="480" height="520" loading="lazy">
+      </div>
+      <div class="vt-feature">
+        <img class="vt-feature__img" src="../../assets/img/technology/vt-feature-2.jpg" alt="Vector Tag in use on site, supporting emergency response and alarming" width="480" height="520" loading="lazy">
+        <div class="vt-feature__list">
+          <div class="vt-feature__item">
+            <h3>Remote Alarming</h3>
+            <p>Visual and audible alerts triggered centrally or automatically.</p>
+          </div>
+          <div class="vt-feature__item">
+            <h3>Impact Detection</h3>
+            <p>Identification of sudden force events requiring investigation.</p>
+          </div>
+          <div class="vt-feature__item">
+            <h3>Rugged Industrial Design</h3>
+            <p>Designed to perform in harsh operational environments.</p>
+          </div>
+          <div class="vt-feature__item">
+            <h3>Ultra-Long Battery Life</h3>
+            <p>Minimises maintenance and operational disruption.</p>
+          </div>
+          <div class="vt-feature__item">
+            <h3>Supporting Statement</h3>
+            <p>Designed for reliability where visibility and response matter most.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ENTERPRISE DEVICE GOVERNANCE ===== -->
+    <section class="section--pale section stack gap-80">
+      <div class="row gap-80 wrap">
+        <div class="stack gap-10" style="width:400px;max-width:100%;gap:10px;">
+          <h2 class="h2">Enterprise Device Governance</h2>
+          <p class="body" style="color:#060309;">Operational technology does not end with deployment.</p>
+        </div>
+        <div class="grow stack gap-16" style="flex-basis:0;min-width:320px;">
+          <p class="body" style="color:#060309;">Managing devices throughout their lifecycle is critical to maintaining reliability, security and operational performance.</p>
+          <p class="body" style="color:#060309;">iottag provides comprehensive device governance capabilities that help organisations maintain visibility and control across their technology fleet.</p>
+        </div>
+      </div>
+      <div class="gov-cards" style="align-items:center;width:100%;">
+        <div class="gov-cards__row gov-cards__row--c">
+          <div class="gov-card gov-card--white">
+            <img src="../../assets/icon/vt-heart.svg" alt="" width="24" height="24" loading="lazy">
+            <h3>Device health monitoring</h3>
+          </div>
+          <div class="gov-card gov-card--white">
+            <img src="../../assets/icon/vt-truck.svg" alt="" width="24" height="24" loading="lazy">
+            <h3>Fleet-wide visibility</h3>
+          </div>
+          <div class="gov-card gov-card--white">
+            <img src="../../assets/icon/vt-query-stats.svg" alt="" width="24" height="24" loading="lazy">
+            <h3>Lifecycle management</h3>
+          </div>
+          <div class="gov-card gov-card--white">
+            <img src="../../assets/icon/vt-account-tree.svg" alt="" width="24" height="24" loading="lazy">
+            <h3>Remote Administration</h3>
+          </div>
+          <div class="gov-card gov-card--white">
+            <img src="../../assets/icon/vt-upload-file.svg" alt="" width="24" height="24" loading="lazy">
+            <h3>Firmware deployment</h3>
+          </div>
+        </div>
+        <div class="gov-cards__row gov-cards__row--c">
+          <div class="gov-card gov-card--white">
+            <img src="../../assets/icon/vt-document-scanner.svg" alt="" width="24" height="24" loading="lazy">
+            <h3>Version Control</h3>
+          </div>
+          <div class="gov-card gov-card--white">
+            <img src="../../assets/icon/vt-settings.svg" alt="" width="24" height="24" loading="lazy">
+            <h3>Configuration management</h3>
+          </div>
+          <div class="gov-card gov-card--white">
+            <img src="../../assets/icon/vt-book-search.svg" alt="" width="24" height="24" loading="lazy">
+            <h3>Asset accountability</h3>
+          </div>
+          <div class="gov-card gov-card--white">
+            <img src="../../assets/icon/vt-diagnosis.svg" alt="" width="24" height="24" loading="lazy">
+            <h3>Operational diagnostics</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECURITY BUILT INTO THE ECOSYSTEM ===== -->
+    <section class="section stack gap-40">
+      <div class="stack text-center" style="gap:30px;">
+        <h2 class="h2">Security Built Into The Ecosystem</h2>
+        <p class="vt-kicker">Operational environments depend on technology they can trust.</p>
+        <p class="body" style="color:#060309;">Security considerations extend beyond software and include devices, communications, infrastructure and operational processes.<br>The iottag ecosystem is designed to support secure operation throughout the technology lifecycle.</p>
+      </div>
+      <div class="stack gap-20">
+        <h3 class="vt-kicker">Areas Of Focus</h3>
+        <div class="sys-grid" style="gap:8px 12px;">
+          <div class="sys-grid__col" style="gap:8px;">
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--blue"><span class="icon" aria-hidden="true" style="font-size:24px;color:#4cc4fe;">shield_locked</span></span>Secure device identity</div>
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--blue"><img src="../../assets/icon/vt-doc-scanner-2.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Controlled firmware deployment</div>
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--blue"><span class="icon" aria-hidden="true" style="font-size:24px;color:#4cc4fe;">history</span></span>Version governance</div>
+          </div>
+          <div class="sys-grid__col" style="gap:8px;">
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--blue"><span class="icon" aria-hidden="true" style="font-size:24px;color:#4cc4fe;">encrypted</span></span>Encrypted communications</div>
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--blue"><img src="../../assets/icon/vt-brick-wall.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Infrastructure security</div>
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--blue"><span class="icon" aria-hidden="true" style="font-size:24px;color:#4cc4fe;">lock</span></span>Access control</div>
+          </div>
+          <div class="sys-grid__col" style="gap:8px;">
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--blue"><img src="../../assets/icon/vt-book-search-2.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Operational auditability</div>
+            <div class="sys-item"><span class="sys-item__ic sys-item__ic--blue"><img src="../../assets/icon/vt-heart-pulse.svg" alt="" width="24" height="24" style="width:24px;height:24px;"></span>Lifecycle traceability</div>
+          </div>
+        </div>
+      </div>
+      <div class="approach-bar">
+        <div class="approach-bar__copy">
+          <h3 class="approach-bar__title">Security is not a feature. It is a design principle.</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BUILT TO EVOLVE ===== -->
+    <section class="section--pale section stack gap-80">
+      <div class="row gap-80 center wrap">
+        <div class="stack gap-40" style="width:600px;max-width:100%;">
+          <div class="stack gap-24">
+            <h2 class="h2">Built To Evolve</h2>
+            <p class="vt-kicker">Operational environments change.<br>Technology must evolve alongside them.</p>
+          </div>
+          <div class="stack gap-20">
+            <p class="body" style="color:#060309;">Because iottag controls both hardware and software development, organisations benefit from a tightly integrated ecosystem capable of evolving as operational requirements change.</p>
+            <p class="body" style="color:#060309;">The operational impact is experienced throughout the production chain.</p>
+            <p class="body" style="color:#060309;">Each can create inefficiencies that influence production performance long after the blast has occurred.<br><br>Understanding these impacts provides opportunities to improve efficiency, reduce variability and increase throughput.</p>
+          </div>
+        </div>
+        <div class="vt-tiles grow" style="min-width:320px;">
+          <div class="vt-tiles__col">
+            <div class="vt-tile">
+              <img src="../../assets/img/technology/vt-evolve-1.jpg" alt="" width="800" height="448" loading="lazy">
+              <h3>Faster innovation</h3>
+            </div>
+            <div class="vt-tile">
+              <img src="../../assets/img/technology/vt-evolve-2.jpg" alt="" width="800" height="600" loading="lazy">
+              <h3>Controlled technology roadmaps</h3>
+            </div>
+            <div class="vt-tile">
+              <img src="../../assets/img/technology/vt-evolve-3.jpg" alt="" width="800" height="533" loading="lazy">
+              <h3>Consistent user experiences</h3>
+            </div>
+          </div>
+          <div class="vt-tiles__col">
+            <div class="vt-tile">
+              <img src="../../assets/img/technology/vt-evolve-4.jpg" alt="" width="800" height="443" loading="lazy">
+              <h3>Improved interoperability</h3>
+            </div>
+            <div class="vt-tile">
+              <img src="../../assets/img/technology/vt-evolve-5.jpg" alt="" width="800" height="448" loading="lazy">
+              <h3>System-wide firmware updates</h3>
+            </div>
+            <div class="vt-tile">
+              <img src="../../assets/img/technology/vt-evolve-6.jpg" alt="" width="600" height="450" loading="lazy">
+              <h3>Long-term maintainability</h3>
+            </div>
+            <div class="vt-tile">
+              <img src="../../assets/img/technology/vt-evolve-7.jpg" alt="" width="800" height="533" loading="lazy">
+              <h3>Future platform expansion</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stages">
+        <div class="stage stage--white">
+          <img src="../../assets/icon/vt-stage-server.svg" alt="" width="40" height="40" loading="lazy">
+          <span>Hardware</span>
+        </div>
+        <div class="stage stage--white">
+          <img src="../../assets/icon/vt-stage-code.svg" alt="" width="40" height="40" loading="lazy">
+          <span>Platform</span>
+        </div>
+        <div class="stage stage--white">
+          <img src="../../assets/icon/vt-stage-chart-pie.svg" alt="" width="40" height="40" loading="lazy">
+          <span>Analytics</span>
+        </div>
+        <div class="stage stage--white">
+          <img src="../../assets/icon/vt-stage-chart-line.svg" alt="" width="40" height="40" loading="lazy">
+          <span>Continuous Innovation</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SUPPORTING THE OPERATIONAL INTELLIGENCE ECOSYSTEM ===== -->
+    <section class="section stack gap-80">
+      <div class="row gap-60 center wrap">
+        <h2 class="h2" style="width:520px;max-width:100%;">Supporting The Operational Intelligence Ecosystem</h2>
+        <div class="grow stack gap-16" style="flex-basis:0;min-width:320px;">
+          <p class="body" style="color:#060309;">The Vector Tag is one component of a broader Operational Intelligence platform.</p>
+          <p class="body" style="color:#060309;">Together with positioning infrastructure, software, analytics and operational dashboards, it contributes to a shared operational understanding across the environment.</p>
+        </div>
+      </div>
+      <div class="vt-feature vt-feature--eco">
+        <div class="vt-feature__list">
+          <div class="vt-feature__item">
+            <a href="../../platform/workforce-visibility/index.html">
+              <h3>Workforce Visibility</h3>
+              <p>Know who is on site and where they are.</p>
+            </a>
+          </div>
+          <div class="vt-feature__item">
+            <a href="../../platform/fleet-visibility/index.html">
+              <h3>Fleet Visibility</h3>
+              <p>Understand workforce and vehicle interactions.</p>
+            </a>
+          </div>
+          <div class="vt-feature__item">
+            <a href="../../platform/asset-visibility/index.html">
+              <h3>Asset Visibility</h3>
+              <p>Monitor critical equipment and operational resources.</p>
+            </a>
+          </div>
+          <div class="vt-feature__item">
+            <a href="../../platform/environmental-monitoring/index.html">
+              <h3>Environmental Monitoring</h3>
+              <p>Understand changing operational conditions.</p>
+            </a>
+          </div>
+          <div class="vt-feature__item">
+            <a href="../../solutions/operational-digital-twin/index.html">
+              <h3>Operational Digital Twin</h3>
+              <p>Create a live operational understanding of the operation.</p>
+            </a>
+          </div>
+        </div>
+        <img class="vt-feature__img" src="../../assets/img/technology/vt-ecosystem.jpg" alt="Operational dashboards showing live workforce and fleet visibility across a site" width="700" height="520" loading="lazy">
+      </div>
+      <div class="stages">
+        <div class="stage stage--mid">
+          <img src="../../assets/icon/vt-stage-tag.svg" alt="" width="40" height="40" loading="lazy">
+          <span>Vector Tag</span>
+        </div>
+        <div class="stage stage--mid">
+          <img src="../../assets/icon/vt-stage-monitor-play.svg" alt="" width="40" height="40" loading="lazy">
+          <span>Operational Digital Twin</span>
+        </div>
+        <div class="stage stage--mid">
+          <img src="../../assets/icon/vt-stage-cpu.svg" alt="" width="40" height="40" loading="lazy">
+          <span>Operational Intelligence</span>
+        </div>
+        <div class="stage stage--mid">
+          <img src="../../assets/icon/vt-stage-lightbulb.svg" alt="" width="40" height="40" loading="lazy">
+          <span>Better Decisions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DESIGNED FOR DEMANDING INDUSTRIES ===== -->
+    <section class="section--pale section stack gap-80">
+      <h2 class="h2 text-center">Designed For Demanding Industries</h2>
+      <div class="photo-cards">
+        <a class="photo-card" href="../../industries/mining/index.html">
+          <img src="../../assets/img/technology/vt-ind-mining.jpg" alt="Haul trucks operating in an open-pit mine" width="600" height="450" loading="lazy">
+          <h3 class="photo-card__title">Mining</h3>
+        </a>
+        <a class="photo-card" href="../../industries/tunnelling/index.html">
+          <img src="../../assets/img/technology/vt-ind-tunnelling.jpg" alt="Crew working inside a tunnel under construction" width="600" height="400" loading="lazy">
+          <h3 class="photo-card__title">Tunnelling</h3>
+        </a>
+        <a class="photo-card" href="../../industries/construction-infrastructure/index.html">
+          <img src="../../assets/img/technology/vt-ind-construction.jpg" alt="Construction site with cranes and infrastructure works" width="600" height="336" loading="lazy">
+          <h3 class="photo-card__title">Construction &amp; Infrastructure</h3>
+        </a>
+        <a class="photo-card" href="../../industries/bridge-construction-maintenance/index.html">
+          <img src="../../assets/img/technology/vt-ind-bridge.jpg" alt="Bridge construction over water" width="600" height="400" loading="lazy">
+          <h3 class="photo-card__title">Bridge Construction &amp; Maintenance</h3>
+        </a>
+        <a class="photo-card" href="../../industries/critical-infrastructure/index.html">
+          <img src="../../assets/img/technology/vt-ind-critical.jpg" alt="Critical infrastructure facility at dusk" width="600" height="399" loading="lazy">
+          <h3 class="photo-card__title">Critical Infrastructure</h3>
+        </a>
+      </div>
+      <p class="lead text-center" style="color:#1a1a1a;">Where operational visibility matters, reliability matters.</p>
+    </section>
+
+    <!-- ===== MORE THAN HARDWARE ===== -->
+    <section class="section stack gap-80">
+      <div class="row gap-60 center wrap">
+        <div class="stack gap-24" style="width:400px;max-width:100%;">
+          <h2 class="h2">More Than Hardware</h2>
+          <p class="vt-kicker">Technology alone does not improve outcomes</p>
+        </div>
+        <div class="grow stack gap-16" style="flex-basis:0;min-width:320px;">
+          <p class="body" style="color:#060309;">The value comes from combining engineering, operational expertise and data science to solve real-world operational challenges.</p>
+          <p class="body" style="color:#060309;">The iottag ecosystem is designed to support safer operations, improved productivity and better decision-making by creating a clearer understanding of what is happening across the operation.</p>
+        </div>
+      </div>
+      <div class="stages">
+        <div class="stage stage--mid stage--stack">
+          <div class="stage__row">
+            <img src="../../assets/icon/vt-hard-hat.svg" alt="" width="24" height="24" loading="lazy">
+            <span>Engineering</span>
+          </div>
+          <div class="stage__row">
+            <span class="icon" aria-hidden="true" style="font-size:24px;color:#2da2db;">groups</span>
+            <span>Operational Expertise</span>
+          </div>
+          <div class="stage__row">
+            <span class="icon" aria-hidden="true" style="font-size:24px;color:#2da2db;">database_search</span>
+            <span>Data Science</span>
+          </div>
+        </div>
+        <div class="stage stage--tint">
+          <img src="../../assets/icon/vt-logo-mark.svg" alt="" width="40" height="40" loading="lazy">
+          <span>Operational Intelligence</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-band" style="padding:64px 80px;">
+      <img class="cta-band__bg" src="../../assets/img/technology/vt-cta-bg.jpg" alt="" width="1600" height="896" loading="lazy">
+      <div class="cta-band__overlay cta-band__overlay--flat" aria-hidden="true" style="background:rgba(5,55,80,.7);"></div>
       <div class="stack center gap-16">
-        <h2 class="h2">Transform operational complexity
-into actionable intelligence</h2>
-        <p>Discover how iottag can improve safety, productivity and operational performance across your operation.</p>
+        <h2 class="h2">Technology Designed For Real Operations</h2>
+        <p>Discover how purpose-built technology, end-to-end accountability and Operational Intelligence<br>help organisations improve visibility, safety and operational performance.</p>
       </div>
       <div class="row gap-16 wrap">
-        <a class="btn btn--primary btn--lg" href="../../company/contact/index.html">Request Demonstration</a>
-        <a class="btn btn--ghost btn--lg" href="../../company/contact/index.html">Speak With An Expert</a>
+        <a class="btn btn--primary" href="../../company/contact/index.html">Book A Demonstration</a>
+        <a class="btn btn--secondary" href="../../company/contact/index.html">Speak With An Engineer</a>
+        <a class="btn btn--secondary" href="#vector-tag">Explore The Vector Tag</a>
       </div>
     </section>
   </main>
