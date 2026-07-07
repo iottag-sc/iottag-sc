@@ -278,6 +278,8 @@ a { color: inherit; text-decoration: none; }
 }
 .nav__item:hover .megamenu,
 .nav__item:focus-within .megamenu { opacity: 1; visibility: visible; transform: none; }
+/* desktop: top-level items only open the menu (click is disabled in JS) */
+.nav__item > .nav__link[data-nav] { cursor: default; }
 /* Figma dropdown: 424px options auto-wrapping with 40px row / 20px column
    gaps (3 per row at 1440); Resources spreads its 4 options across one row */
 .megamenu__inner {
@@ -741,6 +743,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   }
   .nav.is-open .nav__item { height: auto; width: 100%; }
   .megamenu { display: none; }  /* mobile uses top-level links only */
+  .nav__item > .nav__link[data-nav] { cursor: pointer; }  /* links navigate again on mobile */
   .hero__content, .hero__content--wide { width: 100%; }
   .row { flex-wrap: wrap; }
   .footer__cols { flex-wrap: wrap; }
