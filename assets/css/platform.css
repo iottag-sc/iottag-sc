@@ -1,0 +1,318 @@
+/* ==========================================================================
+   iottag — platform pages stylesheet
+   Page-specific components for /platform/… — load AFTER main.css:
+     <link rel="stylesheet" href="…/assets/css/main.css">
+     <link rel="stylesheet" href="…/assets/css/platform.css">
+   Contents:
+     1. Photo hero (baked photo + navy gradient, bullet lists)
+     2. System icon grid ("The Visibility Challenge")
+     3. Stage chevrons (Disconnected systems → Operational Understanding)
+     4. Photo label cards ("Understanding complex operations")
+     5. Layer band (dark photo band + white layer cards)
+     6. Organisation levels timeline (photo circles + connector line)
+     7. Flat CTA overlay variant
+     8. Asset visibility (photo card height + bordered tracking strip)
+     9. Fleet visibility (feature rows + white AI-insight stage cards)
+     10. Workforce visibility (photo cards + timesheet tiles + quote bar)
+     11. Operational analytics & benchmarking (tinted role-structure bands)
+   ========================================================================== */
+
+/* 1. PHOTO HERO ---------------------------------------------------------- */
+.hero--photo { min-height: 720px; }
+.hero--photo .hero__bg { opacity: 1; }
+
+.hero-lists { display: flex; gap: 20px; flex-wrap: wrap; }
+.hero-lists ul { margin: 0; padding-left: 24px; width: 200px; }
+.hero-lists ul:last-child { width: 240px; }
+.hero-lists li { font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: #fff; }
+.hero-lists li + li { margin-top: 3px; }
+
+/* 2. SYSTEM ICON GRID ----------------------------------------------------- */
+.sys-grid { display: flex; gap: 16px 80px; flex-wrap: wrap; }
+.sys-grid__col { display: flex; flex-direction: column; gap: 16px; }
+.sys-item { display: flex; align-items: center; gap: 12px; font-family: var(--f-body); font-size: 16px; color: #060309; }
+.sys-item__ic {
+  width: 40px; height: 40px; flex-shrink: 0;
+  border-radius: 10px; background: var(--c-surface);
+  display: flex; align-items: center; justify-content: center;
+}
+.sys-item__ic img { width: 20px; height: 20px; display: block; }
+
+/* 3. STAGE CHEVRONS ------------------------------------------------------- */
+.stages { display: flex; width: 100%; height: 160px; opacity: .8; }
+.stage {
+  flex: 1 1 0; min-width: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  padding: 20px 28px 16px;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
+}
+.stage + .stage { margin-left: -16px; }
+.stage--src  { background: #fdf6e5; }   /* web-orange lightest */
+.stage--mid  { background: var(--c-blue-pale); }
+.stage--dest { background: var(--c-blue-tint); }
+.stage img { width: 40px; height: 40px; }
+.stage span { font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: #060309; text-align: center; }
+
+/* 4. PHOTO LABEL CARDS ----------------------------------------------------- */
+.photo-cards { display: flex; gap: 8px; width: 100%; }
+.photo-card {
+  position: relative;
+  flex: 1 1 0; min-width: 0; height: 320px;
+  border-radius: var(--r-md); overflow: hidden;
+  display: flex; align-items: flex-end;
+  padding: 24px;
+}
+.photo-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo-card::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+.photo-card__title {
+  position: relative; z-index: 1; margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.4;
+  letter-spacing: -.01em; color: #fff;
+}
+@media (max-width: 1100px) { .photo-cards { flex-wrap: wrap; } .photo-card { min-width: 240px; height: 280px; } }
+
+/* 5. LAYER BAND ------------------------------------------------------------ */
+.layer-band {
+  position: relative; overflow: hidden;
+  padding: 81px 80px;
+  display: flex; flex-direction: column; align-items: center; gap: 40px;
+}
+.layer-band__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.layer-band__overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(0deg, rgba(5,55,80,.5) 0%, rgba(11,125,182,.7) 51%, rgba(11,125,182,.8) 100%);
+}
+.layer-band > :not(.layer-band__bg):not(.layer-band__overlay) { position: relative; z-index: 2; }
+.layer-band .h2, .layer-band .lead, .layer-band .body { color: #fff; }
+.layer-cards { display: flex; gap: 20px; width: 100%; max-width: 1280px; }
+.layer-card {
+  flex: 1 1 0; min-width: 0; min-height: 180px;
+  background: rgba(255,255,255,.9);
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  padding: 24px;
+  display: flex; flex-direction: column; gap: 16px; justify-content: center;
+  transition: background .15s ease, transform .2s ease, box-shadow .2s ease;
+}
+a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 14px 28px -10px rgba(6,3,9,.3); }
+.layer-card img { width: 40px; height: 40px; }
+.layer-card__title {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 500; font-size: 24px; line-height: 1.4;
+  letter-spacing: -.01em; color: #060309;
+}
+.layer-card p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: #060309; }
+@media (max-width: 960px) { .layer-cards { flex-direction: column; } }
+
+/* 6. ORGANISATION LEVELS TIMELINE ------------------------------------------ */
+.levels { display: flex; width: 100%; }
+.level {
+  flex: 1 1 0; min-width: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  padding: 8px 0;
+  text-align: center;
+}
+.level__ring { display: flex; align-items: center; gap: 8px; width: 100%; }
+.level__ring::before, .level__ring::after { content: ""; flex: 1; height: 1px; background: var(--c-line); }
+.level:first-child .level__ring::before,
+.level:last-child .level__ring::after { background: transparent; }
+.level__ring img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
+.level__title {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 500; font-size: 24px; line-height: 1.4;
+  letter-spacing: -.01em; color: #060309;
+}
+.level__text { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-grey); max-width: 220px; }
+@media (max-width: 960px) {
+  .levels { flex-wrap: wrap; gap: 24px 0; }
+  .level { flex-basis: 33%; min-width: 180px; }
+  .level__ring::before, .level__ring::after { background: transparent; }
+}
+
+/* 7. FLAT CTA OVERLAY VARIANT ---------------------------------------------- */
+.cta-band__overlay--flat { background: rgba(5,55,80,.6); }
+
+/* 8. ASSET VISIBILITY (asset-visibility) ----------------------------------- */
+/* asset type cards are shorter than the OI 320px photo cards */
+.photo-cards--asset .photo-card { height: 280px; }
+
+/* bordered 6-up tracking strip ("High-volume asset tracking") */
+.track-strip {
+  display: flex; width: 100%;
+  background: #fff;
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  overflow: hidden;
+}
+.track-strip__cell {
+  flex: 1 1 0; min-width: 0; min-height: 200px;
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  padding: 24px;
+}
+.track-strip__cell + .track-strip__cell { border-left: 1px solid var(--c-line); }
+.track-strip__label {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
+  letter-spacing: -.01em; color: #060309;
+}
+@media (max-width: 1100px) {
+  .track-strip { flex-wrap: wrap; }
+  .track-strip__cell { flex: 1 1 33%; min-width: 200px; min-height: 160px; border-top: 1px solid var(--c-line); }
+  .track-strip__cell:nth-child(-n+3) { border-top: 0; }
+}
+
+/* 9. FLEET VISIBILITY (fleet-visibility) ------------------------------------ */
+/* the six monitor cards share the 280px asset-card height */
+.photo-cards--fleet .photo-card { height: 280px; }
+
+/* alternating 740px copy + shadowed photo rows */
+.feat { display: flex; gap: 40px; align-items: center; width: 100%; }
+.feat--flip { flex-direction: row-reverse; }
+.feat__copy { width: 740px; max-width: 100%; flex-shrink: 0; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
+.feat__img {
+  flex: 1 1 0; min-width: 300px; height: 420px;
+  border-radius: var(--r-md); object-fit: cover;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+}
+@media (max-width: 1240px) {
+  .feat, .feat--flip { flex-direction: column; align-items: flex-start; }
+  .feat__copy { width: 100%; }
+  .feat__img { width: 100%; min-width: 0; height: auto; max-height: 420px; }
+}
+
+/* white AI-insight stage cards (longer copy than the coloured chevrons) */
+.stages--cards { height: auto; }
+.stages--cards .stage { background: #fff; min-height: 200px; padding: 24px 36px; }
+.stages--cards .stage p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: #060309; text-align: center; }
+@media (max-width: 960px) {
+  .stages--cards { flex-wrap: wrap; gap: 12px; }
+  .stages--cards .stage { flex-basis: 100%; clip-path: none; border-radius: var(--r-md); }
+  .stages--cards .stage + .stage { margin-left: 0; }
+}
+
+/* 10. WORKFORCE VISIBILITY (workforce-visibility) ---------------------------- */
+/* hero overlay — Figma layers two fills over the photo: a horizontal
+   deep-blue wash (60%) under the navy diagonal at 80%, plus a soft blur */
+.hero__overlay--wv {
+  position: absolute; inset: 0; z-index: 1;
+  backdrop-filter: blur(4px);
+  background:
+    linear-gradient(122deg, rgba(12,71,125,.8) 0%, rgba(47,79,91,.8) 49%, rgba(7,52,89,.8) 100%),
+    linear-gradient(90deg, rgba(0,17,134,.15) 0%, rgba(0,20,115,.14) 50%, rgba(0,34,204,.04) 100%);
+}
+.hero--photo .hero__content { z-index: 10; }
+
+/* support cards share the 280px height; their photos carry the 40%
+   darkening baked into the export — skip the CSS overlay */
+.photo-cards--wv .photo-card { height: 280px; }
+.photo-cards--wv .photo-card::after { content: none; }
+
+/* timesheet photo tiles (staggered 2-col, 120px rows) */
+.ts-tiles { display: flex; gap: 16px; flex: 1 1 0; min-width: 320px; }
+.ts-tiles__col { flex: 1; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.ts-tiles__col--offset { padding-top: 40px; }
+.ts-tile {
+  position: relative; height: 120px;
+  border-radius: var(--r-md); overflow: hidden;
+  display: flex; align-items: center;
+  padding: 32px;
+}
+.ts-tile::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+.ts-tile > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ts-tile h3 {
+  position: relative; z-index: 1; margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 32px; line-height: 1.3;
+  letter-spacing: -.01em; color: #fff;
+}
+@media (max-width: 640px) {
+  .ts-tiles { flex-direction: column; }
+  .ts-tiles__col--offset { padding-top: 0; }
+}
+
+/* quote bar — pale band, light-blue rule, blue Oswald line (extends .highlight) */
+.highlight--quote { padding: 40px; gap: 0; border-left: 2px solid var(--c-blue-light); }
+.highlight--quote .highlight__title { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.4; }
+
+/* sys-item chips on the pale section background → white tile behind the icon */
+.sys-item__ic--card { background: #fff; }
+
+/* 11. OPERATIONAL ANALYTICS & BENCHMARKING (operational-analytics-benchmarking) */
+/* tinted role-structure bands (Mining / Tunnelling) with photo-circle timelines */
+.role-band {
+  width: 100%;
+  border-radius: var(--r-md);
+  padding: 40px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.role-band--mining     { background: var(--c-blue-pale); }
+.role-band--tunnelling { background: #fdf6e5; }   /* web-orange lightest */
+.role-band__title {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 600; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #060309;
+}
+.role-row { display: flex; gap: 20px; width: 100%; }
+.role { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 8px 0; }
+.role__ring { display: flex; align-items: center; gap: 8px; width: 100%; }
+.role__ring img { width: 100px; height: 100px; }
+.role__ring::after { content: ""; flex: 1; height: 1px; background: #fff; }
+.role:last-child .role__ring::after { background: transparent; }
+.role__copy { display: flex; flex-direction: column; gap: 16px; padding-right: 40px; }
+.role__title {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
+  letter-spacing: -.01em; color: #060309;
+}
+.role__copy p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-grey); }
+@media (max-width: 960px) {
+  .role-row { flex-direction: column; }
+  .role__ring::after { background: transparent; }
+  .role__copy { padding-right: 0; }
+}
+
+/* 12. ENVIRONMENTAL MONITORING (environmental-monitoring) -------------------- */
+/* hero: translucent pale-blue mini cards, staggered 2-col, right of the copy.
+   Scoped to platform pages — industries pages define their own .hero-cards
+   (row-based) in industries.css and must not inherit these. */
+[data-page="platform"] .hero-cards { display: flex; gap: 8px; width: 400px; flex-shrink: 0; align-items: center; }
+[data-page="platform"] .hero-cards__col { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+[data-page="platform"] .hero-card {
+  height: 128px;
+  background: rgba(233,243,249,.9);
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  padding: 24px 20px;
+}
+[data-page="platform"] .hero-card img { width: 24px; height: 24px; }
+[data-page="platform"] .hero-card span {
+  font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
+  letter-spacing: -.01em; color: #060309;
+}
+@media (max-width: 1240px) { [data-page="platform"] .hero-cards { display: none; } }
+
+/* bordered 5-col visibility grid — 1px gaps over a line-coloured backing so the
+   inner borders collapse cleanly at any column count; note cell spans 2 */
+.vis-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+  width: 100%;
+  background: var(--c-line);
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  overflow: hidden;
+}
+.vis-cell {
+  min-height: 180px; padding: 24px;
+  background: #fff;
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
+}
+.vis-cell img { width: 48px; height: 48px; }
+.vis-cell__label {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
+  letter-spacing: -.01em; color: #060309;
+}
+.vis-cell--note { grid-column: span 2; flex-direction: row; align-items: center; gap: 8px; background: var(--c-blue-pale); }
+@media (max-width: 1100px) {
+  .vis-grid { grid-template-columns: repeat(2, 1fr); }
+  .vis-cell { min-height: 140px; }
+}
+
+/* example chevrons carry sentence copy, not labels → regular weight */
+.stages--example .stage span { font-weight: 400; }

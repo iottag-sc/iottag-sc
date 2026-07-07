@@ -1,0 +1,5 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="car-front">
+<path id="Vector" d="M42 16.0001L38 20.0001M38 20.0001L35 12.6001C34.7171 11.8428 34.2113 11.1889 33.5494 10.7248C32.8874 10.2606 32.1004 10.008 31.292 10.0001H16.8C15.985 9.98136 15.1838 10.2121 14.5035 10.6614C13.8233 11.1107 13.2966 11.7571 12.994 12.5141L10 20.0001M38 20.0001H10M38 20.0001C40.2091 20.0001 42 21.7909 42 24V32C42 34.2091 40.2091 36 38 36M10 20.0001L6 16.0001M10 20.0001C7.79086 20.0001 6 21.7909 6 24V32C6 34.2091 7.79086 36 10 36M14 28H14.02M34 28H34.02M38 36H10M38 36V40M10 36V40" stroke="var(--stroke-0, #2DA2DB)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

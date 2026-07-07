@@ -1,0 +1,161 @@
+/* ==========================================================================
+   iottag — solutions pages stylesheet
+   Page-specific components for /solutions/… — load AFTER main.css:
+     <link rel="stylesheet" href="…/assets/css/main.css">
+     <link rel="stylesheet" href="…/assets/css/solutions.css">
+   Contents:
+     1. Photo hero (full-strength photo + Figma diagonal navy overlay)
+     2. Visibility tabs ("One Platform. Complete Visibility.")
+     3. Key Insights 2x2 grid
+     4. Icon chip row (Atlas asset types)
+     5. Fatal risk hazard cards (photo tiles, staggered 2-col)
+     6. Detect→Prevent flow (bordered card strip + banner row)
+   ========================================================================== */
+
+/* 1. PHOTO HERO ---------------------------------------------------------- */
+.hero--photo { min-height: 720px; }
+.hero--photo .hero__bg { opacity: 1; }
+.hero__overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(122deg, rgba(12,71,125,.8) 0%, rgba(47,79,91,.32) 49%, rgba(7,52,89,.08) 100%);
+}
+
+/* 2. VISIBILITY TABS ----------------------------------------------------- */
+.vtabs { border-radius: var(--r-md); box-shadow: inset 0 0 0 1px rgba(6,3,9,.15); overflow: hidden; background: #fff; }
+.vtabs__bar { display: flex; flex-wrap: wrap; background: var(--c-surface); border-bottom: 1px solid #e5e7eb; }
+.vtabs__tab {
+  flex: 1 1 0;
+  min-width: 150px;
+  min-height: 100px;
+  padding: 12px 16px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--c-surface);
+  border: 0;
+  border-right: 1px solid #e5e7eb;
+  font-family: var(--f-body); font-weight: 500; font-size: 18px; line-height: 1.2;
+  color: var(--c-ink-2); text-align: center;
+  cursor: pointer;
+  box-shadow: inset 0 -2px 0 transparent;
+  transition: background .15s ease, box-shadow .15s ease;
+}
+.vtabs__tab:last-child { border-right: 0; }
+.vtabs__tab:hover { background: #fff; }
+.vtabs__tab.is-active { background: #fff; box-shadow: inset 0 -2px 0 var(--c-blue); }
+.vtabs__panel { display: none; padding: 48px; gap: 40px; align-items: center; background: #fff; }
+.vtabs__panel.is-active { display: flex; }
+.vtabs__copy { width: 680px; max-width: 100%; flex-shrink: 0; display: flex; flex-direction: column; gap: 28px; align-items: flex-start; }
+.vtabs__media { flex: 1; min-width: 280px; width: 100%; height: 400px; border-radius: 10px; object-fit: cover; }
+@media (max-width: 1100px) {
+  .vtabs__panel { flex-wrap: wrap; padding: 32px; }
+  .vtabs__copy { width: 100%; }
+  .vtabs__media { height: auto; }
+}
+
+/* 3. KEY INSIGHTS GRID --------------------------------------------------- */
+.insight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 40px; width: 100%; }
+.insight-grid .cap-list__item { font-size: 18px; }
+@media (max-width: 640px) { .insight-grid { grid-template-columns: 1fr; } }
+
+/* 4b. PRODUCTION CHAIN CARDS (production-intelligence) -------------------- */
+.pchain { display: flex; gap: 8px; width: 100%; }
+.pchain__card {
+  position: relative;
+  flex: 1 1 0; min-width: 160px; height: 240px;
+  border-radius: var(--r-md); overflow: hidden;
+  display: flex; align-items: flex-end;
+  padding: 24px;
+}
+.pchain__card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pchain__title {
+  position: relative; z-index: 1; margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.4;
+  letter-spacing: -.01em; color: #fff;
+}
+@media (max-width: 1100px) { .pchain { flex-wrap: wrap; } .pchain__card { min-width: 240px; } }
+
+/* 4c. FRAGMENTATION BAND (production-intelligence) ------------------------ */
+.frag-band {
+  position: relative; overflow: hidden;
+  padding: 80px;
+  display: flex; flex-direction: column; align-items: center; gap: 40px;
+}
+.frag-band__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.frag-band__overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(0deg, rgba(5,55,80,.5) 0%, rgba(11,125,182,.7) 51%, rgba(11,125,182,.8) 100%);
+}
+.frag-band > .stack, .frag-band > .frag-cards, .frag-band > .body, .frag-band > .btn { position: relative; z-index: 2; }
+.frag-band .h2, .frag-band .lead, .frag-band .body { color: #fff; }
+.frag-cards { display: flex; gap: 40px; justify-content: center; align-items: stretch; flex-wrap: wrap; }
+.frag-card {
+  background: #fff; border-radius: var(--r-md);
+  padding: 24px; width: 480px; max-width: 100%;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.frag-card__title { margin: 0; font-family: var(--f-alt); font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--c-ink-2); }
+.frag-item { display: flex; align-items: center; gap: 8px; font-family: var(--f-body); font-size: 18px; color: var(--c-ink-2); }
+.frag-item__ic {
+  width: 40px; height: 40px; flex-shrink: 0;
+  border-radius: var(--r-md); background: var(--ic-bg, var(--c-blue-pale));
+  display: flex; align-items: center; justify-content: center;
+}
+.frag-item__ic--warn { --ic-bg: #fdf6e5; }
+.frag-item__ic img { width: 24px; height: 24px; display: block; }
+
+/* 4. ICON CHIP ROW (Atlas asset types) ------------------------------------ */
+.chip-item { display: flex; align-items: center; gap: 12px; width: 200px; font-family: var(--f-body); font-size: 16px; color: var(--c-ink-2); }
+.chip-item .chip-ic {
+  width: 40px; height: 40px; flex-shrink: 0;
+  border-radius: 10px; background: var(--c-surface);
+  display: flex; align-items: center; justify-content: center;
+}
+.chip-item .icon { font-size: 20px; color: #1E729C; }
+
+/* 5. FATAL RISK HAZARD CARDS ---------------------------------------------- */
+.risk-grid { display: flex; gap: 16px; flex: 1 1 0; min-width: 320px; }
+.risk-grid__col { flex: 1; display: flex; flex-direction: column; gap: 16px; justify-content: center; min-width: 0; }
+.risk-grid__col--offset { padding-top: 40px; }
+.risk-card { position: relative; height: 120px; border-radius: var(--r-md); overflow: hidden; display: flex; align-items: center; padding: 32px 24px; }
+.risk-card::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+.risk-card__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.risk-card__label {
+  position: relative; z-index: 1; margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 32px; line-height: 1.3;
+  letter-spacing: -.01em; color: #fff;
+}
+@media (max-width: 640px) {
+  .risk-grid { flex-direction: column; }
+  .risk-grid__col--offset { padding-top: 0; }
+}
+
+/* plain 18px disc list (Fatal Risk Dashboard bullets) */
+.disc-list { margin: 0; padding-left: 27px; display: flex; flex-direction: column; gap: 4px; }
+.disc-list li { font-family: var(--f-body); font-size: 18px; line-height: 1.5; color: #5c616b; }
+
+/* 6. DETECT -> PREVENT FLOW ------------------------------------------------ */
+.flow { width: 100%; border: 1px solid #d9d9da; border-radius: var(--r-md); overflow: hidden; background: #fff; }
+.flow__row { display: flex; min-height: 240px; }
+.flow__row--banner { border-top: 1px solid #d9d9da; }
+.flow__card { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 24px; }
+.flow__card > .icon { font-size: 48px; color: #1e729c; }
+.flow__title {
+  margin: 16px 0 8px; font-family: var(--f-alt); font-weight: 400; font-size: 24px;
+  line-height: 1.4; letter-spacing: -.01em; color: #060309;
+}
+.flow__text { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.4; color: #060309; }
+.flow__sep { flex: 0 0 24px; display: flex; flex-direction: column; align-items: center; }
+.flow__sep::before, .flow__sep::after { content: ""; width: 1px; flex: 1; background: #d9d9da; }
+.flow__sep .icon { font-size: 24px; color: #d9d9da; }
+.flow__media { flex: 1 1 0; min-width: 0; height: auto; object-fit: cover; }
+.flow__banner { flex: 1 1 0; min-width: 0; position: relative; background: var(--c-blue); display: flex; flex-direction: column; justify-content: center; padding: 24px; }
+.flow__banner > .icon { font-size: 48px; color: #fff; }
+.flow__banner .flow__title, .flow__banner .flow__text { color: #fff; }
+.flow__banner .flow__chev { position: absolute; left: 0; top: 50%; transform: translate(-50%, -50%); font-size: 24px; color: #fff; }
+@media (max-width: 960px) {
+  .flow__row { flex-direction: column; }
+  .flow__sep { flex-basis: 24px; flex-direction: row; width: 100%; }
+  .flow__sep::before, .flow__sep::after { width: auto; height: 1px; flex: 1; align-self: center; }
+  .flow__sep .icon { transform: rotate(90deg); }
+  .flow__media { width: 100%; max-height: 300px; }
+  .flow__banner .flow__chev { display: none; }
+}

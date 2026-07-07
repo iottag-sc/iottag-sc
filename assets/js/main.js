@@ -151,6 +151,23 @@ function initVideoCarousel() {
   });
 }
 
+/* ---- tab panels (solutions visibility tabs) ---------------------------- */
+function initTabs() {
+  document.querySelectorAll('[data-tabs]').forEach((root) => {
+    const tabs = [...root.querySelectorAll('[role="tab"]')];
+    const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t, j) => {
+          t.classList.toggle('is-active', j === i);
+          t.setAttribute('aria-selected', String(j === i));
+        });
+        panels.forEach((p, j) => p.classList.toggle('is-active', j === i));
+      });
+    });
+  });
+}
+
 /* ---- brand carousel dots (decorative) --------------------------------- */
 function initBrandDots() {
   document.querySelectorAll('[data-dots]').forEach((group) => {
@@ -173,5 +190,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   initHeaderScroll();
   initVideoButtons();
   initVideoCarousel();
+  initTabs();
   initBrandDots();
 });

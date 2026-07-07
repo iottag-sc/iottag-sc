@@ -109,6 +109,14 @@ a { color: inherit; text-decoration: none; }
 .section { padding: 80px var(--pad-x); }
 .section--narrow { padding: 64px var(--pad-x); }
 .section--pale  { background: var(--c-blue-pale); }
+/* tinted section bands: the box stays capped at --maxw and centred (content
+   unchanged), but the tint bleeds edge-to-edge — a huge box-shadow paints it
+   and the clip-path bounds it vertically / prevents horizontal overflow */
+.section.section--pale,
+.section--narrow.section--pale {
+  box-shadow: 0 0 0 100vmax var(--c-blue-pale);
+  clip-path: inset(0 -100vmax);
+}
 .section--flush { padding-inline: 0; }
 
 .stack   { display: flex; flex-direction: column; }
@@ -266,30 +274,33 @@ a { color: inherit; text-decoration: none; }
 }
 .nav__item:hover .megamenu,
 .nav__item:focus-within .megamenu { opacity: 1; visibility: visible; transform: none; }
+/* Figma dropdown: 424px options auto-wrapping with 40px row / 20px column
+   gaps (3 per row at 1440); Resources spreads its 4 options across one row */
 .megamenu__inner {
   max-width: 1312px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 424px);
+  gap: 40px 20px;
 }
+.megamenu__inner--4 { grid-template-columns: repeat(4, 1fr); }
 .megamenu__opt {
-  width: 408px;
-  max-width: 100%;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  /* hover tile bleeds 12x8 beyond the text without moving it off-grid */
   padding: 8px 12px;
+  margin: -8px -12px;
   border-radius: var(--r-sm);
   transition: background .15s ease;
 }
 .megamenu__opt strong {
-  font-family: var(--f-head);
-  font-weight: 600;
+  font-family: var(--f-alt);
+  font-weight: 700;
   font-size: 20px;
+  line-height: 1.4;
   letter-spacing: -.01em;
-  color: var(--c-ink);
+  color: #060309;
   transition: color .15s ease;
 }
 .megamenu__opt span {
@@ -374,6 +385,18 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .minicard:hover .btn--block,
 .minicard:focus-within .btn--block { opacity: 1; max-height: 44px; margin-top: 16px; }
 .minicard p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.3; color: var(--c-ink); }
+/* compact checklist + always-visible watch link inside minicards */
+.minicard .checklist { gap: 8px; margin-top: 12px; }
+.minicard .checklist__item { font-size: 15px; }
+.minicard .checklist__box { width: 22px; height: 22px; }
+.minicard .checklist__box .icon { font-size: 14px; }
+.minicard__watch {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
+  font-family: var(--f-body); font-weight: 600; font-size: 15px;
+  color: var(--c-blue); text-decoration: none;
+}
+.minicard__watch .icon { font-size: 20px; }
+.minicard__watch:hover { text-decoration: underline; }
 
 /* Feature card row (bordered grid) */
 /* "Why industry leaders choose iottag" — 500 / grow two-column (Figma 500|700, gap 80) */
