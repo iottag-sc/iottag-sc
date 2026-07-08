@@ -222,9 +222,8 @@ a { color: inherit; text-decoration: none; }
   gap: 48px;
   padding: 0 64px;
   background: transparent;
-  border-bottom: 1px solid #4e5566;
   z-index: 50;
-  transition: background .2s ease, border-color .2s ease, backdrop-filter .2s ease;
+  transition: background .2s ease, backdrop-filter .2s ease;
 }
 /* Figma: idle header is transparent; hovering / an open dropdown brings in
    the translucent navy panel (only while at the top of the page) */
@@ -237,7 +236,6 @@ a { color: inherit; text-decoration: none; }
 .site-header--scrolled,
 .site-header--solid {
   background: rgba(255,255,255,.96);
-  border-bottom-color: var(--c-line);
   backdrop-filter: blur(10px);
 }
 .brand { display: flex; align-items: center; gap: 9px; flex-grow: 1; }
@@ -269,7 +267,9 @@ a { color: inherit; text-decoration: none; }
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--c-surface);
+  /* surface (#f2f2f2) at 80% — matches the 80% navy header hover panel */
+  background: rgba(242, 242, 242, .8);
+  backdrop-filter: blur(4px);
   padding: 40px 64px;
   box-shadow: 0 24px 40px -16px rgba(0,0,0,.28);
   opacity: 0;
@@ -347,7 +347,7 @@ a { color: inherit; text-decoration: none; }
 .footer__col h2 { margin: 0 0 10px; font-family: var(--f-alt); font-weight: 500; font-size: 14px; line-height: 16px; color: #4e4b59; }
 .footer__col a { font-family: "Open Sans", var(--f-body); font-weight: 300; font-size: 12px; line-height: 19px; color: #8c8a97; transition: color .15s; }
 .footer__col a:hover { color: var(--c-blue); }
-.footer__certs { width: 320px; height: 67px; object-fit: contain; }
+.footer__certs { width: 206px; height: 68px; object-fit: contain; object-position: left center; align-self: flex-start; }
 .footer__bar { height: 50px; background: #008ac7; display: flex; align-items: center; justify-content: center; }
 .footer__bar span { font-family: Arial, sans-serif; font-size: 12px; letter-spacing: .06px; color: #fff; }
 
@@ -406,6 +406,18 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 }
 .minicard__watch .icon { font-size: 20px; }
 .minicard__watch:hover { text-decoration: underline; }
+/* Watch Overview (button → switches the video slide, like clicking the card)
+   sits beside a Learn More page link */
+.minicard__links { display: flex; align-items: center; gap: 20px; margin-top: 16px; }
+.minicard__links .minicard__watch { margin-top: 0; }
+button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointer; }
+.minicard__more {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--f-body); font-weight: 600; font-size: 15px;
+  color: var(--c-blue); text-decoration: none;
+}
+.minicard__more .icon { font-size: 20px; }
+.minicard__more:hover { text-decoration: underline; }
 
 /* Feature card row (bordered grid) */
 /* "Why industry leaders choose iottag" — 500 / grow two-column (Figma 500|700, gap 80) */
@@ -522,12 +534,10 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .lens--lg .lens-center { width: 160px; height: 160px; gap: 8px; }
 .lens--lg .lens-center span { font-size: 16px; line-height: 1.3; }
 
-/* World map */
-.worldmap { position: relative; flex-grow: 1; height: 360px; }
-.worldmap img {
-  position: absolute; left: -40px; top: 0; width: 720px; height: 360px; object-fit: contain;
-  opacity: .55;
-}
+/* World map — fills the flex column beside the text (row is .full-bleed, so it
+   grows with the viewport); pin coords are relative to the img box */
+.worldmap { position: relative; flex: 1 1 0; min-width: 320px; max-width: 880px; align-self: center; }
+.worldmap img { display: block; width: 100%; height: auto; }
 .worldmap .pin { position: absolute; color: var(--c-orange); }
 
 /* Checklist (leadership outcomes) */

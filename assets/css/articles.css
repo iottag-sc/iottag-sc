@@ -1,0 +1,202 @@
+/* ==========================================================================
+   iottag — article detail pages (/articles/)
+   Loaded after main.css + platform.css (.stages/.stage, .photo-card reused).
+   Shared article chrome uses the art- prefix; page-specific images are art1-*.
+   ========================================================================== */
+
+/* flat navy page-title band with breadcrumb (Figma "Header / 79 /", 200px) */
+.art-hero {
+  min-height: 200px;
+  display: flex; align-items: flex-end;
+  padding: calc(var(--nav-h) + 20px) var(--pad-x) 50px;
+  background: #2d3357;
+}
+.art-hero__crumb {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #fff;
+}
+.art-hero__crumb a { color: inherit; text-decoration: none; }
+.art-hero__crumb a:hover { text-decoration: underline; }
+
+/* article container — Figma content column is 1120px inside the 80px band */
+.section--art { --maxw: 1120px; }
+
+/* typography */
+.art-h1 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2;
+  letter-spacing: -.01em; color: #4b5059; text-align: center;
+}
+.art-sub {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
+  letter-spacing: -.01em; color: #4b5059; text-align: center;
+}
+.art-h2 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
+  letter-spacing: -.01em; color: #4b5059;
+}
+.art-copy p, .art-lines p, .art-intro li, .art-p {
+  margin: 0;
+  font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink);
+}
+.art-copy { display: flex; flex-direction: column; gap: 20px; }
+.art-lines { display: flex; flex-direction: column; }
+.art-copy strong, .art-lines strong { font-weight: 700; }
+.art-lines--semi p { font-weight: 600; color: #4b5059; }
+
+/* date / category meta row */
+.art-meta {
+  display: flex; gap: 40px; justify-content: center; align-items: center;
+  margin: 0; padding: 0; list-style: none;
+}
+.art-meta li {
+  display: flex; gap: 4px; align-items: center;
+  font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink);
+}
+.art-meta img { width: 20px; height: 20px; }
+
+/* orange pull-quote bar (web-orange lightest + 2px orange left rule) */
+.art-quote {
+  width: 100%;
+  background: #fdf6e5; border-left: 2px solid var(--c-orange);
+  padding: 20px 40px;
+}
+.art-quote p {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059; text-align: center;
+}
+
+/* intro row — 400×200 photo + bullet list */
+.art-intro { display: flex; gap: 80px; align-items: center; width: 100%; }
+.art-intro img { width: 400px; height: 200px; object-fit: cover; border-radius: var(--r-md); flex-shrink: 0; }
+.art-intro ul { margin: 0; padding-left: 27px; display: flex; flex-direction: column; }
+
+/* bordered 5-cell icon strip ("Understanding Operational Complexity") */
+.art-cells { display: flex; width: 100%; background: #fff; border-radius: var(--r-md); }
+.art-cell {
+  flex: 1 1 0; min-width: 0; min-height: 200px;
+  border: 1px solid #d9d9da;
+  display: flex; flex-direction: column; gap: 16px; justify-content: center;
+  padding: 24px;
+}
+.art-cell + .art-cell { border-left: 0; }
+.art-cell img { width: 48px; height: 48px; }
+.art-cell span {
+  font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+
+/* second row of a stacked cell grid — collapse the shared border */
+.art-cells--join { margin-top: -1px; }
+
+/* joined 240px photo-tile strip (article2 "future of OI") */
+.art-strip { display: flex; gap: 1px; width: 100%; height: 240px; border-radius: var(--r-md); overflow: hidden; }
+.art-strip .photo-card { height: 100%; border-radius: 0; padding: 20px; }
+.art-strip .photo-card > img { border-radius: 0; }
+@media (max-width: 960px) {
+  .art-strip { flex-wrap: wrap; height: auto; border-radius: var(--r-md); }
+  .art-strip .photo-card { flex-basis: 49%; height: 200px; }
+}
+
+/* text + image split rows (digital twin / organisation) */
+.art-split { display: flex; gap: 40px; align-items: center; width: 100%; }
+.art-split > div { flex: 1 1 0; min-width: 0; }
+.art-split img { flex-shrink: 0; border-radius: var(--r-md); object-fit: cover; }
+
+/* blue pull-quote variant (article3 — blue-pale fill + blue left rule, left-aligned) */
+.art-quote--blue { background: #e9f3f9; border-left-color: var(--c-blue); }
+.art-quote--blue p { text-align: left; }
+
+/* two chevron panels with an icon grid ("Examples include / Their purpose is typically") */
+.art-band { display: flex; width: 100%; }
+.art-band__panel {
+  flex: 1 1 0; min-width: 0; min-height: 160px;
+  background: #edf5fa;
+  display: flex; flex-direction: column; gap: 20px; justify-content: center;
+  padding: 24px 64px;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
+}
+.art-band__panel + .art-band__panel { margin-left: -16px; }
+.art-band__title {
+  margin: 0;
+  font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink);
+  text-align: center;
+}
+.art-band__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+.art-band__item {
+  display: flex; gap: 8px; align-items: center;
+  font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink);
+}
+.art-band__item img { width: 24px; height: 24px; flex-shrink: 0; }
+
+/* two-column text block ("Visibility Versus Understanding") */
+.art-2col { display: flex; gap: 60px; width: 100%; }
+.art-2col > div { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+
+/* article pages use the site text greys (index.html), not Figma's #060309 —
+   also override the shared .stage chevron labels (platform.css) inside articles */
+.section--art .stage span { color: var(--c-ink); }
+
+/* plain bullet list inside article copy */
+.art-list { margin: 0; padding-left: 27px; display: flex; flex-direction: column; }
+.art-list li { font-family: var(--f-body); font-size: 18px; line-height: 1.4; color: var(--c-ink); }
+
+/* bullet list inside an .art-lines run (article5 intro) */
+.art-lines ul { margin: 0; padding-left: 27px; }
+.art-lines li { font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+
+/* "they can record …" photo cards — 469px copy + 2 staggered card columns (article5) */
+.art-recwrap { display: flex; gap: 40px; align-items: center; width: 100%; }
+.art-recwrap > div:first-child { width: 469px; flex-shrink: 0; }
+.art-records { flex: 1 1 0; min-width: 0; display: flex; gap: 20px; }
+.art-records__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+.art-records__col--offset { padding-top: 20px; }
+.art-record {
+  position: relative; height: 128px; overflow: hidden;
+  border-radius: var(--r-md);
+  display: flex; align-items: center; padding: 32px;
+}
+.art-record > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.art-record::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .4); }
+.art-record p {
+  position: relative; z-index: 1; margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
+  letter-spacing: -.01em; color: #fff;
+}
+
+/* chevron-stage text where only the lead lines are semibold (article5 critical controls) */
+.stage .stage__reg { font-weight: 400; }
+
+/* video thumbnail with centred white play disc (article5) */
+.art-video { position: relative; width: 360px; height: 320px; flex-shrink: 0; }
+.art-video > img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-md); }
+.art-video__btn {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 37px; height: 37px; background: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.art-video__btn img { width: 33px; height: 33px; }
+
+@media (max-width: 960px) {
+  .art-intro { flex-wrap: wrap; gap: 24px; }
+  .art-intro img { width: 100%; height: auto; }
+  .art-cells { flex-wrap: wrap; }
+  .art-cell { flex-basis: 50%; }
+  .art-cell + .art-cell { border-left: 1px solid #d9d9da; }
+  .art-split { flex-wrap: wrap; }
+  .art-split img { width: 100%; height: auto; }
+  .art-h1 { font-size: 32px; }
+  .art-band { flex-direction: column; }
+  .art-band__panel { clip-path: none; border-radius: var(--r-md); }
+  .art-band__panel + .art-band__panel { margin-left: 0; margin-top: 8px; }
+  .art-2col { flex-direction: column; gap: 20px; }
+  .art-recwrap { flex-wrap: wrap; }
+  .art-recwrap > div:first-child { width: 100%; }
+  .art-records { width: 100%; flex-direction: column; }
+  .art-records__col--offset { padding-top: 0; }
+  .art-video { width: 100%; }
+}
