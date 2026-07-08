@@ -235,12 +235,9 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(10px);
 }
 .brand { display: flex; align-items: center; gap: 9px; flex-grow: 1; }
-.brand__logo { display: block; height: 36px; width: auto; flex-shrink: 0; }
-.brand__logo--dark { display: none; }
-.site-header--scrolled .brand__logo--light,
-.site-header--solid .brand__logo--light { display: none; }
-.site-header--scrolled .brand__logo--dark,
-.site-header--solid .brand__logo--dark { display: block; }
+.brand__logo { display: block; height: 36px; width: auto; flex-shrink: 0; color: #fff; transition: color .2s ease; }
+.site-header--scrolled .brand__logo,
+.site-header--solid .brand__logo { color: #000; }
 
 .nav { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
 .nav__item { position: static; height: var(--nav-h); display: flex; align-items: center; }
