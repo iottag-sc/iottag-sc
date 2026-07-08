@@ -44,7 +44,6 @@
   --f-body: "Open Sans", -apple-system, "Segoe UI", sans-serif;
   --f-ui:   "Roboto", -apple-system, "Segoe UI", sans-serif;
   --f-alt:  "Ubuntu", -apple-system, "Segoe UI", sans-serif;
-  --f-cond: "Barlow Condensed", "Oswald", sans-serif;
 
   /* Radii */
   --r-sm: 4px;
@@ -193,8 +192,8 @@ a { color: inherit; text-decoration: none; }
   padding: 10px 24px;
   border: 0;
   border-radius: var(--r-md);
-  font-family: var(--f-head);        /* Oswald / Heading Tagline */
-  font-weight: 600;
+  font-family: var(--f-alt);         /* Ubuntu (no 600 cut — use 500) */
+  font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   cursor: pointer;
@@ -222,12 +221,19 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 48px;
   padding: 0 64px;
-  background: rgba(45,51,87,.8);
+  background: transparent;
   border-bottom: 1px solid #4e5566;
-  backdrop-filter: blur(4px);
   z-index: 50;
   transition: background .2s ease, border-color .2s ease, backdrop-filter .2s ease;
 }
+/* Figma: idle header is transparent; hovering / an open dropdown brings in
+   the translucent navy panel (only while at the top of the page) */
+.site-header:not(.site-header--scrolled):not(.site-header--solid):hover,
+.site-header:not(.site-header--scrolled):not(.site-header--solid):focus-within {
+  background: rgba(45,51,87,.8);
+  backdrop-filter: blur(4px);
+}
+/* once scrolled the bar goes white with dark text */
 .site-header--scrolled,
 .site-header--solid {
   background: rgba(255,255,255,.96);
@@ -249,15 +255,14 @@ a { color: inherit; text-decoration: none; }
   font-weight: 500;
   font-size: 16px;
   color: #fff;
-  opacity: .9;
   cursor: pointer;
-  transition: opacity .15s, color .15s;
+  transition: color .15s;
 }
 .site-header--scrolled .nav__link,
-.site-header--solid .nav__link { color: #4b5059; opacity: 1; }
+.site-header--solid .nav__link { color: #4b5059; }
 .nav__link:hover,
 .nav__item:hover .nav__link,
-.nav__link[aria-current="page"] { opacity: 1; color: var(--c-blue-light); }
+.nav__link[aria-current="page"] { color: var(--c-blue); }
 /* Mega-menu dropdown */
 .megamenu {
   position: absolute;
@@ -291,11 +296,12 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 4px;
-  /* hover tile bleeds 12x8 beyond the text without moving it off-grid */
-  padding: 8px 12px;
-  margin: -8px -12px;
-  border-radius: var(--r-sm);
-  transition: background .15s ease;
+  /* Figma hover = 2px #1e729c bar + 12px gap left of the text; the negative
+     margin hangs the bar in the column gap so the text never shifts off-grid */
+  padding-left: 12px;
+  border-left: 2px solid transparent;
+  margin-left: -14px;
+  transition: border-color .15s ease;
 }
 .megamenu__opt strong {
   font-family: var(--f-alt);
@@ -303,7 +309,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 20px;
   line-height: 1.4;
   letter-spacing: -.01em;
-  color: #4b5059;
+  color: var(--c-grey);
   transition: color .15s ease;
 }
 .megamenu__opt span {
@@ -313,8 +319,8 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.25;
   color: var(--c-grey);
 }
-.megamenu__opt:hover { background: rgba(45,162,219,.08); }
-.megamenu__opt:hover strong { color: var(--c-blue); }
+.megamenu__opt:hover { border-left-color: #1e729c; }
+.megamenu__opt:hover strong { color: #060309; }
 
 .nav-actions { display: flex; align-items: center; gap: 8px; justify-content: flex-end; flex-grow: 1; }
 .site-header--scrolled .btn--ghost,
@@ -559,7 +565,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   border: 1px solid #e4e4e4;
   display: flex; align-items: center; justify-content: center;
 }
-.placeholder span { font-family: "Roboto Mono", monospace; font-size: 13px; color: #9a9a9a; letter-spacing: .04em; }
+.placeholder span { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 13px; color: #9a9a9a; letter-spacing: .04em; }
 
 /* Content slider (factors — dark framed dashboard) */
 .slider {
