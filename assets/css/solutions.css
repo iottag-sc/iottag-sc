@@ -33,7 +33,7 @@
   border: 0;
   border-right: 1px solid #e5e7eb;
   font-family: var(--f-body); font-weight: 500; font-size: 18px; line-height: 1.2;
-  color: var(--c-ink-2); text-align: center;
+  color: var(--c-ink); text-align: center;
   cursor: pointer;
   box-shadow: inset 0 -2px 0 transparent;
   transition: background .15s ease, box-shadow .15s ease;
@@ -92,8 +92,8 @@
   padding: 24px; width: 480px; max-width: 100%;
   display: flex; flex-direction: column; gap: 20px;
 }
-.frag-card__title { margin: 0; font-family: var(--f-alt); font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--c-ink-2); }
-.frag-item { display: flex; align-items: center; gap: 8px; font-family: var(--f-body); font-size: 18px; color: var(--c-ink-2); }
+.frag-card__title { margin: 0; font-family: var(--f-alt); font-weight: 600; font-size: 20px; line-height: 1.4; color: #4b5059; }
+.frag-item { display: flex; align-items: center; gap: 8px; font-family: var(--f-body); font-size: 18px; color: var(--c-ink); }
 .frag-item__ic {
   width: 40px; height: 40px; flex-shrink: 0;
   border-radius: var(--r-md); background: var(--ic-bg, var(--c-blue-pale));
@@ -103,7 +103,7 @@
 .frag-item__ic img { width: 24px; height: 24px; display: block; }
 
 /* 4. ICON CHIP ROW (Atlas asset types) ------------------------------------ */
-.chip-item { display: flex; align-items: center; gap: 12px; width: 200px; font-family: var(--f-body); font-size: 16px; color: var(--c-ink-2); }
+.chip-item { display: flex; align-items: center; gap: 12px; width: 200px; font-family: var(--f-body); font-size: 16px; color: var(--c-ink); }
 .chip-item .chip-ic {
   width: 40px; height: 40px; flex-shrink: 0;
   border-radius: 10px; background: var(--c-surface);
@@ -255,7 +255,7 @@
 /* emergency-response application chips (photo tiles, 2 staggered cols) */
 .odt-apps { flex: 1 1 0; min-width: 320px; display: flex; gap: 16px; }
 .odt-apps__col { flex: 1; display: flex; flex-direction: column; gap: 16px; justify-content: center; min-width: 0; }
-.odt-apps__label { margin: 0 0 4px; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #000; }
+.odt-apps__label { margin: 0 0 4px; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 .odt-app { position: relative; height: 120px; border-radius: var(--r-md); overflow: hidden; display: flex; align-items: center; padding: 32px; }
 .odt-app > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .odt-app::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); }
@@ -306,12 +306,12 @@
 .fri-intro > .h2 { width: 480px; flex-shrink: 0; }
 .fri-intro__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
 .fri-intro__copy p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
-.fri-intro__copy p strong { font-weight: 600; color: #1a1a1a; }
+.fri-intro__copy p strong { font-weight: 600; color: var(--c-ink); }
 @media (max-width: 960px) { .fri-intro { flex-wrap: wrap; } .fri-intro > .h2 { width: 100%; } }
 
 /* 18px body text used across this page (Figma text-medium, lh 1.2) */
 .fri-copy { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
-.fri-copy--semi { font-weight: 600; color: #1a1a1a; }
+.fri-copy--semi { font-weight: 600; color: var(--c-ink); }
 
 /* rounded joined photo strip (fatal risk categories, 280px, 8px gaps) */
 .fri-strip { display: flex; gap: 8px; width: 100%; }
@@ -469,9 +469,3 @@
 .pi-vis .sys-grid__col { flex: 1 1 0; min-width: 0; }
 .pi-vis .sys-item { white-space: nowrap; }
 @media (max-width: 640px) { .pi-vis { flex-wrap: wrap; } .pi-vis .sys-grid__col { flex: 1 1 100%; } }
-
-/* 10. SOLUTIONS TEXT GREYS --------------------------------------------------
-   Solutions detail pages follow the index text colors (headings #4b5059,
-   body --c-ink #5c616b) — scoped overrides for shared platform.css classes. */
-[data-page="solutions"] .sys-item { color: var(--c-ink); }
-[data-page="solutions"] .stage span { color: var(--c-ink); }
