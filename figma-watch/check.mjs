@@ -138,7 +138,8 @@ if (!targets.length) { log("No targets in targets.txt — paste Figma links (one
 const byKey = new Map();
 for (const t of targets) (byKey.get(t.key) ?? byKey.set(t.key, []).get(t.key)).push(t);
 
-const results = []; // { target, fileName, findings: [], isNew }
+const results = []; // { target, fileName, ver, findings: [], isNew }
+const gates = new Map(); // fileKey -> figma version id (for commit/report traceability)
 let rateLimited = false;
 
 for (const [key, list] of byKey) {
@@ -155,6 +156,7 @@ for (const [key, list] of byKey) {
     continue;
   }
 
+  gates.set(key, gate.gate.split("|")[0]);
   const missing = list.filter((t) => !existsSync(nodeFile(t)));
   if (meta && meta.gate === gate.gate && !missing.length) {
     log(`${key} (${gate.name}): no change (version gate ${gate.gate.split("|")[0]})`);
@@ -211,7 +213,7 @@ if (major.length || bootstrapped.length) {
     lines.push(`**${major.reduce((n, r) => n + r.findings.length, 0)} major change(s).**`, "");
     for (const r of major) {
       lines.push(`## ${r.target.label} — [open in Figma](${deepLink(r.target.key, r.target.id)})`, "");
-      lines.push(`_File: ${r.fileName} · node \`${r.target.id}\`_`, "");
+      lines.push(`_File: ${r.fileName} · node \`${r.target.id}\` · Figma version \`${gates.get(r.target.key) ?? "?"}\` (rollback point: this commit; the design itself can be restored from Figma's version history)_`, "");
       const bySec = new Map();
       for (const f of r.findings) {
         const k = f.sec?.name ?? r.target.label;
@@ -239,7 +241,9 @@ if (major.length) {
   await mkdir(B("reports", TODAY), { recursive: true });
   const toRender = new Map();
   for (const r of major) for (const f of r.findings) {
-    const s = f.sec ?? { name: r.target.label, id: r.target.id };
+    let s = f.sec ?? { name: r.target.label, id: r.target.id };
+    // sec == the watched node itself (e.g. a whole canvas, too big to render) → render the finding's node
+    if (s.id === r.target.id) s = { name: f.id.replace(":", "-"), id: f.id };
     if (s.id && !toRender.has(s.id)) toRender.set(s.id, { ...s, key: r.target.key });
   }
   for (const s of [...toRender.values()].slice(0, 8)) {
@@ -264,11 +268,12 @@ const git = (...args) => spawnSync("git", args, { cwd: REPO, encoding: "utf8" })
 const dirty = NO_GIT ? "" : git("status", "--porcelain", "--", "figma-watch/baseline", "figma-watch/reports").stdout.trim();
 if (dirty) {
   git("add", "--", "figma-watch/baseline", "figma-watch/reports");
-  const msg = major.length
+  const vtag = gates.size ? ` [figma v${[...gates.values()].join(",")}]` : "";
+  const msg = (major.length
     ? `figma-watch: ${major.reduce((n, r) => n + r.findings.length, 0)} major change(s) on ${major.map((r) => r.target.label).join(", ")} — ${TODAY}`
     : bootstrapped.length
       ? `figma-watch: baseline created (${bootstrapped.map((r) => r.target.label).join(", ")}) — ${TODAY}`
-      : `figma-watch: baseline refresh (cosmetic-only version bump) — ${TODAY}`;
+      : `figma-watch: baseline refresh (cosmetic-only version bump) — ${TODAY}`) + vtag;
   const c = git("commit", "-m", msg);
   log(c.status === 0 ? `Committed: ${msg}` : `git commit failed: ${c.stderr || c.stdout}`);
   if (c.status === 0) {
