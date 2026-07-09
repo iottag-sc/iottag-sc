@@ -405,7 +405,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   color: var(--c-blue); text-decoration: none;
 }
 .minicard__watch .icon { font-size: 20px; }
-.minicard__watch:hover { text-decoration: underline; }
+.minicard__watch:hover .minicard__label { text-decoration: underline; }
 /* Watch Overview (button → switches the video slide, like clicking the card)
    sits beside a Learn More page link */
 .minicard__links { display: flex; align-items: center; gap: 20px; margin-top: 16px; }
@@ -417,7 +417,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   color: var(--c-blue); text-decoration: none;
 }
 .minicard__more .icon { font-size: 20px; }
-.minicard__more:hover { text-decoration: underline; }
+.minicard__more:hover .minicard__label { text-decoration: underline; }
 
 /* Feature card row (bordered grid) */
 /* "Why industry leaders choose iottag" — 500 / grow two-column (Figma 500|700, gap 80) */

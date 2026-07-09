@@ -140,9 +140,9 @@
 .flow__card > .icon { font-size: 48px; color: #1e729c; }
 .flow__title {
   margin: 16px 0 8px; font-family: var(--f-alt); font-weight: 400; font-size: 24px;
-  line-height: 1.4; letter-spacing: -.01em; color: #060309;
+  line-height: 1.4; letter-spacing: -.01em; color: #4b5059;
 }
-.flow__text { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.4; color: #060309; }
+.flow__text { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.4; color: var(--c-ink); }
 .flow__sep { flex: 0 0 24px; display: flex; flex-direction: column; align-items: center; }
 .flow__sep::before, .flow__sep::after { content: ""; width: 1px; flex: 1; background: #d9d9da; }
 .flow__sep .icon { font-size: 24px; color: #d9d9da; }
@@ -159,3 +159,319 @@
   .flow__media { width: 100%; max-height: 300px; }
   .flow__banner .flow__chev { display: none; }
 }
+
+/* 7. OPERATIONAL DIGITAL TWIN (odt-) --------------------------------------
+   Page loads main.css + platform.css (.stages/.stage, .cta-band overlay) +
+   solutions.css. */
+
+/* chevron-stage variants used on this page */
+.stage--white { background: #fff; }
+.stage .stage__reg { font-weight: 400; }
+
+/* full-bleed cream band (Figma web-orange-lightest) */
+.section.odt-cream { background: #fdf6e5; box-shadow: 0 0 0 100vmax #fdf6e5; clip-path: inset(0 -100vmax); }
+
+/* bordered icon-cell strip, optional tinted caption row */
+.odt-grid { width: 100%; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.odt-grid__row { display: flex; }
+.odt-grid__cell { flex: 1 1 0; min-width: 0; min-height: 200px; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 24px; }
+.odt-grid__cell + .odt-grid__cell { border-left: 1px solid var(--c-line); }
+.odt-grid__cell img { width: 40px; height: 40px; }
+.odt-grid__cell img.ic-48 { width: 48px; height: 48px; }
+.odt-grid__label { margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+.odt-grid__note { margin: 0; border-top: 1px solid var(--c-line); background: var(--c-blue-pale); padding: 16px 24px; text-align: center; font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+@media (max-width: 1100px) {
+  .odt-grid__row { flex-wrap: wrap; }
+  .odt-grid__cell { flex: 1 1 33%; min-width: 200px; min-height: 160px; border-top: 1px solid var(--c-line); }
+  .odt-grid__cell:nth-child(-n+3) { border-top: 0; }
+}
+
+/* video card ("Respond In Real Time") */
+.odt-videocard { position: relative; width: 660px; max-width: 100%; height: 400px; border-radius: var(--r-lg); overflow: hidden; flex-shrink: 0; }
+.odt-videocard > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.odt-videocard__play {
+  position: absolute; inset: 0; margin: auto;
+  width: 80px; height: 80px; border: 0; border-radius: 50%;
+  background: var(--c-blue-light);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; box-shadow: 0 32px 32px rgba(0,0,0,.14);
+}
+.odt-videocard__play .icon { font-size: 40px; color: #fff; }
+@media (max-width: 1100px) { .odt-videocard { width: 100%; height: auto; aspect-ratio: 16 / 9; } }
+
+/* live-understanding board (5 icon rows + cream photo card) */
+.odt-live { display: flex; width: 100%; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.odt-live__rows { flex: 0 0 62.5%; display: flex; flex-direction: column; }
+.odt-live__row { display: flex; gap: 16px; align-items: center; min-height: 100px; padding: 24px; border-bottom: 1px solid var(--c-line); }
+.odt-live__row:last-child { border-bottom: 0; }
+.odt-live__row img { width: 40px; height: 40px; flex-shrink: 0; }
+.odt-live__title { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+.odt-live__row p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
+.odt-live__card { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; background: #fdf6e5; border-left: 1px solid var(--c-line); }
+.odt-live__card > img { width: 100%; height: 200px; object-fit: cover; }
+.odt-live__msg {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  margin: 0; padding: 24px; text-align: center;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059;
+}
+@media (max-width: 1100px) {
+  .odt-live { flex-direction: column; }
+  .odt-live__rows { flex-basis: auto; }
+  .odt-live__card { border-left: 0; border-top: 1px solid var(--c-line); }
+}
+
+/* joined dark photo strip (operational data sources) */
+.odt-strip { display: flex; gap: 1px; width: 100%; height: 240px; border-radius: var(--r-sm); overflow: hidden; }
+.odt-strip__card { position: relative; flex: 1 1 0; min-width: 0; display: flex; align-items: flex-end; padding: 24px; }
+.odt-strip__card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.odt-strip__card::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+.odt-strip__card--light::after { background: rgba(0,0,0,.2); }
+.odt-strip__card h3 { position: relative; z-index: 1; margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #fff; }
+@media (max-width: 1100px) {
+  .odt-strip { flex-wrap: wrap; height: auto; }
+  .odt-strip__card { flex: 1 1 32%; min-width: 220px; height: 200px; }
+}
+
+/* joined tinted note pair (analyse / present) */
+.odt-duo { display: flex; width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.odt-duo__card { flex: 1 1 0; min-width: 0; display: flex; gap: 16px; align-items: center; padding: 24px; }
+.odt-duo__card + .odt-duo__card { border-left: 1px solid var(--c-line); }
+.odt-duo__card--orange { background: #fdf6e5; }
+.odt-duo__card--blue { background: var(--c-blue-pale); }
+.odt-duo__card img { width: 48px; height: 48px; flex-shrink: 0; }
+.odt-duo__card p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+@media (max-width: 960px) {
+  .odt-duo { flex-direction: column; }
+  .odt-duo__card + .odt-duo__card { border-left: 0; border-top: 1px solid var(--c-line); }
+}
+
+/* rule-edged callout (orange on white / blue tint variants) */
+.odt-note { width: 100%; background: #fff; border-left: 2px solid var(--c-orange); padding: 40px; display: flex; flex-direction: column; gap: 8px; }
+.odt-note--blue { background: var(--c-blue-pale); border-left-color: var(--c-blue); }
+.odt-note__title { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+.odt-note--blue .odt-note__title { color: var(--c-blue); }
+.odt-note p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+
+/* emergency-response application chips (photo tiles, 2 staggered cols) */
+.odt-apps { flex: 1 1 0; min-width: 320px; display: flex; gap: 16px; }
+.odt-apps__col { flex: 1; display: flex; flex-direction: column; gap: 16px; justify-content: center; min-width: 0; }
+.odt-apps__label { margin: 0 0 4px; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #000; }
+.odt-app { position: relative; height: 120px; border-radius: var(--r-md); overflow: hidden; display: flex; align-items: center; padding: 32px; }
+.odt-app > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.odt-app::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+.odt-app h3 { position: relative; z-index: 1; margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3; letter-spacing: -.01em; color: #fff; }
+@media (max-width: 640px) { .odt-apps { flex-direction: column; } }
+
+/* organisation-structure timeline card (photo circles + slanted floats) */
+.odt-org { position: relative; width: 100%; background: #fff; border-radius: var(--r-md); padding: 40px 0 40px 40px; display: flex; flex-direction: column; gap: 20px; overflow: hidden; }
+.odt-org__title { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+.odt-org__row { display: flex; gap: 20px; height: 320px; width: 100%; }
+.odt-org__col { position: relative; flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 8px 0; }
+/* zigzag divider = two skewed hairlines meeting exactly on the connector line
+   (y:58 = ring padding 8 + 50 = circle centre). Upper leg leans 24px left at the
+   card top, lower leg drifts 22px left to the card bottom — the kink sits mid-gap
+   so the horizontal connector crosses it without touching circles or labels. */
+.odt-org__col + .odt-org__col::before,
+.odt-org__col + .odt-org__col::after {
+  content: ""; position: absolute; left: -11px; width: 1px;
+  background: var(--c-blue-pale);
+}
+.odt-org__col + .odt-org__col::before {
+  top: -88px; height: 146px; transform: skewX(9.3deg); transform-origin: bottom left;
+}
+.odt-org__col + .odt-org__col::after {
+  top: 58px; height: 302px; transform: skewX(-4.2deg); transform-origin: top left;
+}
+.odt-org__ring { display: flex; align-items: center; gap: 8px; width: 100%; }
+/* -9px = ends exactly at the zigzag kink (kink sits at next col left -11px; col gap 20px) */
+.odt-org__ring::after { content: ""; flex: 1; height: 1px; margin-right: -9px; background: var(--c-blue-pale); }
+.odt-org__col:last-child .odt-org__ring::after { background: transparent; }
+.odt-org__ring img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
+.odt-org__label { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: #4b5059; }
+@media (max-width: 960px) {
+  .odt-org { padding: 32px; }
+  .odt-org__row { flex-wrap: wrap; height: auto; gap: 24px 20px; }
+  .odt-org__col { flex-basis: 40%; min-width: 180px; }
+  .odt-org__col + .odt-org__col::before,
+  .odt-org__col + .odt-org__col::after { display: none; }
+  .odt-org__ring::after { margin-right: 0; }
+}
+
+/* 8. FATAL RISK INTELLIGENCE (fri-) ----------------------------------------
+   Rebuilt 2026-07-09 from Figma 12426:23090 ("Fatal Risk Intelligence • Desktop").
+   Reuses .odt-strip / .odt-duo / .odt-videocard from §7. */
+
+/* intro split row: fixed 480px title + copy */
+.fri-intro { display: flex; gap: 40px; align-items: center; width: 100%; }
+.fri-intro > .h2 { width: 480px; flex-shrink: 0; }
+.fri-intro__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.fri-intro__copy p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+.fri-intro__copy p strong { font-weight: 600; color: #1a1a1a; }
+@media (max-width: 960px) { .fri-intro { flex-wrap: wrap; } .fri-intro > .h2 { width: 100%; } }
+
+/* 18px body text used across this page (Figma text-medium, lh 1.2) */
+.fri-copy { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+.fri-copy--semi { font-weight: 600; color: #1a1a1a; }
+
+/* rounded joined photo strip (fatal risk categories, 280px, 8px gaps) */
+.fri-strip { display: flex; gap: 8px; width: 100%; }
+.fri-strip__card { position: relative; flex: 1 1 0; min-width: 0; height: 280px; border-radius: var(--r-md); overflow: hidden; display: flex; align-items: flex-end; padding: 24px; }
+.fri-strip__card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fri-strip__card::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+.fri-strip__card h3 { position: relative; z-index: 1; margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #fff; }
+@media (max-width: 1100px) {
+  .fri-strip { flex-wrap: wrap; }
+  .fri-strip__card { flex: 1 1 32%; min-width: 220px; }
+}
+/* exposure-strip tiles use exact Figma exports with the shade baked in */
+.odt-strip__card--baked::after { display: none; }
+
+/* offset photo-card pair (events vs exposure / single event vs interactions) */
+.fri-cards { display: flex; gap: 20px; align-items: flex-start; flex-shrink: 0; }
+.fri-card { position: relative; width: 260px; height: 240px; border-radius: var(--r-md); overflow: hidden; display: flex; align-items: flex-end; padding: 32px; }
+.fri-cards .fri-card:first-child { margin-top: 20px; }
+.fri-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fri-card::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+.fri-card h3 { position: relative; z-index: 1; margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3; letter-spacing: -.01em; color: #fff; }
+@media (max-width: 640px) { .fri-cards { flex-wrap: wrap; } .fri-cards .fri-card:first-child { margin-top: 0; } }
+
+/* "How Fatal Risk Intelligence Works" diagram */
+.fri-diagram { position: relative; width: 560px; max-width: 100%; margin-inline: auto; display: flex; flex-direction: column; gap: 24px; align-items: center; }
+.fri-diagram__connectors { position: absolute; z-index: 0; top: 68px; left: calc(50% + 12px); transform: translateX(-50%); width: 619px; height: 257px; max-width: none; pointer-events: none; }
+.fri-chips { position: relative; z-index: 1; display: flex; gap: 8px; justify-content: center; align-items: flex-start; }
+.fri-chip { width: 88px; height: 80px; border-radius: 11px; background: var(--c-blue-pale); display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; text-align: center; padding: 8px 4px; }
+.fri-chip img { width: 24px; height: 24px; }
+.fri-chip span { font-family: var(--f-body); font-weight: 600; font-size: 12px; line-height: 1.2; color: var(--c-ink); }
+/* arched row: outer chips sit lower */
+.fri-chips > .fri-chip:nth-child(1), .fri-chips > .fri-chip:nth-child(7) { margin-top: 20px; }
+.fri-chips > .fri-chip:nth-child(2), .fri-chips > .fri-chip:nth-child(6) { margin-top: 12px; }
+.fri-chips > .fri-chip:nth-child(3), .fri-chips > .fri-chip:nth-child(5) { margin-top: 4px; }
+.fri-atlas { position: relative; z-index: 1; width: 100%; background: #fff; border: 4px solid var(--c-blue-pale); border-radius: 24px; box-shadow: 0 4px 8px -2px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.06); overflow: hidden; }
+.fri-atlas__top { height: 100px; padding: 20px; display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; }
+.fri-atlas__top h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+.fri-atlas__top p { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 12px; line-height: 1.2; color: var(--c-grey); }
+.fri-atlas__bar { height: 40px; background: #fdf6e5; border-top: 1px solid #d3e8f3; display: flex; align-items: center; justify-content: center; font-family: var(--f-body); font-weight: 600; font-size: 14px; color: var(--c-ink); }
+.fri-outputs { position: relative; z-index: 1; width: 100%; height: 120px; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); display: flex; overflow: hidden; }
+.fri-outputs__in { flex: 1 1 0; min-width: 0; border-bottom: 1px solid var(--c-line); display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 8px 0; }
+.fri-outputs__row { display: flex; gap: 4px; align-items: center; justify-content: center; font-family: var(--f-body); font-weight: 600; font-size: 14px; line-height: 1.2; color: var(--c-ink); }
+.fri-outputs__row img { width: 20px; height: 20px; }
+.fri-outputs__sep { flex: 0 0 24px; margin: 0 -12px; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+.fri-outputs__sep::before, .fri-outputs__sep::after { content: ""; width: 1px; flex: 1; background: var(--c-line); }
+.fri-outputs__sep img { width: 24px; height: 24px; }
+.fri-outputs__act { flex: 1 1 0; min-width: 0; background: var(--c-blue-pale); border-bottom: 1px solid var(--c-blue-light); display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; font-family: var(--f-body); font-weight: 600; font-size: 14px; line-height: 1.2; color: var(--c-ink); }
+.fri-outputs__act img { width: 32px; height: 32px; }
+
+/* bordered 6-cell conditions row (orange illustrated icons) */
+.fri-conds { display: flex; width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.fri-cond { flex: 1 1 0; min-width: 0; min-height: 320px; padding: 24px; display: flex; flex-direction: column; }
+.fri-cond + .fri-cond { border-left: 1px solid var(--c-line); }
+.fri-cond--mid { justify-content: center; }
+.fri-cond > img { width: 80px; height: 80px; }
+.fri-cond h3 { margin: 16px 0 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+.fri-cond p { margin: 8px 0 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
+@media (max-width: 1100px) {
+  .fri-conds { flex-wrap: wrap; }
+  .fri-cond { flex: 1 1 33%; min-width: 200px; min-height: 260px; border-top: 1px solid var(--c-line); }
+  .fri-cond:nth-child(-n+3) { border-top: 0; }
+}
+
+/* dashboard feature bullets (two columns) */
+.fri-feats { display: flex; gap: 10px; width: 100%; }
+.fri-feats ul { flex: 1 1 0; min-width: 0; margin: 0; padding-left: 27px; display: flex; flex-direction: column; gap: 4px; }
+.fri-feats li { font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+@media (max-width: 640px) { .fri-feats { flex-direction: column; } }
+
+/* fri sizing for the shared video card (680x382, 16px radius) */
+.fri-videocard { width: 680px; height: 382px; border-radius: 16px; }
+@media (max-width: 1100px) { .fri-videocard { width: 100%; height: auto; aspect-ratio: 16 / 9; } }
+
+/* tall quote/explain pair (cream statement + blue "Atlas explains") */
+.fri-explain { display: flex; width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.fri-explain__card { flex: 1 1 0; min-width: 0; min-height: 240px; padding: 24px; display: flex; flex-direction: column; gap: 4px; justify-content: center; background: #fdf6e5; }
+.fri-explain__card--blue { background: var(--c-blue-pale); }
+.fri-explain__card p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+.fri-explain__card p strong { font-weight: 700; }
+@media (max-width: 860px) { .fri-explain { flex-direction: column; } .fri-explain__card + .fri-explain__card { border-top: 1px solid var(--c-line); } }
+
+/* 9. PRODUCTION INTELLIGENCE (pi-) -----------------------------------------
+   Rebuilt 2026-07-09 from Figma uSpSiuWCXpiRjrcPWJdeyD node 12405:20872.
+   Page loads main.css + platform.css (.photo-cards, .stages, .sys-item) +
+   solutions.css, and reuses the odt- .odt-grid / .odt-duo / .odt-videocard /
+   .odt-apps / .odt-org / .stage--white shells with pi- variants below. */
+
+/* section headings on this design are Ubuntu Medium 40 near-black */
+.pi-h2 { font-size: 40px; color: #4b5059; }
+
+/* hero mini-cards — two aligned columns + full-width footer card */
+.pi-cards { display: flex; flex-direction: column; gap: 8px; width: 360px; flex-shrink: 0; }
+.pi-cards__row { display: flex; gap: 8px; }
+.pi-cards__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.pi-card {
+  height: 150px;
+  background: var(--c-blue-pale);
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  padding: 24px 20px;
+  display: flex; flex-direction: column; gap: 4px; justify-content: center;
+}
+.pi-card img { width: 32px; height: 32px; }
+.pi-card h3, .pi-card p {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+.pi-card--wide { height: 76px; align-items: center; padding: 8px 20px; }
+@media (max-width: 1240px) { .pi-cards { display: none; } }
+
+/* 240px photo cards with 20px titles (base .photo-cards in platform.css) */
+.photo-cards--pi .photo-card { height: 240px; }
+.photo-cards--pi .photo-card__title { font-size: 20px; }
+
+/* pale-celled variant of the odt- bordered icon strip */
+.odt-grid.pi-pale { background: var(--c-blue-pale); }
+
+/* Ubuntu 20px section footnotes (production-chain band) */
+.pi-note { margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; text-align: center; }
+.pi-note--bold { font-weight: 700; }
+
+/* white icon tiles on the pale rock-fragmentation band (base .sys-item in platform.css) */
+.pi-chips { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-end; flex: 1 1 0; min-width: 320px; }
+.pi-chips .sys-item { width: 240px; }
+.pi-chips .sys-item__ic { background: #fff; }
+
+/* white quote card with light-blue left rule + trailing button */
+.pi-quote {
+  width: 100%;
+  background: #fff; border-left: 2px solid var(--c-blue-light);
+  padding: 40px 40px 40px 42px;
+  display: flex; align-items: center; gap: 40px;
+}
+.pi-quote__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.pi-quote__lead { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: var(--c-blue); }
+.pi-quote__text { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+@media (max-width: 960px) { .pi-quote { flex-direction: column; align-items: flex-start; } }
+
+/* organisation levels on the pale rounded band (base .odt-org above) */
+.pi-org { background: var(--c-blue-pale); padding: 40px; }
+.pi-org .odt-org__row { height: auto; }
+.pi-org .odt-org__ring::after { background: #fff; }
+.pi-org .odt-org__col + .odt-org__col::before,
+.pi-org .odt-org__col + .odt-org__col::after { background: rgba(255,255,255,.9); }
+/* no title above the row (40px pad) and a shorter auto row: 8+100+16+24+8=156 high,
+   +40px bottom pad → lower leg 138px; legs keep the same slopes as the odt card */
+.pi-org .odt-org__col + .odt-org__col::before { top: -40px; height: 98px; }
+.pi-org .odt-org__col + .odt-org__col::after { height: 138px; }
+.pi-org__text { flex: 1 1 0; min-width: 0; display: flex; align-items: center; }
+.pi-org__text p { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-blue); }
+@media (max-width: 960px) { .pi-org__text { flex-basis: 100%; } }
+
+/* visibility section: keep the six factor chips on two side-by-side columns */
+.pi-vis { gap: 16px 20px; flex-wrap: nowrap; }
+.pi-vis .sys-grid__col { flex: 1 1 0; min-width: 0; }
+.pi-vis .sys-item { white-space: nowrap; }
+@media (max-width: 640px) { .pi-vis { flex-wrap: wrap; } .pi-vis .sys-grid__col { flex: 1 1 100%; } }
+
+/* 10. SOLUTIONS TEXT GREYS --------------------------------------------------
+   Solutions detail pages follow the index text colors (headings #4b5059,
+   body --c-ink #5c616b) — scoped overrides for shared platform.css classes. */
+[data-page="solutions"] .sys-item { color: var(--c-ink); }
+[data-page="solutions"] .stage span { color: var(--c-ink); }
