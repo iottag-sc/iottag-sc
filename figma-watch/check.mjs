@@ -93,17 +93,15 @@ function normalize(n) {
 const squash = (s) => (s ?? "").replace(/\s+/g, " ").trim();
 const clip = (s, n = 110) => (s.length > n ? s.slice(0, n) + "…" : s);
 
-// "Big page" filter (user rule 2026-07-09): only frames INSIDE SECTIONs are watched.
-// - CANVAS level: keep page-sized SECTIONs only — every loose canvas node (frames like
+// Watch scope (user rule 2026-07-09): SECTIONs are the unit of detection.
+// - CANVAS level: keep SECTION children only — every loose canvas node (frames like
 //   "CONSTRUCTION"/"Section Title", icons, sliders, component sets, text) is ignored.
-// - SECTION level: keep page-sized FRAMEs only — small snippets ("Layout / 1 /", strips)
-//   are ignored. INSIDE a page frame everything still counts.
+// - INSIDE a section: everything is diffed — all frames big or small, text, images.
+// isPageNode is only used to ATTRIBUTE findings to their page frame (grouping + renders).
 const PAGE_MIN_W = 1000, PAGE_MIN_H = 2000;
 const isPageNode = (n) =>
   (n.type === "SECTION" || n.type === "FRAME") && (n.w ?? 0) >= PAGE_MIN_W && (n.h ?? 0) >= PAGE_MIN_H;
 const isGallery = (n) => n.type === "CANVAS" || n.type === "SECTION";
-const keepChild = (parent, c) =>
-  parent.type === "CANVAS" ? c.type === "SECTION" && isPageNode(c) : isPageNode(c);
 
 // `sec` = nearest SECTION (grouping); `page` = nearest page-sized frame (attribution + render).
 function diffNode(a, b, findings, sec, page) {
@@ -122,7 +120,7 @@ function diffNode(a, b, findings, sec, page) {
       F("layout", b.id, `“${b.name}” resized ${a.w}×${a.h} → ${b.w}×${b.h}`);
   }
   let ac = a.children ?? [], bc = b.children ?? [];
-  if (isGallery(b)) { ac = ac.filter((c) => keepChild(a, c)); bc = bc.filter((c) => keepChild(b, c)); }
+  if (b.type === "CANVAS") { ac = ac.filter((c) => c.type === "SECTION"); bc = bc.filter((c) => c.type === "SECTION"); }
   const am = new Map(ac.map((c) => [c.id, c])), bm = new Map(bc.map((c) => [c.id, c]));
   const asPage = (c) => (isPageNode(c) && c.type !== "SECTION" ? { name: c.name, id: c.id, w: c.w, h: c.h } : undefined);
   for (const c of ac) if (!bm.has(c.id))
@@ -242,7 +240,7 @@ if (major.length || bootstrapped.length) {
         lines.push("");
       }
     }
-    lines.push("> Ignored by design: colors, margins/padding, fonts, shadows, corner radius, position shifts,", "> and everything outside page SECTIONs (loose canvas frames, snippets, icons, component sets).", "");
+    lines.push("> Ignored by design: colors, margins/padding, fonts, shadows, corner radius, position shifts,", "> and everything on the canvas that is not inside a SECTION (loose frames, icons, component sets).", "");
   }
   if (bootstrapped.length)
     lines.push(`Baseline created for: ${bootstrapped.map((r) => r.target.label).join(", ")}.`, "");
