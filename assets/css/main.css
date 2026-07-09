@@ -464,7 +464,6 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 /* Brand logo marquee (single auto-scrolling row) */
 .brand-marquee { width: 100%; overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
 .brand-marquee__track { display: flex; gap: 20px; width: max-content; animation: brand-scroll 40s linear infinite; }
-.brand-marquee:hover .brand-marquee__track { animation-play-state: paused; }
 .brand-marquee .brand-card { flex: 0 0 auto; }
 @keyframes brand-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 10px)); } }
 
