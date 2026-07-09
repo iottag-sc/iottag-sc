@@ -38,7 +38,7 @@
   font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
   letter-spacing: -.01em; color: var(--c-blue);
 }
-.approach-bar__text { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #060309; }
+.approach-bar__text { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 @media (max-width: 960px) { .approach-bar { flex-wrap: wrap; gap: 24px; } }
 
 /* Vector Tag product visual — trimmed renders on the 400×622 Figma canvas */
@@ -81,7 +81,7 @@
 .gov-card img { width: 24px; height: 24px; }
 .gov-card h3 {
   margin: 0; min-height: 48px; display: flex; align-items: center;
-  font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: #060309;
+  font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: var(--c-ink);
 }
 @media (max-width: 1240px) {
   .gov-cards { align-items: center; width: 100%; }
@@ -110,7 +110,7 @@
 
 /* approach-bar right-hand checklist (One Platform / One Ecosystem / …) */
 .approach-bar__list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
-.approach-bar__list li { display: flex; align-items: center; gap: 12px; font-family: var(--f-body); font-size: 16px; color: #060309; }
+.approach-bar__list li { display: flex; align-items: center; gap: 12px; font-family: var(--f-body); font-size: 16px; color: var(--c-ink); }
 .approach-bar__list img { width: 24px; height: 24px; }
 
 /* blue-tinted icon chip (Areas Of Focus list on a white section) */
@@ -123,9 +123,9 @@
 .vt-feature__item h3 {
   margin: 0 0 4px;
   font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
-  letter-spacing: -.01em; color: #060309;
+  letter-spacing: -.01em; color: #4b5059;
 }
-.vt-feature__item p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: #060309; }
+.vt-feature__item p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
 .vt-feature__item a { text-decoration: none; color: inherit; }
 .vt-feature__item a:hover h3 { color: var(--c-blue); }
 .vt-feature__img { width: 480px; max-width: 100%; height: 520px; object-fit: cover; border-radius: var(--r-md); flex-shrink: 0; }
@@ -187,7 +187,7 @@
 .isg-card h3 {
   margin: 0;
   font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
-  letter-spacing: -.01em; color: #060309;
+  letter-spacing: -.01em; color: #4b5059;
 }
 @media (max-width: 1240px) { .isg-cards { display: none; } }
 
@@ -224,22 +224,22 @@
 .pt-row__title {
   margin: 0;
   font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
-  letter-spacing: -.01em; color: #060309;
+  letter-spacing: -.01em; color: #4b5059;
 }
-.pt-row__desc { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: #060309; }
+.pt-row__desc { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
 .pt-row__apps { display: flex; flex-direction: column; gap: 8px; }
-.pt-row__apps-label { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.4; color: #060309; }
+.pt-row__apps-label { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.4; color: var(--c-ink); }
 .pt-chips { display: flex; gap: 16px 60px; flex-wrap: wrap; }
 @media (max-width: 900px) { .pt-row { flex-wrap: wrap; } .pt-row__img { width: 100%; height: auto; } }
 
 /* hybrid-environment flows — labelled chevron pair (chip grid → digital twin) */
 .hpe { display: flex; flex-direction: column; gap: 20px; width: 100%; }
-.hpe__label { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.4; color: #060309; }
+.hpe__label { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.4; color: var(--c-ink); }
 .hpe-grid { display: grid; grid-template-columns: 1fr 1fr; width: 100%; max-width: 564px; }
 .hpe-item {
   display: flex; align-items: center; gap: 8px;
   padding: 8px 20px; min-height: 56px;
-  font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: #060309;
+  font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: var(--c-ink);
 }
 .hpe-item img { width: 24px; height: 24px; }
 .hpe-item .icon { font-size: 24px; color: var(--c-blue); }

@@ -32,7 +32,7 @@
   flex: 1 1 0; min-width: 0;
   height: 58px; padding: 0 16px;
   border: 0; background: #f2f2f2;
-  font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #060309;
+  font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink);
   cursor: pointer;
   transition: background .15s ease;
 }
@@ -58,9 +58,9 @@
 .cs-card__title {
   margin: 0;
   font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
-  letter-spacing: -.01em; color: #060309;
+  letter-spacing: -.01em; color: #4b5059;
 }
-.cs-card__sub { margin: 0; font-family: var(--f-body); font-size: 12px; line-height: 1.2; color: #060309; }
+.cs-card__sub { margin: 0; font-family: var(--f-body); font-size: 12px; line-height: 1.2; color: var(--c-ink); }
 .cs-card__text { margin: 0; flex: 1; font-family: var(--f-body); font-size: 12px; line-height: 1.2; color: var(--c-grey); }
 .cs-card__actions { display: flex; gap: 8px; }
 .cs-card__actions .btn { flex: 1 1 0; min-width: 0; padding: 10px 12px; gap: 12px; white-space: nowrap; }
@@ -86,7 +86,7 @@
 .cs-cell__label {
   margin: 0;
   font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
-  letter-spacing: -.01em; color: #060309;
+  letter-spacing: -.01em; color: #4b5059;
 }
 @media (max-width: 1100px) {
   .cs-grid__row { flex-wrap: wrap; }
@@ -132,8 +132,8 @@
 .vid-card__progress { height: 4px; background: #e5e7eb; border-radius: 9px; display: flex; align-items: center; }
 .vid-card__progress img { width: 16px; height: 16px; display: block; }
 .vid-card__body { padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; }
-.vid-card__body h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3; letter-spacing: -.01em; color: #060309; }
-.vid-card__body p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #060309; }
+.vid-card__body h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3; letter-spacing: -.01em; color: #4b5059; }
+.vid-card__body p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 @media (max-width: 1100px) { .vid-grid { flex-wrap: wrap; } }
 
 /* demonstration cards — 3 staggered rows of white icon cards */
@@ -149,7 +149,7 @@
 }
 .vl-demo-card img { width: 48px; height: 48px; }
 .vl-demo-card img.vl-demo-card__ic--sm { width: 40px; height: 40px; }
-.vl-demo-card h3 { margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 22px; line-height: 1.4; letter-spacing: -.01em; color: #060309; }
+.vl-demo-card h3 { margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 22px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
 @media (max-width: 1240px) {
   .vl-demo { width: 100%; align-items: center; }
   .vl-demo__row { flex-wrap: wrap; justify-content: center; }
@@ -186,9 +186,9 @@
 .wp-card__title {
   margin: 0;
   font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
-  letter-spacing: -.01em; color: #060309;
+  letter-spacing: -.01em; color: #4b5059;
 }
-.wp-card__sub { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #060309; }
+.wp-card__sub { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 .wp-card__body .btn { width: 100%; padding: 8px 20px; height: 40px; }
 @media (max-width: 1100px) {
   .wp-cards { flex-wrap: wrap; }
@@ -208,7 +208,7 @@
 .wp-cat__item img { width: 40px; height: 40px; flex-shrink: 0; }
 .wp-cat__item span {
   font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
-  letter-spacing: -.01em; color: #060309;
+  letter-spacing: -.01em; color: #4b5059;
   padding-top: 5px;
 }
 .wp-cat__img { width: 480px; max-width: 100%; border-radius: var(--r-md); object-fit: cover; flex-shrink: 0; }
@@ -240,7 +240,7 @@ a.wp-cat__item { text-decoration: none; }
 .wp-cat__item .icon {
   font-family: "Material Symbols Outlined"; font-weight: 400;
   flex: 0 0 auto; padding-top: 0;
-  font-size: 40px; color: #060309; transition: color .15s ease;
+  font-size: 40px; color: var(--c-ink); transition: color .15s ease;
 }
 a.wp-cat__item:hover span, a.wp-cat__item:hover .icon { color: var(--c-blue); }
 .wp-cat__img--tall { height: 520px; }
