@@ -93,10 +93,21 @@ function normalize(n) {
 const squash = (s) => (s ?? "").replace(/\s+/g, " ").trim();
 const clip = (s, n = 110) => (s.length > n ? s.slice(0, n) + "…" : s);
 
-// `sec` = nearest page section (a SECTION node, or a canvas' direct child) — used to
-// group findings per page when the watched node is a whole canvas like "Ready to Dev".
-function diffNode(a, b, findings, sec) {
-  const F = (kind, id, detail) => findings.push({ kind, id, detail, sec });
+// "Big page" filter (user rule 2026-07-09): only frames INSIDE SECTIONs are watched.
+// - CANVAS level: keep page-sized SECTIONs only — every loose canvas node (frames like
+//   "CONSTRUCTION"/"Section Title", icons, sliders, component sets, text) is ignored.
+// - SECTION level: keep page-sized FRAMEs only — small snippets ("Layout / 1 /", strips)
+//   are ignored. INSIDE a page frame everything still counts.
+const PAGE_MIN_W = 1000, PAGE_MIN_H = 2000;
+const isPageNode = (n) =>
+  (n.type === "SECTION" || n.type === "FRAME") && (n.w ?? 0) >= PAGE_MIN_W && (n.h ?? 0) >= PAGE_MIN_H;
+const isGallery = (n) => n.type === "CANVAS" || n.type === "SECTION";
+const keepChild = (parent, c) =>
+  parent.type === "CANVAS" ? c.type === "SECTION" && isPageNode(c) : isPageNode(c);
+
+// `sec` = nearest SECTION (grouping); `page` = nearest page-sized frame (attribution + render).
+function diffNode(a, b, findings, sec, page) {
+  const F = (kind, id, detail, pg) => findings.push({ kind, id, detail, sec, page: pg ?? page });
   if (a.name !== b.name)
     F("renamed", b.id, `“${a.name}” renamed to “${b.name}”`);
   if (a.type === "TEXT" && squash(a.text) !== squash(b.text))
@@ -110,12 +121,14 @@ function diffNode(a, b, findings, sec) {
     if (dw > 0.1 || dh > 0.1)
       F("layout", b.id, `“${b.name}” resized ${a.w}×${a.h} → ${b.w}×${b.h}`);
   }
-  const ac = a.children ?? [], bc = b.children ?? [];
+  let ac = a.children ?? [], bc = b.children ?? [];
+  if (isGallery(b)) { ac = ac.filter((c) => keepChild(a, c)); bc = bc.filter((c) => keepChild(b, c)); }
   const am = new Map(ac.map((c) => [c.id, c])), bm = new Map(bc.map((c) => [c.id, c]));
+  const asPage = (c) => (isPageNode(c) && c.type !== "SECTION" ? { name: c.name, id: c.id, w: c.w, h: c.h } : undefined);
   for (const c of ac) if (!bm.has(c.id))
-    F("removed", c.id, `${c.type.toLowerCase()} “${c.name}” removed from “${a.name}”`);
+    F("removed", c.id, `${c.type.toLowerCase()} “${c.name}” removed from “${a.name}”`, asPage(c));
   for (const c of bc) if (!am.has(c.id))
-    F("added", c.id, `new ${c.type.toLowerCase()} “${c.name}” in “${b.name}”`);
+    F("added", c.id, `new ${c.type.toLowerCase()} “${c.name}” in “${b.name}”`, asPage(c));
   const aShared = ac.filter((c) => bm.has(c.id)).map((c) => c.id);
   const bShared = bc.filter((c) => am.has(c.id)).map((c) => c.id);
   if (aShared.join("\n") !== bShared.join("\n"))
@@ -127,7 +140,9 @@ function diffNode(a, b, findings, sec) {
     const c = bm.get(id);
     const childSec = b.type === "CANVAS" || c.type === "SECTION"
       ? { name: c.name, id: c.id, w: c.w, h: c.h } : sec;
-    diffNode(am.get(id), c, findings, childSec);
+    const childPage = isGallery(b) && isPageNode(c) && c.type !== "SECTION"
+      ? { name: c.name, id: c.id, w: c.w, h: c.h } : page;
+    diffNode(am.get(id), c, findings, childSec, childPage);
   }
 }
 
@@ -216,17 +231,18 @@ if (major.length || bootstrapped.length) {
       lines.push(`_File: ${r.fileName} · node \`${r.target.id}\` · Figma version \`${gates.get(r.target.key) ?? "?"}\` (rollback point: this commit; the design itself can be restored from Figma's version history)_`, "");
       const bySec = new Map();
       for (const f of r.findings) {
-        const k = f.sec?.name ?? r.target.label;
+        const sec = f.sec?.name ?? r.target.label;
+        const k = f.page && f.page.name !== sec ? `${sec} › ${f.page.name}` : sec;
         (bySec.get(k) ?? bySec.set(k, []).get(k)).push(f);
       }
       for (const [secName, fs] of bySec) {
-        lines.push(`### ${secName} (${fs.length}) — [open](${deepLink(r.target.key, fs[0].sec?.id ?? r.target.id)})`, "");
+        lines.push(`### ${secName} (${fs.length}) — [open](${deepLink(r.target.key, fs[0].page?.id ?? fs[0].sec?.id ?? r.target.id)})`, "");
         for (const f of fs)
           lines.push(`- **${f.kind}** — ${f.detail} ([node](${deepLink(r.target.key, f.id)}))`);
         lines.push("");
       }
     }
-    lines.push("> Ignored by design: colors, margins/padding, fonts, shadows, corner radius, position shifts.", "");
+    lines.push("> Ignored by design: colors, margins/padding, fonts, shadows, corner radius, position shifts,", "> and everything outside page SECTIONs (loose canvas frames, snippets, icons, component sets).", "");
   }
   if (bootstrapped.length)
     lines.push(`Baseline created for: ${bootstrapped.map((r) => r.target.label).join(", ")}.`, "");
@@ -241,15 +257,16 @@ if (major.length) {
   await mkdir(B("reports", TODAY), { recursive: true });
   const toRender = new Map();
   for (const r of major) for (const f of r.findings) {
-    let s = f.sec ?? { name: r.target.label, id: r.target.id };
-    // sec == the watched node itself (e.g. a whole canvas, too big to render) → render the finding's node
+    // Prefer the page frame (1440-wide) over its 13k-wide section — far cheaper to render.
+    let s = f.page ?? f.sec ?? { name: r.target.label, id: r.target.id };
+    // still the watched node itself (e.g. a whole canvas, too big to render) → render the finding's node
     if (s.id === r.target.id) s = { name: f.id.replace(":", "-"), id: f.id };
     if (s.id && !toRender.has(s.id)) toRender.set(s.id, { ...s, key: r.target.key });
   }
   for (const s of [...toRender.values()].slice(0, 8)) {
     try {
       const maxDim = Math.max(s.w ?? 0, s.h ?? 0);
-      const scale = maxDim > 2000 ? Math.max(0.05, 2000 / maxDim).toFixed(2) : 1;
+      const scale = maxDim ? Math.min(0.5, 2500 / maxDim).toFixed(2) : 1;
       const j = await api(`/v1/images/${s.key}?ids=${s.id}&format=png&scale=${scale}`);
       const url = j.images?.[s.id];
       if (!url) continue;
