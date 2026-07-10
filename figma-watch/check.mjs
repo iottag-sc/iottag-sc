@@ -221,11 +221,13 @@ const bootstrapped = results.filter((r) => r.isNew);
 const deepLink = (key, id) => `https://www.figma.com/design/${key}/?node-id=${id.replace(":", "-")}`;
 
 if (major.length || bootstrapped.length) {
-  const lines = [`# Figma design watch — ${TODAY}`, ""];
+  // Multiple runs per day (08/12/15h) APPEND to the same day file, one "## Run HH:MM" each.
+  const stamp = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+  const lines = [`## Run ${stamp}`, ""];
   if (major.length) {
     lines.push(`**${major.reduce((n, r) => n + r.findings.length, 0)} major change(s).**`, "");
     for (const r of major) {
-      lines.push(`## ${r.target.label} — [open in Figma](${deepLink(r.target.key, r.target.id)})`, "");
+      lines.push(`### ${r.target.label} — [open in Figma](${deepLink(r.target.key, r.target.id)})`, "");
       lines.push(`_File: ${r.fileName} · node \`${r.target.id}\` · Figma version \`${gates.get(r.target.key) ?? "?"}\` (rollback point: this commit; the design itself can be restored from Figma's version history)_`, "");
       const bySec = new Map();
       for (const f of r.findings) {
@@ -234,7 +236,7 @@ if (major.length || bootstrapped.length) {
         (bySec.get(k) ?? bySec.set(k, []).get(k)).push(f);
       }
       for (const [secName, fs] of bySec) {
-        lines.push(`### ${secName} (${fs.length}) — [open](${deepLink(r.target.key, fs[0].page?.id ?? fs[0].sec?.id ?? r.target.id)})`, "");
+        lines.push(`#### ${secName} (${fs.length}) — [open](${deepLink(r.target.key, fs[0].page?.id ?? fs[0].sec?.id ?? r.target.id)})`, "");
         for (const f of fs)
           lines.push(`- **${f.kind}** — ${f.detail} ([node](${deepLink(r.target.key, f.id)}))`);
         lines.push("");
@@ -245,8 +247,10 @@ if (major.length || bootstrapped.length) {
   if (bootstrapped.length)
     lines.push(`Baseline created for: ${bootstrapped.map((r) => r.target.label).join(", ")}.`, "");
   await mkdir(B("reports"), { recursive: true });
-  await writeFile(B("reports", `${TODAY}.md`), lines.join("\n"));
-  log(`Report written: reports/${TODAY}.md`);
+  const reportPath = B("reports", `${TODAY}.md`);
+  const prev = await readFile(reportPath, "utf8").catch(() => null);
+  await writeFile(reportPath, (prev ? prev.trimEnd() + "\n\n" : `# Figma design watch — ${TODAY}\n\n`) + lines.join("\n") + "\n");
+  log(`Report ${prev ? "appended" : "written"}: reports/${TODAY}.md (run ${stamp})`);
 }
 
 // Render a PNG of each CHANGED SECTION for visual confirmation (separate rate budget).
