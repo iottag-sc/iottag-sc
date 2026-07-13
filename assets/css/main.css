@@ -72,6 +72,9 @@ body {
   background: var(--c-white);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* full-bleed 100vw layers (e.g. .fri-dark__bg) overhang by the scrollbar width;
+     clip (not hidden — no new scroll container) so they never cause an x-scrollbar */
+  overflow-x: clip;
 }
 
 img { display: block; max-width: 100%; }
