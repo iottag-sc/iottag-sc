@@ -442,11 +442,12 @@
 
 /* haulage & crusher board: 440px photo card + numbered list on the pale band */
 .pi-haul { display: flex; align-items: center; width: 100%; }
-.pi-haul > img { width: 440px; height: 280px; flex-shrink: 0; object-fit: cover; background: #fdf6e5; border: 1px solid var(--c-line); border-radius: var(--r-md); }
-.pi-haul__body { flex: 1 1 0; min-width: 0; padding: 40px 60px; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+.pi-haul > img { width: 380px; height: 280px; flex-shrink: 0; object-fit: cover; background: #fdf6e5; border: 1px solid var(--c-line); border-radius: var(--r-md); }
+.pi-haul__body { flex: 1 1 0; min-width: 0; padding: 40px 24px; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
 .pi-haul__lead { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: #060309; }
-.pi-checks { display: flex; gap: 20px 40px; }
-.pi-checks__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+/* columns size to their widest single-line chip; leftover space spreads between them */
+.pi-checks { display: flex; gap: 24px 16px; justify-content: space-between; }
+.pi-checks__col { flex: 0 1 max-content; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
 .pi-check { display: flex; gap: 8px; align-items: center; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: #060309; }
 .pi-check__ic {
   width: 32px; height: 32px; flex-shrink: 0;
@@ -485,7 +486,7 @@
 /* -9px = ends exactly at the zigzag kink (kink at next col left -11px; col gap 20px) */
 .pi-dash__head::after { content: ""; flex: 1; height: 1px; margin-right: -9px; background: #fff; }
 .pi-dash__col:last-child .pi-dash__head::after { background: transparent; }
-.pi-dash__col h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: #060309; }
+.pi-dash__col h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: #5C616B; }
 .pi-dash__col p { margin: 0; font-family: var(--f-body); font-size: 14px; line-height: 1.4; color: #504e52; }
 @media (max-width: 960px) {
   .pi-dash { flex-wrap: wrap; }
@@ -535,3 +536,20 @@
   .pi-oi__copy { padding: 32px 24px; }
   .pi-oi__img { width: 100%; min-height: 0; max-height: 320px; }
 }
+
+/* PI redesign (Figma 12405:20872, Jul 2026) --------------------------- */
+/* full-width feature video under "Rock Fragmentation Analysis" */
+.pi-video--wide { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+/* bulleted dashboard lists (replaces the old <br>-separated paragraphs) */
+.pi-dash__list {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--f-body);
+  font-size: 14px;
+  line-height: 1.4;
+  color: #504e52;
+}
+.pi-dash__list li::marker { color: #504e52; }
