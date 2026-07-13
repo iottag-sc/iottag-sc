@@ -300,100 +300,203 @@
 }
 
 /* 8. FATAL RISK INTELLIGENCE (fri-) ----------------------------------------
-   Rebuilt 2026-07-09 from Figma 12426:23090 ("Fatal Risk Intelligence • Desktop").
-   Reuses .odt-strip / .odt-duo / .odt-videocard from §7. */
+   Rebuilt 2026-07-13 from Figma 12426:23090 ("Fatal Risk Intelligence • Desktop").
+   Reuses .stages/.stage (platform.css), .odt-cream / .odt-duo / .odt-videocard (§7). */
 
 /* intro split row: fixed 480px title + copy */
 .fri-intro { display: flex; gap: 40px; align-items: center; width: 100%; }
-.fri-intro > .h2 { width: 480px; flex-shrink: 0; }
+.fri-intro__head { width: 480px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px; }
 .fri-intro__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
 .fri-intro__copy p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
-.fri-intro__copy p strong { font-weight: 600; color: var(--c-ink); }
-@media (max-width: 960px) { .fri-intro { flex-wrap: wrap; } .fri-intro > .h2 { width: 100%; } }
+@media (max-width: 960px) { .fri-intro { flex-wrap: wrap; } .fri-intro__head { width: 100%; } }
 
 /* 18px body text used across this page (Figma text-medium, lh 1.2) */
 .fri-copy { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
-.fri-copy--semi { font-weight: 600; color: var(--c-ink); }
+.fri-copy--semi { font-weight: 600; color: #1a1a1a; }
 
-/* rounded joined photo strip (fatal risk categories, 280px, 8px gaps) */
-.fri-strip { display: flex; gap: 8px; width: 100%; }
-.fri-strip__card { position: relative; flex: 1 1 0; min-width: 0; height: 280px; border-radius: var(--r-md); overflow: hidden; display: flex; align-items: flex-end; padding: 24px; }
-.fri-strip__card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.fri-strip__card::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); }
-.fri-strip__card h3 { position: relative; z-index: 1; margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #fff; }
-@media (max-width: 1100px) {
-  .fri-strip { flex-wrap: wrap; }
-  .fri-strip__card { flex: 1 1 32%; min-width: 220px; }
-}
-/* exposure-strip tiles use exact Figma exports with the shade baked in */
-.odt-strip__card--baked::after { display: none; }
-
-/* offset photo-card pair (events vs exposure / single event vs interactions) */
-.fri-cards { display: flex; gap: 20px; align-items: flex-start; flex-shrink: 0; }
-.fri-card { position: relative; width: 260px; height: 240px; border-radius: var(--r-md); overflow: hidden; display: flex; align-items: flex-end; padding: 32px; }
-.fri-cards .fri-card:first-child { margin-top: 20px; }
-.fri-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.fri-card::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); }
-.fri-card h3 { position: relative; z-index: 1; margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3; letter-spacing: -.01em; color: #fff; }
-@media (max-width: 640px) { .fri-cards { flex-wrap: wrap; } .fri-cards .fri-card:first-child { margin-top: 0; } }
-
-/* "How Fatal Risk Intelligence Works" diagram */
-.fri-diagram { position: relative; width: 560px; max-width: 100%; margin-inline: auto; display: flex; flex-direction: column; gap: 24px; align-items: center; }
-.fri-diagram__connectors { position: absolute; z-index: 0; top: 68px; left: calc(50% + 12px); transform: translateX(-50%); width: 619px; height: 257px; max-width: none; pointer-events: none; }
-.fri-chips { position: relative; z-index: 1; display: flex; gap: 8px; justify-content: center; align-items: flex-start; }
-.fri-chip { width: 88px; height: 80px; border-radius: 11px; background: var(--c-blue-pale); display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; text-align: center; padding: 8px 4px; }
-.fri-chip img { width: 24px; height: 24px; }
-.fri-chip span { font-family: var(--f-body); font-weight: 600; font-size: 12px; line-height: 1.2; color: var(--c-ink); }
-/* arched row: outer chips sit lower */
-.fri-chips > .fri-chip:nth-child(1), .fri-chips > .fri-chip:nth-child(7) { margin-top: 20px; }
-.fri-chips > .fri-chip:nth-child(2), .fri-chips > .fri-chip:nth-child(6) { margin-top: 12px; }
-.fri-chips > .fri-chip:nth-child(3), .fri-chips > .fri-chip:nth-child(5) { margin-top: 4px; }
-.fri-atlas { position: relative; z-index: 1; width: 100%; background: #fff; border: 4px solid var(--c-blue-pale); border-radius: 24px; box-shadow: 0 4px 8px -2px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.06); overflow: hidden; }
-.fri-atlas__top { height: 100px; padding: 20px; display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; }
-.fri-atlas__top h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
-.fri-atlas__top p { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 12px; line-height: 1.2; color: var(--c-grey); }
-.fri-atlas__bar { height: 40px; background: #fdf6e5; border-top: 1px solid #d3e8f3; display: flex; align-items: center; justify-content: center; font-family: var(--f-body); font-weight: 600; font-size: 14px; color: var(--c-ink); }
-.fri-outputs { position: relative; z-index: 1; width: 100%; height: 120px; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); display: flex; overflow: hidden; }
-.fri-outputs__in { flex: 1 1 0; min-width: 0; border-bottom: 1px solid var(--c-line); display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 8px 0; }
-.fri-outputs__row { display: flex; gap: 4px; align-items: center; justify-content: center; font-family: var(--f-body); font-weight: 600; font-size: 14px; line-height: 1.2; color: var(--c-ink); }
-.fri-outputs__row img { width: 20px; height: 20px; }
-.fri-outputs__sep { flex: 0 0 24px; margin: 0 -12px; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
-.fri-outputs__sep::before, .fri-outputs__sep::after { content: ""; width: 1px; flex: 1; background: var(--c-line); }
-.fri-outputs__sep img { width: 24px; height: 24px; }
-.fri-outputs__act { flex: 1 1 0; min-width: 0; background: var(--c-blue-pale); border-bottom: 1px solid var(--c-blue-light); display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; font-family: var(--f-body); font-weight: 600; font-size: 14px; line-height: 1.2; color: var(--c-ink); }
-.fri-outputs__act img { width: 32px; height: 32px; }
-
-/* bordered 6-cell conditions row (orange illustrated icons) */
+/* bordered 6-cell fatal-risk-category row (orange illustrated icons) */
 .fri-conds { display: flex; width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
-.fri-cond { flex: 1 1 0; min-width: 0; min-height: 320px; padding: 24px; display: flex; flex-direction: column; }
+.fri-cond { flex: 1 1 0; min-width: 0; min-height: 300px; padding: 24px; display: flex; flex-direction: column; }
 .fri-cond + .fri-cond { border-left: 1px solid var(--c-line); }
-.fri-cond--mid { justify-content: center; }
 .fri-cond > img { width: 80px; height: 80px; }
-.fri-cond h3 { margin: 16px 0 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+.fri-cond h3 { margin: 16px 0 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-ink); }
 .fri-cond p { margin: 8px 0 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
 @media (max-width: 1100px) {
   .fri-conds { flex-wrap: wrap; }
-  .fri-cond { flex: 1 1 33%; min-width: 200px; min-height: 260px; border-top: 1px solid var(--c-line); }
+  .fri-cond { flex: 1 1 33%; min-width: 200px; min-height: 240px; border-top: 1px solid var(--c-line); }
   .fri-cond:nth-child(-n+3) { border-top: 0; }
 }
 
-/* dashboard feature bullets (two columns) */
-.fri-feats { display: flex; gap: 10px; width: 100%; }
-.fri-feats ul { flex: 1 1 0; min-width: 0; margin: 0; padding-left: 27px; display: flex; flex-direction: column; gap: 4px; }
-.fri-feats li { font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
-@media (max-width: 640px) { .fri-feats { flex-direction: column; } }
+/* full-width overview video card (poster has title baked in) */
+.fri-videocard { width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 16px; }
+.fri-videocard__play { background: var(--c-blue-light); }
 
-/* fri sizing for the shared video card (680x382, 16px radius) */
-.fri-videocard { width: 680px; height: 382px; border-radius: 16px; }
-@media (max-width: 1100px) { .fri-videocard { width: 100%; height: auto; aspect-ratio: 16 / 9; } }
+/* dark "understanding exposure" band — Figma: ONE photo used twice over #0f394e,
+   full-bleed at .2 + the SAME photo at .6 through an ellipse window on the worker
+   (identical geometry keeps the bright spot seamless). No overflow:hidden — it
+   would clip the full-bleed layers; width divides by the html zoom (.8, main.css)
+   because under zoom 100vw paints at only 80% of the screen. */
+.fri-dark {
+  position: relative; background: #0f394e;
+  box-shadow: 0 0 0 100vmax #0f394e; clip-path: inset(0 -100vmax);
+  /* band height tracks viewport width at the design's 1440:520 ratio, so the
+     cover-cropped photo always shows the SAME slice as the Figma frame —
+     wider screens grow the band instead of cropping more of the photo
+     (100vw / .8 compensates the html zoom, like .fri-dark__bg) */
+  min-height: calc(100vw / 0.8 * (520 / 1440));
+  display: flex; flex-direction: column; justify-content: center;
+}
+.fri-dark__bg {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%) scaleX(-1);
+  width: calc(100vw / 0.8); max-width: none; height: 100%;
+  object-fit: cover; object-position: center 54%;
+  opacity: .2;
+}
+/* mask coords are pre-flip: the orange-helmet worker sits at ~22% in the photo,
+   the scaleX(-1) mirrors him (and the mask) to ~78% like the Figma frame */
+.fri-dark__bg--lit {
+  opacity: .6;
+  -webkit-mask-image: radial-gradient(ellipse 10% 50% at 22% 72%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 10% 50% at 22% 72%, #000 40%, transparent 100%);
+}
+.fri-dark__inner { position: relative; z-index: 1; display: flex; gap: 40px; align-items: center; width: 100%; }
+@media (min-width: 1281px) { .fri-dark__copy .h2 { white-space: nowrap; } }
+.fri-dark__copy { flex: 1 1 0; min-width: 300px; display: flex; flex-direction: column; gap: 24px; }
+.fri-dark__copy .h2 { color: #fff; }
+.fri-dark__copy p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #fff; }
+.fri-glasses { display: flex; gap: 40px; flex-shrink: 0; }
+.fri-glass { width: 320px; height: 200px; background: rgba(0,0,0,.4); border-radius: var(--r-sm); padding: 32px; display: flex; flex-direction: column; gap: 24px; justify-content: center; }
+.fri-glass:first-child { margin-top: 200px; }
+.fri-glass img { width: 40px; height: 40px; }
+.fri-glass h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3; letter-spacing: -.01em; color: #fff; }
+@media (max-width: 1280px) {
+  .fri-dark__inner { flex-wrap: wrap; }
+  .fri-glasses { flex-wrap: wrap; }
+  .fri-glass:first-child { margin-top: 0; }
+  .fri-dark__bg--lit { display: none; }
+}
 
-/* tall quote/explain pair (cream statement + blue "Atlas explains") */
-.fri-explain { display: flex; width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
-.fri-explain__card { flex: 1 1 0; min-width: 0; min-height: 240px; padding: 24px; display: flex; flex-direction: column; gap: 4px; justify-content: center; background: #fdf6e5; }
-.fri-explain__card--blue { background: var(--c-blue-pale); }
-.fri-explain__card p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
-.fri-explain__card p strong { font-weight: 700; }
-@media (max-width: 860px) { .fri-explain { flex-direction: column; } .fri-explain__card + .fri-explain__card { border-top: 1px solid var(--c-line); } }
+/* "How Fatal Risk Intelligence Works" diagram (right column) */
+.fri-hiw { position: relative; width: 640px; max-width: 100%; flex-shrink: 0; display: flex; flex-direction: column; gap: 24px; align-items: center; }
+.fri-hiw__connectors { position: absolute; z-index: 0; top: 50%; left: 50%; transform: translate(-50%, -58%); width: 748px; max-width: none; pointer-events: none; }
+.fri-hiw__chips { position: relative; z-index: 1; display: flex; gap: 8px; justify-content: center; align-items: flex-start; }
+.fri-chip { width: 100px; height: 88px; border-radius: 11px; background: #fff; display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; text-align: center; padding: 8px 4px; }
+.fri-chip img { width: 24px; height: 24px; }
+.fri-chip span { font-family: var(--f-body); font-weight: 600; font-size: 13px; line-height: 1.2; color: var(--c-ink); }
+.fri-hiw__chips > .fri-chip:nth-child(1) { margin-top: 20px; }
+.fri-hiw__chips > .fri-chip:nth-child(2), .fri-hiw__chips > .fri-chip:nth-child(6) { margin-top: 8px; }
+.fri-hiw__chips > .fri-chip:nth-child(3), .fri-hiw__chips > .fri-chip:nth-child(5) { margin-top: 4px; }
+.fri-hiw__chips > .fri-chip:nth-child(7) { margin-top: 20px; }
+.fri-atlas { position: relative; z-index: 1; width: 548px; max-width: 100%; background: #fdf6e5; border: 4px solid var(--c-blue-pale); border-radius: 24px; box-shadow: 0 4px 8px -2px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.06); overflow: hidden; }
+.fri-atlas__top { background: #fff; padding: 20px 20px 8px; display: flex; flex-direction: column; gap: 2px; align-items: center; }
+.fri-atlas__top h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: var(--c-ink); }
+.fri-atlas__top p { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 12px; line-height: 1.2; color: var(--c-grey); }
+.fri-atlas__wave { display: block; width: 100%; height: 16px; margin-top: -2px; }
+.fri-atlas__bot { padding: 12px 0 16px; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+.fri-atlas__bot h4 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-ink); }
+.fri-atlas__steps { display: flex; gap: 24px; justify-content: center; padding: 0 20px; font-family: var(--f-body); font-size: 14px; line-height: 1.2; color: var(--c-ink); white-space: nowrap; }
+.fri-atlas__steps b { font-weight: 600; color: var(--c-blue); margin-right: 4px; }
+.fri-hiw__out { position: relative; z-index: 1; width: 400px; max-width: 100%; height: 160px; background: #fff; border: 1px solid var(--c-blue-light); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+.fri-hiw__out > img { flex: 1 1 0; min-height: 0; width: 100%; object-fit: cover; }
+.fri-hiw__outrow { display: flex; gap: 8px; align-items: center; justify-content: center; padding: 12px 0; font-family: var(--f-body); font-weight: 600; font-size: 14px; color: var(--c-ink); }
+.fri-hiw__outrow img { width: 24px; height: 24px; }
+@media (max-width: 1280px) { .fri-hiw { margin-inline: auto; } }
+@media (max-width: 700px) { .fri-hiw__chips { flex-wrap: wrap; } .fri-hiw__connectors { display: none; } }
+
+/* play-triangle bullet lists (dashboard features / recommended actions) */
+.fri-plist { display: flex; gap: 10px; width: 100%; }
+.fri-plist ul { flex: 1 1 0; min-width: 0; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.fri-plist li { display: flex; gap: 8px; align-items: center; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+.fri-plist li::before { content: ""; width: 10px; height: 10px; flex-shrink: 0; background: url("../icon/fri-bullet-play.svg") no-repeat center / contain; }
+@media (max-width: 640px) { .fri-plist { flex-direction: column; } }
+
+/* dashboard tablet shot */
+.fri-shot { width: 660px; max-width: 100%; height: auto; flex-shrink: 0; }
+
+/* example / "Atlas explains" stacked cards */
+.fri-ex { width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.fri-ex__card { display: flex; gap: 20px; align-items: center; padding: 24px; background: #fdf6e5; }
+.fri-ex__card--blue { background: var(--c-blue-pale); border-top: 1px solid var(--c-line); align-items: flex-start; }
+.fri-ex__ic { width: 48px; height: 48px; border-radius: 50%; background: #fff; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.fri-ex__ic img { width: 24px; height: 24px; }
+.fri-ex__body { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.fri-ex__body h3 { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+.fri-ex__body p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+.fri-ex-link { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: #1e729c; }
+
+/* before / after photo composition (1440x800 stage, % coordinates) */
+.fri-ba { position: relative; width: 100%; aspect-ratio: 1440 / 800; background: #fff; overflow: hidden; }
+.fri-ba__bg, .fri-ba__guy { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fri-ba__fade { position: absolute; inset: 0; background: linear-gradient(180deg, #fff 38.9%, rgba(153,153,153,0) 100%); }
+@media (max-width: 1100px) { .fri-ba__fade { display: none; } }
+.fri-ba__label { position: absolute; margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px; letter-spacing: .35em; color: #060309; }
+.fri-ba__bar { position: absolute; margin: 0; display: flex; align-items: center; padding: 0 24px; font-family: var(--f-alt); font-weight: 700; font-size: 24px; letter-spacing: -.01em; color: #fff; }
+.fri-ba__list { position: absolute; margin: 0; display: flex; flex-direction: column; font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3; letter-spacing: -.01em; color: #060309; }
+.fri-ba__list p { margin: 0; }
+.fri-ba__list b { font-weight: 700; margin-right: 10px; }
+.fri-ba__list--x b { color: #f4813e; }
+.fri-ba__list--tick b { color: #0489c6; }
+.fri-ba__panel {
+  position: absolute; left: 59.45%; right: 0; top: 60.25%; bottom: 17.6%;
+  background: rgba(0,0,0,.39); mix-blend-mode: darken;
+  clip-path: polygon(18.5% 0, 100% 0, 100% 100%, 18.5% 100%, 0 50%);
+}
+.fri-ba__quote { position: absolute; left: 67.4%; top: 63.4%; width: 28%; display: flex; flex-direction: column; gap: 9px; color: #fff; }
+.fri-ba__quote h3 { margin: 0; font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2; letter-spacing: -.01em; }
+.fri-ba__quote h4 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3; letter-spacing: .18em; }
+.fri-ba__quote p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; }
+@media (max-width: 1100px) {
+  .fri-ba { aspect-ratio: auto; padding: 40px 24px; display: flex; flex-direction: column; gap: 24px; background: #f5f5f5; }
+  .fri-ba__bg, .fri-ba__guy, .fri-ba__panel { display: none; }
+  .fri-ba__label, .fri-ba__bar, .fri-ba__list { position: static; }
+  .fri-ba__bar { padding: 8px 24px; border-radius: var(--r-sm); align-self: flex-start; }
+  .fri-ba__quote { position: static; width: auto; background: rgba(5,55,80,.9); padding: 24px; border-radius: var(--r-sm); }
+}
+
+/* operational outcomes card grid */
+.fri-oc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; width: 100%; }
+.fri-oc__card { background: var(--c-blue-pale); border-radius: var(--r-sm); padding: 20px 24px; min-height: 156px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+.fri-oc__card img { width: 40px; height: 40px; }
+.fri-oc__card h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #231f20; }
+.fri-oc__card p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
+@media (max-width: 960px) { .fri-oc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .fri-oc { grid-template-columns: 1fr; } }
+
+/* recommended-actions photo (square) */
+.fri-actionsimg { width: 400px; max-width: 100%; height: 400px; flex-shrink: 0; object-fit: cover; border-radius: var(--r-sm); }
+
+/* "Designed For Complex Operations" application grid */
+.fri-apps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-sm); overflow: hidden; }
+.fri-app { min-height: 180px; padding: 24px; background: rgba(255,255,255,.9); border-left: 1px solid var(--c-line); border-top: 1px solid var(--c-line); display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+.fri-app:nth-child(-n+6) { border-top: 0; }
+.fri-app:nth-child(6n+1) { border-left: 0; }
+.fri-app img { width: 40px; height: 40px; }
+.fri-app h3, .fri-app p { margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: var(--c-ink); }
+.fri-app--note { grid-column: span 3; background: var(--c-blue-pale); }
+@media (max-width: 1100px) {
+  .fri-apps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fri-app:nth-child(-n+6) { border-top: 1px solid var(--c-line); }
+  .fri-app:nth-child(-n+3) { border-top: 0; }
+  .fri-app:nth-child(6n+1) { border-left: 1px solid var(--c-line); }
+  .fri-app:nth-child(3n+1) { border-left: 0; }
+}
+
+/* traditional-vs-FRI comparison tables */
+.fri-cmp { display: flex; align-items: flex-end; flex-shrink: 0; }
+.fri-cmp__col { width: 320px; background: #fff; border: 1px solid var(--c-line); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+.fri-cmp__col--trad { margin-right: -40px; }
+.fri-cmp__col--fri { position: relative; z-index: 1; border-color: var(--c-blue-light); box-shadow: 0 12px 16px -4px rgba(0,0,0,.08), 0 4px 6px -2px rgba(0,0,0,.03); }
+/* equal 50px rows in both cards keep every row aligned; the FRI card's extra
+   height sits only in its taller head (cards are bottom-aligned) */
+.fri-cmp__head { padding: 16px 20px; font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: #504e52; background: #f2f2f2; }
+.fri-cmp__col--fri .fri-cmp__head { padding: 24px 20px; font-weight: 700; color: var(--c-ink); background: var(--c-blue-pale); }
+.fri-cmp__row { display: flex; gap: 8px; align-items: center; height: 50px; padding: 0 20px; border-bottom: 1px solid var(--c-line); font-family: var(--f-body); font-weight: 600; font-size: 14px; line-height: 1.2; color: #504e52; }
+.fri-cmp__col--fri .fri-cmp__row { color: var(--c-ink); }
+.fri-cmp__row img { width: 20px; height: 20px; flex-shrink: 0; }
+@media (max-width: 1100px) {
+  .fri-cmp { flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .fri-cmp__col--trad { margin-right: 0; }
+}
 
 /* 9. PRODUCTION INTELLIGENCE (pi-) -----------------------------------------
    Rebuilt 2026-07-13 from Figma uSpSiuWCXpiRjrcPWJdeyD node 12405:20872
