@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&icon_names=air,apartment,area_chart,arrow_back,arrow_forward,arrow_right_alt,arrows_output,bar_chart,battery_charging_full,bluetooth_searching,build,call,car_crash,chat_info,check,chevron_right,close,cognition,connect_without_contact,construction,contactless,dashboard,database,database_search,delivery_truck_bolt,delivery_truck_speed,description,devices,download,e911_emergency,eco,emergency_home,encrypted,engineering,extension,eye_tracking,fact_check,forum,groups,handshake,handyman,history,home_health,home_repair_service,hub,insights,key,landscape,leaderboard,lightbulb,lightbulb_2,liquor,local_shipping,location_on,location_searching,lock,mail,memory,menu,mode_fan,monitor,monitoring,my_location,newspaper,package_2,pattern,person_alert,personal_injury,pie_chart,play_arrow,play_circle,precision_manufacturing,psychology,road,sensors,service_toolbox,settings,settings_input_component,shield,shield_lock,shield_locked,shield_person,sos,subway,supervisor_account,timer,visibility_off,warning,work,workspace_premium&display=block">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/main.css?v=2">
   <link rel="canonical" href="https://www.iottag.com/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
@@ -61,14 +61,31 @@
   <main>
     <!-- ===== HERO ===== -->
     <section class="hero">
-      <img class="hero__bg" src="assets/img/hero-bg.jpg" alt="" width="1440" height="800" fetchpriority="high">
+      <img class="hero__bg" src="assets/img/hero-bg2.jpg" alt="" width="1920" height="1440" fetchpriority="high">
+      <!-- floating asset-tag pins (decorative) -->
+      <div class="hero-pins" aria-hidden="true">
+        <div class="hero-pin" style="left:0;top:0;height:122px;">
+          <div class="hero-pin__tag"><img src="assets/icon/hero-tag-boxes.svg" alt="" width="40" height="40"><span>Material</span></div>
+          <div class="hero-pin__line"></div>
+          <div class="hero-pin__dot"><img src="assets/icon/hero-pin-circle.svg" alt="" width="60" height="9"></div>
+        </div>
+        <div class="hero-pin" style="left:110px;top:143px;height:154px;">
+          <div class="hero-pin__tag"><img src="assets/icon/hero-tag-key.svg" alt="" width="40" height="40"><span>Keys</span></div>
+          <div class="hero-pin__line"></div>
+          <div class="hero-pin__dot"><img src="assets/icon/hero-pin-circle.svg" alt="" width="60" height="9"></div>
+        </div>
+        <div class="hero-pin" style="left:335px;top:73px;height:184px;">
+          <div class="hero-pin__tag"><img src="assets/icon/hero-tag-groups.svg" alt="" width="40" height="40"><span>Personnel</span></div>
+          <div class="hero-pin__line"></div>
+          <div class="hero-pin__dot"><img src="assets/icon/hero-pin-circle.svg" alt="" width="60" height="9"></div>
+        </div>
+      </div>
       <div class="hero__content">
         <div class="stack gap-8">
           <h1 class="h1">Operational Intelligence
-For Better Decisions</h1>
-          <p class="hero__kicker">See the operation. Understand the conditions. Act with confidence.</p>
+For Complex Operations</h1>
         </div>
-        <p class="hero__text">Safety, productivity and operational performance are influenced by thousands of changing conditions every day.<br><br>The iottag platform helps organisations connect workforce activity, vehicles, equipment, environmental conditions and production systems into a shared operational view, providing the visibility and understanding needed to make better decisions across complex environments.</p>
+        <p class="hero__text">AI systems which continuously understands how changing operational conditions interact to predict risk, improve performance and support better decisions.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="platform/index.html">Explore Platform</a>
           <a class="btn btn--secondary" href="company/contact/index.html">Book a Demonstration</a>
@@ -76,103 +93,61 @@ For Better Decisions</h1>
       </div>
     </section>
 
-    <!-- ===== SCIENCE / FACTORS ===== -->
+    <!-- ===== ATLAS PLATFORM ===== -->
     <section class="section">
-      <div class="container stack gap-80">
-
-        <div class="stack gap-40">
-          <div class="stack gap-16 center">
-            <h2 class="h2 text-center" style="max-width:900px;">The science behind better operational decisions</h2>
-            <p class="lead text-center measure">iottag is an Operational Intelligence company built on engineering, data science and real-world operational expertise.</p>
-          </div>
-
-          <div class="row center gap-60">
-            <!-- Unified Operational Lens diagram -->
-            <div class="lens lens--diagram" style="flex-shrink:0;">
-              <!-- dotted connectors from each tile to the central hub -->
-              <svg class="lens__links" viewBox="0 0 540 380" width="540" height="380" fill="none" aria-hidden="true">
-                <!-- static faint rails (endpoints match each tile's arc position) -->
-                <g stroke="#bcdcee" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="1.5 5">
-                  <line x1="270" y1="190" x2="45"  y2="120"/>
-                  <line x1="270" y1="190" x2="135" y2="100"/>
-                  <line x1="270" y1="190" x2="225" y2="84"/>
-                  <line x1="270" y1="190" x2="315" y2="84"/>
-                  <line x1="270" y1="190" x2="405" y2="100"/>
-                  <line x1="270" y1="190" x2="495" y2="120"/>
-                  <line x1="270" y1="190" x2="62"  y2="258"/>
-                  <line x1="270" y1="190" x2="166" y2="278"/>
-                  <line x1="270" y1="190" x2="270" y2="294"/>
-                  <line x1="270" y1="190" x2="374" y2="278"/>
-                  <line x1="270" y1="190" x2="478" y2="258"/>
-                </g>
-                <!-- travelling light — pathLength normalises every line so all
-                     pulses leave the hub and reach the tiles in perfect sync -->
-                <g class="lens__pulse">
-                  <line pathLength="100" x1="270" y1="190" x2="45"  y2="120"/>
-                  <line pathLength="100" x1="270" y1="190" x2="135" y2="100"/>
-                  <line pathLength="100" x1="270" y1="190" x2="225" y2="84"/>
-                  <line pathLength="100" x1="270" y1="190" x2="315" y2="84"/>
-                  <line pathLength="100" x1="270" y1="190" x2="405" y2="100"/>
-                  <line pathLength="100" x1="270" y1="190" x2="495" y2="120"/>
-                  <line pathLength="100" x1="270" y1="190" x2="62"  y2="258"/>
-                  <line pathLength="100" x1="270" y1="190" x2="166" y2="278"/>
-                  <line pathLength="100" x1="270" y1="190" x2="270" y2="294"/>
-                  <line pathLength="100" x1="270" y1="190" x2="374" y2="278"/>
-                  <line pathLength="100" x1="270" y1="190" x2="478" y2="258"/>
-                </g>
-              </svg>
-              <!-- Top tiles — each positioned on the arc via left/top (nudge to match Figma) -->
-              <div class="lens__row">
-                <div class="lens-tile lens-tile--src" style="left:4px;top:44px"><img class="lens-tile__ic" src="assets/icon/article_person.svg" alt="" width="24" height="24"><span>Workforce
-Analytics</span></div>
-                <div class="lens-tile lens-tile--src" style="left:94px;top:24px"><img class="lens-tile__ic" src="assets/icon/truck.svg" alt="" width="24" height="24"><span>Fleet
-Analytics</span></div>
-                <div class="lens-tile lens-tile--src" style="left:184px;top:8px"><img class="lens-tile__ic" src="assets/icon/fan-box.svg" alt="" width="24" height="24"><span>Assets &amp;
-Systems</span></div>
-                <div class="lens-tile lens-tile--src" style="left:274px;top:8px"><img class="lens-tile__ic" src="assets/icon/smoke.svg" alt="" width="24" height="24"><span>Environment
-Analytics</span></div>
-                <div class="lens-tile lens-tile--dest" style="left:364px;top:24px"><img class="lens-tile__ic" src="assets/icon/personal_injury.svg" alt="" width="24" height="24"><span>Fatal Risk
-Factors</span></div>
-                <div class="lens-tile lens-tile--dest" style="left:454px;top:44px"><img class="lens-tile__ic" src="assets/icon/brain-cog.svg" alt="" width="24" height="24"><span>Production
-Intelligence</span></div>
-              </div>
-              <div class="lens-center">
-                <img class="lens-center__ic" src="assets/icon/iottagUOL.svg" alt="" width="26" height="26">
-                <span>Unified
-                  Operational
-                  Lens</span>
-              </div>
-              <!-- Bottom tiles: colour via --tile-bg / --tile-ic; position via left/top -->
-              <div class="lens__row lens__row--bottom">
-                <div class="lens-tile" style="--tile-bg:#f2f2f2;--tile-ic:#2da2db;left:14px;top:258px"><img class="lens-tile__ic" src="assets/icon/eye_tracking.svg" alt="" width="24" height="24"><span>Awesome Situational Awareness</span></div>
-                <div class="lens-tile" style="--tile-bg:#f2f2f2;--tile-ic:#2da2db;left:118px;top:278px"><img class="lens-tile__ic" src="assets/icon/my_location.svg" alt="" width="24" height="24"><span>Department Cordination</span></div>
-                <div class="lens-tile" style="--tile-bg:#f2f2f2;--tile-ic:#2da2db;left:222px;top:294px"><img class="lens-tile__ic" src="assets/icon/chat_info.svg" alt="" width="24" height="24"><span>Pro-active Decision Making</span></div>
-                <div class="lens-tile" style="--tile-bg:#f2f2f2;--tile-ic:#2da2db;left:326px;top:278px"><img class="lens-tile__ic" src="assets/icon/cog.svg" alt="" width="24" height="24"><span>Enhanced
-operational
-performance</span></div>
-                <div class="lens-tile" style="--tile-bg:#f2f2f2;--tile-ic:#2da2db;left:430px;top:258px"><img class="lens-tile__ic" src="assets/icon/shield-check.svg" alt="" width="24" height="24"><span>Dynamic safety
-Modeling</span></div>
-              </div>
-            </div>
-            <!-- description -->
-            <div class="grow stack gap-16">
-              <p class="body">The iottag platform creates a live operational understanding of an operation by connecting workforce activity, equipment, vehicles, environmental conditions and operational systems into a shared operational environment.</p>
-              <p class="body">This provides a single source of operational visibility, helping organisations understand what is happening, where attention may be required and how conditions are changing across the operation.</p>
-              <p class="body">Deployed across critical operations environments, iottag transforms operational complexity into actionable intelligence.</p>
-            </div>
-          </div>
+      <div class="container stack gap-40">
+        <div class="stack gap-16 center">
+          <h2 class="h2 text-center" style="max-width:1000px;">Turning Operational Data Into Operational Intelligence</h2>
+          <p class="lead text-center" style="max-width:1080px;color:var(--c-ink-2);">Unlike traditional monitoring systems that analyse individual assets or events, the iottag Atlas Platform continuously combines operational data from across the entire operation to create real-time intelligence for safety, coordination and production.</p>
         </div>
 
-        <div class="stack gap-16 text-center">
-          <h2 class="h2">Understanding What Drives Risk And Performance</h2>
-          <p class="lead" style="max-width:880px;margin:0 auto;">Powered by a living Operational Digital Twin, iottag continuously transforms real-time operational data into intelligence for safety, productivity and operational excellence.</p>
+        <div class="row center gap-80">
+          <!-- Atlas Platform flow diagram -->
+          <div class="atlas" aria-hidden="true">
+            <img class="atlas__links" src="assets/icon/atlas-connectors.svg" alt="" width="619" height="145">
+            <div class="atlas__chips">
+              <div class="atlas-chip" style="margin-top:20px;"><img src="assets/icon/atlas-person.svg" alt="" width="24" height="24"><span>People</span></div>
+              <div class="atlas-chip" style="margin-top:8px;"><img src="assets/icon/atlas-truck.svg" alt="" width="24" height="24"><span>Vehicles</span></div>
+              <div class="atlas-chip"><img src="assets/icon/atlas-fan.svg" alt="" width="24" height="24"><span>Equipment</span></div>
+              <div class="atlas-chip"><img src="assets/icon/atlas-boxes.svg" alt="" width="24" height="24"><span>Material</span></div>
+              <div class="atlas-chip" style="margin-top:8px;"><img src="assets/icon/atlas-smoke.svg" alt="" width="24" height="24"><span>Environment</span></div>
+              <div class="atlas-chip" style="margin-top:20px;"><img src="assets/icon/atlas-manufacturing.svg" alt="" width="24" height="24"><span>Production</span></div>
+            </div>
+            <div class="atlas__box">
+              <div class="atlas__head">
+                <span class="atlas__name">Atlas Platform</span>
+                <span class="atlas__sub">Continuously analysing millions of changing operation conditions</span>
+              </div>
+              <div class="atlas__outputs">
+                <span>Operational Intelligence</span>
+                <span>Fatal Risk Intelligence</span>
+                <span>Production Intelligence</span>
+              </div>
+            </div>
+            <div class="atlas__results">
+              <div class="atlas-result" style="margin-bottom:8px;"><img src="assets/icon/atlas-cog.svg" alt="" width="24" height="24"><span>Better Production</span></div>
+              <div class="atlas-result"><img src="assets/icon/atlas-shield.svg" alt="" width="24" height="24"><span>Safer Operation</span></div>
+              <div class="atlas-result" style="margin-bottom:8px;"><img src="assets/icon/atlas-chart.svg" alt="" width="24" height="24"><span>Higher Productivity</span></div>
+            </div>
+          </div>
+          <!-- description -->
+          <div class="grow stack gap-20">
+            <p class="body body--sm">The Atlas Platform connects people, vehicles, equipment, materials, environmental conditions and production systems into a single operational model.</p>
+            <p class="body body--sm">Instead of monitoring these systems independently, Atlas continuously analyses how they interact to create three specialised intelligence layers that support every level of an operation.</p>
+            <p class="body body--sm">Whether improving workforce coordination, identifying emerging fatal risks or optimising production performance, the platform delivers operational intelligence that helps organisations make faster, safer and more effective decisions.</p>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="stack gap-40">
+    <!-- ===== FACTORS / VIDEOS ===== -->
+    <section class="section section--pale">
+      <div class="container stack gap-40">
+        <h2 class="h2 text-center">See The Factors That Create Risk And Influence Performance</h2>
           <div class="row gap-20">
             <div class="minicard minicard--active" data-slide="0">
               <h3 class="h3">Operational Digital Twin</h3>
-              <p>A living operational model that understands your operation in real time.</p>
+              <p>Create a live operational understanding of the operation</p>
               <div class="checklist">
                 <div class="checklist__item"><span class="checklist__box"><span class="icon">check</span></span>Dynamic traffic management</div>
                 <div class="checklist__item"><span class="checklist__box"><span class="icon">check</span></span>Live operational map</div>
@@ -186,7 +161,7 @@ Modeling</span></div>
             </div>
             <div class="minicard" data-slide="1">
               <h3 class="h3">Fatal Risk Intelligence</h3>
-              <p>Predict emerging fatal risk exposure before incidents occur.</p>
+              <p>Predict emerging fatal risk exposure before incidents occur</p>
               <div class="checklist">
                 <div class="checklist__item"><span class="checklist__box"><span class="icon">check</span></span>AI exposure analysis</div>
                 <div class="checklist__item"><span class="checklist__box"><span class="icon">check</span></span>Emerging risk patterns</div>
@@ -200,7 +175,7 @@ Modeling</span></div>
             </div>
             <div class="minicard">
               <h3 class="h3">Production Intelligence</h3>
-              <p>Improve operational performance using intelligent fragmentation analysis.</p>
+              <p>Improve operational performance using intelligent fragmentation analysis</p>
               <div class="checklist">
                 <div class="checklist__item"><span class="checklist__box"><span class="icon">check</span></span>Blast performance</div>
                 <div class="checklist__item"><span class="checklist__box"><span class="icon">check</span></span>Fragmentation analysis</div>
@@ -217,21 +192,19 @@ Modeling</span></div>
             <div class="video-carousel__track">
               <div class="video-carousel__slide">
                 <video preload="metadata" playsinline poster="assets/img/rock-flags-poster.jpg" width="1280" height="720">
-                  <source src="assets/video/rock-flags.mp4" type="video/mp4">
+                  <source src="assets/video/rock-flags-7.mp4" type="video/mp4">
                 </video>
                 <button class="video-thumb__play" aria-label="Play video 1"><img class="video-thumb__tri" src="assets/icon/videoplay.svg" alt="" width="46" height="46"></button>
               </div>
               <div class="video-carousel__slide">
                 <video preload="metadata" playsinline poster="assets/img/fatalriskthumb.jpg" width="1280" height="720">
-                  <source src="assets/video/frd-sequence.mp4" type="video/mp4">
+                  <source src="assets/video/v2-frd-sequence-7.mp4" type="video/mp4">
                 </video>
                 <button class="video-thumb__play" aria-label="Play video 2"><img class="video-thumb__tri" src="assets/icon/videoplay.svg" alt="" width="46" height="46"></button>
               </div>
             </div>
           </div>
         </div>
-
-      </div>
     </section>
 
     <!-- ===== TRUSTED / WORLD MAP ===== -->
@@ -440,6 +413,24 @@ Supporting owners, contractors, operators and project teams across mining, tunne
       </div>
     </section>
 
+    <!-- ===== ASSET MANAGEMENT ===== -->
+    <section class="section stack gap-40">
+      <div class="stack gap-20 center">
+        <h2 class="h2 text-center">Built to Manage Every Operational Asset</h2>
+        <p class="lead text-center" style="color:var(--c-ink-2);font-weight:400;">From equipment and materials to tools and critical infrastructure,<br>iottag creates a live operational understanding of every moving part across your operation.</p>
+      </div>
+      <div class="stack gap-20" style="width:100%;">
+        <p class="asset-strip__label">Intelligence Built In To Every Asset</p>
+        <div class="asset-strip">
+          <div class="asset-stage"><img src="assets/icon/asset-tracking.svg" alt="" width="40" height="40"><span>Enterprise Asset Tracking</span></div>
+          <div class="asset-stage"><img src="assets/icon/asset-boxes.svg" alt="" width="40" height="40"><span>Materials &amp; Supply Chain Visibility</span></div>
+          <div class="asset-stage"><img src="assets/icon/asset-handyman.svg" alt="" width="40" height="40"><span>Tools &amp; Equipment Management</span></div>
+          <div class="asset-stage"><img src="assets/icon/asset-inventory.svg" alt="" width="40" height="40"><span>Inventory &amp; Laydown Yards</span></div>
+          <div class="asset-stage"><img src="assets/icon/asset-logistics.svg" alt="" width="40" height="40"><span>Cross-site Logistics &amp; Chain of Custody</span></div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== EXECUTIVE INSIGHT ===== -->
     <section class="section--pale stack center gap-60" style="padding:80px var(--pad-x);">
       <div class="exec-row">
@@ -493,85 +484,6 @@ Supporting owners, contractors, operators and project teams across mining, tunne
       <a class="btn btn--primary" href="resources/index.html">Explore Operational Analytics <span class="icon">arrow_right_alt</span></a>
     </section>
 
-    <!-- ===== OPERATIONAL DIGITAL TWIN ===== -->
-    <section class="section--narrow stack gap-40">
-      <div class="stack center gap-8">
-        <h2 class="h2">The operational Digital Twin</h2>
-        <p class="body text-center" style="max-width:600px;">No single system provides a complete understanding of an operation.</p>
-      </div>
-      <div class="container row center gap-60">
-        <div class="lens lens--diagram" style="flex-shrink:0;">
-          <!-- dotted connectors from each tile to the central hub -->
-          <svg class="lens__links" viewBox="0 0 540 380" width="540" height="380" fill="none" aria-hidden="true">
-            <!-- static faint rails (endpoints match each tile's arc position) -->
-            <g stroke="#bcdcee" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="1.5 5">
-              <line x1="270" y1="190" x2="45"  y2="120"/>
-              <line x1="270" y1="190" x2="135" y2="100"/>
-              <line x1="270" y1="190" x2="225" y2="84"/>
-              <line x1="270" y1="190" x2="315" y2="84"/>
-              <line x1="270" y1="190" x2="405" y2="100"/>
-              <line x1="270" y1="190" x2="495" y2="120"/>
-              <line x1="270" y1="190" x2="62"  y2="258"/>
-              <line x1="270" y1="190" x2="166" y2="278"/>
-              <line x1="270" y1="190" x2="270" y2="294"/>
-              <line x1="270" y1="190" x2="374" y2="278"/>
-              <line x1="270" y1="190" x2="478" y2="258"/>
-            </g>
-            <!-- travelling light — pathLength normalises every line so all
-                 pulses leave the hub and reach the tiles in perfect sync -->
-            <g class="lens__pulse">
-              <line pathLength="100" x1="270" y1="190" x2="45"  y2="120"/>
-              <line pathLength="100" x1="270" y1="190" x2="135" y2="100"/>
-              <line pathLength="100" x1="270" y1="190" x2="225" y2="84"/>
-              <line pathLength="100" x1="270" y1="190" x2="315" y2="84"/>
-              <line pathLength="100" x1="270" y1="190" x2="405" y2="100"/>
-              <line pathLength="100" x1="270" y1="190" x2="495" y2="120"/>
-              <line pathLength="100" x1="270" y1="190" x2="62"  y2="258"/>
-              <line pathLength="100" x1="270" y1="190" x2="166" y2="278"/>
-              <line pathLength="100" x1="270" y1="190" x2="270" y2="294"/>
-              <line pathLength="100" x1="270" y1="190" x2="374" y2="278"/>
-              <line pathLength="100" x1="270" y1="190" x2="478" y2="258"/>
-            </g>
-          </svg>
-          <!-- Top tiles — each positioned on the arc via left/top (nudge to match Figma) -->
-          <div class="lens__row">
-            <div class="lens-tile lens-tile--src" style="left:4px;top:44px"><img class="lens-tile__ic" src="assets/icon/article_person.svg" alt="" width="24" height="24"><span>Workforce
-Analytics</span></div>
-            <div class="lens-tile lens-tile--src" style="left:94px;top:24px"><img class="lens-tile__ic" src="assets/icon/truck.svg" alt="" width="24" height="24"><span>Fleet
-Analytics</span></div>
-            <div class="lens-tile lens-tile--src" style="left:184px;top:8px"><img class="lens-tile__ic" src="assets/icon/fan-box.svg" alt="" width="24" height="24"><span>Assets &amp;
-Systems</span></div>
-            <div class="lens-tile lens-tile--src" style="left:274px;top:8px"><img class="lens-tile__ic" src="assets/icon/smoke.svg" alt="" width="24" height="24"><span>Environment
-Analytics</span></div>
-            <div class="lens-tile lens-tile--dest" style="left:364px;top:24px"><img class="lens-tile__ic" src="assets/icon/personal_injury.svg" alt="" width="24" height="24"><span>Fatal Risk
-Factors</span></div>
-            <div class="lens-tile lens-tile--dest" style="left:454px;top:44px"><img class="lens-tile__ic" src="assets/icon/brain-cog.svg" alt="" width="24" height="24"><span>Production
-Intelligence</span></div>
-          </div>
-          <div class="lens-center">
-            <img class="lens-center__ic" src="assets/icon/iottagUOL.svg" alt="" width="26" height="26">
-            <span>Unified
-              Operational
-              Lens</span>
-          </div>
-          <!-- Bottom tiles: colour via --tile-bg / --tile-ic; position via left/top -->
-          <div class="lens__row lens__row--bottom">
-            <div class="lens-tile" style="--tile-bg:#f2f2f2;--tile-ic:#2da2db;left:14px;top:258px"><img class="lens-tile__ic" src="assets/icon/eye_tracking.svg" alt="" width="24" height="24"><span>Awesome Situational Awareness</span></div>
-            <div class="lens-tile" style="--tile-bg:#f2f2f2;--tile-ic:#2da2db;left:118px;top:278px"><img class="lens-tile__ic" src="assets/icon/my_location.svg" alt="" width="24" height="24"><span>Department Cordination</span></div>
-            <div class="lens-tile" style="--tile-bg:#f2f2f2;--tile-ic:#2da2db;left:222px;top:294px"><img class="lens-tile__ic" src="assets/icon/chat_info.svg" alt="" width="24" height="24"><span>Pro-active Decision Making</span></div>
-            <div class="lens-tile" style="--tile-bg:#f2f2f2;--tile-ic:#2da2db;left:326px;top:278px"><img class="lens-tile__ic" src="assets/icon/cog.svg" alt="" width="24" height="24"><span>Enhanced
-operational
-performance</span></div>
-            <div class="lens-tile" style="--tile-bg:#f2f2f2;--tile-ic:#2da2db;left:430px;top:258px"><img class="lens-tile__ic" src="assets/icon/shield-check.svg" alt="" width="24" height="24"><span>Dynamic safety
-Modeling</span></div>
-          </div>
-        </div>
-        <div class="grow stack gap-40" style="padding:24px 0;">
-          <p class="body">Workforce systems, fleet management platforms, environmental monitoring technologies, production systems, communications infrastructure and operational technologies all provide valuable information. The challenge is understanding how these systems interact.<br><br>The iottag Operational Digital Twin creates a live operational representation of the environment by bringing together workforce activity, equipment, vehicles, environmental conditions and operational systems into a shared operational view.<br><br>This helps organisations understand what is happening, where attention is required and how conditions are changing in real time.</p>
-          <a class="btn btn--primary" href="platform/index.html" style="align-self:flex-start;">Explore Operational Digital Twin <span class="icon">arrow_right_alt</span></a>
-        </div>
-      </div>
-    </section>
 
     <!-- ===== FINAL CTA ===== -->
     <section class="cta-band">

@@ -369,6 +369,7 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
 .minicard {
   flex: 1;
   min-height: 180px;   /* fixed height: hover reveals the button without growing the card */
+  background: var(--c-white);
   border-radius: var(--r-md);
   box-shadow: inset 0 0 0 1px var(--c-line);
   padding: 20px 24px;
@@ -378,8 +379,8 @@ a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px va
   gap: 4px;
   transition: box-shadow .15s, background .15s;
 }
-.minicard--active { background: var(--c-blue-pale); box-shadow: inset 0 0 0 1px var(--c-blue); }
-.minicard:hover   { background: var(--c-blue-pale); box-shadow: inset 0 0 0 1px var(--c-blue); }
+.minicard--active { box-shadow: inset 0 0 0 1px var(--c-blue); }
+.minicard:hover   { box-shadow: inset 0 0 0 1px var(--c-blue); }
 .minicard[data-slide] { cursor: pointer; }
 /* Learn More: collapsed by default so the copy sits vertically centred;
    on hover/focus it expands and pushes the copy up */
@@ -775,3 +776,144 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   .feature-card + .feature-card { border-left: 0; border-top: 1px solid var(--c-line); }
   .nav-actions .btn span { display: none; }
 }
+
+/* ======================================================================
+   Home redesign (Figma "Home UPdated" 12359:8279, Jul 2026)
+   hero floating pins · Atlas Platform diagram · asset chevron strip
+   ====================================================================== */
+
+/* ---- hero: floating asset-tag pins (decorative, right side) ---------- */
+.hero-pins {
+  position: absolute;
+  left: calc(50% + 76px);            /* 796px on the 1440 design canvas */
+  top: 238px;
+  width: 521px;
+  height: 302px;
+  mix-blend-mode: hard-light;
+  opacity: .6;
+  z-index: 5;
+  pointer-events: none;
+}
+.hero-pin { position: absolute; width: 155px; display: flex; flex-direction: column; align-items: center; }
+.hero-pin__tag {
+  width: 100px;
+  height: 88px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.hero-pin__tag span { font: 600 16px/1.2 var(--f-body); color: #fff; }
+.hero-pin__line { width: 1px; flex: 1; background: #fff; }
+.hero-pin__dot img { display: block; }
+@media (max-width: 1280px) { .hero-pins { display: none; } }
+
+/* ---- Atlas Platform flow diagram ------------------------------------- */
+.atlas {
+  position: relative;
+  width: 560px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.atlas__links {
+  position: absolute;
+  top: 81px;
+  left: calc(50% + 12px);
+  transform: translateX(-50%);
+  width: 619px;
+  max-width: none;
+  height: auto;
+  z-index: 0;
+}
+.atlas__chips { display: flex; gap: 8px; align-items: flex-start; position: relative; z-index: 2; }
+.atlas-chip {
+  width: 88px;
+  height: 80px;
+  background: var(--c-blue-pale);
+  border-radius: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.atlas-chip span { font: 600 12px/1.2 var(--f-body); color: #060309; }
+.atlas__box {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: #fff;
+  border: 4px solid var(--c-blue-pale);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px -2px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.06);
+}
+.atlas__head {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.atlas__name { font: 700 20px/1.4 var(--f-alt); letter-spacing: -.2px; color: #4B5059; }
+.atlas__sub  { font: 600 12px/1.2 var(--f-body); color: var(--c-grey); }
+.atlas__outputs {
+  display: flex;
+  height: 40px;
+  background: #fdf6e5;
+  border-top: 1px solid var(--c-blue-tint);
+}
+.atlas__outputs span {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font: 600 14px/1.2 var(--f-body);
+  color: #060309;
+}
+.atlas__outputs span + span { border-left: 1px solid var(--c-blue-tint); }
+.atlas__outputs span:nth-child(2) { flex: 0 0 180px; }
+.atlas__results { display: flex; gap: 8px; align-items: flex-end; position: relative; z-index: 2; }
+.atlas-result {
+  width: 180px;
+  height: 86px;
+  background: #fff;
+  border: 1px solid var(--c-blue-light);
+  border-radius: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.atlas-result span { font: 600 14px/1.2 var(--f-body); color: #060309; }
+
+/* ---- asset chevron strip ("Built to Manage Every Operational Asset") - */
+.asset-strip__label { margin: 0; font: 600 18px/1.2 var(--f-body); color: #060309; }
+.asset-strip { display: flex; opacity: .8; }
+.asset-stage {
+  flex: 1;
+  min-width: 0;
+  height: 160px;
+  background: var(--c-blue-pale);
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 28px 16px 32px;
+  text-align: center;
+}
+.asset-stage + .asset-stage { margin-left: -16px; }
+.asset-stage span { font: 600 16px/1.2 var(--f-body); color: #060309; }
