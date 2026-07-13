@@ -1,9 +1,0 @@
-# figma-watch targets — one Figma link per line, pasted straight from the browser.
-# Optional page label after a pipe:   <figma URL with node-id> | <label>
-# Lines starting with # are ignored. A newly added line is baselined automatically
-# on the next run (no alert the first time, diffs from then on).
-
-# This node is the whole "Ready to Dev" CANVAS — it contains ALL 35 page designs
-# (Home + PLATFORM/SOLUTIONS/INDUSTRIES/TECHNOLOGY/RESOURCES/COMPANY sections),
-# so this single line already watches every page. Add more lines only for other files/canvases.
-https://www.figma.com/design/uSpSiuWCXpiRjrcPWJdeyD/iottag-New-Homepage--Dev-Ready-?node-id=10408-10437&m=dev | Ready to Dev (all pages)
