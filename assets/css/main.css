@@ -432,8 +432,6 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 /* Vector Tag field photo — source JPG is stored portrait; rotate 90° to show landscape.
    The wrapper holds the final landscape box; the img is sized swapped then rotated so it
    fills the box exactly (rotation alone doesn't reflow the layout). */
-.tag-photo { width: 400px; height: 225px; position: relative; overflow: hidden; border-radius: var(--r-md); }
-.tag-photo img { position: absolute; top: 50%; left: 50%; width: 225px; height: 400px; object-fit: cover; transform: translate(-50%, -50%) rotate(-90deg); }
 
 .feature-row { display: flex; border-radius: var(--r-md); box-shadow: inset 0 0 0 1px var(--c-line); overflow: hidden; }
 .feature-card { flex: 1; padding: 40px 24px; display: flex; flex-direction: column; gap: 16px; transition: background .2s ease; }
@@ -619,6 +617,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   border-radius: var(--r-md);
   overflow: hidden;
   border: 1px solid var(--c-line);
+  border-radius: 16px;
   background: #0b2a3a;
 }
 .video-carousel__track { display: flex; height: 100%; transition: transform .5s ease; }
@@ -683,6 +682,12 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .media-block .h2 { color: #fff; font-size: 44px; }
 .media-block .body { color: #fff; font-size: 20px; }
 .media-block__copy { flex-grow: 1; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+/* stacked variant (Figma 12359:9731): centred heading on top, copy + large video below */
+.media-block--stack { flex-direction: column; gap: 40px; padding: 65px 60px; }
+.media-block--stack > .h2 { position: relative; z-index: 2; font-size: 32px; text-align: center; width: 100%; }
+.media-block--stack .media-block__overlay { background: rgba(5,55,80,.6); }
+.media-block__row { position: relative; z-index: 2; display: flex; gap: 48px; align-items: center; width: 100%; }
+.media-block__row .media-block__copy { flex: 1 1 0; min-width: 0; gap: 40px; }
 .video-thumb {
   position: relative; width: 480px; height: 271px; flex-shrink: 0;
   border-radius: var(--r-md); overflow: hidden; background: center/cover no-repeat;
@@ -701,6 +706,12 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .video-thumb__play:hover { transform: scale(1.06); }
 .video-thumb__play .icon { font-size: 40px; color: #fff; }
 .video-thumb__tri { display: block; width: 30px; height: 30px; margin-left: 4px; }   /* solid white play triangle, optically centred */
+/* enlarged thumb for the stacked media block (defined after the base so it wins) */
+.video-thumb--lg { width: 66%; max-width: 780px; height: auto; aspect-ratio: 16 / 9; }
+@media (max-width: 1100px) {
+  .media-block__row { flex-wrap: wrap; }
+  .video-thumb--lg { width: 100%; }
+}
 
 /* Highlight bar (end-to-end accountability) */
 .highlight {
@@ -735,7 +746,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 /* keep the text/buttons above the image + overlay */
 .cta-band > .stack, .cta-band > .row { position: relative; z-index: 2; }
 .cta-band .h2 { color: #f2f2f2; font-family: var(--f-alt); font-weight: 700; font-size: 52px; text-align: center; white-space: pre-line; }
-.cta-band p { max-width: 800px; font-family: var(--f-body); font-weight: 600; font-size: 18px; text-align: center; line-height: 1.5; color: #f2f2f2; margin: 0; }
+.cta-band p { max-width: 1200px; font-family: var(--f-body); font-weight: 600; font-size: 18px; text-align: center; line-height: 1.5; color: #f2f2f2; margin: 0; }
 
 /* 10. RESPONSIVE -------------------------------------------------------- */
 @media (max-width: 1100px) {
