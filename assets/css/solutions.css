@@ -14,6 +14,8 @@
 
 /* 1. PHOTO HERO ---------------------------------------------------------- */
 .hero--photo { min-height: 720px; }
+/* let long single-line headings wrap on small screens instead of overflowing */
+@media (max-width: 640px) { .hero--photo .h1 { white-space: normal; } }
 .hero--photo .hero__bg { opacity: 1; }
 .hero__overlay {
   position: absolute; inset: 0; z-index: 1;
@@ -394,78 +396,183 @@
 @media (max-width: 860px) { .fri-explain { flex-direction: column; } .fri-explain__card + .fri-explain__card { border-top: 1px solid var(--c-line); } }
 
 /* 9. PRODUCTION INTELLIGENCE (pi-) -----------------------------------------
-   Rebuilt 2026-07-09 from Figma uSpSiuWCXpiRjrcPWJdeyD node 12405:20872.
-   Page loads main.css + platform.css (.photo-cards, .stages, .sys-item) +
-   solutions.css, and reuses the odt- .odt-grid / .odt-duo / .odt-videocard /
-   .odt-apps / .odt-org / .stage--white shells with pi- variants below. */
+   Rebuilt 2026-07-13 from Figma uSpSiuWCXpiRjrcPWJdeyD node 12405:20872
+   ("Production Intelligence • Desktop" — rock-fragmentation redesign).
+   Page loads main.css + platform.css (.stages/.stage chevrons, .sys-item,
+   .cta-band) + solutions.css. */
 
 /* section headings on this design are Ubuntu Medium 40 near-black */
 .pi-h2 { font-size: 40px; color: #4b5059; }
 
-/* hero mini-cards — two aligned columns + full-width footer card */
-.pi-cards { display: flex; flex-direction: column; gap: 8px; width: 360px; flex-shrink: 0; }
-.pi-cards__row { display: flex; gap: 8px; }
-.pi-cards__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
-.pi-card {
-  height: 150px;
-  background: var(--c-blue-pale);
-  border: 1px solid var(--c-line); border-radius: var(--r-md);
-  padding: 24px 20px;
-  display: flex; flex-direction: column; gap: 4px; justify-content: center;
+/* hero overlay — flipped bottom-up navy fade over the Figma "Dblue" diagonal */
+.hero__overlay--pi {
+  background:
+    linear-gradient(0deg, rgba(5,55,80,.55) 0%, rgba(5,55,80,0) 45%),
+    linear-gradient(122deg, rgba(13,66,120,.94) 0%, rgba(20,84,146,.7) 49%, rgba(6,58,88,.55) 100%);
 }
-.pi-card img { width: 32px; height: 32px; }
-.pi-card h3, .pi-card p {
-  margin: 0;
-  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
-  letter-spacing: -.01em; color: #4b5059;
-}
-.pi-card--wide { height: 76px; align-items: center; padding: 8px 20px; }
-@media (max-width: 1240px) { .pi-cards { display: none; } }
 
-/* 240px photo cards with 20px titles (base .photo-cards in platform.css) */
-.photo-cards--pi .photo-card { height: 240px; }
-.photo-cards--pi .photo-card__title { font-size: 20px; }
-
-/* pale-celled variant of the odt- bordered icon strip */
-.odt-grid.pi-pale { background: var(--c-blue-pale); }
-
-/* Ubuntu 20px section footnotes (production-chain band) */
-.pi-note { margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; text-align: center; }
-.pi-note--bold { font-weight: 700; }
-
-/* white icon tiles on the pale rock-fragmentation band (base .sys-item in platform.css) */
-.pi-chips { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-end; flex: 1 1 0; min-width: 320px; }
-.pi-chips .sys-item { width: 240px; }
-.pi-chips .sys-item__ic { background: #fff; }
-
-/* white quote card with light-blue left rule + trailing button */
-.pi-quote {
+/* cream advisory callout with orange left rule (blast-chain section) */
+.pi-callout {
   width: 100%;
-  background: #fff; border-left: 2px solid var(--c-blue-light);
-  padding: 40px 40px 40px 42px;
-  display: flex; align-items: center; gap: 40px;
+  background: #fdf6e5; border-left: 2px solid var(--c-orange);
+  padding: 24px;
+  display: flex; gap: 16px; align-items: center;
 }
-.pi-quote__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
-.pi-quote__lead { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: var(--c-blue); }
-.pi-quote__text { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
-@media (max-width: 960px) { .pi-quote { flex-direction: column; align-items: flex-start; } }
+.pi-callout img { width: 48px; height: 48px; flex-shrink: 0; }
+.pi-callout p { flex: 1; margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #060309; text-align: center; }
 
-/* organisation levels on the pale rounded band (base .odt-org above) */
-.pi-org { background: var(--c-blue-pale); padding: 40px; }
-.pi-org .odt-org__row { height: auto; }
-.pi-org .odt-org__ring::after { background: #fff; }
-.pi-org .odt-org__col + .odt-org__col::before,
-.pi-org .odt-org__col + .odt-org__col::after { background: rgba(255,255,255,.9); }
-/* no title above the row (40px pad) and a shorter auto row: 8+100+16+24+8=156 high,
-   +40px bottom pad → lower leg 138px; legs keep the same slopes as the odt card */
-.pi-org .odt-org__col + .odt-org__col::before { top: -40px; height: 98px; }
-.pi-org .odt-org__col + .odt-org__col::after { height: 138px; }
-.pi-org__text { flex: 1 1 0; min-width: 0; display: flex; align-items: center; }
-.pi-org__text p { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-blue); }
-@media (max-width: 960px) { .pi-org__text { flex-basis: 100%; } }
+/* real-time feature list: 36px white icon squares (base .sys-item in platform.css) */
+.pi-rt { gap: 16px 40px; }
+.pi-rt .sys-item__ic { width: 36px; height: 36px; background: #fff; }
 
-/* visibility section: keep the six factor chips on two side-by-side columns */
-.pi-vis { gap: 16px 20px; flex-wrap: nowrap; }
-.pi-vis .sys-grid__col { flex: 1 1 0; min-width: 0; }
-.pi-vis .sys-item { white-space: nowrap; }
-@media (max-width: 640px) { .pi-vis { flex-wrap: wrap; } .pi-vis .sys-grid__col { flex: 1 1 100%; } }
+/* tablet dashboard shot (pre-composited export) */
+.pi-shot { flex: 1 1 0; min-width: min(320px, 100%); max-width: 660px; height: auto; }
+
+/* the shared .stages chevron strip (platform.css) can't fit 8 cells on small
+   screens — fold it into rounded tiles, matching the .stages--cards breakpoint */
+@media (max-width: 960px) {
+  .stages { flex-wrap: wrap; height: auto; gap: 12px; }
+  .stages .stage { flex: 1 1 45%; min-height: 120px; clip-path: none; border-radius: var(--r-md); }
+  .stages .stage + .stage { margin-left: 0; }
+}
+
+/* loading-performance tiles — two staggered columns of 128px cards */
+.pi-tiles { display: flex; gap: 8px; flex-shrink: 0; }
+.pi-tiles__col { display: flex; flex-direction: column; gap: 8px; justify-content: center; min-width: 0; }
+.pi-tiles__col--offset { padding-top: 40px; }
+.pi-tile {
+  width: 280px; height: 128px;
+  background: var(--c-blue-pale); border-radius: var(--r-md);
+  padding: 32px 24px;
+  display: flex; gap: 24px; align-items: center;
+}
+.pi-tile img { width: 40px; height: 40px; flex-shrink: 0; }
+.pi-tile h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3; letter-spacing: -.01em; color: #060309; }
+@media (max-width: 700px) {
+  .pi-tiles { flex-direction: column; width: 100%; }
+  .pi-tiles__col--offset { padding-top: 0; }
+  .pi-tile { width: 100%; }
+}
+
+/* haulage & crusher board: 400px photo + padded checklist */
+.pi-haul { display: flex; width: 100%; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.pi-haul > img { width: 400px; flex-shrink: 0; height: auto; object-fit: cover; background: #fdf6e5; }
+.pi-haul__body { flex: 1 1 0; min-width: 0; padding: 60px 40px; display: flex; flex-direction: column; gap: 40px; justify-content: center; }
+.pi-haul__lead { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: #060309; }
+.pi-checks { display: flex; gap: 24px 60px; }
+.pi-checks__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.pi-check { display: flex; gap: 12px; align-items: center; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: #060309; }
+.pi-check__ic {
+  width: 32px; height: 32px; flex-shrink: 0;
+  border-radius: 10px; background: var(--c-blue-pale);
+  display: flex; align-items: center; justify-content: center;
+}
+.pi-check__ic img { width: 20px; height: 20px; display: block; }
+@media (max-width: 1100px) {
+  .pi-haul { flex-direction: column; }
+  .pi-haul > img { width: 100%; max-height: 320px; }
+  .pi-haul__body { padding: 40px 24px; }
+}
+@media (max-width: 700px) { .pi-checks { flex-direction: column; } }
+
+/* blast-design feedback loop — 2x3 rounded cards circling a ring */
+.pi-loop { position: relative; width: 540px; max-width: 100%; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px; }
+.pi-loop__ring {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 360px; height: 360px; border-radius: 360px;
+  border: 4px dashed var(--c-blue-tint);
+}
+.pi-loop__row { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; }
+.pi-loop__row + .pi-loop__row { align-items: flex-start; }
+.pi-loop__card--up { margin-bottom: 80px; }
+.pi-loop__card--down { margin-top: 80px; }
+.pi-loop__card {
+  width: 168px; height: 140px;
+  background: var(--c-blue-pale); border-radius: 24px;
+  padding: 32px 0 40px;
+  display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center;
+}
+.pi-loop__card img { width: 32px; height: 32px; }
+.pi-loop__card span { font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: #060309; text-align: center; }
+@media (max-width: 640px) {
+  .pi-loop { width: 100%; }
+  .pi-loop__ring { display: none; }
+  .pi-loop__row { flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .pi-loop__card--up { margin-bottom: 0; }
+  .pi-loop__card--down { margin-top: 0; }
+}
+
+/* role dashboards strip: photo circles + zigzag hairline dividers, matching
+   the odt-org card ("From site operations to executive visibility") */
+.pi-dash { display: flex; gap: 20px; width: 100%; background: #fff; border-radius: var(--r-md); overflow: hidden; }
+.pi-dash__col { position: relative; flex: 1 1 0; min-width: 0; padding: 40px 0 40px 40px; display: flex; flex-direction: column; gap: 16px; }
+/* zigzag divider = two skewed hairlines meeting on the connector line
+   (y:90 = col padding 40 + circle radius 50). Same leg slopes as odt-org:
+   upper leans 9.3deg over 90px (~15px), lower drifts back 4.2deg to the
+   card bottom — the kink sits mid-gap so the horizontal connector crosses it. */
+.pi-dash__col + .pi-dash__col::before,
+.pi-dash__col + .pi-dash__col::after {
+  content: ""; position: absolute; left: -11px; width: 1px;
+  background: var(--c-blue-pale);
+}
+.pi-dash__col + .pi-dash__col::before {
+  top: 0; height: 90px; transform: skewX(9.3deg); transform-origin: bottom left;
+}
+.pi-dash__col + .pi-dash__col::after {
+  top: 90px; height: calc(100% - 90px); transform: skewX(-4.2deg); transform-origin: top left;
+}
+.pi-dash__head { display: flex; align-items: center; gap: 8px; }
+.pi-dash__head img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
+/* -9px = ends exactly at the zigzag kink (kink at next col left -11px; col gap 20px) */
+.pi-dash__head::after { content: ""; flex: 1; height: 1px; margin-right: -9px; background: var(--c-blue-pale); }
+.pi-dash__col:last-child .pi-dash__head::after { background: transparent; }
+.pi-dash__col h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: #060309; }
+.pi-dash__col p { margin: 0; font-family: var(--f-body); font-size: 14px; line-height: 1.4; color: #504e52; }
+@media (max-width: 960px) {
+  .pi-dash { flex-wrap: wrap; }
+  .pi-dash__col { flex: 1 1 40%; min-width: 220px; padding: 24px; }
+  .pi-dash__col + .pi-dash__col::before,
+  .pi-dash__col + .pi-dash__col::after { display: none; }
+  .pi-dash__head::after { margin-right: 0; }
+  .pi-dash__col:last-child .pi-dash__head::after { background: var(--c-blue-pale); }
+}
+
+/* continuous-optimisation 4x2 bordered icon grid */
+.pi-opt {
+  flex: 1.2 1 0; min-width: min(320px, 100%);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden;
+}
+.pi-opt__cell {
+  min-height: 180px; padding: 24px;
+  display: flex; flex-direction: column; gap: 16px; justify-content: center;
+  border-left: 1px solid var(--c-line); border-top: 1px solid var(--c-line);
+}
+.pi-opt__cell:nth-child(-n+4) { border-top: 0; }
+.pi-opt__cell:nth-child(4n+1) { border-left: 0; }
+.pi-opt__cell img { width: 48px; height: 48px; }
+.pi-opt__cell p { margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #060309; }
+@media (max-width: 700px) {
+  .pi-opt { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pi-opt__cell { min-height: 140px; }
+  .pi-opt__cell:nth-child(-n+4) { border-top: 1px solid var(--c-line); }
+  .pi-opt__cell:nth-child(-n+2) { border-top: 0; }
+  .pi-opt__cell:nth-child(4n+1) { border-left: 1px solid var(--c-line); }
+  .pi-opt__cell:nth-child(2n+1) { border-left: 0; }
+}
+
+/* "Operational Intelligence Enabled" band: tinted copy + 480px photo */
+.pi-oi { display: flex; width: 100%; border-radius: 0 var(--r-md) var(--r-md) 0; overflow: hidden; }
+.pi-oi__copy {
+  flex: 1 1 0; min-width: 0;
+  background: var(--c-blue-pale); border-left: 2px solid var(--c-blue-light);
+  padding: 40px 60px;
+  display: flex; flex-direction: column; gap: 20px; justify-content: center;
+}
+.pi-oi__copy p { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: #060309; }
+.pi-oi__img { width: 480px; flex-shrink: 0; object-fit: cover; min-height: 320px; height: auto; }
+@media (max-width: 1100px) {
+  .pi-oi { flex-direction: column; }
+  .pi-oi__copy { padding: 32px 24px; }
+  .pi-oi__img { width: 100%; min-height: 0; max-height: 320px; }
+}
