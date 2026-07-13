@@ -1,0 +1,3 @@
+# Figma design-watch tooling: runs locally on a schedule; baseline, reports
+# and logs are machine-generated working data — keep them out of the site repo.
+figma-watch/
