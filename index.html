@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&icon_names=air,apartment,area_chart,arrow_back,arrow_forward,arrow_right_alt,arrows_output,bar_chart,battery_charging_full,bluetooth_searching,build,call,car_crash,chat_info,check,chevron_right,close,cognition,connect_without_contact,construction,contactless,dashboard,database,database_search,delivery_truck_bolt,delivery_truck_speed,description,devices,download,e911_emergency,eco,emergency_home,encrypted,engineering,extension,eye_tracking,fact_check,forum,groups,handshake,handyman,history,home_health,home_repair_service,hub,insights,key,landscape,leaderboard,lightbulb,lightbulb_2,liquor,local_shipping,location_on,location_searching,lock,mail,memory,menu,mode_fan,monitor,monitoring,my_location,newspaper,package_2,pattern,person_alert,personal_injury,pie_chart,play_arrow,play_circle,precision_manufacturing,psychology,road,sensors,service_toolbox,settings,settings_input_component,shield,shield_lock,shield_locked,shield_person,sos,subway,supervisor_account,timer,visibility_off,warning,work,workspace_premium&display=block">
-  <link rel="stylesheet" href="assets/css/main.css?v=4">
+  <link rel="stylesheet" href="assets/css/main.css">
   <link rel="canonical" href="https://www.iottag.com/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
@@ -61,23 +61,36 @@
   <main>
     <!-- ===== HERO ===== -->
     <section class="hero">
-      <img class="hero__bg" src="assets/img/hero-bg2.jpg" alt="" width="1920" height="1440" fetchpriority="high">
+      <img class="hero__bg" src="assets/img/hero-bg3.jpg" alt="" width="1920" height="1440" fetchpriority="high">
       <!-- floating asset-tag pins (decorative) -->
       <div class="hero-pins" aria-hidden="true">
-        <div class="hero-pin" style="left:0;top:0;height:122px;">
+        <div class="hero-pin" style="left:0;top:25px;width:175px;height:122px;">
           <div class="hero-pin__tag"><img src="assets/icon/hero-tag-boxes.svg" alt="" width="40" height="40"><span>Material</span></div>
           <div class="hero-pin__line"></div>
-          <div class="hero-pin__dot"><img src="assets/icon/hero-pin-circle.svg" alt="" width="60" height="9"></div>
+          <div class="hero-pin__foot hero-pin__foot--l"></div>
         </div>
-        <div class="hero-pin" style="left:110px;top:143px;height:154px;">
-          <div class="hero-pin__tag"><img src="assets/icon/hero-tag-key.svg" alt="" width="40" height="40"><span>Keys</span></div>
+        <div class="hero-pin" style="left:72px;top:203px;width:118px;height:188px;">
+          <div class="hero-pin__tag"><img src="assets/icon/hero-tag-truck.svg" alt="" width="40" height="40"><span>Vehicles</span></div>
           <div class="hero-pin__line"></div>
-          <div class="hero-pin__dot"><img src="assets/icon/hero-pin-circle.svg" alt="" width="60" height="9"></div>
+          <div class="hero-pin__foot hero-pin__foot--l"></div>
         </div>
-        <div class="hero-pin" style="left:335px;top:73px;height:184px;">
+        <div class="hero-pin" style="left:215px;top:104px;width:140px;height:187px;">
           <div class="hero-pin__tag"><img src="assets/icon/hero-tag-groups.svg" alt="" width="40" height="40"><span>Personnel</span></div>
           <div class="hero-pin__line"></div>
-          <div class="hero-pin__dot"><img src="assets/icon/hero-pin-circle.svg" alt="" width="60" height="9"></div>
+          <div class="hero-pin__foot hero-pin__foot--l"></div>
+        </div>
+        <div class="hero-pin hero-pin--up" style="left:215px;top:-127px;width:140px;height:173px;">
+          <div class="hero-pin__line"></div>
+          <div class="hero-pin__tag"><img src="assets/icon/hero-tag-manufacturing.svg" alt="" width="40" height="40"><span>Production</span></div>
+        </div>
+        <div class="hero-pin hero-pin--env" style="left:417px;top:-58px;width:140px;height:133px;">
+          <div class="hero-pin__tag" style="width:110px;"><img src="assets/icon/hero-tag-smoke.svg" alt="" width="40" height="40"><span>Environment</span></div>
+          <div class="hero-pin__env-link"></div>
+        </div>
+        <div class="hero-pin" style="left:348px;top:141px;width:162px;height:184px;">
+          <div class="hero-pin__tag"><img src="assets/icon/hero-tag-handyman.svg" alt="" width="40" height="40"><span>Equipment</span></div>
+          <div class="hero-pin__line"></div>
+          <div class="hero-pin__foot hero-pin__foot--r"></div>
         </div>
       </div>
       <div class="hero__content">
@@ -85,7 +98,7 @@
           <h1 class="h1">Operational Intelligence
 For Complex Operations</h1>
         </div>
-        <p class="hero__text">AI systems which continuously understands how changing operational conditions interact to predict risk, improve performance and support better decisions.</p>
+        <p class="hero__text">AI systems which continuously understands how changing<br>operational conditions interact to predict risk,<br>improve performance and support better decisions.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="platform/index.html">Explore Platform</a>
           <a class="btn btn--secondary" href="company/contact/index.html">Book a Demonstration</a>
@@ -364,7 +377,7 @@ Supporting owners, contractors, operators and project teams across mining, tunne
     </section>
 
     <!-- ===== PURPOSE-BUILT TECHNOLOGY ===== -->
-    <section class="section section--pale stack gap-80">
+    <section class="section stack gap-80">
       <div class="row gap-40" style="align-items:center;">
         <div class="grow stack gap-20">
           <h2 class="h2" style="font-size:40px;">Purpose built technology<br>for challenging environments</h2>
@@ -374,12 +387,24 @@ Supporting owners, contractors, operators and project teams across mining, tunne
         </div>
         <img src="assets/img/ecosystem.png" alt="Diagram of the iottag technology ecosystem — tags, sensors, gateways, cameras and kiosks connecting to the Atlas Cloud Portal" width="480" height="460" loading="lazy" style="flex-shrink:0;mix-blend-mode:multiply;">
       </div>
-      <div class="highlight" style="background:#fff;">
+      <div class="highlight highlight--tech360">
         <div class="grow stack gap-20">
           <span class="highlight__title">End-to-End Accountability</span>
           <p class="body">Unlike many providers that rely on third-party hardware, iottag designs, supports and maintains its own wearable technology — enabling tighter integration, stronger reliability, faster innovation and a single point of accountability across the solution.</p>
+          <a class="btn btn--primary" href="technology/engineering-hardware/index.html" style="align-self:flex-start;margin-top:20px;">Explore Engineering &amp; Hardware <span class="icon">arrow_right_alt</span></a>
         </div>
-        <a class="btn btn--primary" href="platform/asset-visibility/index.html" style="flex-shrink:0;">Explore Engineering &amp; Hardware <span class="icon">arrow_right_alt</span></a>
+        <div class="d81-fit" id="d81-fit">
+          <div class="d81-card">
+            <div class="d81-panel" id="d81-cradle-panel" tabindex="0" aria-label="D81 Vector Tag in cradle, 360 degree view. Drag or use the arrow keys to rotate.">
+              <img class="d81-img" id="d81-cradle-img" src="assets/img/vectortag360/cradle360-01.webp" alt="Vector Tag seated in its charging cradle, 360 degree rotating view" width="640" height="840" loading="lazy" draggable="false" style="left:0;top:0;width:320px;height:420px">
+              <span class="d81-label">Tag in Cradle</span>
+            </div>
+            <div class="d81-panel d81-panel-right" id="d81-tag-panel" tabindex="0" aria-label="D81 Vector Tag, 360 degree view. Drag or use the arrow keys to rotate.">
+              <img class="d81-img" id="d81-tag-img" src="assets/img/vectortag360/tag360-01.webp" alt="iottag D81 Vector Tag industrial wearable, 360 degree rotating view" width="640" height="840" loading="lazy" draggable="false" style="left:0;top:0;width:320px;height:420px">
+              <span class="d81-label">D81 Vector Tag</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -402,19 +427,19 @@ Supporting owners, contractors, operators and project teams across mining, tunne
     </section>
 
     <!-- ===== EXECUTIVE INSIGHT ===== -->
-    <section class="section--pale stack center gap-60" style="padding:80px var(--pad-x);">
+    <section class="section stack center gap-60">
       <div class="exec-row">
         <div class="grow stack gap-20" style="min-width:0;">
-          <h2 class="h2">Executive Insight &amp;<br>Portfolio Visibility</h2>
+          <h2 class="h2" style="font-size:40px;">Executive Insight &amp; <span style="white-space:nowrap;">Portfolio Visibility</span></h2>
           <p class="body">While operational teams use iottag to manage daily activities, leadership teams gain access to portfolio-level dashboards that provide visibility across projects, sites, contractors and operational environments.</p>
           <p class="body">Monitor safety performance, operational trends, production outcomes and critical KPIs through a consistent reporting framework that supports governance, benchmarking and strategic decision-making.</p>
         </div>
         <img src="assets/img/AdobeStock_65630929.png" alt="Leadership team reviewing iottag portfolio dashboards during a boardroom presentation" width="460" height="240" loading="lazy" style="flex-shrink:0;border-radius:var(--r-md);object-fit:cover;">
       </div>
-      <div class="row gap-40 wrap" style="align-items:stretch;">
-        <div class="grow card" style="display:flex;flex-direction:column;gap:20px;">
-          <span class="eyebrow" style="padding-bottom:12px;color:var(--c-ink);">Leadership Outcomes</span>
-          <div class="row gap-20">
+      <div class="row gap-20" style="align-items:stretch;width:100%;">
+        <div class="card card--pale" style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:20px;">
+          <span class="eyebrow" style="padding-bottom:12px;color:var(--c-ink);font-weight:700;">Leadership Outcomes</span>
+          <div class="row" style="gap:12px;">
             <div class="checklist">
               <div class="checklist__item"><span class="checklist__box"><img class="checklist__ic" src="assets/icon/comparesiteperformance.svg" alt="" width="16" height="16"></span>Compare site performance</div>
               <div class="checklist__item"><span class="checklist__box"><img class="checklist__ic" src="assets/icon/monitorsaftytrends.svg" alt="" width="16" height="16"></span>Monitor safety trends</div>
@@ -429,20 +454,20 @@ Supporting owners, contractors, operators and project teams across mining, tunne
             </div>
           </div>
         </div>
-        <div class="card" style="width:500px;flex-shrink:0;display:flex;flex-direction:column;gap:20px;">
-          <span class="eyebrow" style="padding-bottom:12px;color:var(--c-ink);">Designed For</span>
+        <div class="card card--pale" style="width:440px;max-width:100%;flex-shrink:0;display:flex;flex-direction:column;gap:20px;">
+          <span class="eyebrow" style="padding-bottom:12px;color:var(--c-ink);font-weight:700;">Designed For</span>
           <div class="stack gap-24">
             <div class="stack gap-8">
-              <span class="eyebrow--cond" style="font-size:16px;letter-spacing:.48px;text-transform:none;">Mining</span>
-              <div class="row center gap-8 wrap" style="font-family:var(--f-body);font-size:14px;color:var(--c-ink);">
+              <span class="eyebrow--cond" style="font-size:16px;letter-spacing:.48px;text-transform:none;font-weight:700;">Mining</span>
+              <div class="row center wrap" style="gap:6px;font-family:var(--f-body);font-size:12px;color:var(--c-ink);">
                 <span class="role-pill">Contractors</span><span style="color:var(--c-blue);">&rarr;</span>
                 <span class="role-pill">Site management</span><span style="color:var(--c-blue);">&rarr;</span>
                 <span class="role-pill">Corporate Leadership</span>
               </div>
             </div>
             <div class="stack gap-8">
-              <span class="eyebrow--cond" style="font-size:16px;letter-spacing:.48px;text-transform:none;">Tunnelling &amp; Infrastructure</span>
-              <div class="row center gap-8 wrap" style="font-family:var(--f-body);font-size:14px;color:var(--c-ink);">
+              <span class="eyebrow--cond" style="font-size:16px;letter-spacing:.48px;text-transform:none;font-weight:700;">Tunnelling &amp; Infrastructure</span>
+              <div class="row center wrap" style="gap:6px;font-family:var(--f-body);font-size:12px;color:var(--c-ink);">
                 <span class="role-pill">Subcontractors</span><span style="color:var(--c-blue);">&rarr;</span>
                 <span class="role-pill">Main contractor / JV</span><span style="color:var(--c-blue);">&rarr;</span>
                 <span class="role-pill">Asset Owner</span>
@@ -475,5 +500,6 @@ into actionable intelligence</h2>
   <div data-include="partials/footer.html"></div>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/vectortag360.js" defer></script>
 </body>
 </html>
