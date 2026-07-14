@@ -321,6 +321,15 @@
 .fri-cond > img { width: 80px; height: 80px; }
 .fri-cond h3 { margin: 16px 0 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-ink); }
 .fri-cond p { margin: 8px 0 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
+
+/* 2026-07-14 redesign: cream icon strip (labels only) + caption inside one card */
+.fri-conds2 { width: 100%; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.fri-conds2__strip { display: flex; justify-content: space-between; gap: 16px; background: #fdf6e5; padding: 32px 56px; }
+.fri-cond2 { display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; }
+.fri-cond2 img { width: 80px; height: 80px; }
+.fri-cond2 h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-ink); text-align: center; }
+.fri-conds2__caption { margin: 0; padding: 32px 24px; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); text-align: center; }
+@media (max-width: 960px) { .fri-conds2__strip { flex-wrap: wrap; justify-content: center; gap: 24px 40px; } .fri-conds2__caption br { display: none; } }
 @media (max-width: 1100px) {
   .fri-conds { flex-wrap: wrap; }
   .fri-cond { flex: 1 1 33%; min-width: 200px; min-height: 240px; border-top: 1px solid var(--c-line); }
@@ -364,6 +373,13 @@
 .fri-dark__copy { flex: 1 1 0; min-width: 300px; display: flex; flex-direction: column; gap: 24px; }
 .fri-dark__copy .h2 { color: #fff; }
 .fri-dark__copy p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #fff; }
+/* 2026-07-14 redesign: copy stacked over a row of two compact dark chips */
+.fri-dark__inner--col { flex-direction: column; align-items: flex-start; gap: 48px; }
+.fri-darkchips { display: flex; gap: 24px; flex-wrap: wrap; }
+.fri-darkchip { display: flex; gap: 16px; align-items: center; background: rgba(0,0,0,.45); border-radius: var(--r-sm); padding: 16px 28px; }
+.fri-darkchip img { width: 32px; height: 32px; flex-shrink: 0; }
+.fri-darkchip p { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.3; color: #fff; }
+
 .fri-glasses { display: flex; gap: 40px; flex-shrink: 0; }
 .fri-glass { width: 320px; height: 200px; background: rgba(0,0,0,.4); border-radius: var(--r-sm); padding: 32px; display: flex; flex-direction: column; gap: 24px; justify-content: center; }
 .fri-glass:first-child { margin-top: 200px; }
@@ -394,8 +410,9 @@
 .fri-atlas__wave { display: block; width: 100%; height: 16px; margin-top: -2px; }
 .fri-atlas__bot { padding: 12px 0 16px; display: flex; flex-direction: column; gap: 8px; align-items: center; }
 .fri-atlas__bot h4 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-ink); }
-.fri-atlas__steps { display: flex; gap: 24px; justify-content: center; padding: 0 20px; font-family: var(--f-body); font-size: 14px; line-height: 1.2; color: var(--c-ink); white-space: nowrap; }
-.fri-atlas__steps b { font-weight: 600; color: var(--c-blue); margin-right: 4px; }
+.fri-atlas__steps { display: flex; gap: 32px; justify-content: center; padding: 0 20px; font-family: var(--f-body); font-size: 14px; line-height: 1.2; color: var(--c-ink); white-space: nowrap; }
+.fri-atlas__steps span { display: inline-flex; align-items: center; gap: 4px; }
+.fri-atlas__steps b { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 4px; background: #fff; font-weight: 600; font-size: 12px; color: #e36821; }
 .fri-hiw__out { position: relative; z-index: 1; width: 400px; max-width: 100%; height: 160px; background: #fff; border: 1px solid var(--c-blue-light); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
 .fri-hiw__out > img { flex: 1 1 0; min-height: 0; width: 100%; object-fit: cover; }
 .fri-hiw__outrow { display: flex; gap: 8px; align-items: center; justify-content: center; padding: 12px 0; font-family: var(--f-body); font-weight: 600; font-size: 14px; color: var(--c-ink); }
@@ -423,6 +440,13 @@
 .fri-ex__body h3 { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 .fri-ex__body p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 .fri-ex-link { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: #1e729c; }
+/* 2026-07-14 redesign: centred section — card grows, note sits to its right */
+.fri-ex-row { display: flex; gap: 32px; align-items: center; width: 100%; }
+.fri-ex-row .fri-ex { flex: 1 1 0; min-width: 0; }
+.fri-ex-row .fri-ex-link { width: 190px; flex-shrink: 0; }
+@media (max-width: 900px) { .fri-ex-row { flex-wrap: wrap; } .fri-ex-row .fri-ex-link { width: 100%; } }
+.fri-ex__card--white { background: #fff; border-top: 1px solid var(--c-line); align-items: flex-start; }
+.fri-ex__ic--blue { background: var(--c-blue-pale); }
 
 /* before / after photo composition (1440x800 stage, % coordinates) */
 .fri-ba { position: relative; width: 100%; aspect-ratio: 1440 / 800; background: #fff; overflow: hidden; }
@@ -455,7 +479,7 @@
 
 /* operational outcomes card grid */
 .fri-oc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; width: 100%; }
-.fri-oc__card { background: var(--c-blue-pale); border-radius: var(--r-sm); padding: 20px 24px; min-height: 156px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+.fri-oc__card { background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-sm); padding: 20px 24px; min-height: 156px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
 .fri-oc__card img { width: 40px; height: 40px; }
 .fri-oc__card h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #231f20; }
 .fri-oc__card p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
@@ -480,6 +504,21 @@
   .fri-app:nth-child(6n+1) { border-left: 1px solid var(--c-line); }
   .fri-app:nth-child(3n+1) { border-left: 0; }
 }
+
+/* 2026-07-14 redesign: comparison columns float over the dusty-tunnel photo */
+.fri-why { position: relative; width: 100%; overflow: hidden; }
+.fri-why__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fri-why__inner {
+  position: relative; z-index: 1;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 40px;
+  width: min(100%, calc(var(--maxw) + (var(--pad-x) * 2)));
+  margin-inline: auto;
+  padding: 88px var(--pad-x);
+}
+.fri-why .fri-cmp__col { width: 320px; }
+.fri-why .fri-cmp__col--trad .fri-cmp__head { background: #fdf6e5; color: var(--c-ink); }
+.fri-x { color: var(--c-orange); font-weight: 700; font-size: 14px; }
+@media (max-width: 760px) { .fri-why__inner { flex-direction: column; } }
 
 /* traditional-vs-FRI comparison tables */
 .fri-cmp { display: flex; align-items: flex-end; flex-shrink: 0; }
