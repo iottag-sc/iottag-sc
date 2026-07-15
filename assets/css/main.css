@@ -734,31 +734,28 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .highlight__title { font-family: var(--f-alt); font-weight: 500; font-size: 24px; color: var(--c-blue); }
 .highlight--tech360 { gap: 40px; }
 
-/* D81 Vector Tag 360 viewer (homepage highlight). The card keeps the fixed
-   640x420 geometry the frame images were registered against; .d81-fit scales
-   the whole card to whatever width the layout gives it (JS sets the height). */
-.d81-fit  { position: relative; width: 640px; max-width: 100%; aspect-ratio: 640 / 420; }
+/* Vector Tag cradle 360 viewer (homepage highlight). The 258x345 panel is a
+   cropped window onto the 640x840 frames shown at 60% (384x504) — the frames
+   carry big transparent margins around the cradle, so the img is offset
+   (inline left/top in the HTML) to show just the device. .d81-fit scales the
+   card down further if the layout gets narrow (JS sets the height).
+   flex-shrink:0 stops the highlight flex row from crushing it. */
+.d81-fit  { position: relative; width: 258px; max-width: 100%; flex-shrink: 0; aspect-ratio: 258 / 345; }
 .d81-card {
   position: absolute;
   top: 0; left: 0;
   transform-origin: top left;
   display: flex;
-  width: 640px;
+  width: 258px;
 }
-.d81-card--col { flex-direction: column; width: 320px; }
 .d81-panel {
   position: relative;
-  width: 320px; height: 420px;
+  width: 258px; height: 345px;
   overflow: hidden;
   flex-shrink: 0;
-  cursor: grab;
-  touch-action: pan-y;
   user-select: none; -webkit-user-select: none;
-  outline: none;
 }
-.d81-panel.grabbing { cursor: grabbing; }
 .d81-img   { position: absolute; max-width: none; pointer-events: none; }
-.d81-label { position: absolute; left: 0; right: 0; top: 0; font-family: var(--f-head); font-weight: 600; font-size: 22px; line-height: 1.5; text-align: center; white-space: nowrap; color: var(--c-grey); }
 
 /* Final CTA band */
 .cta-band {
