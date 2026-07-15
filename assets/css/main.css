@@ -854,10 +854,22 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .hero-pin__tag span { font: 600 16px/1.2 var(--f-body); color: #fff; }
 .hero-pin__line { width: 1px; flex: 1; background: #fff; }
 /* L-foot: 1px horizontal run along the pin's bottom edge, half the width */
-.hero-pin__foot { width: 100%; height: 1px; }
-.hero-pin__foot--l { background: linear-gradient(90deg, #fff 50%, transparent 50%); }
-.hero-pin__foot--r { background: linear-gradient(90deg, transparent 50%, #fff 50%); }
-/* connector drops in from above the tag (Production) */
+.hero-pin__foot { width: 100%; height: 1px; position: relative; }
+.hero-pin__foot::before { content: ""; position: absolute; top: 0; height: 1px; background: #fff; }
+.hero-pin__foot--l::before { left: 0; right: 50%; }
+.hero-pin__foot--r::before { left: 50%; right: 0; }
+/* large square tag (Compliance · Safety · Efficiency) */
+.hero-pin__tag--lg { width: 120px; height: 120px; }
+.hero-pin__tag--lg img { width: 34px; height: 34px; }
+.hero-pin__tag--lg span { font-size: 14px; text-align: center; }
+/* ellipse ground-marker at connector endpoints (34×9 ring + filled core) */
+.hero-pin__dot { width: 34px; height: 9px; flex-shrink: 0; border: 1px solid #fff; border-radius: 50%; position: relative; }
+.hero-pin__dot::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 3px; transform: translate(-50%, -50%); background: #fff; border-radius: 50%; }
+.hero-pin__foot .hero-pin__dot { position: absolute; top: -4px; }
+.hero-pin__dot--l { left: -17px; }
+.hero-pin__dot--r { right: -17px; }
+.hero-pin__env-link .hero-pin__dot { position: absolute; right: -17px; bottom: -4px; }
+/* connector drops in from above the tag (Operation) */
 .hero-pin--up { justify-content: flex-end; }
 /* sideways connector: arm out of the tag's right edge, then down (Environment) */
 .hero-pin--env { flex-direction: row; align-items: stretch; }
