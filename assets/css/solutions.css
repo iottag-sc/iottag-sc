@@ -340,11 +340,12 @@
 .fri-videocard { width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 16px; }
 .fri-videocard__play { background: var(--c-blue-light); }
 
-/* dark "understanding exposure" band — Figma: ONE photo used twice over #0f394e,
-   full-bleed at .2 + the SAME photo at .6 through an ellipse window on the worker
-   (identical geometry keeps the bright spot seamless). No overflow:hidden — it
-   would clip the full-bleed layers; width divides by the html zoom (.8, main.css)
-   because under zoom 100vw paints at only 80% of the screen. */
+/* dark "understanding exposure" band — Figma (2026-07-15 photo swap): ONE photo
+   used twice over #0f394e, full-bleed at .2 + the SAME photo brightening toward
+   the right edge through a linear-gradient window (identical geometry keeps the
+   bright side seamless). No overflow:hidden — it would clip the full-bleed
+   layers; width divides by the html zoom (.8, main.css) because under zoom
+   100vw paints at only 80% of the screen. */
 .fri-dark {
   position: relative; background: #0f394e;
   box-shadow: 0 0 0 100vmax #0f394e; clip-path: inset(0 -100vmax);
@@ -355,17 +356,17 @@
   display: flex; flex-direction: column; justify-content: center;
 }
 .fri-dark__bg {
-  position: absolute; top: 0; left: 50%; transform: translateX(-50%) scaleX(-1);
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
   width: calc(100vw / 0.8); max-width: none; height: 100%;
-  object-fit: cover; object-position: center 54%;
+  object-fit: cover; object-position: center;
   opacity: .2;
 }
-/* mask coords are pre-flip: the orange-helmet worker sits at ~22% in the photo,
-   the scaleX(-1) mirrors him (and the mask) to ~78% like the Figma frame */
+/* photo visibility ramps from ~.2 at 60% width up to ~.9 at the right edge,
+   lifting the orange-vest worker out of the dark band (sampled from render) */
 .fri-dark__bg--lit {
-  opacity: .6;
-  -webkit-mask-image: radial-gradient(ellipse 10% 50% at 22% 72%, #000 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 10% 50% at 22% 72%, #000 40%, transparent 100%);
+  opacity: .7;
+  -webkit-mask-image: linear-gradient(90deg, transparent 60%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 60%, #000 100%);
 }
 .fri-dark__inner { position: relative; z-index: 1; display: flex; gap: 40px; align-items: center; width: 100%; }
 @media (min-width: 1281px) { .fri-dark__copy .h2 { white-space: nowrap; } }
@@ -443,14 +444,13 @@
 .fri-ex__body h3 { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 .fri-ex__body p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 .fri-ex-link { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: #1e729c; }
-.fri-ex__note { width: 240px; flex-shrink: 0; position: relative; background: #fff; display: flex; align-items: center; padding: 24px 20px 24px 56px; }
-/* cream sliver between the straight column edge and the slanted top segment —
-   the hairline kinks rightward (">") at the cream/white row boundary (y:96) */
-.fri-ex__cut { position: absolute; inset: 0 auto 0 0; width: 56px; background: #fdf6e5; clip-path: polygon(0 0, 18px 0, 32px 96px, 0 96px); }
-.fri-ex__cut::before,
-.fri-ex__cut::after { content: ""; position: absolute; left: 32px; width: 1px; background: var(--c-line); }
-.fri-ex__cut::before { top: 0; height: 96px; transform: skewX(8.3deg); transform-origin: bottom left; }
-.fri-ex__cut::after { top: 96px; height: calc(100% - 96px); transform: skewX(-6.6deg); transform-origin: top left; }
+.fri-ex__note { width: 240px; flex-shrink: 0; position: relative; background: #fff; display: flex; align-items: center; padding: 20px 24px 20px 40px; }
+/* Figma exports the ">" kink as two wedge vectors (cream over the 96px Example
+   row, blue below, flipped) — preserveAspectRatio=none lets the bottom wedge
+   stretch with the Atlas-explains row height */
+.fri-ex__cut { position: absolute; inset: 0 auto 0 0; width: 16px; display: flex; flex-direction: column; }
+.fri-ex__cut img { display: block; width: 17px; height: 96px; }
+.fri-ex__cut img + img { flex: 1 1 0; min-height: 0; height: auto; transform: scaleY(-1); }
 @media (max-width: 900px) {
   .fri-ex { flex-wrap: wrap; }
   .fri-ex__main { flex-basis: 100%; }
@@ -458,8 +458,6 @@
   .fri-ex__note { width: 100%; padding: 24px; border-top: 1px solid var(--c-line); }
   .fri-ex__cut { display: none; }
 }
-.fri-ex__card--white { background: #fff; border-top: 1px solid var(--c-line); align-items: flex-start; }
-.fri-ex__ic--blue { background: var(--c-blue-pale); }
 
 /* before / after photo composition (1440x800 stage, % coordinates) */
 .fri-ba { position: relative; width: 100%; aspect-ratio: 1440 / 800; background: #fff; overflow: hidden; }
@@ -499,8 +497,8 @@
 @media (max-width: 960px) { .fri-oc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .fri-oc { grid-template-columns: 1fr; } }
 
-/* recommended-actions photo (square) */
-.fri-actionsimg { width: 400px; max-width: 100%; height: 400px; flex-shrink: 0; object-fit: cover; border-radius: var(--r-sm); }
+/* "see risk before it becomes fatal" gauge panel (exported @2x from Figma) */
+.fri-gauges { width: 400px; max-width: 100%; height: auto; flex-shrink: 0; }
 
 /* "Designed For Complex Operations" application grid */
 .fri-apps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-sm); overflow: hidden; }
@@ -518,8 +516,11 @@
   .fri-app:nth-child(3n+1) { border-left: 0; }
 }
 
-/* 2026-07-14 redesign: comparison columns float over the dusty-tunnel photo */
-.fri-why { position: relative; width: 100%; overflow: hidden; min-height: min(calc(100vw / 0.8 / 2), 680px); display: flex; flex-direction: column; }
+/* 2026-07-14 redesign: comparison columns float over the dusty-tunnel photo.
+   The band must keep growing with viewport width (capped at the photo's native
+   984px height) — a fixed ~680px cap over-zooms the cover-fitted photo on wide
+   screens until only its empty top edge is visible. */
+.fri-why { position: relative; width: 100%; overflow: hidden; min-height: min(calc(100vw / 0.8 / 2), 984px); display: flex; flex-direction: column; }
 .fri-why__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 /* design fades the photo into the white page at the top, behind the heading */
 .fri-why__fade { position: absolute; inset: 0; background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.85) 10%, rgba(255,255,255,0) 32%); pointer-events: none; }
