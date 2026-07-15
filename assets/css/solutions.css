@@ -322,14 +322,16 @@
 .fri-cond h3 { margin: 16px 0 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-ink); }
 .fri-cond p { margin: 8px 0 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
 
-/* 2026-07-14 redesign: cream icon strip (labels only) + caption inside one card */
+/* 2026-07-14 redesign: cream icon strip (labels only) + caption inside one card.
+   Figma gives every card the SAME fixed width, so the columns must be equal
+   (flex 1 1 0) — space-between over natural label widths staggers the icons. */
 .fri-conds2 { width: 100%; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
-.fri-conds2__strip { display: flex; justify-content: space-between; gap: 16px; background: #fdf6e5; padding: 32px 56px; }
-.fri-cond2 { display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; }
+.fri-conds2__strip { display: flex; gap: 16px; background: #fdf6e5; padding: 32px 40px; }
+.fri-cond2 { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; }
 .fri-cond2 img { width: 80px; height: 80px; }
-.fri-cond2 h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-ink); text-align: center; }
+.fri-cond2 h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-ink); text-align: center; white-space: nowrap; }
 .fri-conds2__caption { margin: 0; padding: 32px 24px; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); text-align: center; }
-@media (max-width: 960px) { .fri-conds2__strip { flex-wrap: wrap; justify-content: center; gap: 24px 40px; } .fri-conds2__caption br { display: none; } }
+@media (max-width: 960px) { .fri-conds2__strip { flex-wrap: wrap; justify-content: center; gap: 24px 40px; } .fri-cond2 { flex: 0 0 auto; } .fri-cond2 h3 { white-space: normal; } .fri-conds2__caption br { display: none; } }
 @media (max-width: 1100px) {
   .fri-conds { flex-wrap: wrap; }
   .fri-cond { flex: 1 1 33%; min-width: 200px; min-height: 240px; border-top: 1px solid var(--c-line); }
