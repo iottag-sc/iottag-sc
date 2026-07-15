@@ -962,10 +962,10 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   align-items: center;
   justify-content: center;
 }
-.atlas-result span { font: 600 14px/1.2 var(--f-body); color: #060309; }
+.atlas-result span { font: 600 14px/1.2 var(--f-body); color: #4B5059; }
 
 /* ---- asset chevron strip ("Built to Manage Every Operational Asset") - */
-.asset-strip__label { margin: 0; font: 600 18px/1.2 var(--f-body); color: #060309; }
+.asset-strip__label { margin: 0; font: 600 18px/1.2 var(--f-body); color: #4B5059; }
 .asset-strip { display: flex; opacity: .8; }
 .asset-stage {
   flex: 1;
@@ -982,4 +982,4 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   text-align: center;
 }
 .asset-stage + .asset-stage { margin-left: -16px; }
-.asset-stage span { font: 600 16px/1.2 var(--f-body); color: #060309; }
+.asset-stage span { font: 600 16px/1.2 var(--f-body); color: #4B5059; }

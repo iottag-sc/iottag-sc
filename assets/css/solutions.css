@@ -494,8 +494,8 @@
 .fri-oc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; width: 100%; }
 .fri-oc__card { background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-sm); padding: 20px 24px; min-height: 156px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
 .fri-oc__card img { width: 40px; height: 40px; }
-.fri-oc__card h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #231f20; }
-.fri-oc__card p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
+.fri-oc__card h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4B5059; }
+.fri-oc__card p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: #5C616B; }
 @media (max-width: 960px) { .fri-oc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .fri-oc { grid-template-columns: 1fr; } }
 
