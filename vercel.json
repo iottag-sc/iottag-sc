@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/platform/environmental-monitoring/:path*",
+      "destination": "/platform/environmental-intelligence/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/img/(.*)",

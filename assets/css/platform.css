@@ -15,6 +15,8 @@
      9. Fleet visibility (feature rows + white AI-insight stage cards)
      10. Workforce visibility (photo cards + timesheet tiles + quote bar)
      11. Operational analytics & benchmarking (tinted role-structure bands)
+     12. Environmental intelligence (hero overlay, 40px h2, monitoring grid,
+         technical-resources doc list)
    ========================================================================== */
 
 /* 1. PHOTO HERO ---------------------------------------------------------- */
@@ -234,39 +236,132 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 /* sys-item chips on the pale section background → white tile behind the icon */
 .sys-item__ic--card { background: #fff; }
 
-/* 11. OPERATIONAL ANALYTICS & BENCHMARKING (operational-analytics-benchmarking) */
-/* tinted role-structure bands (Mining / Tunnelling) with photo-circle timelines */
-.role-band {
+/* 11. OPERATIONAL ANALYTICS & BENCHMARKING (operational-analytics-benchmarking)
+   Rebuilt 2026-07-16 from Figma 12733:81766 ("5. OPERATIONAL ANALYTICS &
+   BENCHMARKING", "Ready to Dev" canvas). Page loads main.css + platform.css
+   (.sys-grid/.sys-item chips, .stages/.stage chevrons, .feat rows, .cta-band)
+   + solutions.css (.odt2-hero, .odt2-title/.odt2-h2/.odt2-sub/.odt2-copy,
+   .odt2-levels, .odt2-panel, .odt2-cta). */
+
+/* bordered 6-col "They need to understand" grid (same 1px-collapse as .vis-grid) */
+.oab-needs {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px;
   width: 100%;
-  border-radius: var(--r-md);
-  padding: 40px;
-  display: flex; flex-direction: column; gap: 20px;
+  background: var(--c-line);
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  overflow: hidden;
 }
-.role-band--mining     { background: var(--c-blue-pale); }
-.role-band--tunnelling { background: #fdf6e5; }   /* web-orange lightest */
-.role-band__title {
-  margin: 0;
-  font-family: var(--f-alt); font-weight: 600; font-size: 20px; line-height: 1.4;
-  letter-spacing: -.01em; color: #4b5059;
-}
-.role-row { display: flex; gap: 20px; width: 100%; }
-.role { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 8px 0; }
-.role__ring { display: flex; align-items: center; gap: 8px; width: 100%; }
-.role__ring img { width: 100px; height: 100px; }
-.role__ring::after { content: ""; flex: 1; height: 1px; background: #fff; }
-.role:last-child .role__ring::after { background: transparent; }
-.role__copy { display: flex; flex-direction: column; gap: 16px; padding-right: 40px; }
-.role__title {
-  margin: 0;
-  font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
-  letter-spacing: -.01em; color: #4b5059;
-}
-.role__copy p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-grey); }
+.oab-need { min-height: 160px; padding: 24px 20px; background: #fff; display: flex; flex-direction: column; gap: 16px; }
+.oab-need img { width: 40px; height: 40px; }
+.oab-need p { margin: 0; font: 600 16px/1.2 var(--f-body); color: var(--c-ink); }
+@media (max-width: 1100px) { .oab-needs { grid-template-columns: repeat(3, 1fr); } .oab-need { min-height: 140px; } }
+@media (max-width: 640px)  { .oab-needs { grid-template-columns: repeat(2, 1fr); } }
+
+/* pale flow band with a blue left rule: 5 labels split by thin white chevrons,
+   then a bold blue takeaway row under a white hairline */
+.oab-flow { width: 100%; background: var(--c-blue-pale); border-left: 2px solid var(--c-blue); }
+.oab-flow__row { display: flex; gap: 24px; height: 80px; padding: 0 40px; }
+.oab-flow__cell { flex: 1 1 0; min-width: 0; display: flex; align-items: center; font: 600 16px/1.2 var(--f-body); color: var(--c-ink); }
+.oab-flow__sep { flex: 0 0 24px; align-self: stretch; }
+.oab-flow__sep svg { width: 100%; height: 100%; display: block; }
+.oab-flow__quote { margin: 0; border-top: 2px solid #fff; padding: 40px; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #1e729c; }
 @media (max-width: 960px) {
-  .role-row { flex-direction: column; }
-  .role__ring::after { background: transparent; }
-  .role__copy { padding-right: 0; }
+  .oab-flow__row { flex-wrap: wrap; height: auto; gap: 8px 24px; padding: 16px 24px; }
+  .oab-flow__sep { display: none; }
+  .oab-flow__cell { flex: 1 1 40%; }
+  .oab-flow__quote { padding: 24px; }
 }
+
+/* single-site vs portfolio duo card */
+.oab-duo { display: flex; width: 100%; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.oab-duo__card { flex: 1 1 0; min-width: 0; display: flex; gap: 20px; align-items: center; padding: 24px; }
+.oab-duo__card--cream { background: #fdf6e5; }
+.oab-duo__ic {
+  width: 48px; height: 48px; flex-shrink: 0;
+  border-radius: 50%; background: var(--c-blue-pale);
+  display: flex; align-items: center; justify-content: center;
+}
+.oab-duo__card--cream .oab-duo__ic { background: #fff; }
+.oab-duo__ic img { width: 24px; height: 24px; }
+.oab-duo__card p { margin: 0; font: 600 18px/1.2 var(--f-body); color: var(--c-ink); }
+@media (max-width: 760px) { .oab-duo { flex-direction: column; } }
+
+/* benchmarking board reuses .pi-dash (solutions.css §9): pale band, photo
+   circles, zigzag hairline dividers and the connector line through the kink */
+
+/* operational-hierarchy rows (Mining / Tunnelling / Critical Infrastructure) */
+.oab-hier { display: flex; flex-direction: column; gap: 40px; width: 100%; }
+.oab-hier__struct { margin: 0 0 16px; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: var(--c-blue); }
+.oab-hier__cols { display: flex; gap: 20px; }
+.oab-hier__cell { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.oab-hier__ring { display: flex; align-items: center; gap: 8px; }
+.oab-hier__ring img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
+.oab-hier__ring::after { content: ""; flex: 1; height: 1px; background: var(--c-blue-tint); }
+.oab-hier__cell:last-child .oab-hier__ring::after { background: transparent; }
+.oab-hier__cell p { margin: 0; font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+@media (max-width: 760px) {
+  .oab-hier__cols { flex-direction: column; }
+  .oab-hier__ring::after { background: transparent; }
+}
+
+/* rule-edged callout (blue left bar); pale on white sections, white on pale */
+.oab-note { width: 100%; background: var(--c-blue-pale); border-left: 2px solid var(--c-blue); padding: 20px 40px; }
+.oab-note--white { background: #fff; }
+.oab-note p { margin: 0; font: 600 18px/1.2 var(--f-body); color: var(--c-ink); }
+.oab-note--lg { padding: 40px; }
+.oab-note--lg p { font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; text-align: center; }
+@media (max-width: 640px) { .oab-note, .oab-note--lg { padding: 20px 24px; } }
+
+/* "Supporting Owners…" white card: title + four circle columns split by
+   zigzag hairlines running the full card height (same geometry as .pi-dash,
+   solutions.css §9, but white card + pale lines) */
+.oab-sup { width: 100%; background: #fff; border-radius: var(--r-md); padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+.oab-sup__title { margin: 0; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.oab-sup__cols { display: flex; gap: 20px; }
+.oab-sup__cell { position: relative; flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.oab-sup__role { margin: 0; font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.oab-sup__cell > p:last-child { margin: 0; font: 400 16px/1.2 var(--f-body); color: var(--c-grey); }
+/* zigzag divider = two skewed hairlines meeting on the circle connector line
+   (y:50 = circle radius in cell coords). The card top edge sits 88px above
+   the cols row (padding 40 + one-line title 28 + card gap 20), so the upper
+   leg reaches up through the title band; the lower leg runs down through the
+   bottom padding. Same leg slopes as .pi-dash. */
+.oab-sup__cell + .oab-sup__cell::before,
+.oab-sup__cell + .oab-sup__cell::after {
+  content: ""; position: absolute; left: -11px; width: 1px;
+  background: var(--c-blue-tint);
+}
+.oab-sup__cell + .oab-sup__cell::before {
+  top: -88px; height: 138px; transform: skewX(9.3deg); transform-origin: bottom left;
+}
+.oab-sup__cell + .oab-sup__cell::after {
+  top: 50px; height: calc(100% - 10px); transform: skewX(-4.2deg); transform-origin: top left;
+}
+/* circle connector reaches the zigzag kink (kink at next col left -11px; gap 20) */
+.oab-sup__cell .oab-hier__ring::after { margin-right: -9px; }
+.oab-sup__cols > .oab-sup__cell:last-child .oab-hier__ring::after { background: transparent; }
+@media (max-width: 960px) {
+  .oab-sup { padding: 24px; }
+  .oab-sup__cols { flex-wrap: wrap; }
+  .oab-sup__cell { flex: 1 1 40%; min-width: 200px; }
+  .oab-sup__cell + .oab-sup__cell::before,
+  .oab-sup__cell + .oab-sup__cell::after { display: none; }
+  .oab-sup__cell .oab-hier__ring::after { margin-right: 0; }
+}
+
+/* continuous-improvement intro: fixed 380px heading column + free-flow copy */
+.oab-ci { display: flex; gap: 80px; align-items: center; width: 100%; }
+.oab-ci__head { width: 380px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+.oab-ci__body { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+@media (max-width: 960px) { .oab-ci { flex-direction: column; gap: 24px; } .oab-ci__head { width: 100%; } }
+
+/* ecosystem panel: .odt2-panel with a half-width photo + linked rows;
+   row text follows the site greys (odt2 default is near-black) */
+.oab-eco .odt2-panel__photo { width: 50%; }
+.oab-eco .odt2-panel__row h3 { color: #4b5059; }
+.oab-eco .odt2-panel__row p { color: var(--c-ink); }
+.oab-eco a.odt2-panel__row:hover h3 { color: var(--c-blue); }
+@media (max-width: 900px) { .oab-eco .odt2-panel__photo { width: 100%; } }
 
 /* 12. ENVIRONMENTAL MONITORING (environmental-monitoring) -------------------- */
 /* hero: translucent pale-blue mini cards, staggered 2-col, right of the copy.
@@ -316,3 +411,71 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 
 /* example chevrons carry sentence copy, not labels → regular weight */
 .stages--example .stage span { font-weight: 400; }
+
+/* 12. ENVIRONMENTAL INTELLIGENCE (environmental-intelligence) --------------- */
+/* hero overlay — Figma OVL layer: 80% brand gradient + 4px backdrop blur */
+.hero__overlay--em {
+  position: absolute; inset: 0; z-index: 1;
+  opacity: .8;
+  background: var(--grad-hero);
+  backdrop-filter: blur(4px);
+}
+
+/* this design's section headings are Ubuntu Medium 40 (like the 12405-wave
+   solutions pages), not the site 52px .h2 */
+.em-h2 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2;
+  letter-spacing: -.01em; color: #4b5059;
+}
+
+/* Environmental Visibility intro — 520px title column + free-flow copy */
+.em-intro { display: flex; gap: 80px; align-items: center; width: 100%; }
+.em-intro__title { width: 520px; flex-shrink: 0; display: flex; flex-direction: column; gap: 24px; }
+
+/* bordered 6-col monitoring grid (same line-collapse trick as .vis-grid) */
+.em-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px;
+  width: 100%;
+  background: var(--c-line);
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  overflow: hidden;
+}
+.em-cell {
+  min-height: 220px; padding: 24px 20px;
+  background: #fff;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.em-cell img { width: 40px; height: 40px; }
+.em-cell ul { margin: 0; padding: 0; list-style: none; }
+.em-cell li { font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: #5c616b; }
+.em-cell li::before { content: "- "; }
+
+/* Download Technical Resources — two columns of underlined doc links */
+.em-docs { display: flex; gap: 40px; width: 100%; }
+.em-docs__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+.em-doc {
+  display: flex; gap: 8px; align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--c-line);
+  text-decoration: none;
+}
+.em-doc img { width: 40px; height: 40px; flex-shrink: 0; }
+.em-doc span {
+  font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
+  letter-spacing: -.01em; color: #4b5059;
+}
+.em-doc:hover span { color: var(--c-blue); }
+
+@media (max-width: 1100px) {
+  .em-grid { grid-template-columns: repeat(3, 1fr); }
+  .em-cell { min-height: 160px; }
+  .em-intro { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .em-intro__title { width: 100%; }
+  .em-docs { flex-direction: column; gap: 0; }
+}
+@media (max-width: 820px) {
+  .em-h2 { font-size: 32px; }
+  .em-doc span { font-size: 20px; }
+  .em-grid { grid-template-columns: 1fr 1fr; }
+}

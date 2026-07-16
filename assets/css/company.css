@@ -12,16 +12,17 @@
      4. Contact (contact, prefix ct-)
    ========================================================================== */
 
-/* 1. PARTNERS (partners) ----------------------------------------------------- */
-/* Partner Ecosystem — bordered 4×2 grid of icon cells */
+/* 1. PARTNERS (partners) — rebuilt 2026-07-16 to Figma 10556:22114 ------------ */
+/* Industries We Support Together — bordered 4×2 grid of icon cells */
 .pn-grid {
   display: grid; grid-template-columns: repeat(4, 1fr);
   width: 100%;
+  background: #fff;
   border: 1px solid var(--c-line); border-radius: var(--r-md);
   overflow: hidden;
 }
 .pn-grid__cell {
-  min-height: 200px; padding: 24px;
+  min-height: 160px; padding: 24px;
   border-right: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line);
   display: flex; flex-direction: column; gap: 16px; justify-content: center; align-items: flex-start;
 }
@@ -30,7 +31,7 @@
 .pn-grid__cell img { width: 48px; height: 48px; }
 .pn-grid__cell h3 {
   margin: 0;
-  font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
   letter-spacing: -.01em; color: #4b5059;
 }
 @media (max-width: 1100px) {
@@ -41,39 +42,98 @@
   .pn-grid__cell:nth-child(n+7) { border-bottom: 0; }
 }
 
-/* partner-category band — copy left, 2×2 white logo tiles right, on pale blue.
-   The copy+logos pair is capped at ~--maxw and centred like other sections;
-   the pale band itself still runs full width. */
-.pn-band {
-  display: flex; gap: 40px; align-items: center; justify-content: center;
-  padding: 80px var(--pad-x);
-  background: var(--c-blue-pale);
-  border-bottom: 1px solid #fff;
+/* Why Partner — joined 4-cell benefit strip (icon + title + copy) */
+.pn-cards {
+  display: flex; width: 100%;
+  background: #fff;
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  overflow: hidden;
 }
-.pn-band__copy { width: 680px; max-width: 100%; display: flex; flex-direction: column; gap: 20px; }
-.pn-logos {
-  flex: 0 1 auto; min-width: 300px;
-  display: grid; grid-template-columns: repeat(2, 200px); gap: 8px;
-  align-items: center; justify-content: center;
-  padding: 20px 40px;
+.pn-card {
+  flex: 1 1 0; min-width: 0; min-height: 260px;
+  padding: 40px 24px;
+  display: flex; flex-direction: column; gap: 16px;
 }
-@media (max-width: 520px) { .pn-logos { grid-template-columns: 200px; } }
-.pn-logo {
-  width: 200px; height: 80px;
-  background: #fff; border-radius: var(--r-md);
-  display: flex; align-items: center; justify-content: center;
+.pn-card + .pn-card { border-left: 1px solid var(--c-line); }
+.pn-card img { width: 48px; height: 48px; }
+.pn-card h3 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
 }
-.pn-logo img { width: 120px; height: auto; }
-@media (max-width: 960px) { .pn-band { flex-wrap: wrap; padding: 64px 40px; } }
+.pn-card p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
+@media (max-width: 1100px) {
+  .pn-cards { flex-wrap: wrap; }
+  .pn-card { flex: 1 1 45%; min-height: 200px; border-top: 1px solid var(--c-line); }
+  .pn-card:nth-child(-n+2) { border-top: 0; }
+  .pn-card + .pn-card { border-left: 0; }
+  .pn-card:nth-child(even) { border-left: 1px solid var(--c-line); }
+}
 
-/* integration technology list — icon + semibold label, 2 columns */
-.pn-int { display: flex; flex-wrap: wrap; gap: 4px; width: 100%; }
-.pn-int__item {
-  width: 300px; padding: 8px 0;
-  display: flex; gap: 8px; align-items: center;
-  font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: var(--c-ink);
+/* white rounded stack of 120px title+copy rows (opportunities / innovation) */
+.pn-list {
+  width: 100%;
+  background: #fff; border-radius: var(--r-md);
+  overflow: hidden;
 }
-.pn-int__item img { width: 24px; height: 24px; }
+.pn-list__row {
+  min-height: 120px; padding: 24px;
+  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  border-bottom: 1px solid rgba(6, 3, 9, .15);
+}
+.pn-list__row:last-child { border-bottom: 0; }
+.pn-list__row h3 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+.pn-list__row p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
+
+/* partnership philosophy — pale quote block with a light-blue left rule */
+.pn-quote {
+  width: 100%;
+  background: var(--c-blue-pale);
+  border-left: 2px solid var(--c-blue-light);
+  padding: 40px 40px 40px 42px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.pn-quote h3 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: var(--c-blue);
+}
+.pn-quote p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+
+/* How We Work Together — 4 numbered steps with pale ">" kink dividers */
+.pn-steps {
+  display: flex; align-items: stretch; width: 100%; min-height: 240px;
+  background: #fff; border-radius: var(--r-md);
+  overflow: hidden;
+  padding-right: 40px;
+}
+.pn-step {
+  flex: 1 1 0; min-width: 0;
+  padding: 40px 0 40px 40px;
+  display: flex; gap: 16px; align-items: center;
+}
+.pn-step__num {
+  flex-shrink: 0;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--c-blue-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; color: #4b5059;
+}
+.pn-step h3 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: #4b5059;
+}
+.pn-step p { margin: 4px 0 0; font-family: var(--f-body); font-size: 14px; line-height: 1.2; color: var(--c-ink); }
+.pn-step__div { flex-shrink: 0; width: 26px; height: auto; align-self: stretch; }
+@media (max-width: 1100px) {
+  .pn-steps { flex-wrap: wrap; padding-right: 0; }
+  .pn-step { flex: 1 1 45%; padding: 24px; }
+  .pn-step__div { display: none; }
+}
 
 /* 2. ABOUT (about) ----------------------------------------------------------- */
 /* hero overlay — 80% brand gradient + blur, as on the technology heroes */
@@ -83,9 +143,97 @@
   background: var(--grad-hero);
   backdrop-filter: blur(4px);
 }
-/* hero bullet list (white disc bullets under the intro line) */
-.ab-hero-list { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 2px; }
-.ab-hero-list li { font-family: var(--f-body); font-size: 16px; line-height: 1.5; color: #fff; }
+/* eyebrow + 40px section heading (2026-07 About redesign, Figma 10556:19519) */
+.ab-eb {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #1e729c;
+}
+.ab-h2 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2;
+  letter-spacing: -.01em; color: #4b5059;
+}
+/* 18px semibold lead copy (mission body, section sub-lines) */
+.ab-lead { font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.35; color: #5c616b; }
+.ab-lead p { margin: 0; font: inherit; color: inherit; }
+
+/* Our mission — rounded photo card beside the mission copy */
+.ab-mission { display: flex; gap: 60px; align-items: center; width: 100%; }
+.ab-mission > img {
+  flex: 0 0 450px; width: 450px; height: 360px;
+  object-fit: cover; border-radius: var(--r-md);
+}
+.ab-mission > div { flex: 1 1 0; min-width: 320px; }
+@media (max-width: 1000px) {
+  .ab-mission { flex-wrap: wrap; }
+  .ab-mission > img { flex: 1 1 100%; width: 100%; height: auto; }
+}
+
+/* Our belief — joined 5-cell principles strip, cream final cell */
+.ab-beliefs {
+  display: flex; width: 100%;
+  background: #fff;
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  overflow: hidden;
+}
+.ab-belief {
+  flex: 1 1 0; min-width: 0; min-height: 280px;
+  padding: 40px 24px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.ab-belief + .ab-belief { border-left: 1px solid var(--c-line); }
+.ab-belief img { width: 48px; height: 48px; }
+.ab-belief h3 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+.ab-belief--cream { background: #fdf6e5; }
+@media (max-width: 1100px) {
+  .ab-beliefs { flex-wrap: wrap; }
+  .ab-belief { flex: 1 1 45%; min-height: 200px; border-top: 1px solid var(--c-line); }
+  .ab-belief:nth-child(-n+2) { border-top: 0; }
+  .ab-belief + .ab-belief { border-left: 0; }
+  .ab-belief:nth-child(even) { border-left: 1px solid var(--c-line); }
+}
+
+/* Our people — 3 stat cards over a pale-blue mission band */
+.ab-team {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  overflow: hidden;
+}
+.ab-team__row { display: flex; }
+.ab-team__card {
+  flex: 1 1 0; min-width: 0; min-height: 200px;
+  padding: 24px;
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
+}
+.ab-team__card + .ab-team__card { border-left: 1px solid var(--c-line); }
+.ab-team__card img { width: 48px; height: 48px; }
+.ab-team__card h3 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+.ab-team__num {
+  font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2;
+  letter-spacing: -.01em; color: var(--c-blue);
+}
+.ab-team__band {
+  margin: 0;
+  border-top: 1px solid var(--c-line);
+  background: var(--c-blue-pale);
+  padding: 24px; text-align: center;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+@media (max-width: 800px) {
+  .ab-team__row { flex-direction: column; }
+  .ab-team__card + .ab-team__card { border-left: 0; border-top: 1px solid var(--c-line); }
+}
 
 /* joined photo strip — 2px seams inside one rounded container (Our Purpose) */
 .ab-strip { display: flex; gap: 2px; width: 100%; border-radius: var(--r-md); overflow: hidden; }
@@ -148,20 +296,6 @@
 .ab-photos img { flex: 1 1 0; min-width: 0; height: 200px; object-fit: cover; }
 @media (max-width: 960px) { .ab-photos { flex-wrap: wrap; } .ab-photos img { flex: 1 1 50%; } }
 
-/* differentiator cards — 5 white icon cards, 220px tall */
-.ab-diff { display: flex; gap: 10px; width: 100%; }
-.ab-diff-card {
-  flex: 1 1 0; min-width: 0; min-height: 220px;
-  background: #fff;
-  border: 1px solid var(--c-line); border-radius: var(--r-md);
-  padding: 24px;
-  display: flex; flex-direction: column; gap: 16px; justify-content: center;
-}
-.ab-diff-card img { width: 40px; height: 40px; }
-.ab-diff-card h3 { margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
-.ab-diff-card p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
-@media (max-width: 1100px) { .ab-diff { flex-wrap: wrap; } .ab-diff-card { flex: 1 1 45%; } }
-
 /* CTA benefit bullets — single centred row (matches technology.css §1) */
 .cta-bullets {
   display: flex; gap: 20px 40px; justify-content: center; flex-wrap: wrap;
@@ -184,7 +318,22 @@
   display: flex; align-items: center; justify-content: center;
 }
 .cr-item__ic img { width: 24px; height: 24px; }
-.cr-item span { font-family: var(--f-alt); font-size: 24px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+.cr-item span { font-family: var(--f-alt); font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+
+/* Work at iottag banner (2026-07-16 redesign): 400px gradient card, photo at 30% */
+.cr-banner {
+  position: relative; width: 100%; height: 400px;
+  border-radius: var(--r-md); overflow: hidden;
+  background: linear-gradient(135deg, #0c477d 0%, #2f4f5b 49%, #073459 100%);
+  display: flex; flex-direction: column; gap: 20px; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.cr-banner > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .3; }
+.cr-banner p {
+  position: relative; z-index: 1; margin: 0; max-width: 900px;
+  font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
+  letter-spacing: -.01em; color: #fff; text-align: center;
+}
 .cr-note {
   flex: 1;
   background: #fdf6e5;                       /* web-orange lightest */
@@ -194,11 +343,6 @@
 }
 .cr-note p { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-orange); }
 @media (max-width: 1100px) { .cr-cols { flex-wrap: wrap; } }
-
-/* Who we work with - 4x2 grid of 160px photo tiles */
-.cr-inds { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; }
-.cr-inds .photo-card { height: 160px; padding: 24px; }
-@media (max-width: 900px) { .cr-inds { grid-template-columns: repeat(2, 1fr); } }
 
 /* Who we are looking for - bordered 5x2 grid of white icon cells */
 .cr-grid {
@@ -218,7 +362,7 @@
 .cr-grid__cell img { width: 40px; height: 40px; }
 .cr-grid__cell h3 {
   margin: 0;
-  font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
   letter-spacing: -.01em; color: #4b5059;
 }
 @media (max-width: 1100px) {
@@ -232,34 +376,15 @@
 .cr-split { display: flex; gap: 80px; align-items: center; width: 100%; }
 .cr-split--flip { flex-direction: row-reverse; }
 .cr-split__copy { flex: 1 1 0; min-width: 320px; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
-.cr-split__img { width: 480px; max-width: 100%; height: 420px; object-fit: cover; border-radius: var(--r-md); flex-shrink: 0; }
+.cr-split__img { width: 480px; max-width: 100%; height: 420px; object-fit: cover; border-radius: var(--r-md); flex-shrink: 0; box-shadow: 0 25px 50px -12px rgba(0,0,0,.25); }
 @media (max-width: 1100px) {
   .cr-split, .cr-split--flip { flex-direction: column; gap: 40px; align-items: flex-start; }
   .cr-split__img { width: 100%; }
 }
 
-/* Life at iottag - heading + arrows beside a scrollable photo strip */
-.cr-life { display: flex; gap: 40px; align-items: center; width: 100%; }
-.cr-life__head { width: 236px; flex-shrink: 0; display: flex; flex-direction: column; gap: 24px; }
-.cr-life__nav { display: flex; gap: 20px; }
-.cr-life__btn {
-  width: 44px; height: 44px;
-  background: #fff; border: 1px solid rgba(6,3,9,.15); border-radius: var(--r-md);
-  display: flex; align-items: center; justify-content: center; cursor: pointer;
-  transition: background .15s ease;
-}
-.cr-life__btn:hover { background: var(--c-blue-pale); }
-.cr-life__btn .icon { font-size: 24px; color: #060309; }
-.cr-life__track {
-  flex: 1 1 0; min-width: 0;
-  display: flex; gap: 1px;
-  overflow-x: auto; scroll-behavior: smooth;
-  border-radius: var(--r-md);
-  scrollbar-width: none;
-}
-.cr-life__track::-webkit-scrollbar { display: none; }
-.cr-life__track img { width: 400px; height: 280px; object-fit: cover; flex-shrink: 0; }
-@media (max-width: 900px) { .cr-life { flex-wrap: wrap; } .cr-life__head { width: 100%; } }
+/* CTA sizing to the redesign's Heading 1 */
+.cr-cta .h2 { font-size: 56px; }
+@media (max-width: 640px) { .cr-cta .h2 { font-size: 32px; } }
 
 /* 4. CONTACT (contact, prefix ct-) -------------------------------------------- */
 /* flat navy page-title band (Figma header is a 220px strip, headline bottom) */
@@ -269,27 +394,8 @@
   padding: calc(var(--nav-h) + 20px) var(--pad-x) 50px;
   background: #2d3357;   /* flat navy — the Figma OVL layer is invisible over it */
 }
-.ct-hero h1 {
-  margin: 0;
-  font-family: var(--f-alt); font-weight: 400; font-size: 32px; line-height: 1.2;
-  letter-spacing: -.01em; color: #fff;
-}
-
-/* enquiry band — "How can we help?" list beside the floating form card */
-.ct-wrap { display: flex; gap: 40px; align-items: center; width: 100%; }
-.ct-help { width: 400px; flex-shrink: 0; display: flex; flex-direction: column; gap: 40px; }
-.ct-help__title {
-  margin: 0;
-  font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
-  letter-spacing: -.01em; color: #4b5059;
-}
-.ct-help__list { display: flex; flex-direction: column; gap: 20px; }
-.ct-help__item {
-  display: flex; gap: 16px; align-items: center;
-  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
-  letter-spacing: -.01em; color: #4b5059;
-}
-.ct-help__item img { width: 24px; height: 24px; flex-shrink: 0; }
+/* enquiry band — intro copy beside the floating form card */
+.ct-wrap { display: flex; gap: 60px; align-items: center; width: 100%; }
 
 /* white form card — overlaps the navy band above */
 .ct-card {
@@ -298,7 +404,12 @@
   border: 1px solid rgba(6,3,9,.15); border-radius: var(--r-md);
   box-shadow: 0 32px 64px -12px rgba(0,0,0,.14);
   padding: 41px;
-  margin-top: -64px;
+  /* the card floats over BOTH neighbours: ~34px up into the navy band
+     (pad-top 40 − 74) and ~50px down into the pale section below (the
+     negative bottom margin shrinks its flow footprint so the section
+     ends before the card's visual bottom) */
+  margin-top: -74px;
+  margin-bottom: -100px;
   position: relative; z-index: 2;
 }
 .ct-form { display: flex; flex-direction: column; gap: 40px; }
@@ -317,11 +428,140 @@
   box-shadow: 0 0 0 1px var(--c-blue);
 }
 @media (max-width: 1100px) {
-  .ct-wrap { flex-wrap: wrap; }
-  .ct-help { width: 100%; }
-  .ct-card { margin-top: 0; max-width: none; }
+  .ct-wrap { flex-wrap: wrap; gap: 40px; }
+  .ct-card { margin-top: 0; margin-bottom: 0; max-width: none; }
 }
 @media (max-width: 640px) { .ct-form__row { flex-direction: column; } .ct-card { padding: 24px; } }
+
+/* ---- 2026-07-16 contact redesign (Figma 10559:24050, prefix ct2-) ---------- */
+/* hero band carries only the blue kicker; the page H1 is the 40px intro title */
+.ct-hero__kicker { margin: 0; font: 700 20px/1.5 var(--f-body); color: #4cc4fe; }
+
+/* intro column beside the floating form card */
+.ct2-intro { flex: 1 1 0; min-width: 320px; display: flex; flex-direction: column; gap: 40px; }
+.ct2-intro h1 { margin: 0; font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2; letter-spacing: -.01em; color: #4b5059; }
+.ct2-lead { margin: 0; font: 600 16px/1.2 var(--f-body); color: var(--c-ink); }
+.ct2-copy { margin: 0; font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
+.ct2-minis { display: grid; grid-template-columns: 260px auto; gap: 16px 4px; }
+.ct2-mini { display: flex; gap: 8px; align-items: center; font: 600 16px/1.2 var(--f-body); color: var(--c-ink); }
+.ct2-mini .ct2-mini__ic { width: 32px; height: 32px; flex-shrink: 0; background: var(--c-blue-pale); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; }
+.ct2-mini img { width: 20px; height: 20px; }
+@media (max-width: 640px) { .ct2-minis { grid-template-columns: 1fr; } }
+
+/* section heading (Ubuntu Medium 40 near-black, centered) */
+.ct2-h2 { margin: 0; font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2; letter-spacing: -.01em; color: #4b5059; text-align: center; }
+
+/* common discussion topic cards (2×2) */
+.ct2-topics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; }
+.ct2-topic { min-height: 120px; background: #fff; border: 1px solid var(--c-blue-tint); border-radius: var(--r-md); padding: 24px; display: flex; gap: 16px; align-items: center; }
+.ct2-topic img { width: 40px; height: 40px; flex-shrink: 0; }
+.ct2-topic h3 { margin: 0 0 4px; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.ct2-topic p { margin: 0; font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
+@media (max-width: 900px) { .ct2-topics { grid-template-columns: 1fr; } }
+
+/* global presence / office maps: dotted world svg + white pill pins */
+.ct2-map { position: relative; flex: 1 1 0; min-width: 320px; max-width: 720px; }
+.ct2-map > img { width: 100%; height: auto; }
+.ct2-pin {
+  position: absolute; transform: translate(-50%, -100%);
+  background: #fff; border: 1px solid #1e729c; border-radius: var(--r-md);
+  padding: 4px 8px; white-space: nowrap;
+  font: 400 12px/1.2 var(--f-body); color: var(--c-ink);
+  box-shadow: 0 12px 24px -8px rgba(0,0,0,.2);
+}
+.ct2-pin::after { content: ""; position: absolute; left: 50%; top: 100%; transform: translateX(-50%); border: 6px solid transparent; border-top: 7px solid #1e729c; border-bottom: 0; }
+.ct2-globe-copy { flex: 0 1 600px; min-width: 300px; display: flex; flex-direction: column; gap: 40px; }
+
+/* "What happens next?" numbered steps card — number circle LEFT of the text */
+.ct2-steps { display: flex; width: 100%; min-height: 240px; background: #fff; border-radius: var(--r-md); overflow: hidden; }
+.ct2-step { flex: 1 1 0; min-width: 0; padding: 40px; display: flex; gap: 16px; align-items: center; }
+.ct2-step__num { width: 48px; height: 48px; flex-shrink: 0; border-radius: 50%; background: var(--c-blue-pale); display: flex; align-items: center; justify-content: center; font: 700 20px/1 var(--f-alt); color: #4b5059; }
+.ct2-step h3 { margin: 0 0 4px; font: 700 16px/1.5 var(--f-alt); color: #4b5059; }
+.ct2-step p { margin: 0; font: 400 14px/1.2 var(--f-body); color: var(--c-grey); }
+.ct2-steps__sep { flex: 0 0 24px; align-self: stretch; }
+.ct2-steps__sep svg { width: 100%; height: 100%; display: block; }
+@media (max-width: 900px) { .ct2-steps { flex-direction: column; } .ct2-steps__sep { display: none; } }
+
+/* "Meet Our Specialists" tab card (visual tabs — one designed panel) */
+.ct2-spec { width: 100%; background: var(--c-surface); border: 1px solid rgba(6,3,9,.15); border-radius: var(--r-md); overflow: hidden; }
+.ct2-spec__tabs { display: flex; border-bottom: 1px solid #e5e7eb; }
+.ct2-spec__tab {
+  flex: 1 1 0; min-width: 0; min-height: 100px; padding: 12px 8px;
+  background: var(--c-surface); border: 0; border-right: 1px solid #e5e7eb;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font: 400 18px/1.2 var(--f-body); color: var(--c-ink);
+}
+.ct2-spec__tab:last-child { border-right: 0; }
+.ct2-spec__tab.is-active { background: #fff; box-shadow: inset 0 -2px 0 #268fc3; }
+.ct2-spec__panel { display: flex; gap: 40px; background: #fff; padding: 48px; }
+.ct2-spec__copy { flex: 1 1 0; min-width: 280px; display: flex; flex-direction: column; gap: 28px; align-items: flex-start; }
+.ct2-spec__copy h3 { margin: 0; font: 700 24px/1.33 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.ct2-spec__copy ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.ct2-spec__copy li { display: flex; gap: 4px; align-items: center; font: 400 18px/1.5 var(--f-body); color: var(--c-ink); }
+.ct2-spec__copy li img { width: 24px; height: 24px; }
+.ct2-spec__shots { display: flex; gap: 16px; }
+.ct2-spec__shots img { width: 240px; height: 280px; object-fit: cover; border-radius: var(--r-md); }
+@media (max-width: 1280px) {
+  .ct2-spec__tabs { flex-wrap: wrap; }
+  .ct2-spec__tab { flex: 1 1 20%; min-height: 64px; font-size: 16px; }
+  .ct2-spec__panel { flex-wrap: wrap; }
+  .ct2-spec__shots { flex-wrap: wrap; }
+  .ct2-spec__shots img { flex: 1 1 200px; max-width: 100%; }
+}
+
+/* office detail cards (2×2 beside the map) */
+.ct2-offices { display: grid; grid-template-columns: repeat(2, 1fr); width: 620px; max-width: 100%; flex-shrink: 0; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.ct2-office { padding: 24px 40px; display: flex; flex-direction: column; gap: 20px; border-bottom: 1px solid var(--c-line); }
+.ct2-office:nth-child(odd) { border-right: 1px solid rgba(6,3,9,.15); }
+.ct2-office:nth-child(n+3) { border-bottom: 0; }
+.ct2-office h3 { margin: 0; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.ct2-office__sub { margin: 0; font: 400 12px/1.2 var(--f-body); color: var(--c-grey); }
+.ct2-office__line { display: flex; gap: 8px; align-items: center; font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
+.ct2-office__line img { width: 16px; height: 16px; flex-shrink: 0; }
+@media (max-width: 640px) {
+  .ct2-offices { grid-template-columns: 1fr; }
+  .ct2-office { border-right: 0 !important; border-bottom: 1px solid var(--c-line); }
+  .ct2-office:last-child { border-bottom: 0; }
+}
+
+/* support capability panel: cream photo + stacked rows on pale tint */
+.ct2-panel { display: flex; width: 100%; background: var(--c-blue-pale); border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.ct2-panel__photo { position: relative; width: 400px; flex-shrink: 0; background: #fdf6e5; border-right: 1px solid rgba(6,3,9,.15); }
+.ct2-panel__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ct2-panel__rows { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+.ct2-panel__row { min-height: 88px; padding: 16px 24px; display: flex; flex-direction: column; justify-content: center; }
+.ct2-panel__row + .ct2-panel__row { border-top: 1px solid rgba(6,3,9,.15); }
+.ct2-panel__row h3 { margin: 0; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.ct2-panel__row p { margin: 0; font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
+@media (max-width: 900px) {
+  .ct2-panel { flex-direction: column; }
+  .ct2-panel__photo { width: 100%; height: 260px; border-right: 0; border-bottom: 1px solid rgba(6,3,9,.15); }
+}
+
+/* CTA: 56px headline + "Why Organisations Choose iottag?" dark band */
+.ct2-cta .h2 { font-size: 56px; }
+@media (max-width: 640px) { .ct2-cta .h2 { font-size: 32px; } }
+/* the dark band breaks out of .cta-band's 80px padding: full banner width,
+   flush with the banner's bottom edge. The CONTENT stays centred and capped
+   like every other section (maxw + side padding) via the __inner wrapper. */
+.ct2-why { position: relative; z-index: 2; width: calc(100% + 160px); margin: 16px -80px -80px; background: rgba(31,50,62,.8); }
+.ct2-why__inner {
+  width: min(100%, calc(var(--maxw) + (var(--pad-x) * 2)));
+  margin-inline: auto;
+  padding: 0 var(--pad-x);
+  display: flex; gap: 40px; align-items: center;
+}
+.ct2-why__head { margin: 0; flex-shrink: 0; font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2; letter-spacing: -.01em; color: #fff; text-align: left; }
+.ct2-why__grid { flex: 1 1 0; min-width: 300px; max-width: 840px; margin-left: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 40px; padding: 40px 0; }
+.ct2-why__item { display: flex; gap: 20px; align-items: flex-start; }
+.ct2-why__item .ct2-why__ic { width: 60px; height: 60px; flex-shrink: 0; background: var(--c-blue-pale); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; }
+.ct2-why__item img { width: 32px; height: 32px; }
+/* .cta-band centers every <p> (main.css) — outrank it so the why-item copy
+   stays left-aligned (.cta-band prefix lifts specificity above the base rule) */
+.cta-band .ct2-why__item h3, .ct2-why__item h3 { margin: 0 0 2px; font: 600 20px/1.5 var(--f-body); color: #fff; text-align: left; }
+.cta-band .ct2-why__item p, .ct2-why__item p { margin: 0; font: 400 14px/1.2 var(--f-body); color: #fff; text-align: left; }
+@media (max-width: 1100px) { .ct2-why__inner { flex-wrap: wrap; padding: 40px; } .ct2-why__grid { padding: 0; } }
+@media (max-width: 700px) { .ct2-why__grid { grid-template-columns: 1fr; } }
 
 /* 3. WHY IOTTAG (why-iottag, prefix wi-) -------------------------------------- */
 /* hero mini-cards — staggered 3+2 rows of pale-blue 180×160 tiles */
@@ -358,3 +598,51 @@
 /* trusted-section world map (full-strength render, unlike the home .worldmap) */
 .wi-map { flex: 1 1 0; min-width: 320px; max-width: 780px; align-self: center; }
 .wi-map img { width: 100%; height: auto; display: block; }
+
+/* 2026-07-16 redesign (Figma 10562:24646): cell labels drop 24 → 20px.
+   Labels reserve two lines so icons stay on one row when a label wraps. */
+.ab-grid--wi h3 { font-size: 20px; min-height: 56px; }
+
+/* mission strip captions sit in a dark navy band (Figma rgba(15,57,78,.8)) */
+.ab-strip--band .photo-card { padding: 0; }
+.ab-strip--band .photo-card__title {
+  width: 100%;
+  background: rgba(15,57,78,.8);
+  padding: 20px 40px;
+  font-size: 20px;
+}
+
+/* hero dash lists (design duplicates the list twice — reproduced as designed) */
+.wi-hero-lists { display: flex; gap: 40px; }
+.wi-hero-lists ul { margin: 0; padding: 0; list-style: none; }
+.wi-hero-lists li { font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: #fff; }
+.wi-hero-lists li::before { content: "- "; }
+
+/* "From Operations to Executive Leadership" timeline — 100px photo circles
+   (ring baked in the export) joined by 1px hairlines */
+.wi-levels { display: flex; width: 100%; }
+.wi-levels__col {
+  flex: 1 1 0; min-width: 0;
+  display: flex; flex-direction: column; gap: 16px; align-items: center;
+  padding: 8px 0;
+}
+.wi-levels__ring { display: flex; align-items: center; gap: 8px; width: 100%; height: 108px; }
+.wi-levels__ring::before, .wi-levels__ring::after { content: ""; flex: 1 1 0; height: 1px; background: var(--c-line); }
+.wi-levels__col:first-child .wi-levels__ring::before,
+.wi-levels__col:last-child .wi-levels__ring::after { background: transparent; }
+.wi-levels__ring img { width: 108px; height: 108px; display: block; flex-shrink: 0; }
+.wi-levels__label {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059; text-align: center;
+}
+.wi-levels__cap {
+  margin: 0; padding: 0 24px;
+  font-family: var(--f-body); font-size: 16px; line-height: 1.2;
+  color: #5c616b; text-align: center;
+}
+@media (max-width: 960px) {
+  .wi-levels { flex-wrap: wrap; gap: 24px; justify-content: center; }
+  .wi-levels__col { flex: 1 1 40%; min-width: 220px; }
+  .wi-levels__ring::before, .wi-levels__ring::after { background: transparent; }
+}

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&icon_names=air,apartment,area_chart,arrow_back,arrow_forward,arrow_right_alt,arrows_output,bar_chart,battery_charging_full,bluetooth_searching,build,call,car_crash,chat_info,check,chevron_right,close,cognition,connect_without_contact,construction,contactless,dashboard,database,database_search,delivery_truck_bolt,delivery_truck_speed,description,devices,download,e911_emergency,eco,emergency_home,encrypted,engineering,extension,eye_tracking,fact_check,forum,groups,handshake,handyman,history,home_health,home_repair_service,hub,insights,key,landscape,leaderboard,lightbulb,lightbulb_2,liquor,local_shipping,location_on,location_searching,lock,mail,memory,menu,mode_fan,monitor,monitoring,my_location,newspaper,package_2,pattern,person_alert,personal_injury,pie_chart,play_arrow,play_circle,precision_manufacturing,psychology,road,sensors,service_toolbox,settings,settings_input_component,shield,shield_lock,shield_locked,shield_person,sos,subway,supervisor_account,timer,visibility_off,warning,work,workspace_premium&display=block">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&icon_names=close,menu&display=block">
   <link rel="stylesheet" href="../../assets/css/main.css">
   <link rel="stylesheet" href="../../assets/css/platform.css">
   <link rel="stylesheet" href="../../assets/css/company.css">
@@ -72,33 +72,27 @@
   <main>
     <!-- ===== PAGE TITLE BAND ===== -->
     <section class="ct-hero">
-      <h1>Contact us</h1>
+      <p class="ct-hero__kicker">Contact us</p>
     </section>
 
-    <!-- ===== ENQUIRY FORM + HOW CAN WE HELP (full-bleed pale band) ===== -->
-    <div class="section--pale">
-    <section class="section" style="padding-top:40px;">
+    <!-- ===== INTRO + ENQUIRY FORM ===== -->
+    <section class="section" style="padding-top:40px;padding-bottom:40px;">
       <div class="ct-wrap">
-        <div class="ct-help">
-          <h2 class="ct-help__title">How Can We Help?</h2>
-          <div class="ct-help__list">
-            <div class="ct-help__item"><img src="../../assets/icon/ct-eye-tracking.svg" alt="" width="24" height="24">Improve Operational Visibility</div>
-            <div class="ct-help__item"><img src="../../assets/icon/ct-shield-check.svg" alt="" width="24" height="24">Improve Safety Performance</div>
-            <div class="ct-help__item"><img src="../../assets/icon/ct-manufacturing.svg" alt="" width="24" height="24">Improve Production Performance</div>
-            <div class="ct-help__item"><img src="../../assets/icon/ct-hard-hat.svg" alt="" width="24" height="24">Improve Workforce Accountability</div>
-            <div class="ct-help__item"><img src="../../assets/icon/ct-smoke.svg" alt="" width="24" height="24">Improve Environmental Awareness</div>
-            <div class="ct-help__item"><img src="../../assets/icon/ct-lightbulb.svg" alt="" width="24" height="24">Improve Decision-Making</div>
+        <div class="ct2-intro">
+          <h1>Let&rsquo;s Discuss Your Operation</h1>
+          <div class="stack gap-20">
+            <p class="ct2-lead">Our engineers work with organisations across mining, tunnelling, infrastructure and critical industries to understand operational challenges and design practical Operational Intelligence solutions.</p>
+            <p class="ct2-copy">Whether you&rsquo;re improving safety, production performance or operational visibility, we&rsquo;re here to help.</p>
+          </div>
+          <div class="ct2-minis">
+            <div class="ct2-mini"><span class="ct2-mini__ic"><img src="../../assets/icon/oi-hard-hat.svg" alt="" width="20" height="20" loading="lazy"></span>Engineering consultation</div>
+            <div class="ct2-mini"><span class="ct2-mini__ic"><img src="../../assets/icon/ct2-globe.svg" alt="" width="20" height="20" loading="lazy"></span>Global deployment capability</div>
+            <div class="ct2-mini"><span class="ct2-mini__ic"><img src="../../assets/icon/ct2-support.svg" alt="" width="20" height="20" loading="lazy"></span>Local support</div>
+            <div class="ct2-mini"><span class="ct2-mini__ic"><img src="../../assets/icon/eh-support-agent.svg" alt="" width="20" height="20" loading="lazy"></span>Response within 1 business day</div>
           </div>
         </div>
         <div class="ct-card" id="contact-form">
           <form class="ct-form" method="post" action="#contact-form">
-            <div class="stack gap-20">
-              <div class="stack gap-4" style="gap:4px;">
-                <h2 class="h2" style="font-size:40px;color:#4b5059;">Let's Talk About Your Operation</h2>
-                <p class="lead" style="font-size:16px;color:#5c616b;line-height:1.2;">Every operation is different. Let's explore what's possible.</p>
-              </div>
-              <p class="body body--sm" style="color:#5c616b;line-height:1.2;">Whether you're looking to improve safety, productivity, production performance or operational visibility, our team can help you identify opportunities and design solutions tailored to your environment.</p>
-            </div>
             <div class="ct-form__rows">
               <div class="ct-form__row">
                 <div class="ct-field">
@@ -112,22 +106,28 @@
               </div>
               <div class="ct-form__row">
                 <div class="ct-field">
-                  <label for="ct-industry">Industry</label>
-                  <input type="text" id="ct-industry" name="industry">
+                  <label for="ct-email">Email</label>
+                  <input type="email" id="ct-email" name="email" autocomplete="email" required>
                 </div>
                 <div class="ct-field">
-                  <label for="ct-role">Role</label>
-                  <input type="text" id="ct-role" name="role" autocomplete="organization-title">
+                  <label for="ct-country">Country</label>
+                  <input type="text" id="ct-country" name="country" autocomplete="country-name">
                 </div>
               </div>
               <div class="ct-form__row">
                 <div class="ct-field">
-                  <label for="ct-challenge">Challenge</label>
-                  <textarea id="ct-challenge" name="challenge"></textarea>
+                  <label for="ct-industry">Industry</label>
+                  <input type="text" id="ct-industry" name="industry">
                 </div>
                 <div class="ct-field">
-                  <label for="ct-message">Message</label>
-                  <textarea id="ct-message" name="message"></textarea>
+                  <label for="ct-stage">Project Stage</label>
+                  <input type="text" id="ct-stage" name="project-stage">
+                </div>
+              </div>
+              <div class="ct-form__row">
+                <div class="ct-field">
+                  <label for="ct-operation">Tell us about your operation</label>
+                  <textarea id="ct-operation" name="operation"></textarea>
                 </div>
               </div>
             </div>
@@ -139,48 +139,295 @@
       </div>
     </section>
 
-    <!-- ===== SPEAK WITH A SPECIALIST ===== -->
-    <section class="section stack gap-80" style="padding-top:40px;">
-      <div class="stack gap-24 text-center" style="align-items:center;">
-        <h2 class="h2" style="font-size:40px;color:#4b5059;">Speak With An Operational Intelligence Specialist</h2>
-        <p class="body" style="color:#5c616b;">Our team includes engineers, operational specialists and technology experts with experience across:</p>
-      </div>
-      <div class="ab-strip">
-        <a class="photo-card" href="../../industries/mining/index.html">
-          <img src="../../assets/img/company/ct-ind-mining.jpg" alt="Underground mining crew and equipment at the face" width="1200" height="900" loading="lazy">
-          <h3 class="photo-card__title">Mining</h3>
-        </a>
-        <a class="photo-card" href="../../industries/tunnelling/index.html">
-          <img src="../../assets/img/company/ct-ind-tunnelling.jpg" alt="Tunnel under construction with crews and services installed" width="1200" height="800" loading="lazy">
-          <h3 class="photo-card__title">Tunnelling</h3>
-        </a>
-        <a class="photo-card" href="../../industries/construction-infrastructure/index.html">
-          <img src="../../assets/img/company/ct-ind-construction.jpg" alt="Cranes and crews on a major construction site" width="1200" height="673" loading="lazy">
-          <h3 class="photo-card__title">Construction</h3>
-        </a>
-        <a class="photo-card" href="../../industries/critical-infrastructure/index.html">
-          <img src="../../assets/img/company/ct-ind-infrastructure.jpg" alt="Major infrastructure works in progress" width="1000" height="665" loading="lazy">
-          <h3 class="photo-card__title">Infrastructure</h3>
-        </a>
-        <a class="photo-card" href="../../industries/critical-infrastructure/index.html">
-          <img src="../../assets/img/company/ct-ind-healthcare.jpg" alt="Healthcare facility corridor" width="1144" height="1356" loading="lazy">
-          <h3 class="photo-card__title">Healthcare</h3>
-        </a>
+    <!-- ===== COMMON DISCUSSION TOPICS ===== -->
+    <section class="section--pale section stack gap-40" style="align-items:center;padding-top:130px;">
+      <h2 class="ct2-h2">Common Discussion Topics</h2>
+      <div class="ct2-topics">
+        <div class="ct2-topic">
+          <img src="../../assets/icon/oi-shield-check.svg" alt="" width="40" height="40" loading="lazy">
+          <div>
+            <h3>Improve Safety</h3>
+            <p>Understand workforce exposure, emergency response and operational risk.</p>
+          </div>
+        </div>
+        <div class="ct2-topic">
+          <img src="../../assets/icon/ct2-chart-area.svg" alt="" width="40" height="40" loading="lazy">
+          <div>
+            <h3>Improve Productivity</h3>
+            <p>Identify production constraints and improve operational performance.</p>
+          </div>
+        </div>
+        <div class="ct2-topic">
+          <img src="../../assets/icon/cif-eye-tracking-lg.svg" alt="" width="40" height="40" loading="lazy">
+          <div>
+            <h3>Operational Visibility</h3>
+            <p>Create a live understanding of people, assets and operations.</p>
+          </div>
+        </div>
+        <div class="ct2-topic">
+          <img src="../../assets/icon/asset-boxes.svg" alt="" width="40" height="40" loading="lazy">
+          <div>
+            <h3>Asset Intelligence</h3>
+            <p>Track equipment, materials and critical infrastructure.</p>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- ===== GLOBAL PRESENCE ===== -->
+    <section class="section stack gap-40" style="padding-bottom:40px;">
+      <div class="row gap-40 center wrap">
+        <div class="ct2-globe-copy">
+          <div class="stack">
+            <h2 class="ct2-h2" style="text-align:left;">Global Presence</h2>
+            <p class="ct2-lead">Supporting Operations Around The World</p>
+          </div>
+          <p class="ct2-copy">Our engineering teams and international partners support projects across<br>Australia, Asia Pacific, North America and Europe.</p>
+        </div>
+        <div class="ct2-map">
+          <img src="../../assets/img/company/ct2-world-map.svg" alt="World map showing iottag's supported regions" width="666" height="339" loading="lazy">
+          <span class="ct2-pin" style="left:17%;top:22%;">Canada</span>
+          <span class="ct2-pin" style="left:12%;top:44%;">USA</span>
+          <span class="ct2-pin" style="left:47%;top:29%;">Europe</span>
+          <span class="ct2-pin" style="left:48%;top:56%;">Africa</span>
+          <span class="ct2-pin" style="left:73%;top:62%;">Singapore</span>
+          <span class="ct2-pin" style="left:82%;top:78%;">Australia</span>
+          <span class="ct2-pin" style="left:92%;top:88%;">New Zealand</span>
+        </div>
+      </div>
+    </section>
+    <!-- brand carousel runs edge-to-edge, outside the width-capped section -->
+    <div class="stack" style="padding:0 0 80px;">
+        <div class="brand-marquee">
+          <div class="brand-marquee__track">
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-cscec.png" alt="CSCEC" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-acciona.png" alt="ACCIONA" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-cimic.png" alt="CIMIC" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-cpb.png" alt="CPB Contractors" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-johnholland.png" alt="John Holland" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-gsec.png" alt="GS E&amp;C" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-ghella.png" alt="Ghella" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-ugl.png" alt="UGL" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-webuild.png" alt="Webuild" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-taisei.png" alt="Taisei" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-bhp.png" alt="BHP" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card"><img src="../../assets/img/company/ab-logo-riotinto.png" alt="Rio Tinto" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-cscec.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-acciona.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-cimic.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-cpb.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-johnholland.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-gsec.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-ghella.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-ugl.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-webuild.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-taisei.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-bhp.png" alt="" width="120" height="80" loading="lazy"></div>
+            <div class="brand-card" aria-hidden="true"><img src="../../assets/img/company/ab-logo-riotinto.png" alt="" width="120" height="80" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="dots" data-dots aria-hidden="true" style="justify-content:center;margin-top:24px;">
+          <span class="is-active"></span><span></span><span></span>
+        </div>
     </div>
 
-    <!-- ===== CTA ===== -->
-    <section class="cta-band" style="padding:64px 80px;">
-      <img class="cta-band__bg" src="../../assets/img/company/ct-cta-bg.jpg" alt="" width="1920" height="1076" loading="lazy">
-      <div class="cta-band__overlay cta-band__overlay--flat" aria-hidden="true"></div>
-      <div class="stack center gap-16">
-        <h2 class="h2">Global Capability. Local Support.</h2>
-        <p>Supporting organisations across: Australia&ensp;•&ensp;Asia Pacific&ensp;•&ensp;North America&ensp;•&ensp;Europe</p>
-        <p style="font-weight:600;">Providing engineering, deployment and ongoing operational support.</p>
+    <!-- ===== WHAT HAPPENS NEXT? ===== -->
+    <section class="section--pale section stack gap-40" style="align-items:center;">
+      <div class="stack gap-24 text-center">
+        <h2 class="ct2-h2">What happens next?</h2>
+        <p class="ct2-copy" style="text-align:center;">Supporting You Beyond Deployment</p>
       </div>
-      <div class="row gap-16 wrap">
-        <a class="btn btn--primary" href="#contact-form">Start The Conversation</a>
+      <div class="ct2-steps">
+        <div class="ct2-step">
+          <span class="ct2-step__num">1</span>
+          <div>
+            <h3>Initial Consultation</h3>
+            <p>Understand your operational objectives.</p>
+          </div>
+        </div>
+        <div class="ct2-steps__sep" aria-hidden="true">
+          <svg viewBox="0 0 24 100" preserveAspectRatio="none"><polyline points="1,0 23,50 1,100" fill="none" stroke="#E9F3F9" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
+        </div>
+        <div class="ct2-step">
+          <span class="ct2-step__num">2</span>
+          <div>
+            <h3>Solution Assessment</h3>
+            <p>Review current technologies, workflows and operational challenges.</p>
+          </div>
+        </div>
+        <div class="ct2-steps__sep" aria-hidden="true">
+          <svg viewBox="0 0 24 100" preserveAspectRatio="none"><polyline points="1,0 23,50 1,100" fill="none" stroke="#E9F3F9" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
+        </div>
+        <div class="ct2-step">
+          <span class="ct2-step__num">3</span>
+          <div>
+            <h3>Recommended Approach</h3>
+            <p>Receive tailored recommendations from our engineering team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MEET OUR SPECIALISTS ===== -->
+    <section class="section stack gap-40" style="align-items:center;">
+      <h2 class="ct2-h2">Meet Our Specialists</h2>
+      <div class="ct2-spec">
+        <div class="ct2-spec__tabs" role="tablist" aria-label="Specialist teams">
+          <button type="button" class="ct2-spec__tab is-active" role="tab" aria-selected="true">Operational Intelligence</button>
+          <button type="button" class="ct2-spec__tab" role="tab" aria-selected="false">Fatal Risk Intelligence</button>
+          <button type="button" class="ct2-spec__tab" role="tab" aria-selected="false">Production Intelligence</button>
+          <button type="button" class="ct2-spec__tab" role="tab" aria-selected="false">Asset Intelligence</button>
+          <button type="button" class="ct2-spec__tab" role="tab" aria-selected="false">Emergency Response</button>
+          <button type="button" class="ct2-spec__tab" role="tab" aria-selected="false">Engineering</button>
+          <button type="button" class="ct2-spec__tab" role="tab" aria-selected="false">Deployment</button>
+          <button type="button" class="ct2-spec__tab" role="tab" aria-selected="false">Training</button>
+          <button type="button" class="ct2-spec__tab" role="tab" aria-selected="false">Support</button>
+        </div>
+        <div class="ct2-spec__panel" role="tabpanel">
+          <div class="ct2-spec__copy">
+            <h3>Engineers collaborating onsite</h3>
+            <ul>
+              <li><img src="../../assets/icon/ct2-arrow-right.svg" alt="" width="24" height="24" loading="lazy">Underground Operations</li>
+              <li><img src="../../assets/icon/ct2-arrow-right.svg" alt="" width="24" height="24" loading="lazy">Deployment Teams</li>
+              <li><img src="../../assets/icon/ct2-arrow-right.svg" alt="" width="24" height="24" loading="lazy">Hardware Installation</li>
+              <li><img src="../../assets/icon/ct2-arrow-right.svg" alt="" width="24" height="24" loading="lazy">Client Workshops</li>
+            </ul>
+            <a class="btn btn--primary" href="#contact-form">Speak With Specialists</a>
+          </div>
+          <div class="ct2-spec__shots">
+            <img src="../../assets/img/company/ct2-specialist-1.jpg" alt="iottag engineer in high-visibility clothing holding a Vector Tag on site" width="563" height="1000" loading="lazy">
+            <img src="../../assets/img/company/ct2-specialist-2.jpg" alt="Two iottag engineers in life vests in front of a steel bridge" width="1024" height="768" loading="lazy">
+            <img src="../../assets/img/company/wi-env-healthcare.jpg" alt="iottag specialist wearing a respirator inside a tunnel" width="1144" height="1356" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OFFICE DETAILS ===== -->
+    <section class="section--pale section stack gap-40" style="align-items:center;">
+      <h2 class="ct2-h2">Office details</h2>
+      <div class="row gap-40 center wrap" style="width:100%;">
+        <div class="ct2-map">
+          <img src="../../assets/img/company/ct2-world-map.svg" alt="World map highlighting iottag office locations" width="666" height="339" loading="lazy">
+          <span class="ct2-pin" style="left:12%;top:44%;">USA</span>
+          <span class="ct2-pin" style="left:47%;top:29%;">Europe</span>
+          <span class="ct2-pin" style="left:73%;top:62%;">Singapore</span>
+          <span class="ct2-pin" style="left:82%;top:78%;">Australia</span>
+        </div>
+        <div class="ct2-offices">
+          <div class="ct2-office">
+            <div>
+              <h3>Australia</h3>
+              <p class="ct2-office__sub">Melbourne - Engineering Headquarters</p>
+            </div>
+            <div class="stack" style="gap:4px;">
+              <div class="ct2-office__line"><img src="../../assets/icon/ct2-phone.svg" alt="" width="16" height="16" loading="lazy">0123456789</div>
+              <div class="ct2-office__line"><img src="../../assets/icon/ct2-mail.svg" alt="" width="16" height="16" loading="lazy">iottag@email.com</div>
+            </div>
+          </div>
+          <div class="ct2-office">
+            <div>
+              <h3>Asia Pacific</h3>
+              <p class="ct2-office__sub">Singapore</p>
+            </div>
+            <div class="stack" style="gap:4px;">
+              <div class="ct2-office__line"><img src="../../assets/icon/ct2-phone.svg" alt="" width="16" height="16" loading="lazy">0123456789</div>
+              <div class="ct2-office__line"><img src="../../assets/icon/ct2-mail.svg" alt="" width="16" height="16" loading="lazy">iottag@email.com</div>
+            </div>
+          </div>
+          <div class="ct2-office">
+            <div>
+              <h3>North America</h3>
+              <p class="ct2-office__sub">Austin</p>
+            </div>
+            <div class="stack" style="gap:4px;">
+              <div class="ct2-office__line"><img src="../../assets/icon/ct2-phone.svg" alt="" width="16" height="16" loading="lazy">0123456789</div>
+              <div class="ct2-office__line"><img src="../../assets/icon/ct2-mail.svg" alt="" width="16" height="16" loading="lazy">iottag@email.com</div>
+            </div>
+          </div>
+          <div class="ct2-office">
+            <div>
+              <h3>Europe</h3>
+              <p class="ct2-office__sub">London</p>
+            </div>
+            <div class="stack" style="gap:4px;">
+              <div class="ct2-office__line"><img src="../../assets/icon/ct2-phone.svg" alt="" width="16" height="16" loading="lazy">0123456789</div>
+              <div class="ct2-office__line"><img src="../../assets/icon/ct2-mail.svg" alt="" width="16" height="16" loading="lazy">iottag@email.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SUPPORT CAPABILITY ===== -->
+    <section class="section stack gap-40" style="align-items:center;">
+      <div class="stack gap-24 text-center">
+        <h2 class="ct2-h2">Support capability</h2>
+        <p class="ct2-copy" style="text-align:center;">Supporting You Beyond Deployment</p>
+      </div>
+      <div class="ct2-panel">
+        <div class="ct2-panel__photo">
+          <img src="../../assets/img/company/ab-purpose-performance.jpg" alt="iottag engineers working beside heavy machinery on site" width="736" height="375" loading="lazy">
+        </div>
+        <div class="ct2-panel__rows">
+          <div class="ct2-panel__row">
+            <h3>Engineering &amp; Design</h3>
+            <p>We help define the right architecture for your operational environment.</p>
+          </div>
+          <div class="ct2-panel__row">
+            <h3>Deployment &amp; Training</h3>
+            <p>Our specialists support installation, commissioning and user adoption.</p>
+          </div>
+          <div class="ct2-panel__row">
+            <h3>Long-Term Support</h3>
+            <p>Ongoing optimisation, servicing and continuous improvement throughout the solution lifecycle.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-band ct2-cta">
+      <img class="cta-band__bg" src="../../assets/img/company/ct-cta-bg.jpg" alt="" width="1920" height="1076" loading="lazy">
+      <div class="cta-band__overlay cta-band__overlay--flat" aria-hidden="true" style="background:rgba(5,55,80,.7);"></div>
+      <div class="stack center gap-16">
+        <h2 class="h2">Let&rsquo;s Build Safer, Smarter Operations Together</h2>
+        <p>Whether you&rsquo;re planning a new project or looking to improve an existing operation,<br>our engineering team can help identify the right Operational Intelligence approach for your environment.</p>
+      </div>
+      <div class="ct2-why">
+        <div class="ct2-why__inner">
+        <h2 class="ct2-why__head">Why Organisations<br>Choose iottag?</h2>
+        <div class="ct2-why__grid">
+          <div class="ct2-why__item">
+            <span class="ct2-why__ic"><img src="../../assets/icon/ct2-hard-hat-32.svg" alt="" width="32" height="32" loading="lazy"></span>
+            <div>
+              <h3>Engineering-led</h3>
+              <p>Solutions developed by engineers for complex operational</p>
+            </div>
+          </div>
+          <div class="ct2-why__item">
+            <span class="ct2-why__ic"><img src="../../assets/icon/ct2-globe-32.svg" alt="" width="32" height="32" loading="lazy"></span>
+            <div>
+              <h3>Global delivery</h3>
+              <p>Supported by engineering teams and international partners across multiple regions</p>
+            </div>
+          </div>
+          <div class="ct2-why__item">
+            <span class="ct2-why__ic"><img src="../../assets/icon/ct2-target.svg" alt="" width="32" height="32" loading="lazy"></span>
+            <div>
+              <h3>Purpose-built technology</h3>
+              <p>Proprietary software, AI and industrial hardware designed to work together</p>
+            </div>
+          </div>
+          <div class="ct2-why__item">
+            <span class="ct2-why__ic"><img src="../../assets/icon/ct2-diversity-3.svg" alt="" width="32" height="32" loading="lazy"></span>
+            <div>
+              <h3>Long-term partnership</h3>
+              <p>From design and deployment through to optimisation and ongoing support</p>
+            </div>
+          </div>
+        </div>
+        </div>
       </div>
     </section>
   </main>
