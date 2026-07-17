@@ -544,6 +544,16 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .worldmap { position: relative; flex: 1 1 0; min-width: 320px; max-width: 880px; align-self: center; }
 .worldmap img { display: block; width: 100%; height: auto; }
 .worldmap .pin { position: absolute; color: var(--c-orange); }
+/* white pill pins over the dotted-world svg (same look as company.css .ct2-pin);
+   margin-top -7px because the ::after tail hangs 7px below `top` — the coord IS the tail tip */
+.worldmap .map-pin {
+  position: absolute; transform: translate(-50%, -100%); margin-top: -7px;
+  background: #fff; border: 1px solid #1e729c; border-radius: var(--r-md);
+  padding: 4px 8px; white-space: nowrap;
+  font: 400 12px/1.2 var(--f-body); color: var(--c-ink);
+  box-shadow: 0 12px 24px -8px rgba(0,0,0,.2);
+}
+.worldmap .map-pin::after { content: ""; position: absolute; left: 50%; top: 100%; transform: translateX(-50%); border: 6px solid transparent; border-top: 7px solid #1e729c; border-bottom: 0; }
 
 /* Checklist (leadership outcomes) */
 .checklist { display: flex; flex-direction: column; gap: 12px; }
