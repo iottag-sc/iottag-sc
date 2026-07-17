@@ -463,7 +463,9 @@
 .ct2-map { position: relative; flex: 1 1 0; min-width: 320px; max-width: 720px; }
 .ct2-map > img { width: 100%; height: auto; }
 .ct2-pin {
-  position: absolute; transform: translate(-50%, -100%);
+  /* translate(-100%) only offsets the pill body — the ::after tail hangs 7px
+     below `top`, so pull up 7px so the tail TIP lands exactly on the coord */
+  position: absolute; transform: translate(-50%, -100%); margin-top: -7px;
   background: #fff; border: 1px solid #1e729c; border-radius: var(--r-md);
   padding: 4px 8px; white-space: nowrap;
   font: 400 12px/1.2 var(--f-body); color: var(--c-ink);
