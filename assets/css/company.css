@@ -212,7 +212,7 @@
   display: flex; flex-direction: column; justify-content: center; gap: 16px;
 }
 .ab-team__card + .ab-team__card { border-left: 1px solid var(--c-line); }
-.ab-team__card img { width: 48px; height: 48px; }
+.ab-team__card img { width: 40px; height: 40px; }
 .ab-team__card h3 {
   margin: 0;
   font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
@@ -227,9 +227,11 @@
   border-top: 1px solid var(--c-line);
   background: var(--c-blue-pale);
   padding: 24px; text-align: center;
+  display: flex; align-items: center; justify-content: center;
   font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
   letter-spacing: -.01em; color: #4b5059;
 }
+.ab-team__band img { width: 40px; height: 40px; flex-shrink: 0; }
 @media (max-width: 800px) {
   .ab-team__row { flex-direction: column; }
   .ab-team__card + .ab-team__card { border-left: 0; border-top: 1px solid var(--c-line); }
@@ -287,25 +289,32 @@
 .ab-map { flex: 1 1 0; min-width: 320px; max-width: 780px; align-self: center; }
 .ab-map img { width: 100%; height: auto; display: block; }
 
-/* logo tiles inside the brand marquee — contained on the white card
-   (cover stretched the exports and cropped wide logos like Rio Tinto) */
-.ab-brands .brand-card img { max-height: 52px; }
-
 /* full-bleed joined photo band (Trusted In …) */
 .ab-photos { display: flex; gap: 1px; width: 100%; }
 .ab-photos img { flex: 1 1 0; min-width: 0; height: 200px; object-fit: cover; }
 @media (max-width: 960px) { .ab-photos { flex-wrap: wrap; } .ab-photos img { flex: 1 1 50%; } }
 
-/* CTA benefit bullets — single centred row (matches technology.css §1) */
-.cta-bullets {
-  display: flex; gap: 20px 40px; justify-content: center; flex-wrap: wrap;
-  margin: 0; padding: 0; list-style: none;
+/* CTA: "Why Organisations Choose iottag?" icon cards on photo band (Figma 12781:11597) */
+.ab-cta { gap: 40px; }
+.ab-cta__head {
+  position: relative; z-index: 2; margin: 0;
+  font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2;
+  letter-spacing: -.01em; color: #fff; text-align: center;
 }
-.cta-bullets li {
-  font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: #fff;
-  display: flex; align-items: center; gap: 10px;
+.ab-cta__grid {
+  position: relative; z-index: 2; width: 100%;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 24px;
 }
-.cta-bullets li::before { content: "•"; }
+.ab-cta__item { display: flex; gap: 16px; align-items: flex-start; }
+.ab-cta__ic {
+  width: 48px; height: 48px; flex-shrink: 0;
+  background: var(--c-blue-pale); border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+}
+.ab-cta__ic img { width: 24px; height: 24px; }
+.ab-cta__item h3 { margin: 0 0 2px; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #fff; text-align: left; }
+.ab-cta__item p, .cta-band .ab-cta__item p { margin: 0; font: 400 14px/1.2 var(--f-body); color: #fff; text-align: left; }
+@media (max-width: 700px) { .ab-cta__grid { grid-template-columns: 1fr; } }
 
 /* 3. CAREERS (careers, prefix cr-) -------------------------------------------- */
 /* What We Build - three columns of white icon tiles + orange note */
@@ -399,19 +408,23 @@
 
 /* white form card — overlaps the navy band above */
 .ct-card {
-  flex: 1 1 0; min-width: 320px; max-width: 680px; margin-left: auto;
+  /* 620px basis biases the split toward the card (Figma: card 680 / intro 460) */
+  flex: 1 1 620px; min-width: 320px; max-width: 680px; margin-left: auto;
   background: #fff;
   border: 1px solid rgba(6,3,9,.15); border-radius: var(--r-md);
   box-shadow: 0 32px 64px -12px rgba(0,0,0,.14);
   padding: 41px;
   /* the card floats over BOTH neighbours: ~34px up into the navy band
-     (pad-top 40 − 74) and ~50px down into the pale section below (the
+     (pad-top 40 − 74) and ~34px down into the pale section below (the
      negative bottom margin shrinks its flow footprint so the section
      ends before the card's visual bottom) */
   margin-top: -74px;
-  margin-bottom: -100px;
+  margin-bottom: -74px;
   position: relative; z-index: 2;
 }
+/* card footer: mini reassurances left, submit right (Figma 12781:11307) */
+.ct-form__foot { display: flex; gap: 40px; align-items: center; }
+.ct-form__foot .btn { flex-shrink: 0; }
 .ct-form { display: flex; flex-direction: column; gap: 40px; }
 .ct-form__rows { display: flex; flex-direction: column; gap: 20px; }
 .ct-form__row { display: flex; gap: 20px; }
@@ -442,10 +455,15 @@
 .ct2-intro h1 { margin: 0; font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2; letter-spacing: -.01em; color: #4b5059; }
 .ct2-lead { margin: 0; font: 600 16px/1.2 var(--f-body); color: var(--c-ink); }
 .ct2-copy { margin: 0; font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
-.ct2-minis { display: grid; grid-template-columns: 260px auto; gap: 16px 4px; }
-.ct2-mini { display: flex; gap: 8px; align-items: center; font: 600 16px/1.2 var(--f-body); color: var(--c-ink); }
-.ct2-mini .ct2-mini__ic { width: 32px; height: 32px; flex-shrink: 0; background: var(--c-blue-pale); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; }
-.ct2-mini img { width: 20px; height: 20px; }
+/* intro paragraphs are regular weight in the redesign (Figma 12545:25215) */
+.ct2-intro .ct2-lead { font-weight: 400; }
+/* mini reassurances sit inside the form card (Figma 12781:11273) */
+.ct2-minis { flex: 1 1 0; min-width: 0; display: grid; grid-template-columns: 200px 1fr; gap: 4px 8px; }
+.ct2-mini { display: flex; gap: 4px; align-items: center; font: 600 14px/1.2 var(--f-body); color: var(--c-ink); }
+.ct2-mini img { width: 16px; height: 16px; flex-shrink: 0; }
+@media (max-width: 900px) {
+  .ct-form__foot { flex-direction: column; align-items: flex-start; gap: 24px; }
+}
 @media (max-width: 640px) { .ct2-minis { grid-template-columns: 1fr; } }
 
 /* section heading (Ubuntu Medium 40 near-black, centered) */
@@ -475,7 +493,7 @@
 .ct2-globe-copy { flex: 0 1 600px; min-width: 300px; display: flex; flex-direction: column; gap: 40px; }
 
 /* "What happens next?" numbered steps card — number circle LEFT of the text */
-.ct2-steps { display: flex; width: 100%; min-height: 240px; background: #fff; border-radius: var(--r-md); overflow: hidden; }
+.ct2-steps { display: flex; width: 100%; min-height: 200px; background: #fff; border-radius: var(--r-md); overflow: hidden; }
 .ct2-step { flex: 1 1 0; min-width: 0; padding: 40px; display: flex; gap: 16px; align-items: center; }
 .ct2-step__num { width: 48px; height: 48px; flex-shrink: 0; border-radius: 50%; background: var(--c-blue-pale); display: flex; align-items: center; justify-content: center; font: 700 20px/1 var(--f-alt); color: #4b5059; }
 .ct2-step h3 { margin: 0 0 4px; font: 700 16px/1.5 var(--f-alt); color: #4b5059; }
@@ -485,45 +503,58 @@
 @media (max-width: 900px) { .ct2-steps { flex-direction: column; } .ct2-steps__sep { display: none; } }
 
 /* "Meet Our Specialists" tab card (visual tabs — one designed panel) */
-.ct2-spec { width: 100%; background: var(--c-surface); border: 1px solid rgba(6,3,9,.15); border-radius: var(--r-md); overflow: hidden; }
-.ct2-spec__tabs { display: flex; border-bottom: 1px solid #e5e7eb; }
-.ct2-spec__tab {
-  flex: 1 1 0; min-width: 0; min-height: 100px; padding: 12px 8px;
-  background: var(--c-surface); border: 0; border-right: 1px solid #e5e7eb;
-  display: flex; align-items: center; justify-content: center; text-align: center;
-  font: 400 18px/1.2 var(--f-body); color: var(--c-ink);
+/* "Speak with specialists in" — 3×3 capability grid + two photos (Figma 12781:11385) */
+.ct2-sws { display: flex; gap: 20px; width: 100%; align-items: stretch; }
+.ct2-sws__grid {
+  flex: 1 1 69%; min-width: 0; height: 420px;
+  display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);
+  border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden;
 }
-.ct2-spec__tab:last-child { border-right: 0; }
-.ct2-spec__tab.is-active { background: #fff; box-shadow: inset 0 -2px 0 #268fc3; }
-.ct2-spec__panel { display: flex; gap: 40px; background: #fff; padding: 48px; }
-.ct2-spec__copy { flex: 1 1 0; min-width: 280px; display: flex; flex-direction: column; gap: 28px; align-items: flex-start; }
-.ct2-spec__copy h3 { margin: 0; font: 700 24px/1.33 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
-.ct2-spec__copy ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.ct2-spec__copy li { display: flex; gap: 4px; align-items: center; font: 400 18px/1.5 var(--f-body); color: var(--c-ink); }
-.ct2-spec__copy li img { width: 24px; height: 24px; }
-.ct2-spec__shots { display: flex; gap: 16px; }
-.ct2-spec__shots img { width: 240px; height: 280px; object-fit: cover; border-radius: var(--r-md); }
-@media (max-width: 1280px) {
-  .ct2-spec__tabs { flex-wrap: wrap; }
-  .ct2-spec__tab { flex: 1 1 20%; min-height: 64px; font-size: 16px; }
-  .ct2-spec__panel { flex-wrap: wrap; }
-  .ct2-spec__shots { flex-wrap: wrap; }
-  .ct2-spec__shots img { flex: 1 1 200px; max-width: 100%; }
+.ct2-sws__cell {
+  background: rgba(255,255,255,.9); padding: 24px;
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  /* borders (not grid gaps) — 1px gaps vanish at sub-pixel under html{zoom:.8} */
+  border-right: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line);
+}
+.ct2-sws__cell:nth-child(3n) { border-right: 0; }
+.ct2-sws__cell:nth-child(n+7) { border-bottom: 0; }
+.ct2-sws__cell img { width: 40px; height: 40px; }
+.ct2-sws__cell span { font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.ct2-sws__shots { flex: 1 1 31%; min-width: 280px; display: flex; flex-direction: column; gap: 20px; }
+.ct2-sws__shots img { flex: 1 1 0; min-height: 0; width: 100%; height: 200px; object-fit: cover; border-radius: var(--r-md); }
+@media (max-width: 1100px) {
+  .ct2-sws { flex-direction: column; }
+  .ct2-sws__grid { height: auto; }
+  .ct2-sws__cell { min-height: 120px; }
+  .ct2-sws__shots { flex-direction: row; }
+  .ct2-sws__shots img { height: 220px; }
+}
+@media (max-width: 640px) {
+  .ct2-sws__grid { grid-template-columns: 1fr; grid-template-rows: none; }
+  .ct2-sws__cell { min-height: 0; border-right: 0; border-bottom: 1px solid var(--c-line); }
+  .ct2-sws__cell:last-child { border-bottom: 0; }
+  .ct2-sws__shots { flex-direction: column; }
 }
 
-/* office detail cards (2×2 beside the map) */
-.ct2-offices { display: grid; grid-template-columns: repeat(2, 1fr); width: 620px; max-width: 100%; flex-shrink: 0; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
-.ct2-office { padding: 24px 40px; display: flex; flex-direction: column; gap: 20px; border-bottom: 1px solid var(--c-line); }
-.ct2-office:nth-child(odd) { border-right: 1px solid rgba(6,3,9,.15); }
-.ct2-office:nth-child(n+3) { border-bottom: 0; }
+/* office detail cards — single 4-across strip, no map (Figma 12716:16345) */
+.ct2-offices { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.ct2-office { min-height: 200px; padding: 24px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+.ct2-office + .ct2-office { border-left: 1px solid var(--c-line); }
 .ct2-office h3 { margin: 0; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
-.ct2-office__sub { margin: 0; font: 400 12px/1.2 var(--f-body); color: var(--c-grey); }
-.ct2-office__line { display: flex; gap: 8px; align-items: center; font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
+.ct2-office__sub { margin: 0; font: 400 14px/1.2 var(--f-body); color: var(--c-grey); }
+.ct2-office__line { display: flex; gap: 4px; align-items: center; font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
 .ct2-office__line img { width: 16px; height: 16px; flex-shrink: 0; }
+@media (max-width: 1100px) {
+  .ct2-offices { grid-template-columns: repeat(2, 1fr); }
+  .ct2-office { min-height: 0; }
+  .ct2-office + .ct2-office { border-left: 0; }
+  .ct2-office:nth-child(even) { border-left: 1px solid var(--c-line); }
+  .ct2-office:nth-child(n+3) { border-top: 1px solid var(--c-line); }
+}
 @media (max-width: 640px) {
   .ct2-offices { grid-template-columns: 1fr; }
-  .ct2-office { border-right: 0 !important; border-bottom: 1px solid var(--c-line); }
-  .ct2-office:last-child { border-bottom: 0; }
+  .ct2-office:nth-child(even) { border-left: 0; }
+  .ct2-office + .ct2-office { border-top: 1px solid var(--c-line); }
 }
 
 /* support capability panel: cream photo + stacked rows on pale tint */
@@ -540,29 +571,16 @@
   .ct2-panel__photo { width: 100%; height: 260px; border-right: 0; border-bottom: 1px solid rgba(6,3,9,.15); }
 }
 
-/* CTA: 56px headline + "Why Organisations Choose iottag?" dark band */
-.ct2-cta .h2 { font-size: 56px; }
-@media (max-width: 640px) { .ct2-cta .h2 { font-size: 32px; } }
-/* the dark band breaks out of .cta-band's 80px padding: full banner width,
-   flush with the banner's bottom edge. The CONTENT stays centred and capped
-   like every other section (maxw + side padding) via the __inner wrapper. */
-.ct2-why { position: relative; z-index: 2; width: calc(100% + 160px); margin: 16px -80px -80px; background: rgba(31,50,62,.8); }
-.ct2-why__inner {
-  width: min(100%, calc(var(--maxw) + (var(--pad-x) * 2)));
-  margin-inline: auto;
-  padding: 0 var(--pad-x);
-  display: flex; gap: 40px; align-items: center;
-}
-.ct2-why__head { margin: 0; flex-shrink: 0; font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2; letter-spacing: -.01em; color: #fff; text-align: left; }
-.ct2-why__grid { flex: 1 1 0; min-width: 300px; max-width: 840px; margin-left: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 40px; padding: 40px 0; }
-.ct2-why__item { display: flex; gap: 20px; align-items: flex-start; }
-.ct2-why__item .ct2-why__ic { width: 60px; height: 60px; flex-shrink: 0; background: var(--c-blue-pale); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; }
-.ct2-why__item img { width: 32px; height: 32px; }
+/* CTA band: "Why Organisations Choose iottag?" over the photo (Figma 12545:26936) */
+.ct2-cta .ct2-why__head { color: #fff; }
+.ct2-why__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
+.ct2-why__item { display: flex; gap: 16px; align-items: flex-start; }
+.ct2-why__item .ct2-why__ic { width: 48px; height: 48px; flex-shrink: 0; background: var(--c-blue-pale); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; }
+.ct2-why__item img { width: 24px; height: 24px; }
 /* .cta-band centers every <p> (main.css) — outrank it so the why-item copy
    stays left-aligned (.cta-band prefix lifts specificity above the base rule) */
-.cta-band .ct2-why__item h3, .ct2-why__item h3 { margin: 0 0 2px; font: 600 20px/1.5 var(--f-body); color: #fff; text-align: left; }
+.cta-band .ct2-why__item h3, .ct2-why__item h3 { margin: 0; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #fff; text-align: left; }
 .cta-band .ct2-why__item p, .ct2-why__item p { margin: 0; font: 400 14px/1.2 var(--f-body); color: #fff; text-align: left; }
-@media (max-width: 1100px) { .ct2-why__inner { flex-wrap: wrap; padding: 40px; } .ct2-why__grid { padding: 0; } }
 @media (max-width: 700px) { .ct2-why__grid { grid-template-columns: 1fr; } }
 
 /* 3. WHY IOTTAG (why-iottag, prefix wi-) -------------------------------------- */

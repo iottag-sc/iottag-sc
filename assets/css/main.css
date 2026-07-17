@@ -993,3 +993,32 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 }
 .asset-stage + .asset-stage { margin-left: -16px; }
 .asset-stage span { font: 600 16px/1.2 var(--f-body); color: #4B5059; }
+
+/* ---- "Delivering Value" pale band (Figma 12781:9687) ------------------ */
+/* header row: 500px title + copy column */
+.dv-head { display: flex; gap: 80px; align-items: center; width: 100%; }
+.dv-head .h2 { flex: 0 1 500px; text-align: left; }
+.dv-head__copy { flex: 1 1 0; min-width: 300px; display: flex; flex-direction: column; gap: 8px; }
+.dv-head__copy p { margin: 0; font: 400 18px/1.2 var(--f-body); color: var(--c-ink); }
+/* 4-card outcome strip — borders, not grid gaps (1px gaps vanish under html{zoom:.8}) */
+.dv-cards { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.dv-card { min-height: 240px; background: #fff; padding: 40px 24px; display: flex; flex-direction: column; gap: 16px; }
+.dv-card + .dv-card { border-left: 1px solid var(--c-line); }
+.dv-card img { width: 40px; height: 40px; }
+.dv-card h3 { margin: 0 0 8px; font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.dv-card ul { margin: 0; padding: 0; list-style: none; }
+.dv-card li { font: 400 16px/1.2 var(--f-body); color: var(--c-grey); }
+.dv-card li::before { content: "- "; }
+@media (max-width: 1100px) {
+  .dv-head { flex-wrap: wrap; gap: 24px; }
+  .dv-cards { grid-template-columns: repeat(2, 1fr); }
+  .dv-card { min-height: 0; }
+  .dv-card + .dv-card { border-left: 0; }
+  .dv-card:nth-child(even) { border-left: 1px solid var(--c-line); }
+  .dv-card:nth-child(n+3) { border-top: 1px solid var(--c-line); }
+}
+@media (max-width: 640px) {
+  .dv-cards { grid-template-columns: 1fr; }
+  .dv-card:nth-child(even) { border-left: 0; }
+  .dv-card + .dv-card { border-top: 1px solid var(--c-line); }
+}
