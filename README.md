@@ -27,7 +27,7 @@ Clean directory URLs — add new pages by dropping a folder in, no restructuring
               asset-visibility, environmental-monitoring, executive-visibility
 /industries/ + mining, tunnelling, construction-infrastructure,
                bridge-construction-maintenance, critical-infrastructure
-/technology/ + engineering-hardware, vector-tag, positioning-technologies,
+/technology/ + vector-tag, positioning-technologies,
                iot-security-governance, integrations-ecosystem
 /resources/  + case-studies, video-library, articles-insights, white-papers
 /company/    + about, why-iottag, partners, careers, contact

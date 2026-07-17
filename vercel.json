@@ -4,6 +4,11 @@
       "source": "/platform/environmental-monitoring/:path*",
       "destination": "/platform/environmental-intelligence/:path*",
       "permanent": true
+    },
+    {
+      "source": "/technology/engineering-hardware/:path*",
+      "destination": "/technology/vector-tag/",
+      "permanent": true
     }
   ],
   "headers": [

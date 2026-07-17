@@ -1,6 +1,8 @@
-/* Vector Tag cradle 360 viewer — homepage "End-to-End Accountability" highlight.
-   Single auto-spinning panel; the fixed-geometry card (sized in main.css) is
-   scaled to fit whatever width .d81-fit gets from the layout. */
+/* Vector Tag cradle 360 viewer — homepage "End-to-End Accountability"
+   highlight and the Technology > Vector Tag page. Single auto-spinning panel;
+   the fixed-geometry card (sized in main.css) is scaled to fit whatever width
+   .d81-fit gets from the layout (upscaled too — the 640x840 frames have the
+   headroom). */
 (function () {
   var fit = document.getElementById('d81-fit');
   if (!fit) return;
@@ -9,7 +11,7 @@
 
   /* Scale the fixed-geometry card to the container */
   function rescale() {
-    var s = Math.min(1, fit.clientWidth / card.offsetWidth);
+    var s = fit.clientWidth / card.offsetWidth;
     card.style.transform = 'scale(' + s + ')';
     fit.style.height = Math.round(card.offsetHeight * s) + 'px';
   }
@@ -18,10 +20,12 @@
   rescale();
 
   /* 36 frames at 10 degree steps — renders captured from the designer's
-     Spline scene; only the src swaps. */
+     Spline scene; only the src swaps. The folder is taken from the initial
+     img src so the viewer works from any page depth. */
+  var dir = img.getAttribute('src').replace(/[^\/]+$/, '');
   var frames = [];
   for (var i = 1; i <= 36; i++) {
-    frames.push('assets/img/vectortag360/cradle360-' + (i < 10 ? '0' : '') + i + '.webp');
+    frames.push(dir + 'cradle360-' + (i < 10 ? '0' : '') + i + '.webp');
   }
   frames.forEach(function (src) { new Image().src = src; });   // preload
 
