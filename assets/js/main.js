@@ -194,14 +194,23 @@ function initMapExplorer() {
         t.classList.toggle('is-active', t === tab);
         t.setAttribute('aria-selected', String(t === tab));
       });
-      img.src = tab.dataset.map;
-      img.alt = tab.dataset.alt;
+      img.src = tab ? tab.dataset.map : root.dataset.mapDefault;
+      img.alt = tab ? tab.dataset.alt : root.dataset.mapDefaultAlt;
     };
+    const tablist = root.querySelector('.odt3-x__tabs');
     tabs.forEach((tab) => {
-      // hover switches the view; click covers touch + keyboard
+      // a view shows only while its tab is hovered (click covers touch + keyboard)
       tab.addEventListener('pointerenter', () => activate(tab));
       tab.addEventListener('click', () => activate(tab));
       tab.addEventListener('focus', () => activate(tab));
+    });
+    // leaving the tab rail -> back to the plain full map (no overlay popups);
+    // touch fires pointerleave right after a tap, so only revert for mouse
+    tablist.addEventListener('pointerleave', (e) => {
+      if (e.pointerType !== 'touch') activate(null);
+    });
+    tablist.addEventListener('focusout', (e) => {
+      if (!tablist.contains(e.relatedTarget)) activate(null);
     });
     // warm the cache once the explorer is first approached so swaps are instant
     root.addEventListener('pointerenter', () => {
