@@ -831,148 +831,52 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 
 /* ======================================================================
    Home redesign (Figma "Home UPdated" 12359:8279, Jul 2026)
-   hero floating pins · Atlas Platform diagram · asset chevron strip
+   intelligence-engines diagram · asset chevron strip
    ====================================================================== */
 
-/* ---- hero: floating asset-tag pins (decorative, right side) ---------- */
-.hero-pins {
+/* ---- "Monitor. Compare. Predict. Optimise." circular diagram (12359:8324) */
+.ie-diagram { position: relative; width: 440px; height: 420px; flex-shrink: 0; }
+.ie-diagram__ring { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.ie-chip {
   position: absolute;
-  left: calc(50% + 76px);            /* 796px on the 1440 design canvas */
-  top: 238px;
-  width: 521px;
-  height: 302px;
-  mix-blend-mode: hard-light;
-  opacity: .6;
-  z-index: 5;
-  pointer-events: none;
-}
-.hero-pin { position: absolute; display: flex; flex-direction: column; align-items: center; }
-.hero-pin__tag {
-  width: 100px;
-  height: 88px;
-  flex-shrink: 0;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-}
-.hero-pin__tag img { width: 40px; height: 40px; }
-.hero-pin__tag span { font: 600 16px/1.2 var(--f-body); color: #fff; }
-.hero-pin__line { width: 1px; flex: 1; background: #fff; }
-/* L-foot: 1px horizontal run along the pin's bottom edge, half the width */
-.hero-pin__foot { width: 100%; height: 1px; position: relative; }
-.hero-pin__foot::before { content: ""; position: absolute; top: 0; height: 1px; background: #fff; }
-.hero-pin__foot--l::before { left: 0; right: 50%; }
-.hero-pin__foot--r::before { left: 50%; right: 0; }
-/* large square tag (Compliance · Safety · Efficiency) */
-.hero-pin__tag--lg { width: 120px; height: 120px; }
-.hero-pin__tag--lg img { width: 34px; height: 34px; }
-.hero-pin__tag--lg span { font-size: 14px; text-align: center; }
-/* ellipse ground-marker at connector endpoints (34×9 ring + filled core) */
-.hero-pin__dot { width: 34px; height: 9px; flex-shrink: 0; border: 1px solid #fff; border-radius: 50%; position: relative; }
-.hero-pin__dot::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 3px; transform: translate(-50%, -50%); background: #fff; border-radius: 50%; }
-.hero-pin__foot .hero-pin__dot { position: absolute; top: -4px; }
-.hero-pin__dot--l { left: -17px; }
-.hero-pin__dot--r { right: -17px; }
-.hero-pin__env-link .hero-pin__dot { position: absolute; right: -17px; bottom: -4px; }
-/* connector drops in from above the tag (Operation) */
-.hero-pin--up { justify-content: flex-end; }
-/* sideways connector: arm out of the tag's right edge, then down (Environment) */
-.hero-pin--env { flex-direction: row; align-items: stretch; }
-.hero-pin__env-link { flex: 1; position: relative; }
-.hero-pin__env-link::before { content: ""; position: absolute; left: 0; right: 0; top: 66px; height: 1px; background: #fff; }
-.hero-pin__env-link::after { content: ""; position: absolute; right: 0; top: 66px; bottom: 0; width: 1px; background: #fff; }
-@media (max-width: 1280px) { .hero-pins { display: none; } }
-
-/* ---- Atlas Platform flow diagram ------------------------------------- */
-.atlas {
-  position: relative;
-  width: 560px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-.atlas__links {
-  position: absolute;
-  top: 81px;
-  left: calc(50% + 12px);
-  transform: translateX(-50%);
-  width: 619px;
-  max-width: none;
-  height: auto;
-  z-index: 0;
-}
-.atlas__chips { display: flex; gap: 8px; align-items: flex-start; position: relative; z-index: 2; }
-.atlas-chip {
   width: 88px;
-  height: 80px;
-  background: var(--c-blue-pale);
-  border-radius: 11px;
+  height: 88px;
+  background: #fff;
+  border: 1px solid var(--c-blue-tint);
+  border-radius: 50%;
   display: flex;
   flex-direction: column;
   gap: 4px;
   align-items: center;
   justify-content: center;
 }
-.atlas-chip span { font: 600 12px/1.2 var(--f-body); color: #060309; }
-.atlas__box {
-  position: relative;
-  z-index: 2;
-  width: 100%;
+.ie-chip span { font: 600 12px/1.2 var(--f-body); color: #060309; }
+.ie-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
   background: #fff;
   border: 4px solid var(--c-blue-pale);
-  border-radius: 24px;
-  overflow: hidden;
+  border-radius: 50%;
   box-shadow: 0 4px 8px -2px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.06);
-}
-.atlas__head {
-  height: 100px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.atlas__name { font: 700 20px/1.4 var(--f-alt); letter-spacing: -.2px; color: #4B5059; }
-.atlas__sub  { font: 600 12px/1.2 var(--f-body); color: var(--c-grey); }
-.atlas__outputs {
-  display: flex;
-  height: 40px;
-  background: #fdf6e5;
-  border-top: 1px solid var(--c-blue-tint);
-}
-.atlas__outputs span {
-  flex: 1;
-  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font: 600 14px/1.2 var(--f-body);
-  color: #060309;
 }
-.atlas__outputs span + span { border-left: 1px solid var(--c-blue-tint); }
-.atlas__outputs span:nth-child(2) { flex: 0 0 180px; }
-.atlas__results { display: flex; gap: 8px; align-items: flex-end; position: relative; z-index: 2; }
-.atlas-result {
-  width: 180px;
-  height: 86px;
-  background: #fff;
-  border: 1px solid var(--c-blue-light);
-  border-radius: 11px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
-}
-.atlas-result span { font: 600 14px/1.2 var(--f-body); color: #4B5059; }
+.ie-core__name { font: 600 18px/1.2 var(--f-body); color: #060309; }
+.ie-core__sub  { font: 400 14px/1.2 var(--f-body); color: #060309; }
+/* copy column: Text/Small 14px on near-black, per Figma */
+.ie-copy { font: 400 14px/1.2 var(--f-body); color: #060309; margin: 0; }
+.ie-list { display: flex; flex-direction: column; gap: 4px; }
+.ie-list__item { display: flex; align-items: center; gap: 4px; font: 400 14px/1.2 var(--f-body); color: #060309; }
+.ie-list__item .icon { font-size: 16px; color: var(--c-blue); }
+@media (max-width: 1100px) { .ie-diagram { margin-inline: auto; } }
 
 /* ---- asset chevron strip ("Built to Manage Every Operational Asset") - */
 .asset-strip__label { margin: 0; font: 600 18px/1.2 var(--f-body); color: #4B5059; }
