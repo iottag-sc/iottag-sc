@@ -183,6 +183,57 @@ function initTabs() {
   });
 }
 
+/* ---- ODT map explorer (sidebar tabs swap the site-map image) ----------- */
+function initMapExplorer() {
+  document.querySelectorAll('[data-map-explorer]').forEach((root) => {
+    const tabs = [...root.querySelectorAll('.odt3-x__tab')];
+    const img = root.querySelector('.odt3-x__panel img');
+    if (!img) return;
+    const activate = (tab) => {
+      tabs.forEach((t) => {
+        t.classList.toggle('is-active', t === tab);
+        t.setAttribute('aria-selected', String(t === tab));
+      });
+      img.src = tab.dataset.map;
+      img.alt = tab.dataset.alt;
+    };
+    tabs.forEach((tab) => {
+      // hover switches the view; click covers touch + keyboard
+      tab.addEventListener('pointerenter', () => activate(tab));
+      tab.addEventListener('click', () => activate(tab));
+      tab.addEventListener('focus', () => activate(tab));
+    });
+    // warm the cache once the explorer is first approached so swaps are instant
+    root.addEventListener('pointerenter', () => {
+      tabs.forEach((t) => { new Image().src = t.dataset.map; });
+    }, { once: true });
+  });
+}
+
+/* ---- ODT tablet dashboard fade carousel -------------------------------- */
+function initDashCarousel() {
+  document.querySelectorAll('[data-dash-carousel]').forEach((root) => {
+    const slides = [...root.querySelectorAll('.odt3-tablet__screen img')];
+    const dots = [...root.querySelectorAll('.odt3-dots span')];
+    if (slides.length < 2) return;
+    let index = 0;
+    const show = (n) => {
+      index = n;
+      slides.forEach((s, j) => s.classList.toggle('is-active', j === n));
+      dots.forEach((d, j) => d.classList.toggle('is-active', j === n));
+    };
+    let timer = setInterval(() => show((index + 1) % slides.length), 5000);
+    dots.forEach((dot, j) => {
+      dot.style.cursor = 'pointer';
+      dot.addEventListener('click', () => {
+        clearInterval(timer);
+        show(j);
+        timer = setInterval(() => show((index + 1) % slides.length), 5000);
+      });
+    });
+  });
+}
+
 /* ---- brand carousel dots (decorative) --------------------------------- */
 function initBrandDots() {
   document.querySelectorAll('[data-dots]').forEach((group) => {
@@ -207,5 +258,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initVideoButtons();
   initVideoCarousel();
   initTabs();
+  initMapExplorer();
+  initDashCarousel();
   initBrandDots();
 });
