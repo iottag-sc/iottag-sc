@@ -288,7 +288,8 @@
 
 /* --- odt2: rule-edged callouts */
 .odt2-insight { width: 100%; background: #fff; border-left: 2px solid var(--c-orange); padding: 40px 40px 40px 42px; display: flex; gap: 40px; align-items: center; }
-.odt2-insight h3 { margin: 0; font: 700 24px/1.3 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.odt2-insight h3 { margin: 0; font: 700 24px/1.3 var(--f-alt); letter-spacing: -.01em; color: #4b5059; white-space: nowrap; }
+@media (max-width: 760px) { .odt2-insight h3 { white-space: normal; } }
 .odt2-insight p { margin: 0; font: 400 18px/1.2 var(--f-body); color: var(--c-ink); }
 @media (max-width: 760px) { .odt2-insight { flex-direction: column; gap: 16px; align-items: flex-start; } }
 
@@ -331,6 +332,118 @@
 .odt2-cta .h2 { font-size: 56px; }
 .odt2-cta .cta-band__overlay { background: rgba(5,55,80,.7); }
 @media (max-width: 640px) { .odt2-cta .h2 { font-size: 32px; } }
+
+/* 7b. ODT redesign 2026-07-20 (odt3-) --------------------------------------
+   Rebuilt from Figma 10504:12006 ("OPERATIONAL INTELLIGENCE" • Ready to Dev)
+   + map component set 12833:17335 ("Operational Digital Twin Explorer Map").
+   Reuses .odt2-title/.odt2-panel/.odt2-insight/.odt2-ex/.stages/.cta-band. */
+
+/* hero overlay — Figma OVL linear gradient at 60% */
+.odt3-hero .hero__overlay {
+  background: linear-gradient(122deg, rgba(12,71,125,.6) 0%, rgba(47,79,91,.6) 49%, rgba(7,52,89,.6) 100%);
+}
+
+/* section-title column ratios per Figma (base .odt2-title head is 1.25:1) */
+/* gap 40 (not 60) so the copy column's left edge lines up with the panel row
+   text below it (420px photo card + 40px row padding = 460px) */
+.odt2-title--n420 { gap: 40px; }
+.odt2-title--n420 .odt2-title__head { flex: 0 0 420px; }
+.odt2-title--n500 .odt2-title__head { flex: 0 0 500px; }
+.odt2-title--eq .odt2-title__head { flex: 1 1 0; }
+@media (max-width: 960px) {
+  .odt2-title--n420 .odt2-title__head,
+  .odt2-title--n500 .odt2-title__head,
+  .odt2-title--eq .odt2-title__head { flex: 0 0 auto; }
+}
+
+/* photo card with centered "One Connected View" caption over a blue wash.
+   420px (not the odt2 400) so the row text at 420+40 lines up with the copy
+   column above it (420px head + 40px gap = 460px) */
+.odt3-photocard { width: 420px; }
+@media (max-width: 900px) { .odt3-photocard { width: 100%; } }
+.odt3-photocard img { object-position: 98% 50%; }
+.odt3-photocard::after { content: ""; position: absolute; inset: 0; background: rgba(20,130,255,.3); }
+.odt3-photocard__cap {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center;
+  padding: 16px; text-align: center;
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,.1)) drop-shadow(0 2px 2px rgba(0,0,0,.06));
+}
+.odt3-photocard__cap img { position: static; width: 60px; height: 60px; object-fit: contain; }
+.odt3-photocard__cap span { font: 700 24px/1.3 var(--f-alt); letter-spacing: -.01em; color: #fff; }
+
+/* Operational Intelligence Explorer — sidebar tabs + swappable site map */
+.odt3-x { width: 100%; background: #fff; border-radius: var(--r-md); overflow: hidden; }
+.odt3-x__title {
+  margin: 0; min-height: 60px;
+  display: flex; align-items: center; padding: 8px 16px;
+  border-bottom: 1px solid var(--c-line);
+  font: 600 18px/1.2 var(--f-body); color: #1a1a1a;
+}
+.odt3-x__body { display: flex; }
+.odt3-x__tabs { width: 340px; flex-shrink: 0; display: flex; flex-direction: column; border-right: 1px solid var(--c-line); }
+.odt3-x__tab {
+  flex: 1 1 0; min-height: 52px;
+  display: flex; gap: 10px; align-items: center;
+  padding: 8px 16px 8px 13px;
+  background: #fff; border: 0; border-left: 3px solid transparent;
+  font: 400 16px/1.2 var(--f-body); color: #060309; text-align: left;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+.odt3-x__tab + .odt3-x__tab { border-top: 1px solid var(--c-line); }
+.odt3-x__tab img { width: 24px; height: 24px; flex-shrink: 0; }
+.odt3-x__tab:hover { background: #f4fafd; }
+.odt3-x__tab.is-active { background: var(--c-blue-pale); border-left-color: var(--c-blue); font-weight: 600; }
+.odt3-x__panel { flex: 1 1 0; min-width: 0; }
+/* contain, not cover — several map views carry a feature list flush with the
+   left edge that a cover-crop would hide behind the tab rail */
+.odt3-x__panel img { width: 100%; height: 100%; object-fit: contain; }
+@media (max-width: 960px) {
+  .odt3-x__body { flex-direction: column; }
+  .odt3-x__tabs { width: 100%; flex-direction: row; flex-wrap: wrap; border-right: 0; border-bottom: 1px solid var(--c-line); }
+  .odt3-x__tab { flex: 1 1 50%; min-width: 220px; border-left-width: 0; border-bottom: 3px solid transparent; }
+  .odt3-x__tab.is-active { border-bottom-color: var(--c-blue); }
+  .odt3-x__panel img { height: auto; }
+}
+
+/* "One Source of Intelligence" split: 580px copy + tablet dashboard carousel */
+.odt3-src { display: flex; gap: 20px; align-items: center; width: 100%; }
+.odt3-src__copy { width: 580px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px; }
+.odt3-tablet { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+.odt3-tablet__stage { position: relative; width: 100%; aspect-ratio: 787 / 456; }
+.odt3-tablet__frame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* screen window measured from the Figma tablet composition (787x456 frame) */
+.odt3-tablet__screen { position: absolute; left: 12.71%; top: 13.36%; width: 74.59%; height: 73.25%; border-radius: 6px; overflow: hidden; }
+.odt3-tablet__screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
+.odt3-tablet__screen img.is-active { opacity: 1; }
+.odt3-dots { display: flex; gap: 8px; align-items: center; padding: 8px; }
+.odt3-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--c-line); }
+.odt3-dots span.is-active { background: var(--c-blue); }
+@media (max-width: 1100px) {
+  .odt3-src { flex-direction: column; align-items: stretch; gap: 40px; }
+  .odt3-src__copy { width: 100%; }
+}
+
+/* role board: white card, 100px photo circles, pale chevron separators */
+.odt3-roles { display: flex; width: 100%; min-height: 400px; background: #fff; border-radius: var(--r-md); overflow: hidden; }
+.odt3-role { flex: 1 1 0; min-width: 0; padding: 40px 20px 40px 40px; display: flex; flex-direction: column; gap: 4px; }
+.odt3-role__ring { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.odt3-role__ring img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
+.odt3-role__ring::after { content: ""; flex: 1; height: 1px; background: var(--c-blue-pale); }
+.odt3-role--end .odt3-role__ring::after { background: transparent; }
+.odt3-role h3 { margin: 0 0 4px; font: 700 16px/1.5 var(--f-alt); color: #060309; }
+.odt3-role p { margin: 0; font: 400 14px/1.2 var(--f-body); color: var(--c-grey); }
+.odt3-role p strong { font-weight: 700; }
+.odt3-role p + p { margin-top: 8px; }
+.odt3-roles__sep { flex: 0 0 24px; align-self: stretch; }
+.odt3-roles__sep svg { width: 100%; height: 100%; display: block; }
+@media (max-width: 1100px) {
+  .odt3-roles { flex-wrap: wrap; min-height: 0; }
+  .odt3-role { flex: 1 1 40%; min-width: 220px; padding: 24px; }
+  .odt3-roles__sep { display: none; }
+  .odt3-role__ring::after { background: transparent; }
+}
 
 /* 8. FATAL RISK INTELLIGENCE (fri-) ----------------------------------------
    Rebuilt 2026-07-13 from Figma 12426:23090 ("Fatal Risk Intelligence • Desktop").
