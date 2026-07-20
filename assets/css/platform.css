@@ -248,10 +248,11 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 
 /* bordered 6-col "They need to understand" grid (same 1px-collapse as .vis-grid) */
 .oab-needs {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px;
+  /* 1.25px: survives the html zoom .8 (1.25 x .8 = 1 device px; plain 1px collapses) */
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.25px;
   width: 100%;
   background: var(--c-line);
-  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  border: 1.25px solid var(--c-line); border-radius: var(--r-md);
   overflow: hidden;
 }
 .oab-need { min-height: 160px; padding: 24px 20px; background: #fff; display: flex; flex-direction: column; gap: 16px; }
@@ -290,21 +291,32 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 @media (max-width: 760px) { .oab-duo { flex-direction: column; } }
 
 /* benchmarking board reuses .pi-dash (solutions.css §9): pale band, photo
-   circles, zigzag hairline dividers and the connector line through the kink */
+   circles, zigzag hairline dividers and the connector line through the kink.
+   --inset: 16px gap only between photo and title; title and text touch */
+.pi-dash--inset .pi-dash__col { gap: 0; }
+.pi-dash--inset .pi-dash__col h3 { margin-top: 16px; }
+.pi-dash--inset .pi-dash__col p { margin-right: 12px; }
 
-/* operational-hierarchy rows (Mining / Tunnelling / Critical Infrastructure) */
-.oab-hier { display: flex; flex-direction: column; gap: 40px; width: 100%; }
-.oab-hier__struct { margin: 0 0 16px; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: var(--c-blue); }
-.oab-hier__cols { display: flex; gap: 20px; }
-.oab-hier__cell { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+/* operational-hierarchy card (Figma 12736:83454): white rounded card, three
+   label + circle-timeline rows split by hairlines */
 .oab-hier__ring { display: flex; align-items: center; gap: 8px; }
 .oab-hier__ring img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
 .oab-hier__ring::after { content: ""; flex: 1; height: 1px; background: var(--c-blue-tint); }
-.oab-hier__cell:last-child .oab-hier__ring::after { background: transparent; }
-.oab-hier__cell p { margin: 0; font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
-@media (max-width: 760px) {
-  .oab-hier__cols { flex-direction: column; }
-  .oab-hier__ring::after { background: transparent; }
+.oab-tiers { width: 100%; background: #fff; border-radius: var(--r-md); overflow: hidden; }
+.oab-tiers__row { display: flex; align-items: center; gap: 40px; padding: 40px; }
+.oab-tiers__row + .oab-tiers__row { border-top: 1px solid var(--c-line); }
+.oab-tiers__label { margin: 0; width: 240px; flex-shrink: 0; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #060309; }
+.oab-tiers__cols { flex: 1 1 0; min-width: 0; display: flex; gap: 20px; }
+.oab-tiers__cell { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.oab-tiers__cell:last-child { flex: 0 1 280px; }
+.oab-tiers__cell:last-child .oab-hier__ring::after { background: transparent; }
+.oab-tiers__cell p { margin: 0; font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #060309; }
+@media (max-width: 960px) {
+  .oab-tiers__row { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+  .oab-tiers__label { width: auto; }
+  .oab-tiers__cols { flex-direction: column; width: 100%; }
+  .oab-tiers__cell:last-child { flex: 1 1 0; }
+  .oab-tiers .oab-hier__ring::after { background: transparent; }
 }
 
 /* rule-edged callout (blue left bar); pale on white sections, white on pale */
@@ -389,10 +401,11 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 /* bordered 5-col visibility grid — 1px gaps over a line-coloured backing so the
    inner borders collapse cleanly at any column count; note cell spans 2 */
 .vis-grid {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+  /* 1.25px: survives the html zoom .8 (1.25 x .8 = 1 device px; plain 1px collapses) */
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25px;
   width: 100%;
   background: var(--c-line);
-  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  border: 1.25px solid var(--c-line); border-radius: var(--r-md);
   overflow: hidden;
 }
 .vis-cell {
@@ -436,12 +449,14 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 .em-intro { display: flex; gap: 80px; align-items: center; width: 100%; }
 .em-intro__title { width: 520px; flex-shrink: 0; display: flex; flex-direction: column; gap: 24px; }
 
-/* bordered 6-col monitoring grid (same line-collapse trick as .vis-grid) */
+/* bordered 6-col monitoring grid (same line-collapse trick as .vis-grid).
+   1.25px hairlines: the site renders at html zoom .8, so 1px would rasterize
+   to 0.8 device px and some dividers vanish at default zoom — 1.25 x .8 = 1. */
 .em-grid {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px;
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.25px;
   width: 100%;
   background: var(--c-line);
-  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  border: 1.25px solid var(--c-line); border-radius: var(--r-md);
   overflow: hidden;
 }
 .em-cell {
