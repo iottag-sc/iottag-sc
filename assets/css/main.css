@@ -850,7 +850,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   align-items: center;
   justify-content: center;
 }
-.ie-chip span { font: 600 12px/1.2 var(--f-body); color: #060309; }
+.ie-chip span { font: 600 12px/1.2 var(--f-body); color: #4B5059; }
 .ie-core {
   position: absolute;
   left: 50%;
@@ -869,12 +869,12 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   justify-content: center;
   text-align: center;
 }
-.ie-core__name { font: 600 18px/1.2 var(--f-body); color: #060309; }
-.ie-core__sub  { font: 400 14px/1.2 var(--f-body); color: #060309; }
-/* copy column: Text/Small 14px on near-black, per Figma */
-.ie-copy { font: 400 14px/1.2 var(--f-body); color: #060309; margin: 0; }
+.ie-core__name { font: 600 18px/1.2 var(--f-body); color: #4B5059; }
+.ie-core__sub  { font: 400 14px/1.2 var(--f-body); color: var(--c-grey); }
+/* copy column: sizes per Figma, colours follow the site's body-text palette */
+.ie-copy { font: 400 14px/1.2 var(--f-body); color: var(--c-ink); margin: 0; }
 .ie-list { display: flex; flex-direction: column; gap: 4px; }
-.ie-list__item { display: flex; align-items: center; gap: 4px; font: 400 14px/1.2 var(--f-body); color: #060309; }
+.ie-list__item { display: flex; align-items: center; gap: 4px; font: 400 14px/1.2 var(--f-body); color: var(--c-ink); }
 .ie-list__item .icon { font-size: 16px; color: var(--c-blue); }
 @media (max-width: 1100px) { .ie-diagram { margin-inline: auto; } }
 
