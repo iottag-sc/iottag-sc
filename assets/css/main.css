@@ -835,7 +835,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
    ====================================================================== */
 
 /* ---- "Monitor. Compare. Predict. Optimise." circular diagram (12359:8324) */
-.ie-diagram { position: relative; width: 440px; height: 420px; flex-shrink: 0; }
+.ie-diagram { position: relative; width: 420px; height: 420px; flex-shrink: 0; }
 .ie-diagram__ring { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
 .ie-chip {
   position: absolute;
@@ -856,8 +856,8 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   background: #fff;
   border: 4px solid var(--c-blue-pale);
   border-radius: 50%;
@@ -871,10 +871,10 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 }
 .ie-core__name { font: 600 18px/1.2 var(--f-body); color: #4B5059; }
 .ie-core__sub  { font: 400 14px/1.2 var(--f-body); color: var(--c-grey); }
-/* copy column: sizes per Figma, colours follow the site's body-text palette */
-.ie-copy { font: 400 14px/1.2 var(--f-body); color: var(--c-ink); margin: 0; }
+/* copy column: sizes per Figma (Text/Medium 18px), colours follow the site's body-text palette */
+.ie-copy { font: 400 18px/1.2 var(--f-body); color: var(--c-ink); margin: 0; }
 .ie-list { display: flex; flex-direction: column; gap: 4px; }
-.ie-list__item { display: flex; align-items: center; gap: 4px; font: 400 14px/1.2 var(--f-body); color: var(--c-ink); }
+.ie-list__item { display: flex; align-items: center; gap: 4px; font: 400 18px/1.2 var(--f-body); color: var(--c-ink); }
 .ie-list__item .icon { font-size: 16px; color: var(--c-blue); }
 @media (max-width: 1100px) { .ie-diagram { margin-inline: auto; } }
 
