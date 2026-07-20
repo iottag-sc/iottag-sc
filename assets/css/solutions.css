@@ -343,6 +343,11 @@
   background: linear-gradient(122deg, rgba(12,71,125,.6) 0%, rgba(47,79,91,.6) 49%, rgba(7,52,89,.6) 100%);
 }
 
+/* chevron strips: pin every icon AND every label to the same rows regardless
+   of how many lines a label wraps to (labels top-align right under the icon) */
+.stages--align .stage { justify-content: flex-start; padding-top: 36px; }
+.stages--align .stage img { flex-shrink: 0; }
+
 /* section-title column ratios per Figma (base .odt2-title head is 1.25:1) */
 /* gap 40 (not 60) so the copy column's left edge lines up with the panel row
    text below it (420px photo card + 40px row padding = 460px) */
