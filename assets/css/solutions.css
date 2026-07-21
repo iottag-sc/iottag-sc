@@ -435,7 +435,7 @@
 .odt3-role { flex: 1 1 0; min-width: 0; padding: 40px 20px 40px 40px; display: flex; flex-direction: column; gap: 4px; }
 .odt3-role__ring { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 .odt3-role__ring img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
-.odt3-role__ring::after { content: ""; flex: 1; height: 1px; background: var(--c-blue-pale); }
+.odt3-role__ring::after { content: ""; flex: 1; height: 1px; margin-right: -43px; background: var(--c-blue-pale); }
 .odt3-role--end .odt3-role__ring::after { background: transparent; }
 .odt3-role h3 { margin: 0 0 4px; font: 700 16px/1.5 var(--f-alt); color: #060309; }
 .odt3-role p { margin: 0; font: 400 14px/1.2 var(--f-body); color: var(--c-grey); }
@@ -447,7 +447,7 @@
   .odt3-roles { flex-wrap: wrap; min-height: 0; }
   .odt3-role { flex: 1 1 40%; min-width: 220px; padding: 24px; }
   .odt3-roles__sep { display: none; }
-  .odt3-role__ring::after { background: transparent; }
+  .odt3-role__ring::after { margin-right: 0; background: transparent; }
 }
 
 /* 8. FATAL RISK INTELLIGENCE (fri-) ----------------------------------------
