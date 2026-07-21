@@ -1,5 +1,5 @@
 <svg width="338" height="338" viewBox="0 0 338 338" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle id="Ellipse 25" opacity="0.5" cx="169" cy="169" r="168" fill="#E9F3F9" stroke="#4CC4FE" stroke-width="2" stroke-dasharray="4 4"/>
+<circle id="Ellipse 25" opacity="0.5" cx="169" cy="169" r="168" fill="none" stroke="#4CC4FE" stroke-width="2" stroke-dasharray="4 4"/>
 <g opacity="0.5" stroke="#4CC4FE" stroke-width="2" stroke-dasharray="4 4">
 <line x1="13" y1="103" x2="325" y2="235"/>
 <line x1="325" y1="103" x2="13" y2="235"/>

@@ -17,6 +17,9 @@
      11. Operational analytics & benchmarking (tinted role-structure bands)
      12. Environmental intelligence (hero overlay, 40px h2, monitoring grid,
          technical-resources doc list)
+     13. Connected Workforce redesign (workforce-visibility, Figma 10584:13913):
+         question list, bordered 5-col label grid, safety card grid, tagline
+         note bars, timesheet icon rows
    ========================================================================== */
 
 /* 1. PHOTO HERO ---------------------------------------------------------- */
@@ -161,9 +164,32 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
   .track-strip__cell:nth-child(-n+3) { border-top: 0; }
 }
 
+/* --eq: uniform 48px icon boxes + fixed-height label rows so icons and labels
+   sit on the same lines across all cells (ODT strip) */
+.track-strip--eq .track-strip__cell img { width: 48px; height: 48px; }
+.track-strip--eq .track-strip__label { display: flex; align-items: center; min-height: 68px; }
+
 /* 9. FLEET VISIBILITY (fleet-visibility) ------------------------------------ */
-/* the six monitor cards share the 280px asset-card height */
-.photo-cards--fleet .photo-card { height: 280px; }
+/* Rebuilt 2026-07-21 from Figma 10584:14765 ("FLEET OPERATIONS", "Ready to
+   Dev" canvas): photo hero (Connected Fleet), icon-list intro row with the
+   blue-rule callout (.oab-note, §11), collision-avoidance .track-strip. */
+
+/* hero overlay — Figma OVL pair reads as the brand gradient wash */
+.hero__overlay--fv {
+  position: absolute; inset: 0; z-index: 1;
+  opacity: .8;
+  background: var(--grad-hero);
+  backdrop-filter: blur(4px);
+}
+
+/* intro list items are a step up from the 16px feature-row chips */
+.sys-item--lg { font-weight: 600; font-size: 18px; }
+
+/* this design's strip labels are Ubuntu 20, not the asset-page 24px;
+   cells top-align so icons and first label lines share the same rows
+   across all six cells regardless of how far the labels wrap */
+.track-strip--fv .track-strip__label { font-size: 20px; }
+.track-strip--fv .track-strip__cell { justify-content: flex-start; padding-top: 44px; }
 
 /* alternating 740px copy + shadowed photo rows */
 .feat { display: flex; gap: 40px; align-items: center; width: 100%; }
@@ -183,9 +209,12 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
   .feat__img { width: 100%; min-width: 0; height: auto; max-height: 420px; }
 }
 
-/* white AI-insight stage cards (longer copy than the coloured chevrons) */
+/* white AI-insight stage cards (longer copy than the coloured chevrons);
+   top-aligned (not centered) so the icons and first text lines sit on the
+   same rows across all four cards regardless of copy length */
 .stages--cards { height: auto; }
-.stages--cards .stage { background: #fff; min-height: 200px; padding: 24px 36px; }
+.stages--cards .stage { background: #fff; min-height: 200px; padding: 36px 36px 24px; justify-content: flex-start; gap: 16px; }
+.stages--cards .stage img { flex-shrink: 0; }
 .stages--cards .stage p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); text-align: center; }
 @media (max-width: 960px) {
   .stages--cards { flex-wrap: wrap; gap: 12px; }
@@ -194,21 +223,13 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 }
 
 /* 10. WORKFORCE VISIBILITY (workforce-visibility) ---------------------------- */
-/* hero overlay — Figma layers two fills over the photo: a horizontal
-   deep-blue wash (60%) under the navy diagonal at 80%, plus a soft blur */
-.hero__overlay--wv {
-  position: absolute; inset: 0; z-index: 1;
-  backdrop-filter: blur(4px);
-  background:
-    linear-gradient(122deg, rgba(12,71,125,.8) 0%, rgba(47,79,91,.8) 49%, rgba(7,52,89,.8) 100%),
-    linear-gradient(90deg, rgba(0,17,134,.15) 0%, rgba(0,20,115,.14) 50%, rgba(0,34,204,.04) 100%);
-}
-.hero--photo .hero__content { z-index: 10; }
+/* Rebuilt 2026-07-21 from Figma 10584:13913 ("WORKFORCE OPERATIONS", "Ready to
+   Dev" canvas) — "Connected Workforce". Page components live in §13; the
+   timesheet tiles below stay for resources/video-library (.ts-tiles--vl). */
 
-/* support cards share the 280px height; their photos carry the 40%
-   darkening baked into the export — skip the CSS overlay */
-.photo-cards--wv .photo-card { height: 280px; }
-.photo-cards--wv .photo-card::after { content: none; }
+/* hero: the OVL wash is baked into wv-hero-bg.jpg (Figma render of 10584:13915)
+   — the CSS grad-hero overlay reads far heavier than the design's OVL pair */
+.hero--photo .hero__content { z-index: 10; }
 
 /* timesheet photo tiles (staggered 2-col, 120px rows) */
 .ts-tiles { display: flex; gap: 16px; flex: 1 1 0; min-width: 320px; }
@@ -231,10 +252,6 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
   .ts-tiles { flex-direction: column; }
   .ts-tiles__col--offset { padding-top: 0; }
 }
-
-/* quote bar — pale band, light-blue rule, blue Oswald line (extends .highlight) */
-.highlight--quote { padding: 40px; gap: 0; border-left: 2px solid var(--c-blue-light); }
-.highlight--quote .highlight__title { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.4; }
 
 /* sys-item chips on the pale section background → white tile behind the icon */
 .sys-item__ic--card { background: #fff; }
@@ -438,8 +455,9 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 }
 
 /* this design's section headings are Ubuntu Medium 40 (like the 12405-wave
-   solutions pages), not the site 52px .h2 */
-.em-h2 {
+   solutions pages), not the site 52px .h2 — fleet- and workforce-visibility
+   share them */
+.em-h2, .fv-h2, .wv-h2 {
   margin: 0;
   font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2;
   letter-spacing: -.01em; color: #4b5059;
@@ -493,7 +511,92 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
   .em-docs { flex-direction: column; gap: 0; }
 }
 @media (max-width: 820px) {
-  .em-h2 { font-size: 32px; }
+  .em-h2, .fv-h2, .wv-h2 { font-size: 32px; }
   .em-doc span { font-size: 20px; }
   .em-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* 13. CONNECTED WORKFORCE (workforce-visibility, Figma 10584:13913) ---------- */
+/* "answers the key questions" list — bare 20px icons, 18px semibold copy.
+   Column-flow grid so the rows of the two columns line up with each other */
+.wv-qs {
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column; gap: 20px 40px;
+  width: 100%;
+}
+/* top-aligned so the ? icons stay in a straight column when copy wraps to 2 lines */
+.wv-q { display: flex; align-items: flex-start; gap: 12px; font: 600 18px/1.2 var(--f-body); color: var(--c-ink); }
+.wv-q img { flex-shrink: 0; margin-top: 1px; }
+
+/* intro row: copy + question list left, tracking-UI still right, bottom-aligned */
+.wv-mtt { display: flex; gap: 40px; align-items: flex-end; width: 100%; }
+.wv-mtt__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+.wv-mtt__img { width: 440px; max-width: 100%; height: auto; flex-shrink: 0; }
+
+/* unified-platform chevrons: white cells on the pale band */
+.stages--wv .stage { background: #fff; }
+
+/* workforce-management header: fixed 440px title column + free-flow copy */
+.wv-intro { display: flex; gap: 80px; align-items: center; width: 100%; }
+.wv-intro__head { width: 440px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+.wv-intro__body { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+
+/* bordered 5-col label grid (same 1.25px line-collapse as .vis-grid/.em-grid) */
+.wv-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25px;
+  width: 100%;
+  background: var(--c-line);
+  border: 1.25px solid var(--c-line); border-radius: var(--r-md);
+  overflow: hidden;
+}
+.wv-cell {
+  /* top-aligned so icons and labels line up across a row (labels wrap 1–2 lines) */
+  min-height: 180px; padding: 32px 24px 24px;
+  background: #fff;
+  display: flex; flex-direction: column; justify-content: flex-start; gap: 16px;
+}
+.wv-cell h3 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+
+/* safety card grid: 4×2 white cards split by hairline gaps on the pale band */
+.wv-safe { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25px; width: 100%; border-radius: var(--r-md); overflow: hidden; }
+.wv-safe__card {
+  /* top-aligned so icons, titles and bullet lists line up across a row */
+  min-height: 200px; padding: 24px 28px 20px;
+  background: #fff;
+  display: flex; flex-direction: column; justify-content: flex-start; gap: 8px;
+}
+.wv-safe__card h3 {
+  margin: 0;
+  /* reserve two title lines so the bullet lists start on the same baseline */
+  min-height: 56px;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+.wv-safe__card ul { margin: 0; padding-left: 24px; }
+.wv-safe__card li { font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
+.wv-safe__cols { display: flex; }
+.wv-safe__cols ul { flex: 1 1 0; min-width: 0; }
+
+/* timesheets row: chip list left, briefing photo right */
+.wv-ts { display: flex; gap: 40px; align-items: center; width: 100%; }
+.wv-ts__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.wv-ts__img { width: 520px; max-width: 100%; height: auto; flex-shrink: 0; border-radius: var(--r-md); }
+
+@media (max-width: 1100px) {
+  .wv-mtt, .wv-ts { flex-direction: column; align-items: flex-start; }
+  .wv-mtt__img, .wv-ts__img { width: 100%; }
+  .wv-intro { flex-direction: column; gap: 24px; }
+  .wv-intro__head { width: 100%; }
+  .wv-grid { grid-template-columns: repeat(3, 1fr); }
+  .wv-cell { min-height: 140px; }
+  .wv-safe { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .wv-qs { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+  .wv-grid { grid-template-columns: 1fr 1fr; }
+  .wv-safe { grid-template-columns: 1fr; }
 }

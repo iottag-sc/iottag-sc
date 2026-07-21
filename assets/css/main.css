@@ -730,6 +730,9 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .video-thumb__tri { display: block; width: 30px; height: 30px; margin-left: 4px; }   /* solid white play triangle, optically centred */
 /* enlarged thumb for the stacked media block (defined after the base so it wins) */
 .video-thumb--lg { width: 66%; max-width: 780px; height: auto; aspect-ratio: 16 / 9; }
+/* asset-management video (Figma 12947:9575) — 700px wide, click-to-play embed */
+.video-thumb--asset { width: 700px; max-width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.video-thumb__frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 @media (max-width: 1100px) {
   .media-block__row { flex-wrap: wrap; }
   .video-thumb--lg { width: 100%; }
@@ -847,8 +850,9 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   width: 88px;
   height: 88px;
   background: #fff;
-  border: 1px solid var(--c-blue-tint);
+  border: 2px solid var(--c-blue-tint);
   border-radius: 50%;
+  box-shadow: 0 12px 16px -4px rgba(0,0,0,.08), 0 4px 6px -2px rgba(0,0,0,.03);
   display: flex;
   flex-direction: column;
   gap: 4px;

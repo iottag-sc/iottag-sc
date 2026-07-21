@@ -86,14 +86,26 @@ function initHeaderScroll() {
 
 /* ---- video overlays ---------------------------------------------------- */
 function initVideoButtons() {
-  document.querySelectorAll('[data-video]').forEach((btn) => {
+  document.querySelectorAll('[data-video], .video-thumb[data-embed] .video-thumb__play').forEach((btn) => {
     const thumb = btn.closest('.video-thumb');
     const video = thumb && thumb.querySelector('video');
     btn.addEventListener('click', () => {
-      if (!video) { console.log('Play video:', btn.dataset.video || '(demo)'); return; }
-      thumb.classList.add('is-playing');
-      video.controls = true;
-      video.play();
+      if (video) {
+        thumb.classList.add('is-playing');
+        video.controls = true;
+        video.play();
+      } else if (thumb && thumb.dataset.embed) {
+        const frame = document.createElement('iframe');
+        frame.className = 'video-thumb__frame';
+        frame.src = thumb.dataset.embed;
+        frame.allow = 'autoplay; encrypted-media; fullscreen';
+        frame.allowFullscreen = true;
+        frame.title = btn.getAttribute('aria-label') || 'Video';
+        thumb.appendChild(frame);
+        thumb.classList.add('is-playing');
+      } else {
+        console.log('Play video:', btn.dataset.video || '(demo)');
+      }
     });
   });
 }
