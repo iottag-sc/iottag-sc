@@ -44,17 +44,31 @@ function setActiveNav() {
   if (link) link.setAttribute('aria-current', 'page');
 }
 
-/* ---- top-level nav links: menu-only on desktop ------------------------ */
-/* The hub index pages are not used — on desktop the top-level items only
-   open their mega-menu; navigation happens through the menu options.
-   On mobile the mega-menu is hidden (display:none), so the top-level links
-   must keep navigating — hence the computed-style check. */
+/* ---- top-level nav items: menu openers, never links -------------------- */
+/* The section hub pages (/solutions/, /platform/, …) no longer exist, so the
+   top-level items are <button>s, not links — there is nowhere for them to go.
+   Desktop opens the mega-menu on hover/focus (CSS). Below 1100px the mega-menu
+   is hidden, so tapping a button expands its options as an accordion instead —
+   that is the only route to the detail pages on mobile. */
 function initTopNavLinks() {
-  document.querySelectorAll('.nav__item > .nav__link[data-nav]').forEach((link) => {
-    link.setAttribute('aria-haspopup', 'true');
-    link.addEventListener('click', (e) => {
-      const menu = link.parentElement.querySelector('.megamenu');
-      if (menu && getComputedStyle(menu).display !== 'none') e.preventDefault();
+  document.querySelectorAll('.nav__item > .nav__link[data-nav]').forEach((btn) => {
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const menu = item.querySelector('.megamenu');
+      /* desktop: hover/focus already reveals the menu — nothing to toggle */
+      if (!menu || getComputedStyle(menu).display !== 'none') return;
+      const open = !item.classList.contains('is-expanded');
+      /* one section open at a time keeps the mobile sheet short */
+      item.parentElement.querySelectorAll('.nav__item.is-expanded').forEach((other) => {
+        if (other !== item) {
+          other.classList.remove('is-expanded');
+          const b = other.querySelector('.nav__link[data-nav]');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        }
+      });
+      item.classList.toggle('is-expanded', open);
+      btn.setAttribute('aria-expanded', String(open));
     });
   });
 }

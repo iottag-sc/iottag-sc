@@ -258,6 +258,19 @@ a { color: inherit; text-decoration: none; }
   color: #fff;
   cursor: pointer;
   transition: color .15s;
+  /* top-level items are <button>s (the section hubs no longer exist) — strip
+     the UA button chrome so they render identically to the former links */
+  background: none;
+  border: 0;
+  padding: 0;
+  line-height: inherit;
+}
+/* caret only reads as an affordance on mobile, where the button toggles.
+   chevron_right rotated 90deg — the font is subset via icon_names and
+   expand_more is not in the list, chevron_right is. */
+.nav__caret {
+  display: none; font-size: 20px;
+  transform: rotate(90deg); transition: transform .18s ease;
 }
 .site-header--scrolled .nav__link,
 .site-header--solid .nav__link { color: #4b5059; }
@@ -814,9 +827,32 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
     background: #fff;
     border-bottom-color: var(--c-line);
   }
-  .nav.is-open .nav__item { height: auto; width: 100%; }
-  .megamenu { display: none; }  /* mobile uses top-level links only */
-  .nav__item > .nav__link[data-nav] { cursor: pointer; }  /* links navigate again on mobile */
+  .nav.is-open .nav__item { height: auto; width: 100%; flex-direction: column; align-items: stretch; }
+  /* accordion: the section hubs are gone, so tapping a top-level button
+     expands its options in place — the only route to detail pages on mobile */
+  .megamenu { display: none; }
+  .nav.is-open .nav__item.is-expanded .megamenu {
+    display: block;
+    position: static;
+    opacity: 1; visibility: visible; transform: none;
+    background: none; backdrop-filter: none; box-shadow: none;
+    padding: 4px 0 8px 16px;
+  }
+  .nav.is-open .megamenu__inner,
+  .nav.is-open .megamenu__inner--4 { display: flex; flex-direction: column; gap: 0; }
+  .nav.is-open .megamenu__opt { padding: 10px 0 10px 12px; margin-left: 0; }
+  .nav.is-open .megamenu__opt span { display: none; }  /* descriptions are noise on a narrow sheet */
+  /* the desktop options sit on a light panel; on mobile they sit on the nav
+     sheet, so they take the sheet's foreground colour instead of --c-grey */
+  .nav.is-open .megamenu__opt strong {
+    font-family: var(--f-ui); font-weight: 500; font-size: 16px;
+    letter-spacing: normal; color: #fff;
+  }
+  .site-header--scrolled .nav.is-open .megamenu__opt strong,
+  .site-header--solid .nav.is-open .megamenu__opt strong { color: #4b5059; }
+  .nav.is-open .nav__link { width: 100%; justify-content: space-between; padding: 8px 0; }
+  .nav__caret { display: inline-flex; }
+  .nav__item.is-expanded > .nav__link .nav__caret { transform: rotate(270deg); }
   .hero__content, .hero__content--wide { width: 100%; }
   .row { flex-wrap: wrap; }
   .footer__cols { flex-wrap: wrap; }
