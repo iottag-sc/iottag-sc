@@ -512,14 +512,8 @@
   position: absolute; top: 0; left: 50%; transform: translateX(-50%);
   width: calc(100vw / 0.8); max-width: none; height: 100%;
   object-fit: cover; object-position: center;
-  opacity: .2;
-}
-/* photo visibility ramps from ~.2 at 60% width up to ~.9 at the right edge,
-   lifting the orange-vest worker out of the dark band (sampled from render) */
-.fri-dark__bg--lit {
-  opacity: .7;
-  -webkit-mask-image: linear-gradient(90deg, transparent 60%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent 60%, #000 100%);
+  /* the exported band (Figma 12619:9128) already bakes in the blue overlay and
+     the lit worker on the right — paint it at full opacity */
 }
 .fri-dark__inner { position: relative; z-index: 1; display: flex; gap: 40px; align-items: center; width: 100%; }
 @media (min-width: 1281px) { .fri-dark__copy .h2, .fri-dark__h { white-space: nowrap; } }
@@ -545,7 +539,6 @@
   .fri-dark__inner { flex-wrap: wrap; }
   .fri-glasses { flex-wrap: wrap; }
   .fri-glass:first-child { margin-top: 0; }
-  .fri-dark__bg--lit { display: none; }
 }
 
 /* "How Fatal Risk Intelligence Works" diagram (right column) */
