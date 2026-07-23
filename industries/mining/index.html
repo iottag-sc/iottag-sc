@@ -67,7 +67,7 @@
     <!-- ===== HERO ===== -->
     <section class="hero hero--photo">
       <img class="hero__bg" src="../../assets/img/industries/mn-hero-bg.jpg" alt="" width="1440" height="720" fetchpriority="high">
-      <div class="hero__content" style="width:100%;max-width:1312px;">
+      <div class="hero__content hero__content--split" style="width:100%;max-width:1312px;">
         <div class="stack gap-40" style="max-width:780px;">
           <div class="stack gap-8">
             <p class="hero__kicker">Mining</p>
@@ -84,45 +84,85 @@
             <a class="btn btn--secondary" href="../../platform/operational-intelligence/index.html">Explore Operational Intelligence</a>
           </div>
         </div>
+        <div class="hero-cards">
+          <div class="hero-cards__row">
+            <div class="hero-card">
+              <img src="../../assets/icon/mn-hard-hat.svg" alt="" width="24" height="24">
+              <p class="hero-card__title">Workforce activity</p>
+            </div>
+            <div class="hero-card">
+              <img src="../../assets/icon/mn-truck.svg" alt="" width="24" height="24">
+              <p class="hero-card__title">Fleet movement</p>
+            </div>
+          </div>
+          <div class="hero-cards__row">
+            <div class="hero-card">
+              <img src="../../assets/icon/mn-handyman.svg" alt="" width="24" height="24">
+              <p class="hero-card__title">Equipment performance</p>
+            </div>
+            <div class="hero-card">
+              <img src="../../assets/icon/mn-smoke.svg" alt="" width="24" height="24">
+              <p class="hero-card__title">Environmental conditions</p>
+            </div>
+          </div>
+          <div class="hero-cards__row">
+            <div class="hero-card">
+              <img src="../../assets/icon/mn-factory.svg" alt="" width="24" height="24">
+              <p class="hero-card__title">Production systems</p>
+            </div>
+            <div class="hero-card">
+              <img src="../../assets/icon/mn-shield-check.svg" alt="" width="24" height="24">
+              <p class="hero-card__title">Safety controls</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ===== THE CHALLENGE ===== -->
     <section class="section row gap-60 center wrap">
-      <div class="grow stack gap-24" style="flex-basis:0;min-width:320px;">
-        <h2 class="h2">The challenge facing<br>modern mining operations</h2>
-        <p class="body" style="color:#5c616b;">Mining operations are becoming increasingly complex.</p>
-        <p class="body" style="color:#5c616b;">The challenge is maintaining visibility across these changing conditions while ensuring safe and productive operations</p>
-        <p class="body" style="color:#5c616b;">While organisations have more information than ever before, understanding what requires attention remains challenging.</p>
-        <p class="body" style="color:#5c616b;">Operational Intelligence helps transform operational complexity into actionable insight.</p>
+      <div class="grow stack gap-32" style="flex-basis:0;min-width:320px;">
+        <div class="stack gap-24">
+          <h2 class="h2">The challenge facing<br>modern mining operations</h2>
+          <p class="body" style="color:#5c616b;">Mining operations are becoming increasingly complex.</p>
+          <p class="body" style="color:#5c616b;">The challenge is maintaining visibility across these changing conditions while ensuring safe and productive operations</p>
+          <p class="body" style="color:#5c616b;">While organisations have more information than ever before, understanding what requires attention remains challenging.</p>
+          <p class="body" style="color:#5c616b;">Operational Intelligence helps transform operational complexity into actionable insight.</p>
+        </div>
+        <div class="mn-checks">
+          <ul class="mn-checks__col">
+            <li class="mn-check"><img src="../../assets/icon/mn-check.svg" alt="" width="16" height="16" loading="lazy">Larger fleets</li>
+            <li class="mn-check"><img src="../../assets/icon/mn-check.svg" alt="" width="16" height="16" loading="lazy">Distributed workforces</li>
+            <li class="mn-check"><img src="../../assets/icon/mn-check.svg" alt="" width="16" height="16" loading="lazy">Greater safety obligations</li>
+          </ul>
+          <ul class="mn-checks__col">
+            <li class="mn-check"><img src="../../assets/icon/mn-check.svg" alt="" width="16" height="16" loading="lazy">Increasing automation</li>
+            <li class="mn-check"><img src="../../assets/icon/mn-check.svg" alt="" width="16" height="16" loading="lazy">More environmental monitoring</li>
+            <li class="mn-check"><img src="../../assets/icon/mn-check.svg" alt="" width="16" height="16" loading="lazy">Higher production expectations</li>
+          </ul>
+        </div>
       </div>
-      <div class="acc-tiles acc-tiles--xs" style="width:auto;flex:1 1 0;min-width:320px;">
+      <div class="acc-tiles acc-tiles--photo">
         <div class="acc-tiles__col">
           <div class="acc-tile">
             <img src="../../assets/img/industries/mn-card-fleets.jpg" alt="Concrete agitator and support vehicles operating in an underground mine" width="275" height="222" loading="lazy">
-            <h3>Larger fleets</h3>
           </div>
           <div class="acc-tile">
             <img src="../../assets/img/industries/mn-card-workforces.jpg" alt="Crews walking into a large underground excavation" width="800" height="525" loading="lazy">
-            <h3>Distributed workforces</h3>
           </div>
           <div class="acc-tile">
             <img src="../../assets/img/industries/mn-card-safety.jpg" alt="Operator monitoring site equipment beside a control screen" width="800" height="507" loading="lazy">
-            <h3>Greater safety obligations</h3>
           </div>
         </div>
-        <div class="acc-tiles__col acc-tiles__col--o60">
+        <div class="acc-tiles__col acc-tiles__col--o40">
           <div class="acc-tile">
             <img src="../../assets/img/industries/mn-card-automation.jpg" alt="Worker checking an automated status screen inside a site facility" width="800" height="443" loading="lazy">
-            <h3>Increasing automation</h3>
           </div>
           <div class="acc-tile">
             <img src="../../assets/img/industries/mn-card-environmental.jpg" alt="Miner watching a drill rig working an underground decline" width="800" height="533" loading="lazy">
-            <h3>More environmental monitoring</h3>
           </div>
           <div class="acc-tile">
             <img src="../../assets/img/industries/mn-card-production.jpg" alt="Team reviewing production dashboards on a large screen" width="447" height="299" loading="lazy">
-            <h3>Higher production expectations</h3>
           </div>
         </div>
       </div>
@@ -195,7 +235,7 @@
             </div>
           </div>
           <p class="lead" style="color:#5c616b;">By understanding operational conditions earlier, mining organisations can respond proactively and support safer operations.</p>
-          <a class="btn btn--primary" href="../../solutions/fatal-risk-intelligence/index.html">Fatal Risk Management</a>
+          <a class="btn btn--primary" href="../../solutions/fatal-risk-intelligence/index.html">Explore: Fatal Risk Management</a>
         </div>
         <img class="feat__img" src="../../assets/img/industries/mn-img-safety.jpg" alt="Underground mine crew observing a loader working at the face" width="480" height="420" loading="lazy">
       </div>
