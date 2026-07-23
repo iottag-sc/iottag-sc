@@ -10,25 +10,39 @@
      2. Accountability tiles (3 staggered columns of photo labels)
      3. Joined visibility strip + cream note row (mining)
      4. Callout bar (blue left rule, mining)
+     5–8. Per-page blocks: tunnelling · bridge · critical infrastructure ·
+          construction & infrastructure
    ========================================================================== */
 
 /* 1. HERO SIDE CARDS ------------------------------------------------------- */
 .hero-cards { display: flex; flex-direction: column; gap: 8px; width: 400px; flex-shrink: 0; }
-.hero-cards__row { display: flex; gap: 8px; min-height: 140px; }
+.hero-cards__row { display: flex; gap: 8px; }
 .hero-card {
   flex: 1 1 0; min-width: 0;
+  /* fixed 160px rows, as in the design — the icon + label block is centred, so
+     the three-line labels ("Across scaffolding systems") simply sit tighter
+     than the two-line ones instead of stretching the row */
+  height: 160px;
   background: rgba(233,243,249,.9);
   border: 1px solid var(--c-line); border-radius: var(--r-md);
   display: flex; flex-direction: column; justify-content: center; gap: 16px;
-  padding: 24px 20px;
+  padding: 0 20px;
 }
 .hero-card img { width: 24px; height: 24px; }
 .hero-card__title {
   margin: 0;
-  font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
+  /* design's Heading/H6 — Ubuntu bold 20px / 1.4, -0.2px tracking.
+     Colour is the site's heading dark-grey (#4b5059), not the Figma
+     neutral-darkest, so the cards match every other heading on the site. */
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
   letter-spacing: -.01em; color: #4b5059;
 }
 @media (max-width: 1100px) { .hero-cards { width: 100%; } }
+/* --split: hero copy column sitting beside the .hero-cards grid (mining) */
+.hero__content--split { flex-direction: row; align-items: center; gap: 80px; }
+@media (max-width: 1100px) {
+  .hero__content--split { flex-direction: column; align-items: flex-start; gap: 40px; }
+}
 
 /* 2. ACCOUNTABILITY TILES (staggered 3-col photo labels) -------------------- */
 .acc-tiles { display: flex; gap: 8px; width: 720px; max-width: 100%; flex-shrink: 0; }
@@ -51,13 +65,31 @@
 @media (max-width: 960px) {
   .acc-tiles { flex-wrap: wrap; }
   .acc-tiles__col { flex: 1 1 45%; min-width: 200px; }
-  .acc-tiles__col--o40, .acc-tiles__col--o20, .acc-tiles__col--o60 { padding-top: 0; }
+  .acc-tiles__col--o40, .acc-tiles__col--o20, .acc-tiles__col--o10, .acc-tiles__col--o60 { padding-top: 0; }
 }
 .acc-tiles__col--o60 { padding-top: 60px; }
 /* smaller tile heading so longer labels ("More environmental monitoring",
    "Workforce accountability") sit comfortably inside the tile */
 .acc-tiles--sm .acc-tile h3 { font-size: 28px; }
 .acc-tiles--xs .acc-tile h3 { font-size: 24px; }
+
+/* --photo: unlabelled 2-col photo grid (mining "challenge" block) — the labels
+   these tiles used to carry now live in the .mn-checks tick list beside them */
+.acc-tiles--photo { width: 480px; flex: 0 0 480px; max-width: 100%; gap: 8px; align-items: flex-start; }
+.acc-tiles--photo .acc-tiles__col { gap: 8px; justify-content: flex-start; }
+.acc-tiles--photo .acc-tile { height: 128px; padding: 0; }
+.acc-tiles--photo .acc-tile::after { content: none; }   /* no scrim — plain photos */
+@media (max-width: 1100px) { .acc-tiles--photo { flex-basis: 100%; width: 100%; } }
+
+/* two-column tick list under the mining "challenge" copy */
+.mn-checks { display: flex; gap: 80px; flex-wrap: wrap; }
+.mn-checks__col { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.mn-check {
+  display: flex; align-items: center; gap: 4px;
+  font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink);
+}
+.mn-check img { width: 16px; height: 16px; flex-shrink: 0; }
+@media (max-width: 1100px) { .mn-checks { gap: 40px; } }
 
 /* 3. JOINED VISIBILITY STRIP + NOTE ----------------------------------------- */
 /* wraps a .track-strip--bare and a .track-note into one bordered rounded box */
@@ -87,13 +119,21 @@
 }
 
 /* 5. TUNNELLING (tunnelling) --------------------------------------------------- */
-/* project-environment tiles — wider 2-col acc-tiles variant (128px rows, 20px gap) */
-.acc-tiles--env { width: auto; flex: 1 1 0; min-width: 320px; gap: 20px; }
-.acc-tiles--env .acc-tiles__col { gap: 20px; }
-.acc-tiles--env .acc-tile { height: 128px; }
-/* 24px = the design's Heading/H4 token — the base .acc-tile 32px overflows the
-   shorter 128px rows and wraps the longer labels onto three lines */
-.acc-tiles--env .acc-tile h3 { font-size: 24px; }
+/* hero cards — the tunnelling design uses 150px rows and Ubuntu Regular labels
+   (mining's are 160px / bold), so override just those two on this page */
+.hero-cards--tn .hero-card { height: 150px; }
+.hero-cards--tn .hero-card__title { font-weight: 400; }
+
+/* the project-environment photo grid reuses .acc-tiles--photo (§2); its former
+   tile labels now live in this two-column tick list beside the copy */
+.tn-checks { display: flex; gap: 80px; flex-wrap: wrap; }
+.tn-checks__col { display: flex; flex-direction: column; gap: 8px; }
+.tn-check {
+  margin: 0; display: flex; align-items: center; gap: 4px;
+  font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink);
+}
+.tn-check .icon { font-size: 16px; color: var(--c-blue); flex-shrink: 0; }
+@media (max-width: 1100px) { .tn-checks { gap: 40px; } }
 
 /* safety grid — 5-col bordered cards with a wide cream note cell (row 2) */
 .safety-grid {
@@ -133,7 +173,8 @@
 .track-strip--s .track-strip__cell { min-height: 180px; }
 
 /* 6. BRIDGE CONSTRUCTION & MAINTENANCE (bridge-construction-maintenance) ------ */
-/* hero: single 948px copy column — the side tiles are hidden in the design */
+/* hero: 832px copy column beside the 400px tile panel (1312 − 400 − 80 gap),
+   laid out by the shared .hero__content--split (§1) */
 .hero-copy--bridge .hero__text { max-width: none; }
 
 /* section headings — Figma Heading/H2 is Ubuntu Medium 40px (site default is
@@ -198,3 +239,26 @@
 .split-intro { display: flex; gap: 80px; width: 100%; flex-wrap: wrap; }
 .split-intro__col { flex: 1 1 0; min-width: 320px; display: flex; flex-direction: column; }
 .split-intro__col--copy { justify-content: center; gap: 20px; }
+
+/* 8. CONSTRUCTION & INFRASTRUCTURE (construction-infrastructure) -------------- */
+/* hero side cards — Figma "IMG and card" (10577:6832): 140px rows, and the
+   label is the design's Heading/H5 (Ubuntu regular 20px) where the other
+   industries pages carry the bold H6 */
+.hero-cards--ci .hero-card { height: 140px; }
+.hero-cards--ci .hero-card__title { font-weight: 400; }
+
+/* two-column tick list under the workforce copy — Figma 13025:9906: 80px
+   between the columns, 8px rows, 16px check, Open Sans 18px / 1.2 */
+.ci-checks { display: flex; gap: 80px; flex-wrap: wrap; }
+.ci-checks__col { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.ci-check {
+  display: flex; align-items: center; gap: 4px;
+  font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink);
+}
+.ci-check img { width: 16px; height: 16px; flex-shrink: 0; }
+@media (max-width: 1100px) { .ci-checks { gap: 40px; } }
+
+/* the photo grid beside that list — Figma Row (10542:16167): 480px wide, three
+   154.67px columns of 140px tiles, 8px gaps, staggered 20 / 10 / 0 from the top */
+.acc-tiles--photo.acc-tiles--h140 .acc-tile { height: 140px; }
+.acc-tiles__col--o10 { padding-top: 10px; }
