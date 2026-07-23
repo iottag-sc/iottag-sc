@@ -54,6 +54,10 @@
   .acc-tiles__col--o40, .acc-tiles__col--o20, .acc-tiles__col--o60 { padding-top: 0; }
 }
 .acc-tiles__col--o60 { padding-top: 60px; }
+/* smaller tile heading so longer labels ("More environmental monitoring",
+   "Workforce accountability") sit comfortably inside the tile */
+.acc-tiles--sm .acc-tile h3 { font-size: 28px; }
+.acc-tiles--xs .acc-tile h3 { font-size: 24px; }
 
 /* 3. JOINED VISIBILITY STRIP + NOTE ----------------------------------------- */
 /* wraps a .track-strip--bare and a .track-note into one bordered rounded box */
