@@ -312,12 +312,14 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 4px;
-  /* Figma hover = 2px #1e729c bar + 12px gap left of the text; the negative
-     margin hangs the bar in the column gap so the text never shifts off-grid */
-  padding-left: 12px;
+  /* Figma hover = white panel + 2px #1e729c bar + 12px gap left of the text.
+     The panel bleeds 8px above/below the text, so the padding is cancelled by
+     matching negative margins; the -14px left margin hangs the bar in the
+     column gap. Net effect: hovering paints, it never shifts the grid. */
+  padding: 8px 0 8px 12px;
   border-left: 2px solid transparent;
-  margin-left: -14px;
-  transition: border-color .15s ease;
+  margin: -8px 0 -8px -14px;
+  transition: border-color .15s ease, background-color .15s ease;
 }
 .megamenu__opt strong {
   font-family: var(--f-alt);
@@ -335,7 +337,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.25;
   color: var(--c-grey);
 }
-.megamenu__opt:hover { border-left-color: #1e729c; }
+.megamenu__opt:hover { background: #fff; border-left-color: #1e729c; }
 .megamenu__opt:hover strong { color: #4b5059; }
 
 .nav-actions { display: flex; align-items: center; gap: 8px; justify-content: flex-end; flex-grow: 1; }
@@ -840,7 +842,8 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   }
   .nav.is-open .megamenu__inner,
   .nav.is-open .megamenu__inner--4 { display: flex; flex-direction: column; gap: 0; }
-  .nav.is-open .megamenu__opt { padding: 10px 0 10px 12px; margin-left: 0; }
+  /* the sheet stacks the options, so drop the desktop bleed margins entirely */
+  .nav.is-open .megamenu__opt { padding: 10px 0 10px 12px; margin: 0; background: none; }
   .nav.is-open .megamenu__opt span { display: none; }  /* descriptions are noise on a narrow sheet */
   /* the desktop options sit on a light panel; on mobile they sit on the nav
      sheet, so they take the sheet's foreground colour instead of --c-grey */

@@ -805,9 +805,13 @@
   .pi-dash__col:last-child .pi-dash__head::after { background: #fff; }
 }
 
-/* continuous-optimisation 4x2 bordered icon grid */
+/* continuous-optimisation 4x2 bordered icon grid.
+   The four columns are narrow, so the longest single words ("Fragmentation",
+   "Performance") set the minimum cell width: the grid takes a bigger share of
+   the row and the label steps down from 20px so those words clear the 24px
+   padding instead of running into the cell border. */
 .pi-opt {
-  flex: 1.2 1 0; min-width: min(320px, 100%);
+  flex: 1.8 1 0; min-width: min(320px, 100%);
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
   background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden;
 }
@@ -819,7 +823,7 @@
 .pi-opt__cell:nth-child(-n+4) { border-top: 0; }
 .pi-opt__cell:nth-child(4n+1) { border-left: 0; }
 .pi-opt__cell img { width: 48px; height: 48px; }
-.pi-opt__cell p { margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4B5059; }
+.pi-opt__cell p { margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 17px; line-height: 1.4; letter-spacing: -.01em; color: #4B5059; }
 @media (max-width: 700px) {
   .pi-opt { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pi-opt__cell { min-height: 140px; }
