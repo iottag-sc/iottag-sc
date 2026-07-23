@@ -6,8 +6,8 @@
       "permanent": true
     },
     {
-      "source": "/technology/engineering-hardware/:path*",
-      "destination": "/technology/vector-tag/",
+      "source": "/technology/vector-tag/:path*",
+      "destination": "/technology/engineering-hardware/",
       "permanent": true
     }
   ],
