@@ -152,7 +152,7 @@ a { color: inherit; text-decoration: none; }
 .h2 {
   font-family: var(--f-alt);
   font-weight: 500;
-  font-size: 52px;
+  font-size: 40px;
   line-height: 1.2;
   letter-spacing: -.01em;
   color: #4b5059;
@@ -883,7 +883,38 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 
 /* ---- "Monitor. Compare. Predict. Optimise." circular diagram (12359:8324) */
 .ie-diagram { position: relative; width: 420px; height: 420px; flex-shrink: 0; }
-.ie-diagram__ring { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.ie-diagram__ring { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: visible; }
+/* bright segment travelling around the circular ring */
+.ie-glow-ring {
+  fill: none;
+  stroke: #4CC4FE;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 12 88;              /* one short bright arc, long gap */
+  filter: drop-shadow(0 0 4px #4CC4FE);
+  animation: ie-ring-travel 4.5s linear infinite;
+}
+@keyframes ie-ring-travel { to { stroke-dashoffset: -100; } }
+/* pulse that lights each diagonal from the centre outward toward its chip */
+.ie-ray {
+  stroke: #7fdcff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 16 84;              /* single travelling dash per line */
+  filter: drop-shadow(0 0 3px #4CC4FE);
+  animation: ie-ray-out 2.8s ease-out infinite;
+}
+@keyframes ie-ray-out {
+  0%   { stroke-dashoffset: 0;    opacity: 0; }   /* born at centre */
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { stroke-dashoffset: -100; opacity: 0; }   /* fades as it reaches the chip */
+}
+/* all eight rays pulse in unison (same phase) */
+@media (prefers-reduced-motion: reduce) {
+  .ie-glow-ring, .ie-ray { animation: none; }
+  .ie-ray { opacity: 0; }
+}
 .ie-chip {
   position: absolute;
   width: 88px;

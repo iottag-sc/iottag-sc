@@ -67,7 +67,7 @@
           <h1 class="h1">Operational Intelligence
 For Complex Operations</h1>
         </div>
-        <p class="hero__text">AI systems which continuously understands how changing<br>operational conditions interact to predict risk,<br>improve performance and support better decisions.</p>
+        <p class="hero__text">AI systems which continuously understands how changing<br>operational conditions interact to predict risk,improve<br> performance and support better decisions.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="platform/operational-intelligence/index.html">Explore Platform</a>
           <a class="btn btn--secondary" href="company/contact/index.html">Book a Demonstration</a>
@@ -81,7 +81,29 @@ For Complex Operations</h1>
         <div class="row center gap-80">
           <!-- intelligence-engines circular diagram -->
           <div class="ie-diagram" aria-hidden="true">
-            <img class="ie-diagram__ring" src="assets/icon/ie-ring.svg" alt="" width="338" height="338">
+            <svg class="ie-diagram__ring" width="338" height="338" viewBox="0 0 338 338" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- static base connectors (unchanged look) -->
+              <g opacity="0.5" stroke="#4CC4FE" stroke-width="2" stroke-dasharray="4 4">
+                <circle cx="169" cy="169" r="168"/>
+                <line x1="13" y1="103" x2="325" y2="235"/>
+                <line x1="325" y1="103" x2="13" y2="235"/>
+                <line x1="103" y1="13" x2="235" y2="325"/>
+                <line x1="235" y1="13" x2="103" y2="325"/>
+              </g>
+              <!-- animated glow travelling around the ring -->
+              <circle class="ie-glow-ring" cx="169" cy="169" r="168" pathLength="100"/>
+              <!-- animated pulses radiating from centre outward along each diagonal -->
+              <g class="ie-rays">
+                <line class="ie-ray" x1="169" y1="169" x2="13"  y2="103" pathLength="100"/>
+                <line class="ie-ray" x1="169" y1="169" x2="325" y2="235" pathLength="100"/>
+                <line class="ie-ray" x1="169" y1="169" x2="325" y2="103" pathLength="100"/>
+                <line class="ie-ray" x1="169" y1="169" x2="13"  y2="235" pathLength="100"/>
+                <line class="ie-ray" x1="169" y1="169" x2="103" y2="13"  pathLength="100"/>
+                <line class="ie-ray" x1="169" y1="169" x2="235" y2="325" pathLength="100"/>
+                <line class="ie-ray" x1="169" y1="169" x2="235" y2="13"  pathLength="100"/>
+                <line class="ie-ray" x1="169" y1="169" x2="103" y2="325" pathLength="100"/>
+              </g>
+            </svg>
             <div class="ie-chip" style="left:108px;top:10px;"><img src="assets/icon/ie-truck.svg" alt="" width="24" height="24"><span>Fleet</span></div>
             <div class="ie-chip" style="left:244px;top:10px;"><img src="assets/icon/ie-handyman.svg" alt="" width="24" height="24"><span>Equipment</span></div>
             <div class="ie-chip" style="left:12px;top:103px;"><img src="assets/icon/ie-hardhat.svg" alt="" width="24" height="24"><span>People</span></div>
@@ -98,7 +120,7 @@ For Complex Operations</h1>
           </div>
           <!-- description -->
           <div class="grow stack gap-20">
-            <h2 class="h2" style="font-size:40px;">Know How Your Operation<br>Should Be Performing</h2>
+            <h2 class="h2">Know How Your Operation<br>Should Be Performing</h2>
             <p class="ie-copy ie-copy--lead">Complex operations generate immense amounts of information, but individual systems only explain what is happening within their own area. They cannot determine whether the operation as a whole is performing as intended.</p>
             <p class="ie-copy">Atlas establishes an operational model based on expected conditions, critical relationships, risk controls, performance requirements and operational objectives. This creates a reference for how the operation should perform safely, efficiently and productively.</p>
             <p class="ie-copy">As live conditions change, Atlas compares actual performance against the model to detect deviations, understand their wider impact, predict likely consequences and recommend or automate corrective action.</p>
@@ -183,7 +205,7 @@ For Complex Operations</h1>
     <section class="section--pale">
       <div class="row gap-60 wrap" style="padding:80px var(--pad-x);align-items:center;justify-content:center;">
         <div class="stack gap-40 center" style="width:640px;flex-shrink:0;justify-content:center;align-items:flex-start;">
-          <h2 class="h2" style="font-size:44px;">Trusted in environments<br>Where visibility matters most</h2>
+          <h2 class="h2">Trusted in environments<br>Where visibility matters most</h2>
           <p class="lead" style="font-size:16px;">Designed for complex operational environments where visibility, coordination and informed decision-making are critical.
 Supporting owners, contractors, operators and project teams across mining, tunnelling, infrastructure and critical operations internationally.</p>
           <div class="row gap-20 wrap">
@@ -331,7 +353,7 @@ Supporting owners, contractors, operators and project teams across mining, tunne
     <!-- ===== DELIVERING VALUE (Figma 12781:9687) ===== -->
     <section class="section section--pale stack gap-40">
       <div class="dv-head">
-        <h2 class="h2" style="font-size:40px;">Delivering Value With Operational Intelligence</h2>
+        <h2 class="h2">Delivering Value With Operational Intelligence</h2>
         <div class="dv-head__copy">
           <p>Every organisation has different priorities.</p>
           <p>Whether your focus is improving safety, increasing production, <br>optimising assets or reducing operating costs, iottag transforms operational intelligence into measurable business outcomes <br>across the entire operation.</p>
@@ -389,7 +411,7 @@ Supporting owners, contractors, operators and project teams across mining, tunne
     <section class="section stack gap-80">
       <div class="row gap-40" style="align-items:center;">
         <div class="grow stack gap-20">
-          <h2 class="h2" style="font-size:40px;">Purpose built technology<br>for challenging environments</h2>
+          <h2 class="h2">Purpose built technology<br>for challenging environments</h2>
           <p class="body">Purpose-Built Technology Designed, Supported And Maintained By iottag<br>Operational environments demand technology that performs reliably every day.</p>
           <p class="body">That is why iottag designs, engineers, supports and maintains the core components of its platform, providing organisations with a single partner responsible for performance across the entire solution lifecycle.</p>
           <p class="body">At the centre of this ecosystem is the Vector Tag — a purpose-built industrial wearable designed to support workforce visibility, emergency response and operational awareness in demanding environments.</p>
@@ -416,8 +438,8 @@ Supporting owners, contractors, operators and project teams across mining, tunne
     <section class="section section--pale stack gap-40">
       <div class="row gap-80" style="align-items:center;">
         <div class="grow stack gap-20" style="min-width:0;">
-          <h2 class="h2" style="font-size:40px;">Built to Manage Every Operational Asset</h2>
-          <p class="lead" style="color:#5C616B;font-weight:400;">From equipment and materials to tools and critical infrastructure,<br>iottag creates a live operational understanding of every moving part across your operation.<br>On and off site, above and below the ground.</p>
+          <h2 class="h2">Built to Manage Every Operational Asset</h2>
+          <p class="lead" style="color:#5C616B;font-weight:400;">From equipment and materials to tools and critical infrastructure, iottag creates a live operational understanding of every moving part across your operation. On and off site, above and below the ground.</p>
         </div>
         <div class="video-thumb video-thumb--asset" data-embed="https://www.youtube-nocookie.com/embed/hmR6drfa2io?autoplay=1&amp;rel=0">
           <img class="video-thumb__video" src="assets/img/asset-video-poster.webp" alt="Preview of the iottag asset management video — illustrated warehouse with tagged racking, forklifts, equipment and personnel" width="1920" height="1080" loading="lazy">
@@ -440,7 +462,7 @@ Supporting owners, contractors, operators and project teams across mining, tunne
     <section class="section stack center gap-60">
       <div class="exec-row">
         <div class="grow stack gap-20" style="min-width:0;">
-          <h2 class="h2" style="font-size:40px;">Executive Insight &amp; <span style="white-space:nowrap;">Portfolio Visibility</span></h2>
+          <h2 class="h2">Executive Insight &amp; <span style="white-space:nowrap;">Portfolio Visibility</span></h2>
           <p class="body">While operational teams use iottag to manage daily activities, leadership teams gain access to portfolio-level dashboards that provide visibility across projects, sites, contractors and operational environments.</p>
           <p class="body">Monitor safety performance, operational trends, production outcomes and critical KPIs through a consistent reporting framework that supports governance, benchmarking and strategic decision-making.</p>
         </div>
