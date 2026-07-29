@@ -185,6 +185,15 @@ a { color: inherit; text-decoration: none; }
 .text-center { text-align: center; }
 .measure { max-width: 820px; }
 
+/* Even paragraphs — body copy is flush on both edges site-wide.
+   Single-line paragraphs are unaffected (a last line is never justified). */
+p { text-align: justify; }
+/* Keep centred / right-aligned containers: their paragraphs inherit the
+   container's alignment instead of picking up the justify rule above. */
+:is(.text-center, .lens-tile, .env-tile, .ie-core, .asset-stage, .brand-card,
+    .testimonial__by, .level, .stage, .vtabs__tab, .odt2-tl__col, .fri-chip,
+    .fri-cond2, .ab-team__band, .ab-cta__head, .a7-node--plain) p { text-align: inherit; }
+
 /* 5. BUTTONS ------------------------------------------------------------ */
 .btn {
   display: inline-flex;
@@ -988,7 +997,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .dv-cards { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
 .dv-card { min-height: 240px; background: #fff; padding: 40px 24px; display: flex; flex-direction: column; gap: 16px; }
 .dv-card + .dv-card { border-left: 1px solid var(--c-line); }
-.dv-card img { width: 40px; height: 40px; }
+.dv-card img { width: 32px; height: 32px; }
 .dv-card h3 { margin: 0 0 8px; font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
 .dv-card ul { margin: 0; padding: 0; list-style: none; }
 .dv-card li { display: flex; align-items: center; gap: 4px; font: 400 16px/1.2 var(--f-body); color: var(--c-grey); }

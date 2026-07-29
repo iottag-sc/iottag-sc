@@ -78,16 +78,19 @@
 /* bordered 5-cell icon strip ("Understanding Operational Complexity") */
 .art-cells { display: flex; width: 100%; background: #fff; border-radius: var(--r-md); }
 .art-cell {
-  flex: 1 1 0; min-width: 0; min-height: 200px;
+  flex: 1 1 0; min-width: 0; min-height: 180px;
   border: 1px solid #d9d9da;
-  display: flex; flex-direction: column; gap: 16px; justify-content: center;
-  padding: 24px;
+  display: flex; flex-direction: column; gap: 14px; justify-content: flex-start;
+  padding: 20px 16px;
 }
 .art-cell + .art-cell { border-left: 0; }
-.art-cell img { width: 48px; height: 48px; }
+/* fixed 48px icon slot keeps every icon — and the text beneath it — on a shared row */
+.art-cell img { width: 48px; height: 48px; flex: 0 0 48px; object-fit: contain; }
+.art-cell img.art-icon--sm { padding: 4px; }
 .art-cell span {
-  font-family: var(--f-alt); font-weight: 400; font-size: 24px; line-height: 1.4;
+  font-family: var(--f-alt); font-weight: 400; font-size: 19px; line-height: 1.35;
   letter-spacing: -.01em; color: #4b5059;
+  text-wrap: balance; hyphens: none;
 }
 
 /* second row of a stacked cell grid — collapse the shared border */
@@ -199,4 +202,381 @@
   .art-records { width: 100%; flex-direction: column; }
   .art-records__col--offset { padding-top: 0; }
   .art-video { width: 100%; }
+}
+
+/* ==========================================================================
+   ARTICLE 7 — "Operational Intelligence for Underground Ventilation"
+   Built 2026-07-29 from Figma uSpSiuWCXpiRjrcPWJdeyD node 13116:30167
+   ("Articles 7 (Urgent)"). a7- prefix; reuses .art-* chrome and .stages.
+   ========================================================================== */
+
+/* typography ------------------------------------------------------------- */
+.a7-h2 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 400; font-size: 32px; line-height: 1.2;
+  letter-spacing: -.01em; color: #4b5059;
+}
+.a7-sub {
+  margin: 0;
+  font-family: var(--f-body); font-size: 18px; line-height: 1.2;
+  color: var(--c-ink); text-align: center;
+}
+.a7-lead { margin: 0; font-family: var(--f-body); font-weight: 700; font-size: 18px; line-height: 1.2; color: #4b5059; }
+.a7-cap { margin: 0; font-family: var(--f-body); font-style: italic; font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+
+/* icon slot — the Figma exports carry each glyph's own extents, so centre
+   them inside a fixed square instead of stretching them to fill it */
+.a7-ic { flex-shrink: 0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
+.a7-ic img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+.a7-ic--16 { width: 16px; height: 16px; }
+.a7-ic--40 { width: 40px; height: 40px; }
+.a7-ic--48 { width: 48px; height: 48px; }
+
+/* pale-blue callout (Executive Summary / Key Principle / Final Key Message) */
+.a7-note {
+  width: 100%;
+  background: var(--c-blue-pale); border-left: 2px solid var(--c-blue);
+  padding: 40px 40px 40px 42px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.a7-note h3 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+.a7-note--summary h3 { color: #1e729c; }
+.a7-note p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+
+/* the conclusion pull-quote sits in a taller bar than the inline ones */
+.art-quote--lg { padding: 40px; }
+
+/* data tables ------------------------------------------------------------ */
+.a7-tablewrap { width: 100%; overflow-x: auto; }
+.a7-table {
+  width: 100%; min-width: 720px;
+  border-collapse: separate; border-spacing: 0;
+  border: 1px solid var(--c-blue-tint); border-radius: var(--r-sm); overflow: hidden;
+  background: #fff;
+  font-family: var(--f-body); font-size: 16px; line-height: 1.2;
+}
+.a7-table th, .a7-table td { padding: 14px 16px; border-bottom: 1px solid var(--c-blue-tint); vertical-align: middle; text-align: left; }
+.a7-table th { background: #1e729c; color: #fff; font-weight: 700; }
+.a7-table td { color: var(--c-ink); }
+.a7-table th + th, .a7-table td + td { border-left: 1px solid var(--c-blue-tint); }
+.a7-table tr:last-child td { border-bottom: 0; }
+
+/* figures ---------------------------------------------------------------- */
+.a7-fig { margin: 0; width: 100%; display: flex; flex-direction: column; gap: 20px; }
+.a7-fig__box { width: 100%; border-radius: var(--r-md); padding: 40px; display: flex; flex-direction: column; align-items: center; }
+.a7-fig__box--grey { background: var(--c-surface); }
+.a7-fig__box--blue { background: var(--c-blue-pale); }
+
+/* white node tiles inside a figure */
+.a7-row { display: flex; gap: 12px; width: 100%; }
+.a7-node {
+  flex: 1 1 0; min-width: 0; min-height: 80px;
+  background: #fff; border-radius: var(--r-md); padding: 20px;
+  display: flex; gap: 12px; align-items: center;
+}
+.a7-node--bd { border: 1px solid #b4b3b5; }
+.a7-node--fixed { flex: 0 0 auto; width: 400px; max-width: 100%; min-height: 64px; justify-content: center; }
+.a7-node--tall { min-height: 100px; }
+.a7-node span { font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: var(--c-ink); }
+.a7-node--lg span { font-size: 18px; }
+.a7-node--plain { justify-content: center; text-align: center; }
+
+/* Atlas Operational Model card (blue outline + soft shadow) */
+.a7-atlas {
+  width: 480px; max-width: 100%; min-height: 100px;
+  background: #fff; border: 2px solid var(--c-blue-light); border-radius: var(--r-lg);
+  box-shadow: 0 4px 8px -2px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.06);
+  display: flex; gap: 16px; align-items: center; justify-content: center; padding: 16px 24px;
+}
+.a7-atlas img { width: 32px; height: 32px; flex-shrink: 0; }
+.a7-atlas b { display: block; font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: #4b5059; }
+.a7-atlas small { display: block; font-family: var(--f-body); font-size: 12px; line-height: 1.2; color: var(--c-ink); }
+.a7-atlas--wide { width: 440px; }
+.a7-atlas--wide b { font-size: 20px; line-height: 1.5; }
+
+/* cream "Independent Operational Information" pill (figure 1) */
+.a7-pill {
+  width: 480px; max-width: 100%;
+  background: #fdf6e5; border: 1px solid var(--c-orange); border-radius: var(--r-md);
+  padding: 21px 41px;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059; text-align: center;
+}
+
+/* connectors ------------------------------------------------------------- */
+/* --n is the node count on the fanned-out side; the rail stops half a column
+   short at each end so it lands on the outer node centres */
+.a7-bus, .a7-fan { position: relative; width: 100%; height: 96px; --wire: #b4b3b5; --n: 5; }
+.a7-bus--blue, .a7-fan--blue { --wire: var(--c-blue-light); }
+.a7-bus__stubs, .a7-fan__stubs {
+  position: absolute; left: 0; right: 0;
+  display: grid; grid-template-columns: repeat(var(--n), 1fr); column-gap: var(--gap, 12px);
+}
+.a7-bus__stubs { top: 0; }
+.a7-fan__stubs { bottom: 0; }
+.a7-bus__stubs i, .a7-fan__stubs i { justify-self: center; position: relative; width: 1px; height: 48px; background: var(--wire); }
+/* the centre stub runs straight through the rail down to the tile below: one
+   element, so the two halves can never land on different sub-pixels */
+.a7-bus__stubs i.a7-thru { height: 96px; }
+.a7-bus__rail, .a7-fan__rail {
+  position: absolute;
+  left: calc((100% - (var(--n) - 1) * var(--gap, 12px)) / var(--n) / 2);
+  right: calc((100% - (var(--n) - 1) * var(--gap, 12px)) / var(--n) / 2);
+  height: 1px; background: var(--wire);
+}
+.a7-bus__rail { top: 48px; }
+.a7-fan__rail { top: 47px; }
+.a7-fan__drop { position: absolute; left: 50%; top: 0; width: 1px; height: 48px; background: var(--wire); }
+
+/* arrow heads */
+.a7-up::before, .a7-down::after {
+  content: ""; position: absolute; left: 50%; transform: translateX(-50%);
+  border-left: 4px solid transparent; border-right: 4px solid transparent;
+}
+.a7-up::before { top: 0; border-bottom: 6px solid var(--wire); }
+.a7-down::after { bottom: 0; border-top: 6px solid var(--wire); }
+
+/* round end caps — the Figma connectors land on a tile with a dot, not a head */
+.a7-dot-t::before, .a7-dot-b::after {
+  content: ""; position: absolute; left: 50%; transform: translateX(-50%);
+  width: 5px; height: 5px; border-radius: 50%; background: var(--wire);
+}
+.a7-dot-t::before { top: -2px; }
+.a7-dot-b::after { bottom: -2px; }
+
+/* elbow from the Atlas card down-and-left into the first chevron (figure 2) */
+.a7-elbow { position: relative; width: 100%; height: 56px; --wire: var(--c-blue-light); }
+.a7-elbow i { position: absolute; background: var(--wire); }
+.a7-elbow__d1 { left: 50%; top: 0; width: 1px; height: 28px; }
+.a7-elbow__h  { left: 10%; right: 50%; top: 28px; height: 1px; }
+.a7-elbow__d2 { left: 10%; top: 28px; width: 1px; height: 28px; }
+
+/* single connector segments (cross / grid diagrams) */
+.a7-ar { display: block; position: relative; --wire: #b4b3b5; }
+.a7-ar--blue { --wire: var(--c-blue-light); }
+.a7-ar--v { flex: none; width: 1px; height: 36px; margin: 0 auto; background: var(--wire); }
+.a7-ar--link { height: 28px; }
+.a7-ar--h { height: 1px; width: 100%; background: var(--wire); }
+.a7-ar--h.a7-right::after, .a7-ar--h.a7-left::after {
+  content: ""; position: absolute; top: 50%; transform: translateY(-50%);
+  border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+}
+.a7-ar--h.a7-right::after { right: 0; border-left: 6px solid var(--wire); }
+.a7-ar--h.a7-left::after { left: 0; border-right: 6px solid var(--wire); }
+/* figure 3 connectors end in a small round cap at both ends, not an arrow head */
+.a7-ar--dot::before, .a7-ar--dot::after {
+  content: ""; position: absolute; width: 5px; height: 5px;
+  border-radius: 50%; background: var(--wire);
+}
+.a7-ar--h.a7-ar--dot::before { left: -2px; top: 50%; transform: translateY(-50%); }
+.a7-ar--h.a7-ar--dot::after { right: -2px; top: 50%; transform: translateY(-50%); }
+.a7-ar--v.a7-ar--dot::before { top: -2px; left: 50%; transform: translateX(-50%); }
+.a7-ar--v.a7-ar--dot::after { bottom: -2px; left: 50%; transform: translateX(-50%); }
+
+/* figure 3 — four objectives around the Atlas model.
+   Both grids below are laid out by source order (5 cells per row, empty
+   placeholder divs where a cell carries no connector). Columns are
+   240 | connector | Atlas | connector | 240, so every connector spans the
+   whole gap between a tile and the Atlas card, as in the Figma. */
+.a7-cross {
+  width: 100%;
+  display: grid; grid-template-columns: 240px 60px 1fr 60px 240px;
+  align-items: center; justify-items: center;
+}
+.a7-cross > * { width: 100%; }
+.a7-cross .a7-atlas { width: 100%; }
+/* the top / bottom objectives are the same tile width as the side columns */
+.a7-cross .a7-node--plain { width: 240px; margin: 0 auto; }
+
+/* figure 7 — 3 x 3 planning cycle */
+.a7-grid3 { width: 100%; display: grid; grid-template-columns: 1fr 24px 1fr 24px 1fr; align-items: center; }
+.a7-grid3 > * { width: 100%; }
+.a7-grid3 .a7-node, .a7-cross .a7-node { flex: 1 1 auto; }
+
+/* figure 5 / 6 — photo-disc timeline with chevron separators */
+.a7-tl { display: flex; width: 100%; background: var(--c-blue-pale); border-radius: var(--r-md); overflow: hidden; }
+.a7-tl__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 40px 20px; }
+.a7-tl__top { display: flex; gap: 8px; align-items: center; }
+.a7-tl__disc { width: 100px; height: 100px; border-radius: 50%; flex-shrink: 0; object-fit: cover; }
+.a7-tl__disc--icon { background: #fff; display: flex; align-items: center; justify-content: center; }
+/* the hairline runs past the column padding (20px) and 23px into the 24px
+   separator, so it stops exactly on the kink of the chevron */
+.a7-tl__line { flex: 1 1 0; min-width: 0; height: 1px; background: #fff; margin-right: -43px; }
+.a7-tl__col:last-child .a7-tl__line { display: none; }
+.a7-tl h3 { margin: 0 0 4px; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: #4b5059; }
+.a7-tl ul { margin: 0; padding-left: 21px; }
+.a7-tl li, .a7-tl p { margin: 0; font-family: var(--f-body); font-size: 14px; line-height: 1.2; color: var(--c-grey); }
+/* one chevron per gap: down to the kink at y:90 (the disc centre line), then
+   back out to the left edge — same construction as .odt3-roles__sep */
+.a7-tl__sep { flex: 0 0 24px; align-self: stretch; }
+.a7-tl__sep svg { width: 100%; height: 100%; display: block; }
+
+/* scenario panels — grey "Traditional" over white "Operational Intelligence" */
+.a7-case { width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-sm); overflow: hidden; }
+.a7-case__blk { padding: 40px 40px 40px 42px; display: flex; flex-direction: column; gap: 4px; }
+.a7-case__blk--trad { background: var(--c-surface); border-left: 2px solid var(--c-line); }
+.a7-case__blk--oi { background: #fff; border-left: 2px solid var(--c-blue); }
+.a7-case h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -.01em; color: #4b5059; }
+.a7-case p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+.a7-case ul { margin: 0; padding-left: 27px; }
+.a7-case li { font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+.a7-checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px 28px; margin-top: 16px; }
+.a7-checks span { display: flex; gap: 8px; align-items: center; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+
+/* figure 2 reuses the shared .stages chevrons on a white fill */
+.a7-stages .stage { background: #fff; }
+.a7-stages .stage span { font-size: 18px; }
+.a7-stages .stage--act span { color: #1e729c; }
+
+@media (max-width: 960px) {
+  .a7-h2 { font-size: 26px; }
+  .a7-fig__box { padding: 24px; }
+  .a7-row { flex-wrap: wrap; }
+  .a7-node { flex: 1 1 calc(50% - 6px); }
+  .a7-node--fixed { flex: 1 1 100%; }
+  .a7-bus, .a7-fan, .a7-ar, .a7-elbow { display: none; }
+  .a7-cross, .a7-grid3 { grid-template-columns: 1fr; row-gap: 12px; }
+  .a7-cross > *,
+  .a7-cross__l, .a7-cross__lw, .a7-cross__c, .a7-cross__rw, .a7-cross__r { grid-column: 1; grid-row: auto; }
+  .a7-tl { flex-wrap: wrap; }
+  .a7-tl__col { flex: 1 1 100%; }
+  .a7-tl__sep { display: none; }
+  .a7-tl__line { display: none; }
+  .a7-case__blk { padding: 24px; }
+}
+
+/* ==========================================================================
+   WHITE PAPER 1 — "The Operational Intelligence Framework"
+   Built 2026-07-29 from Figma uSpSiuWCXpiRjrcPWJdeyD node 13112:25257
+   ("White paper details"). wp1- prefix; reuses .art-hero, .a7-ic, .a7-note
+   and the shared .stages chevrons.
+   ========================================================================== */
+
+/* the white-paper content column is 1280px inside the 80px band */
+.section--wp { --maxw: 1280px; }
+
+/* typography ------------------------------------------------------------- */
+.wp1-eyebrow {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5;
+  color: #4b5059;
+}
+.wp1-h1, .wp1-h2 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
+  letter-spacing: -.01em; color: #4b5059;
+}
+.wp1-sub { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+/* body runs — Figma keeps consecutive lines inside one 20px/1.5 text node */
+.wp1-copy { display: flex; flex-direction: column; width: 100%; }
+.wp1-copy--sp { gap: 20px; }
+.wp1-copy p, .wp1-copy li {
+  margin: 0;
+  font-family: var(--f-body); font-size: 20px; line-height: 1.5; color: var(--c-ink);
+}
+.wp1-copy ul { margin: 0; padding-left: 30px; }
+.wp1-lead { display: flex; flex-direction: column; width: 100%; }
+.wp1-lead p {
+  margin: 0;
+  font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: #4b5059;
+}
+
+/* photo + copy rows (executive summary) ---------------------------------- */
+.wp1-split { display: flex; gap: 80px; align-items: center; width: 100%; }
+.wp1-split > :not(img) { flex: 1 1 0; min-width: 0; }
+.wp1-split img { width: 400px; height: 240px; flex-shrink: 0; border-radius: var(--r-md); object-fit: cover; }
+
+/* cream question bar under the executive summary */
+.wp1-quest {
+  width: 100%;
+  background: #fdf6e5; border-left: 2px solid var(--c-orange);
+  padding: 40px 40px 40px 42px;
+  display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: center; justify-content: space-between;
+}
+.wp1-quest p {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+
+/* bordered icon-card grids ----------------------------------------------- */
+.wp1-grid { width: 100%; background: #fff; border-radius: var(--r-md); overflow: hidden; }
+.wp1-row { display: flex; }
+.wp1-row + .wp1-row { margin-top: -1px; }
+.wp1-card {
+  flex: 1 1 0; min-width: 0; min-height: 180px;
+  border: 1px solid var(--c-line);
+  display: flex; flex-direction: column; gap: 16px; justify-content: center;
+  padding: 24px;
+}
+.wp1-card + .wp1-card { border-left: 0; }
+.wp1-card span {
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;
+}
+/* copy column beside a grid (chapters 1 and 5) */
+.wp1-cardsplit { display: flex; gap: 40px; align-items: center; width: 100%; }
+.wp1-cardsplit > .wp1-copy { width: 320px; flex-shrink: 0; }
+.wp1-cardsplit > .wp1-copy--lg { width: 400px; }
+.wp1-cardsplit > .wp1-grid { flex: 1 1 0; min-width: 0; }
+/* a labelled full-width grid stacks 8px under its lead line */
+.wp1-labelled { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+
+/* four framework layers (chapter 4) -------------------------------------- */
+.wp1-layers { display: flex; gap: 40px; align-items: flex-start; width: 100%; }
+.wp1-layer { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 16px 0; }
+.wp1-layer h3 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
+  letter-spacing: -.01em; color: #4b5059;
+}
+
+/* shared .stages chevrons — Figma exports carry each glyph's own extents,
+   so cap them instead of stretching to the 40px square platform.css sets */
+.wp1-stages .stage img { width: auto; height: auto; max-width: 40px; max-height: 40px; }
+.wp1-stages .stage span { font-weight: 400; color: var(--c-ink); }
+.wp1-stages .stage span.is-strong { font-weight: 600; }
+
+/* conclusion callout — .a7-note with the blue label and semibold copy */
+.wp1-note { gap: 20px; }
+.wp1-note h3 { color: var(--c-blue); }
+.wp1-note p { font-weight: 600; color: var(--c-ink-2); }
+
+/* "About iottag" closing band ------------------------------------------- */
+.wp1-about { position: relative; overflow: hidden; width: 100%; padding: 64px 80px; border: 1px solid rgba(6,3,9,.15); }
+.wp1-about__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.wp1-about__ovl { position: absolute; inset: 0; z-index: 1; background: rgba(5,55,80,.7); }
+.wp1-about__inner { position: relative; z-index: 2; display: flex; gap: 16px; align-items: flex-start; width: 100%; }
+.wp1-about__inner > img { width: 48px; height: 48px; flex-shrink: 0; }
+.wp1-about__body { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.wp1-about h2 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2;
+  letter-spacing: -.01em; color: #f2f2f2;
+}
+.wp1-about p { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.2; color: #f2f2f2; }
+
+@media (max-width: 1100px) {
+  .wp1-quest { gap: 16px 24px; }
+  .wp1-quest p { font-size: 18px; }
+}
+@media (max-width: 960px) {
+  .wp1-split { flex-wrap: wrap; gap: 24px; }
+  .wp1-split img { width: 100%; height: auto; }
+  .wp1-cardsplit { flex-wrap: wrap; gap: 24px; }
+  .wp1-cardsplit > .wp1-copy, .wp1-cardsplit > .wp1-copy--lg { width: 100%; }
+  .wp1-row { flex-wrap: wrap; }
+  .wp1-card { flex-basis: 50%; }
+  .wp1-card + .wp1-card { border-left: 1px solid var(--c-line); }
+  .wp1-layers { flex-wrap: wrap; gap: 24px; }
+  .wp1-layer { flex-basis: 100%; padding: 0; }
+  .wp1-stages { flex-wrap: wrap; height: auto; }
+  .wp1-stages .stage { flex-basis: 100%; min-height: 140px; clip-path: none; border-radius: var(--r-md); }
+  .wp1-stages .stage + .stage { margin-left: 0; margin-top: 8px; }
+  .wp1-about { padding: 40px 24px; }
+  .wp1-about h2 { font-size: 32px; }
 }
