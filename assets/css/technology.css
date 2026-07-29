@@ -127,6 +127,36 @@
 }
 .vt-acc__body p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #060309; }
 
+/* Technology Agnostic Eco-System — 4-up logo grid beside the copy
+   (Figma 13171:29838). Logo boxes are 60px tall; each <img> carries the
+   exact Figma dimensions inline because the source logos crop differently. */
+.vt-tagline {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5;
+  color: var(--c-blue);
+}
+.vt-agnostic {
+  width: 540px; flex-shrink: 0;
+  padding: 40px 0;
+  display: flex; flex-wrap: wrap; gap: 40px 20px;
+}
+.vt-agnostic__item {
+  width: 120px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  font-family: var(--f-body); font-size: 14px; line-height: 1.2;
+  color: #060309; text-align: center;
+}
+.vt-agnostic__ic {
+  height: 60px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+/* QR logo carries heavy padding — scale up and clip back to the 60px box */
+.vt-agnostic__ic--clip { width: 60px; overflow: hidden; }
+.vt-agnostic__ic img { display: block; object-fit: contain; }
+@media (max-width: 1100px) {
+  .vt-agnostic { width: 100%; justify-content: center; padding-top: 0; }
+}
+
 /* Built To Evolve — two columns of white arrow cards (Figma 12781:18402) */
 .vt-evolve { display: flex; gap: 4px; align-items: center; min-width: 320px; }
 .vt-evolve__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
