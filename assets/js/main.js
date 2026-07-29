@@ -283,6 +283,74 @@ function initBrandDots() {
   });
 }
 
+/* ---- white paper download gate ---------------------------------------- */
+/* Featured white paper "Download" buttons carry data-wp-download="<pdf>".
+   Clicking one opens the gate; submitting it downloads that pdf. The name /
+   email fields are a placeholder — nothing is captured or validated yet, so
+   the download always proceeds. Post the values here once there is a backend. */
+function initWhitePaperGate() {
+  const gate = document.querySelector('[data-wp-gate]');
+  if (!gate) return;
+  const form = gate.querySelector('[data-wp-gate-form]');
+  let file = '';
+  let opener = null;
+
+  /* hiding the page scrollbar widens the viewport — measure how much and let
+     .is-gate-open pad it back, so the page behind does not shift right */
+  const lockScroll = () => {
+    const before = document.documentElement.clientWidth;
+    document.body.classList.add('is-gate-open');
+    const gap = document.documentElement.clientWidth - before;
+    document.documentElement.style.setProperty('--sb-gutter', `${Math.max(gap, 0)}px`);
+  };
+  const unlockScroll = () => {
+    document.body.classList.remove('is-gate-open');
+    document.documentElement.style.removeProperty('--sb-gutter');
+  };
+
+  const open = (btn) => {
+    file = btn.dataset.wpDownload || '';
+    opener = btn;
+    gate.hidden = false;
+    lockScroll();
+    const first = gate.querySelector('input');
+    if (first) first.focus();
+  };
+  const close = () => {
+    gate.hidden = true;
+    unlockScroll();
+    if (form) form.reset();
+    if (opener) opener.focus();
+    opener = null;
+  };
+
+  document.querySelectorAll('[data-wp-download]').forEach((btn) => {
+    btn.addEventListener('click', () => open(btn));
+  });
+  gate.querySelectorAll('[data-wp-gate-close]').forEach((el) => {
+    el.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !gate.hidden) close();
+  });
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      /* TODO: send new FormData(form) to the lead capture endpoint */
+      if (file) {
+        const a = document.createElement('a');
+        a.href = file;
+        a.download = file.split('/').pop();
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+      close();
+    });
+  }
+}
+
 /* ---- boot ------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', async () => {
   await injectPartials();   // nav/footer must exist before wiring the hooks below
@@ -296,4 +364,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   initMapExplorer();
   initDashCarousel();
   initBrandDots();
+  initWhitePaperGate();
 });
