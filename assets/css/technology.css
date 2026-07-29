@@ -204,7 +204,15 @@
 /* 4. POSITIONING TECHNOLOGIES (positioning-technologies) --------------------- */
 /* supported-technology rows — white media card left, copy + application chips right */
 .pt-row { display: flex; gap: 40px; align-items: center; width: 100%; }
-.pt-row__img { width: 304px; height: 200px; flex-shrink: 0; border-radius: var(--r-md); object-fit: cover; background: #fff; }
+/* identical white frame for every row — artwork is letterboxed, never cropped,
+   so mixed sources (logos, diagrams, product photos) all read as one set */
+.pt-row__img {
+  box-sizing: border-box;
+  width: 304px; height: 200px; flex-shrink: 0;
+  padding: 16px;
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  object-fit: contain; background: #fff;
+}
 .pt-row__body { flex: 1 1 0; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
 .pt-row__title {
   margin: 0;
@@ -215,7 +223,7 @@
 .pt-row__apps { display: flex; flex-direction: column; gap: 8px; }
 .pt-row__apps-label { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.4; color: var(--c-ink); }
 .pt-chips { display: flex; gap: 16px 60px; flex-wrap: wrap; }
-@media (max-width: 900px) { .pt-row { flex-wrap: wrap; } .pt-row__img { width: 100%; height: auto; } }
+@media (max-width: 900px) { .pt-row { flex-wrap: wrap; } .pt-row__img { width: 100%; height: auto; aspect-ratio: 304 / 200; } }
 
 /* hybrid-environment flows — labelled chevron pair (chip grid → digital twin) */
 .hpe { display: flex; flex-direction: column; gap: 20px; width: 100%; }
@@ -255,6 +263,12 @@
   display: flex; flex-direction: column; gap: 40px; justify-content: center;
 }
 .ie-split__img { width: 50%; min-height: 384px; object-fit: cover; }
+/* tick + title + line of copy, stacked under the split-band intro */
+.ie-feats { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 20px; }
+.ie-feat { display: flex; gap: 12px; align-items: flex-start; }
+.ie-feat__copy { display: flex; flex-direction: column; gap: 4px; }
+.ie-feat__title { margin: 0; font: 700 18px/1.2 var(--f-body); color: var(--c-ink); }
+.ie-feat__text { margin: 0; font: 400 16px/1.2 var(--f-body); color: #5c616b; }
 @media (max-width: 960px) {
   .ie-split { flex-direction: column; }
   .ie-split__img { width: 100%; min-height: 0; height: 300px; }
