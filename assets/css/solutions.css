@@ -328,7 +328,7 @@
 }
 
 /* --- odt2: closing line + CTA sizing (Figma Heading 1 / overlay 70%) */
-.odt2-close { margin: 0; font: 600 18px/1.2 var(--f-body); color: #1e729c; text-align: center; }
+.odt2-close { margin: 0; font: 600 18px/1.2 var(--f-body); color: #1e729c; text-align: left; }
 .odt2-cta .h2 { font-size: 56px; }
 .odt2-cta .cta-band__overlay { background: rgba(5,55,80,.7); }
 @media (max-width: 640px) { .odt2-cta .h2 { font-size: 32px; } }
@@ -481,7 +481,7 @@
 .fri-cond2 { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; }
 .fri-cond2 img { width: 80px; height: 80px; }
 .fri-cond2 h3 { margin: 0; font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--c-ink); text-align: center; white-space: nowrap; }
-.fri-conds2__caption { margin: 0; padding: 32px 24px; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); text-align: center; }
+.fri-conds2__caption { margin: 0; padding: 32px 24px; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); text-align: left; }
 @media (max-width: 960px) { .fri-conds2__strip { flex-wrap: wrap; justify-content: center; gap: 24px 40px; } .fri-cond2 { flex: 0 0 auto; } .fri-cond2 h3 { white-space: normal; } .fri-conds2__caption br { display: none; } }
 @media (max-width: 1100px) {
   .fri-conds { flex-wrap: wrap; }
@@ -673,7 +673,7 @@
 .fri-why__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 /* design fades the photo into the white page at the top, behind the heading */
 .fri-why__fade { position: absolute; inset: 0; background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.85) 10%, rgba(255,255,255,0) 32%); pointer-events: none; }
-.fri-why__title { position: relative; z-index: 1; margin: 44px 0 0; }
+.fri-why__title { position: relative; z-index: 1; margin: 44px 0 0; text-align: center; padding: 0 24px; }
 .fri-why__inner {
   position: relative; z-index: 1; flex: 1;
   display: flex; justify-content: space-between; align-items: flex-start; gap: 40px;
@@ -727,7 +727,7 @@
   display: flex; gap: 16px; align-items: center;
 }
 .pi-callout img { width: 48px; height: 48px; flex-shrink: 0; }
-.pi-callout p { flex: 1; margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); text-align: center; }
+.pi-callout p { flex: 1; margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); text-align: left; }
 
 /* real-time feature list: 36px pale icon squares (base .sys-item in platform.css) */
 .pi-rt { gap: 16px 40px; }
@@ -740,6 +740,14 @@
 /* tablet dashboard shot (pre-composited export) */
 .pi-shot { flex: 1 1 0; min-width: min(320px, 100%); max-width: 660px; height: auto; }
 
+/* every cell keeps the same content height (40 icon + 8 gap + 48 caption) so a
+   caption that wraps to two lines can't shove its icon out of line with its
+   neighbours — icons sit on one row, captions optically centre on one baseline */
+.stages--pi .stage span {
+  display: flex; align-items: center; justify-content: center;
+  height: 48px; flex-shrink: 0;
+}
+
 /* the shared .stages chevron strip (platform.css) can't fit 8 cells on small
    screens — fold it into rounded tiles, matching the .stages--cards breakpoint */
 @media (max-width: 960px) {
@@ -751,7 +759,9 @@
 /* haulage & crusher board: 440px photo card + numbered list on the pale band */
 .pi-haul { display: flex; align-items: center; width: 100%; }
 .pi-haul > img { width: 380px; height: 280px; flex-shrink: 0; object-fit: cover; background: #fdf6e5; border: 1px solid var(--c-line); border-radius: var(--r-md); }
-.pi-haul__body { flex: 1 1 0; min-width: 0; padding: 40px 24px; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+/* padding-left mirrors the .gap-80 of the title row above, so the first check
+   column lines up with the paragraph (photo width == title column width) */
+.pi-haul__body { flex: 1 1 0; min-width: 0; padding: 40px 24px 40px 80px; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
 .pi-haul__lead { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: var(--c-ink); }
 /* columns size to their widest single-line chip; leftover space spreads between them */
 .pi-checks { display: flex; gap: 24px 16px; justify-content: space-between; }

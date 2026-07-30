@@ -39,6 +39,8 @@
   letter-spacing: -.01em; color: var(--c-blue);
 }
 .approach-bar__text { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+/* white fill for bars that sit on a pale section */
+.approach-bar--white { background: #fff; }
 @media (max-width: 960px) { .approach-bar { flex-wrap: wrap; gap: 24px; } }
 
 /* Enterprise Security & Device Governance — 2 staggered rows of small cards */
@@ -274,9 +276,6 @@
 
 /* requirement strip — 7 white gov-cards, tight 8px gaps, centred */
 .pt-reqs { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-
-/* OI photo strip keeps bold titles (isg-strip resets them to 400) */
-.isg-strip--bold .photo-card__title { font-weight: 700; }
 
 /* 5. INTEGRATIONS & ECOSYSTEM (integrations-ecosystem) ----------------------- */
 /* 4-up example photo cards, two rows, 20px gaps (taller gap than .photo-cards) */

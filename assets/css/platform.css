@@ -203,6 +203,9 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 /* device-frame renders (tablet bezel + shadow baked into the transparent PNG) —
    the CSS radius/shadow would draw a rectangle around the transparent margins */
 .feat__img--device { border-radius: 0; box-shadow: none; object-fit: contain; }
+/* dashboard rows: a 16:9 screenshot kept at its natural aspect only reaches
+   ~260px beside the 740px copy, so trade copy width for image width */
+.feat--dash .feat__copy { width: 620px; }
 @media (max-width: 1240px) {
   .feat, .feat--flip { flex-direction: column; align-items: flex-start; }
   .feat__copy { width: 100%; }
@@ -341,7 +344,7 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 .oab-note--white { background: #fff; }
 .oab-note p { margin: 0; font: 600 18px/1.2 var(--f-body); color: var(--c-ink); }
 .oab-note--lg { padding: 40px; }
-.oab-note--lg p { font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; text-align: center; }
+.oab-note--lg p { font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; text-align: left; }
 @media (max-width: 640px) { .oab-note, .oab-note--lg { padding: 20px 24px; } }
 
 /* "Supporting Owners…" white card: title + four circle columns split by
@@ -480,12 +483,52 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 .em-cell {
   min-height: 220px; padding: 24px 20px;
   background: #fff;
-  display: flex; flex-direction: column; gap: 16px;
+  display: flex; flex-direction: column; gap: 12px;
 }
-.em-cell img { width: 40px; height: 40px; }
+/* each cell is now titled: 32px icon beside a semibold label, list underneath */
+.em-cell__hd { display: flex; gap: 8px; align-items: center; }
+.em-cell img { width: 32px; height: 32px; flex-shrink: 0; }
+.em-cell__hd span {
+  font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: #4b5059;
+}
 .em-cell ul { margin: 0; padding: 0; list-style: none; }
-.em-cell li { font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: #5c616b; }
+.em-cell li { font-family: var(--f-body); font-weight: 400; font-size: 16px; line-height: 1.2; color: var(--c-ink); }
 .em-cell li::before { content: "- "; }
+
+/* Regulatory Compliance Automation (Figma 12696:15863) — the one row in the
+   pale band that sits on its own WHITE full-viewport band, with the laptop
+   render bleeding off the left edge. The exported asset is already clipped on
+   its left side, so the cut only reads as intentional when it lands exactly on
+   the viewport edge — hence the 100vw break-out rather than a padded row.
+   Widths divide by the html zoom (.8, main.css): under zoom 100vw paints at
+   only 80% of the screen (same trick as .fri-dark in solutions.css). */
+.feat--bleed {
+  width: calc(100vw / 0.8);
+  margin-left: calc(50% - 50vw / 0.8);
+  background: #fff;
+  gap: 80px;
+  padding: 20px 0 0;
+  /* keep the copy's right edge on the page content column on wide screens */
+  padding-right: max(var(--pad-x), calc(50vw / 0.8 - var(--maxw) / 2));
+  /* row-reverse: pins the copy right and the render hard left, free space between */
+  justify-content: space-between;
+}
+.feat--bleed .feat__copy { width: auto; flex: 1 1 0; min-width: 0; max-width: 800px; }
+.feat--bleed .feat__img {
+  \* 913x904 source: the box keeps that aspect so nothing crops, and is sized
+     to close most of the space-between gap toward the copy on wide screens */
+  flex: 0 0 760px; width: 760px; height: 752px;
+  border-radius: 0; box-shadow: none; object-fit: cover;
+}
+/* stacked (matches the .feat column breakpoint) — the band keeps its white
+   full-bleed, the render keeps hugging the left edge so the clip stays hidden */
+@media (max-width: 1240px) {
+  .feat--bleed { gap: 32px; padding: 20px var(--pad-x) 48px 0; }
+  .feat--bleed .feat__copy { width: 100%; max-width: none; padding-left: var(--pad-x); }
+  .feat--bleed .feat__img {
+    flex: 0 0 auto; width: min(760px, 92%); height: auto; max-height: none;
+  }
+}
 
 /* Download Technical Resources — two columns of underlined doc links */
 .em-docs { display: flex; gap: 40px; width: 100%; }
@@ -578,8 +621,6 @@ a.em-doc:hover span { color: var(--c-blue); }
 }
 .wv-safe__card ul { margin: 0; padding-left: 24px; }
 .wv-safe__card li { font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
-.wv-safe__cols { display: flex; }
-.wv-safe__cols ul { flex: 1 1 0; min-width: 0; }
 
 /* timesheets row: chip list left, briefing photo right */
 .wv-ts { display: flex; gap: 40px; align-items: center; width: 100%; }

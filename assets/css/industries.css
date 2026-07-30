@@ -95,6 +95,11 @@
 /* wraps a .track-strip--bare and a .track-note into one bordered rounded box */
 .track-wrap { width: 100%; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
 .track-strip--bare { border: 0; border-radius: 0; }
+/* uniform 36px icon boxes + fixed-height label rows so every icon sits on the
+   same line and every label starts on the same line, however far it wraps */
+.track-strip--bare .track-strip__cell { justify-content: flex-start; padding-top: 36px; }
+.track-strip--bare .track-strip__cell img { width: 36px; height: 36px; object-fit: contain; }
+.track-strip--bare .track-strip__label { display: flex; align-items: flex-start; min-height: 68px; }
 .track-note {
   min-height: 160px;
   background: #fdf6e5;                 /* web-orange lightest */

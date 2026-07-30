@@ -226,8 +226,8 @@
   margin: 0;
   border-top: 1px solid var(--c-line);
   background: var(--c-blue-pale);
-  padding: 24px; text-align: center;
-  display: flex; align-items: center; justify-content: center;
+  padding: 24px; text-align: left;
+  display: flex; align-items: center; justify-content: flex-start;
   font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
   letter-spacing: -.01em; color: #4b5059;
 }
@@ -341,7 +341,7 @@
 .cr-banner p {
   position: relative; z-index: 1; margin: 0; max-width: 900px;
   font-family: var(--f-alt); font-weight: 700; font-size: 24px; line-height: 1.3;
-  letter-spacing: -.01em; color: #fff; text-align: center;
+  letter-spacing: -.01em; color: #fff; text-align: left;
 }
 .cr-note {
   flex: 1;
@@ -467,7 +467,7 @@
 @media (max-width: 640px) { .ct2-minis { grid-template-columns: 1fr; } }
 
 /* section heading (Ubuntu Medium 40 near-black, centered) */
-.ct2-h2 { margin: 0; font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2; letter-spacing: -.01em; color: #4b5059; text-align: center; }
+.ct2-h2 { margin: 0; font-family: var(--f-alt); font-weight: 500; font-size: 40px; line-height: 1.2; letter-spacing: -.01em; color: #4b5059; text-align: left; }
 
 /* common discussion topic cards (2×2) */
 .ct2-topics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; }
@@ -553,7 +553,7 @@
 @media (max-width: 900px) {
   .ct2-connect { flex-direction: column; gap: 40px; align-items: stretch; }
   .ct2-connect__head { flex: 0 0 auto; }
-  .ct2-connect__head .ct2-h2 { text-align: center; white-space: normal; }
+  .ct2-connect__head .ct2-h2 { text-align: left; white-space: normal; }
 }
 @media (max-width: 560px) {
   .ct2-office { flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -605,8 +605,7 @@
 }
 @media (max-width: 1240px) { .wi-cards { display: none; } }
 
-/* approach-bar variants (base in technology.css §1) */
-.approach-bar--white { background: #fff; }
+/* approach-bar variants (base + --white in technology.css §1) */
 .approach-bar--orange { background: #fdf6e5; border-left-color: var(--c-orange); }
 .approach-bar--orange p {
   margin: 0; flex: 1 1 0; min-width: 260px;

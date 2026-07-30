@@ -185,11 +185,10 @@ a { color: inherit; text-decoration: none; }
 .text-center { text-align: center; }
 .measure { max-width: 820px; }
 
-/* Even paragraphs — body copy is flush on both edges site-wide.
-   Single-line paragraphs are unaffected (a last line is never justified). */
-p { text-align: justify; }
+/* Body copy is left-aligned site-wide, with a natural ragged right edge. */
+p { text-align: left; }
 /* Keep centred / right-aligned containers: their paragraphs inherit the
-   container's alignment instead of picking up the justify rule above. */
+   container's alignment instead of picking up the left rule above. */
 :is(.text-center, .lens-tile, .env-tile, .ie-core, .asset-stage, .brand-card,
     .testimonial__by, .level, .stage, .vtabs__tab, .odt2-tl__col, .fri-chip,
     .fri-cond2, .ab-team__band, .ab-cta__head, .a7-node--plain) p { text-align: inherit; }
@@ -799,6 +798,63 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 }
 .d81-img   { position: absolute; max-width: none; pointer-events: none; }
 
+/* Custom Architecture — Best-in-Class Technology (Figma 13217:13156).
+   Same markup as the "Technology Agnostic Eco-System" block on
+   /technology/engineering-hardware; the rules are mirrored here because the
+   home page only loads main.css. Keep the two copies in sync (technology.css §1–2).
+   Logo boxes are 60px tall; each <img> carries its exact Figma dimensions
+   inline because the source logos crop differently. */
+.vt-tagline {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5;
+  color: var(--c-blue);
+}
+.vt-agnostic {
+  width: 540px; flex-shrink: 0;
+  padding: 40px 0;
+  display: flex; flex-wrap: wrap; gap: 40px 20px;
+}
+.vt-agnostic__item {
+  width: 120px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  font-family: var(--f-body); font-size: 14px; line-height: 1.2;
+  color: #060309; text-align: center;
+}
+.vt-agnostic__ic {
+  height: 60px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+/* QR logo carries heavy padding — scale up and clip back to the 60px box */
+.vt-agnostic__ic--clip { width: 60px; overflow: hidden; }
+.vt-agnostic__ic img { display: block; object-fit: contain; }
+@media (max-width: 1100px) {
+  .vt-agnostic { width: 100%; justify-content: center; padding-top: 0; }
+}
+
+/* "End-to-End Expertise" bar — pale blue panel with a blue left rule.
+   technology.css re-declares .approach-bar with its own gutter/rule colour and
+   loads after main.css, so the /technology pages keep their existing look. */
+.approach-bar {
+  width: 100%;
+  background: var(--c-blue-pale);
+  border-left: 2px solid var(--c-blue);
+  padding: 40px 40px 40px 42px;
+  display: flex; align-items: center; gap: 40px;
+}
+.approach-bar__copy { flex: 1 1 0; min-width: 280px; display: flex; flex-direction: column; gap: 20px; }
+.approach-bar__title {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: var(--c-blue);
+}
+.approach-bar__text { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
+/* The product shot on the right is the .d81-fit 360 viewer (see above), sized
+   to the 240x320 slot in the design via an inline width. */
+@media (max-width: 960px) {
+  .approach-bar { flex-wrap: wrap; gap: 24px; }
+  .approach-bar .d81-fit { margin-inline: auto; }
+}
+
 /* Final CTA band */
 .cta-band {
   position: relative;
@@ -981,7 +1037,8 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   gap: 8px;
   align-items: center;
   justify-content: center;
-  padding: 16px 28px 16px 32px;
+  /* top-heavy padding so the icon sits clear of the chevron edge (Figma 12545:25076) */
+  padding: 32px 28px 16px 32px;
   text-align: center;
 }
 .asset-stage + .asset-stage { margin-left: -16px; }
