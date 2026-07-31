@@ -227,11 +227,16 @@
 /* short photo hero (Figma header is 400px tall) */
 .hero--sm { min-height: 400px; }
 
-/* article cards ride on .wp-card — 320px tall, white variant, invisible spacer */
-.wp-card--art { height: 320px; }
+/* article cards ride on .wp-card — 340px tall, white variant, invisible spacer */
+.wp-card--art { height: 340px; }
 .wp-card--art .wp-card__img { flex-basis: 150px; height: 150px; }   /* shorter card → shorter photo, body still fits a 2-line title */
 .wp-card--white { background: #fff; }
 .wp-card--ghost { visibility: hidden; }
+
+/* Read more + gated Download share one row at the card foot (Figma 13248:23092) */
+.wp-card__btns { display: flex; gap: 8px; width: 100%; margin-top: auto; }
+.wp-card__btns .btn { flex: 1 1 0; min-width: 0; width: auto; margin-top: 0; padding: 8px 12px; }
+@media (max-width: 480px) { .wp-card__btns { flex-wrap: wrap; } }
 
 /* recommended-articles rows ride on .wp-cat — linked headings, trailing arrow */
 .ai-kicker {
@@ -245,7 +250,7 @@ a.wp-cat__item { text-decoration: none; }
 .wp-cat__item .icon {
   font-family: "Material Symbols Outlined"; font-weight: 400;
   flex: 0 0 auto; padding-top: 0;
-  font-size: 40px; color: var(--c-ink); transition: color .15s ease;
+  font-size: 40px; color: var(--c-blue); transition: color .15s ease;
 }
 a.wp-cat__item:hover span, a.wp-cat__item:hover .icon { color: var(--c-blue); }
 .wp-cat__img--tall { height: 520px; }

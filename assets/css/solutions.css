@@ -377,14 +377,18 @@
 .odt3-photocard__cap img { position: static; width: 60px; height: 60px; object-fit: contain; }
 .odt3-photocard__cap span { font: 700 24px/1.3 var(--f-alt); letter-spacing: -.01em; color: #fff; }
 
-/* Operational Intelligence Explorer — sidebar tabs + swappable site map */
+/* Operational Intelligence Explorer — sidebar tabs + layered site map.
+   Every hover view is built from separate layers (base map, capability list,
+   bouncing photo circle, tooltip) so the circle can animate on its own. */
 .odt3-x { width: 100%; background: #fff; border-radius: var(--r-md); overflow: hidden; }
-.odt3-x__title {
-  margin: 0; min-height: 60px;
-  display: flex; align-items: center; padding: 8px 16px;
+.odt3-x__head {
+  min-height: 72px;
+  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  padding: 8px 16px;
   border-bottom: 1px solid var(--c-line);
-  font: 600 18px/1.2 var(--f-body); color: #1a1a1a;
 }
+.odt3-x__title { margin: 0; font: 700 18px/1.2 var(--f-alt); color: #1a1a1a; }
+.odt3-x__sub { margin: 0; font: 400 14px/1.2 var(--f-alt); color: #1a1a1a; }
 .odt3-x__body { display: flex; }
 .odt3-x__tabs { width: 340px; flex-shrink: 0; display: flex; flex-direction: column; border-right: 1px solid var(--c-line); }
 .odt3-x__tab {
@@ -400,16 +404,59 @@
 .odt3-x__tab img { width: 24px; height: 24px; flex-shrink: 0; }
 .odt3-x__tab:hover { background: #f4fafd; }
 .odt3-x__tab.is-active { background: var(--c-blue-pale); border-left-color: var(--c-blue); font-weight: 600; }
-.odt3-x__panel { flex: 1 1 0; min-width: 0; }
-/* contain, not cover — several map views carry a feature list flush with the
-   left edge that a cover-crop would hide behind the tab rail */
-.odt3-x__panel img { width: 100%; height: 100%; object-fit: contain; }
+.odt3-x__panel { flex: 1 1 0; min-width: 0; display: flex; align-items: center; }
+/* all overlay coordinates are % of the original 940x520 map frame */
+.odt3-x__stage { position: relative; width: 100%; aspect-ratio: 940 / 520; }
+.odt3-x__map { display: block; width: 100%; height: 100%; object-fit: contain; }
+.odt3-x__pin { position: absolute; transform: translate(-50%, -50%); height: auto; z-index: 1; }
+.odt3-x__pin--10 { left: 47.77%; top: 31.73%; width: 9.57%; }
+.odt3-x__pin--50 { left: 80%;    top: 68.65%; width: 11.55%; }
+.odt3-x__pin--55 { left: 38.72%; top: 55.58%; width: 6.38%; }
+.odt3-x__panel[data-active="reporting"] .odt3-x__pin--10 { visibility: hidden; }
+.odt3-x__view { position: absolute; inset: 0; display: none; pointer-events: none; z-index: 2; }
+.odt3-x__view.is-active { display: block; }
+/* capability list floating over the left edge of the map */
+.odt3-x__list {
+  position: absolute; left: 0; top: 0; width: 280px;
+  padding: 20px 16px;
+  background: var(--c-blue-pale); border-radius: var(--r-md);
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,.1)) drop-shadow(0 2px 2px rgba(0,0,0,.06));
+}
+.odt3-x__list ul { margin: 0; padding-left: 21px; font: 400 14px/1.6 var(--f-body); color: #060309; }
+/* photo circle — the bouncing highlight */
+.odt3-x__spot {
+  position: absolute; width: 14.89%; height: auto;
+  /* some Figma exports carry an opaque white square behind the ring —
+     clip to the ring's outer edge */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 11.5px 7.7px rgba(0,0,0,.08)) drop-shadow(0 3.8px 2.9px rgba(0,0,0,.03));
+  animation: odt3-bounce 1.2s ease-in-out infinite;
+}
+@keyframes odt3-bounce {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .odt3-x__spot { animation: none; }
+}
+/* benefit tooltip; modifier = arrow side (t)op / (b)ottom / (l)eft */
+.odt3-x__tip {
+  position: absolute; width: max-content; max-width: 280px;
+  padding: 8px 12px;
+  background: #0f394e; border-radius: var(--r-md);
+  font: 400 14px/1.2 var(--f-alt); color: #fff;
+}
+.odt3-x__tip ul { margin: 0; padding-left: 21px; }
+.odt3-x__tip::after { content: ""; position: absolute; border: 6px solid transparent; }
+.odt3-x__tip--t::after { bottom: 100%; left: 50%; transform: translateX(-50%); border-bottom-color: #0f394e; }
+.odt3-x__tip--b::after { top: 100%; left: 50%; transform: translateX(-50%); border-top-color: #0f394e; }
+.odt3-x__tip--l::after { right: 100%; top: 50%; transform: translateY(-50%); border-right-color: #0f394e; }
 @media (max-width: 960px) {
   .odt3-x__body { flex-direction: column; }
   .odt3-x__tabs { width: 100%; flex-direction: row; flex-wrap: wrap; border-right: 0; border-bottom: 1px solid var(--c-line); }
   .odt3-x__tab { flex: 1 1 50%; min-width: 220px; border-left-width: 0; border-bottom: 3px solid transparent; }
   .odt3-x__tab.is-active { border-bottom-color: var(--c-blue); }
-  .odt3-x__panel img { height: auto; }
 }
 
 /* "One Source of Intelligence" split: 580px copy + tablet dashboard carousel */

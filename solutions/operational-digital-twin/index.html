@@ -137,75 +137,361 @@
           <p class="odt2-copy">It is a structured way to examine the operation from multiple perspectives while maintaining one consistent source of operational truth.</p>
         </div>
       </div>
-      <div class="odt3-x" data-map-explorer
-           data-map-default="../../assets/img/solutions/odt3-map-default.png"
-           data-map-default-alt="Illustrated site map showing every operational system connected across the operation">
-        <p class="odt3-x__title" id="odt3-x-label">Operational Intelligence Explorer</p>
+      <div class="odt3-x" data-map-explorer>
+        <div class="odt3-x__head">
+          <p class="odt3-x__title" id="odt3-x-label">Operational Intelligence Explorer</p>
+          <p class="odt3-x__sub">Roll-over to discover system capabilities</p>
+        </div>
         <div class="odt3-x__body">
           <div class="odt3-x__tabs" role="tablist" aria-labelledby="odt3-x-label" aria-orientation="vertical">
-            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel"
-                    data-map="../../assets/img/solutions/odt3-map-workforce.png"
-                    data-alt="Illustrated site map highlighting workforce locations and activity across the operation">
+            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel" data-view="workforce">
               <img src="../../assets/icon/odt3-tab-hard-hat.svg" alt="" width="24" height="24" loading="lazy">
               <span>Workforce</span>
             </button>
-            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel"
-                    data-map="../../assets/img/solutions/odt3-map-fleet.png"
-                    data-alt="Illustrated site map highlighting fleet and mobile equipment movement across the operation">
+            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel" data-view="fleet">
               <img src="../../assets/icon/odt3-tab-truck.svg" alt="" width="24" height="24" loading="lazy">
               <span>Fleet &amp; Mobile Equipment</span>
             </button>
-            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel"
-                    data-map="../../assets/img/solutions/odt3-map-equipment.png"
-                    data-alt="Illustrated site map highlighting equipment performance monitoring across the operation">
+            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel" data-view="equipment">
               <img src="../../assets/icon/odt3-tab-handyman.svg" alt="" width="24" height="24" loading="lazy">
               <span>Equipment Performance</span>
             </button>
-            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel"
-                    data-map="../../assets/img/solutions/odt3-map-assets.png"
-                    data-alt="Illustrated site map highlighting assets and fixed infrastructure across the operation">
+            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel" data-view="assets">
               <img src="../../assets/icon/odt3-tab-utility-pole.svg" alt="" width="24" height="24" loading="lazy">
               <span>Assets &amp; Infrastructure</span>
             </button>
-            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel"
-                    data-map="../../assets/img/solutions/odt3-map-environment.png"
-                    data-alt="Illustrated site map highlighting environmental monitoring points across the operation">
+            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel" data-view="environment">
               <img src="../../assets/icon/odt2-environment-smoke.svg" alt="" width="24" height="24" loading="lazy">
               <span>Environment</span>
             </button>
-            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel"
-                    data-map="../../assets/img/solutions/odt3-map-energy.png"
-                    data-alt="Illustrated site map highlighting energy and sustainability monitoring across the operation">
+            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel" data-view="energy">
               <img src="../../assets/icon/odt3-tab-bolt.svg" alt="" width="24" height="24" loading="lazy">
               <span>Energy &amp; Sustainability</span>
             </button>
-            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel"
-                    data-map="../../assets/img/solutions/odt3-map-production.png"
-                    data-alt="Illustrated site map highlighting production activity across the operation">
+            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel" data-view="production">
               <img src="../../assets/icon/odt3-tab-engineering.svg" alt="" width="24" height="24" loading="lazy">
               <span>Production</span>
             </button>
-            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel"
-                    data-map="../../assets/img/solutions/odt3-map-safety.png"
-                    data-alt="Illustrated site map highlighting safety and risk conditions across the operation">
+            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel" data-view="safety">
               <img src="../../assets/icon/odt3-tab-shield-check.svg" alt="" width="24" height="24" loading="lazy">
               <span>Safety &amp; Risks</span>
             </button>
-            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel"
-                    data-map="../../assets/img/solutions/odt3-map-automation.png"
-                    data-alt="Illustrated site map highlighting automation and operation control systems across the operation">
+            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel" data-view="automation">
               <img src="../../assets/icon/odt3-tab-sparkles.svg" alt="" width="24" height="24" loading="lazy">
               <span>Automation &amp; Operation Control</span>
             </button>
-            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel"
-                    data-map="../../assets/img/solutions/odt3-map-reporting.png"
-                    data-alt="Illustrated site map highlighting intelligence and reporting outputs across the operation">
+            <button class="odt3-x__tab" type="button" role="tab" aria-selected="false" aria-controls="odt3-x-panel" data-view="reporting">
               <img src="../../assets/icon/odt3-tab-chat-info.svg" alt="" width="24" height="24" loading="lazy">
               <span>Intelligence and Reporting</span>
             </button>
           </div>
           <div class="odt3-x__panel" id="odt3-x-panel" role="tabpanel">
-            <img src="../../assets/img/solutions/odt3-map-default.png" alt="Illustrated site map showing every operational system connected across the operation" width="940" height="520" loading="lazy">
+            <div class="odt3-x__stage">
+              <img class="odt3-x__map" src="../../assets/img/solutions/odt3-map-base.png" alt="Illustrated site map showing every operational system connected across the operation" width="938" height="520" loading="lazy">
+              <img class="odt3-x__pin odt3-x__pin--10" src="../../assets/img/solutions/odt3-badge-10.png" alt="" width="375" height="250" loading="lazy">
+              <img class="odt3-x__pin odt3-x__pin--50" src="../../assets/img/solutions/odt3-badge-50.png" alt="" width="429" height="253" loading="lazy">
+              <img class="odt3-x__pin odt3-x__pin--55" src="../../assets/img/solutions/odt3-badge-55.png" alt="" width="350" height="349" loading="lazy">
+
+              <div class="odt3-x__view" data-view="workforce">
+                <div class="odt3-x__list">
+                  <ul>
+                    <li>High Precision Positioning</li>
+                    <li>Emergency Evacuation</li>
+                    <li>Digital Tagboard</li>
+                    <li>Muster Management</li>
+                    <li>Restricted Zones</li>
+                    <li>Geofencing</li>
+                    <li>Occupancy Monitoring</li>
+                    <li>Lone Worker Protection</li>
+                    <li>Visitor Management</li>
+                    <li>Shift Attendance</li>
+                    <li>Fatigue Monitoring</li>
+                    <li>Heatstress Monitoring</li>
+                    <li>PPE Compliance</li>
+                    <li>Time on Task</li>
+                    <li>SOS &amp; Duress Alerts</li>
+                    <li>Fall &amp; Impact Detection</li>
+                  </ul>
+                </div>
+                <img class="odt3-x__spot" style="left:58.3%;top:75.77%" src="../../assets/img/solutions/odt3-spot-workforce.png" alt="Zoomed view of workers tracked on the site map" width="280" height="280" loading="lazy">
+                <div class="odt3-x__tip odt3-x__tip--b" style="left:45.53%;top:39.04%">
+                  <ul>
+                    <li>Improve Workforce Safety</li>
+                    <li>Faster Emergency Response</li>
+                    <li>Better Workforce Visibility</li>
+                    <li>Reduce Exposure to Risk</li>
+                    <li>Improve Compliance</li>
+                    <li>Increase Productivity</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="odt3-x__view" data-view="fleet">
+                <div class="odt3-x__list">
+                  <ul>
+                    <li>Vehicle Tracking</li>
+                    <li>Fleet Utilisation</li>
+                    <li>Traffic Management</li>
+                    <li>Collision Avoidance</li>
+                    <li>Speed Monitoring</li>
+                    <li>Route Management</li>
+                    <li>Cycle Time Analysis</li>
+                    <li>Queue Detection</li>
+                    <li>Idle Time Monitoring</li>
+                    <li>Driver Behaviour</li>
+                    <li>Fuel Consumption</li>
+                    <li>Diesel Particulate Monitoring</li>
+                    <li>One-Way Traffic Enforcement</li>
+                    <li>Vehicle Health</li>
+                    <li>Equipment Availability</li>
+                    <li>Dispatch Optimisation</li>
+                  </ul>
+                </div>
+                <img class="odt3-x__spot" style="left:63.51%;top:23.65%" src="../../assets/img/solutions/odt3-spot-fleet.png" alt="Zoomed view of a haul truck tracked on the site map" width="280" height="280" loading="lazy">
+                <div class="odt3-x__tip odt3-x__tip--t" style="left:50.53%;top:35.38%">
+                  <ul>
+                    <li>Reduce Fleet Downtime</li>
+                    <li>Improve Traffic Flow</li>
+                    <li>Lower Fuel Consumption</li>
+                    <li>Increase Equipment Utilisation</li>
+                    <li>Improve Productivity</li>
+                    <li>Reduce Operating Costs</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="odt3-x__view" data-view="equipment">
+                <div class="odt3-x__list">
+                  <ul>
+                    <li>Fan Monitoring</li>
+                    <li>Pump Monitoring</li>
+                    <li>Conveyor Monitoring</li>
+                    <li>Crusher Monitoring</li>
+                    <li>Temperature Monitoring</li>
+                    <li>Vibration Analysis</li>
+                    <li>Runtime Monitoring</li>
+                    <li>Condition Monitoring</li>
+                    <li>Performance Monitoring</li>
+                    <li>Predictive Maintenance</li>
+                    <li>Reduce Unplanned Downtime</li>
+                    <li>Improve Equipment Availability</li>
+                  </ul>
+                </div>
+                <img class="odt3-x__spot" style="left:85.11%;top:45.19%" src="../../assets/img/solutions/odt3-spot-equipment.png" alt="Zoomed view of a ventilation fan monitored on the site map" width="280" height="280" loading="lazy">
+                <div class="odt3-x__tip odt3-x__tip--t" style="left:71.91%;top:56.15%">
+                  <ul>
+                    <li>Reduce Unplanned Downtime</li>
+                    <li>Extend Asset Life</li>
+                    <li>Reduce Maintenance Costs</li>
+                    <li>Improve Equipment Availability</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="odt3-x__view" data-view="assets">
+                <div class="odt3-x__list">
+                  <ul>
+                    <li>Infrastructure Monitoring</li>
+                    <li>Fixed Asset Tracking</li>
+                    <li>Tool Tracking</li>
+                    <li>Inventory Management</li>
+                    <li>Materials Tracking</li>
+                    <li>Laydown Yard Management</li>
+                    <li>Asset Utilisation</li>
+                    <li>Asset Availability</li>
+                    <li>Asset Lifecycle</li>
+                    <li>Digital Inspections</li>
+                    <li>Maintenance Checks</li>
+                  </ul>
+                </div>
+                <img class="odt3-x__spot" style="left:38.4%;top:55.19%" src="../../assets/img/solutions/odt3-spot-assets.png" alt="Zoomed view of pump infrastructure monitored on the site map" width="280" height="280" loading="lazy">
+                <div class="odt3-x__tip odt3-x__tip--l" style="left:43.94%;top:45.96%">
+                  <ul>
+                    <li>Maximise Asset Utilisation</li>
+                    <li>Improve Asset Visibility</li>
+                    <li>Reduce Asset Loss</li>
+                    <li>Improve Planning</li>
+                    <li>Reduce Capital Spend</li>
+                    <li>Improve Lifecycle Management</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="odt3-x__view" data-view="environment">
+                <div class="odt3-x__list">
+                  <ul>
+                    <li>Ventilation Monitoring</li>
+                    <li>Air Velocity</li>
+                    <li>Air Flow</li>
+                    <li>Differential Pressure</li>
+                    <li>Air Quality</li>
+                    <li>Oxygen</li>
+                    <li>Carbon Monoxide</li>
+                    <li>Carbon Dioxide</li>
+                    <li>Nitrogen Dioxide</li>
+                    <li>Methane</li>
+                    <li>Hydrogen Sulphide</li>
+                    <li>Particulate Matter (PM)</li>
+                    <li>Diesel Particulate Matter (DPM)</li>
+                    <li>Dust Monitoring</li>
+                    <li>Temperature</li>
+                    <li>Humidity</li>
+                    <li>Noise Monitoring</li>
+                    <li>Vibration &amp; Geo Analysis</li>
+                    <li>Water Monitoring</li>
+                    <li>Weather Monitoring</li>
+                  </ul>
+                </div>
+                <img class="odt3-x__spot" style="left:79.68%;top:72.12%" src="../../assets/img/solutions/odt3-spot-environment.png" alt="Zoomed view of an environmental monitoring station on the site map" width="280" height="280" loading="lazy">
+                <div class="odt3-x__tip odt3-x__tip--b" style="left:66.28%;top:39.23%">
+                  <ul>
+                    <li>Improve Air Quality</li>
+                    <li>Reduce Worker Exposure</li>
+                    <li>Optimise Ventilation</li>
+                    <li>Meet Environmental Compliance</li>
+                    <li>Reduce Energy Consumption</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="odt3-x__view" data-view="energy">
+                <div class="odt3-x__list" style="top:10%">
+                  <ul>
+                    <li>Variable Control Ventilation</li>
+                    <li>Ventilation on Demand</li>
+                    <li>Power Consumption</li>
+                    <li>Equipment Energy Usage</li>
+                    <li>Carbon Emissions</li>
+                    <li>Utility Monitoring</li>
+                    <li>Energy Forecasting</li>
+                  </ul>
+                </div>
+                <img class="odt3-x__spot" style="left:84.15%;top:39.42%" src="../../assets/img/solutions/odt3-spot-energy.png" alt="Zoomed view of energy infrastructure monitored on the site map" width="280" height="280" loading="lazy">
+                <div class="odt3-x__tip odt3-x__tip--t" style="left:73.83%;top:52.12%">
+                  <ul>
+                    <li>Reduce Energy Costs</li>
+                    <li>Lower Carbon Emissions</li>
+                    <li>Improve Sustainability</li>
+                    <li>Optimise Infrastructure</li>
+                    <li>Support ESG Objectives</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="odt3-x__view" data-view="production">
+                <div class="odt3-x__list" style="top:3.08%">
+                  <ul>
+                    <li>Blast Fragmentation Analysis</li>
+                    <li>Material Tracking</li>
+                    <li>Loading Performance</li>
+                    <li>Haulage Optimisation</li>
+                    <li>Crusher Performance</li>
+                    <li>Stockpile Monitoring</li>
+                    <li>Production Monitoring</li>
+                    <li>Throughput Analysis</li>
+                    <li>Cycle Time Analysis</li>
+                    <li>Bottleneck Detection</li>
+                    <li>Shift Performance</li>
+                  </ul>
+                </div>
+                <img class="odt3-x__spot" style="left:74.89%;top:25.38%" src="../../assets/img/solutions/odt3-spot-production.png" alt="Zoomed view of production activity on the site map" width="280" height="280" loading="lazy">
+                <div class="odt3-x__tip odt3-x__tip--t" style="left:62.13%;top:38.27%">
+                  <ul>
+                    <li>Increase Production</li>
+                    <li>Optimise Throughput</li>
+                    <li>Reduce Bottlenecks</li>
+                    <li>Increase Operational Efficiency</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="odt3-x__view" data-view="safety">
+                <div class="odt3-x__list" style="top:13.08%">
+                  <ul>
+                    <li>Fatal Risk Monitoring</li>
+                    <li>Hazard Identification</li>
+                    <li>Proximity Detection</li>
+                    <li>Exclusion Zones</li>
+                    <li>Critical Control Monitoring</li>
+                    <li>Safety Inspections</li>
+                    <li>Behaviour Monitoring</li>
+                    <li>Risk Scoring</li>
+                    <li>Incident Reporting</li>
+                    <li>Near Miss Reporting</li>
+                    <li>AI Risk Detection</li>
+                    <li>Heat Stress Monitoring</li>
+                    <li>Emergency Alerts</li>
+                    <li>Blast Zone Management</li>
+                  </ul>
+                </div>
+                <img class="odt3-x__spot" style="left:58.62%;top:25.96%" src="../../assets/img/solutions/odt3-spot-safety.png" alt="Zoomed view of safety and risk conditions on the site map" width="280" height="280" loading="lazy">
+                <div class="odt3-x__tip odt3-x__tip--t" style="left:46.6%;top:38.27%">
+                  <ul>
+                    <li>Prevent Serious Incidents</li>
+                    <li>Reduce Operational Risk</li>
+                    <li>Improve Safety Performance</li>
+                    <li>Strengthen Critical Controls</li>
+                    <li>Improve Safety Culture</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="odt3-x__view" data-view="automation">
+                <div class="odt3-x__list" style="top:50%">
+                  <ul>
+                    <li>Automated Alerts</li>
+                    <li>AI Recommendations</li>
+                    <li>SMS Notifications</li>
+                    <li>Workflow Automation</li>
+                    <li>Traffic Light Control</li>
+                    <li>Gate Automation</li>
+                    <li>Warning Systems</li>
+                    <li>Emergency Broadcasts</li>
+                    <li>Equipment Shutdown</li>
+                    <li>Access Control</li>
+                  </ul>
+                </div>
+                <img class="odt3-x__spot" style="left:28.62%;top:42.12%" src="../../assets/img/solutions/odt3-spot-automation.png" alt="Zoomed view of automation and control systems on the site map" width="280" height="280" loading="lazy">
+                <div class="odt3-x__tip odt3-x__tip--l" style="left:35.53%;top:30%">
+                  <ul>
+                    <li>Respond Faster</li>
+                    <li>Improve Operational Consistency</li>
+                    <li>Reduce Manual Intervention</li>
+                    <li>Increase Automation</li>
+                    <li>Improve Operational Control</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="odt3-x__view" data-view="reporting">
+                <div class="odt3-x__list" style="top:37.31%">
+                  <ul>
+                    <li>Operational Digital Twin</li>
+                    <li>Live Dashboards</li>
+                    <li>Executive Reporting</li>
+                    <li>KPI Monitoring</li>
+                    <li>Predictive Analytics</li>
+                    <li>Operational Benchmarking</li>
+                    <li>Capacity Planning</li>
+                    <li>Operational Forecasting</li>
+                    <li>AI Insights</li>
+                    <li>Trend Analysis</li>
+                    <li>Root Cause Analysis</li>
+                    <li>Scenario Modelling</li>
+                    <li>Decision Support</li>
+                  </ul>
+                </div>
+                <img class="odt3-x__spot" style="left:47.23%;top:32.69%" src="../../assets/img/solutions/odt3-spot-reporting.png" alt="Zoomed view of intelligence and reporting outputs on the site map" width="280" height="280" loading="lazy">
+                <div class="odt3-x__tip odt3-x__tip--t" style="left:36.06%;top:45.96%">
+                  <ul>
+                    <li>Better Business Decisions</li>
+                    <li>Continuous Improvement</li>
+                    <li>Improve Strategic Planning</li>
+                    <li>Reduce Operating Costs</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

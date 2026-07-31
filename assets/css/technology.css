@@ -77,12 +77,26 @@
 .cta-bullets li::before { content: "•"; }
 
 /* 2. VECTOR TAG (vector-tag) ------------------------------------------------ */
-/* blue section kicker (Ubuntu regular 20, brand blue) */
+/* blue section kicker (Ubuntu bold 20, brand blue) */
 .vt-kicker {
   margin: 0;
-  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
   letter-spacing: -.01em; color: var(--c-blue);
 }
+/* bold dark lead line (Figma Text/Medium/Semi Bold) */
+.vt-lead-strong {
+  margin: 0;
+  font-family: var(--f-body); font-weight: 700; font-size: 18px; line-height: 1.2;
+  color: #1a1a1a;
+}
+/* dark H6 sub-heading ("Key capabilities") */
+.vt-h6 {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #060309;
+}
+/* Atlas ecosystem circular diagram (Best-in-Class section, Figma 13217:13110) */
+.vt-diagram { width: 480px; max-width: 100%; height: auto; flex-shrink: 0; }
 
 /* approach-bar right-hand checklist (One Platform / One Ecosystem / …) */
 .approach-bar__list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
@@ -159,14 +173,13 @@
   .vt-agnostic { width: 100%; justify-content: center; padding-top: 0; }
 }
 
-/* Built To Evolve — two columns of white arrow cards (Figma 12781:18402) */
-.vt-evolve { display: flex; gap: 4px; align-items: center; min-width: 320px; }
+/* Built To Evolve — single flat column of arrow rows (Figma 13251:14404) */
+.vt-evolve { display: flex; gap: 4px; align-items: center; }
 .vt-evolve__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
 .vt-evolve__item {
   display: flex; align-items: center; gap: 4px;
-  height: 48px; padding: 0 4px;
-  background: #fff; border-radius: var(--r-md);
-  font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #060309;
+  padding: 4px 0;
+  font-family: var(--f-body); font-weight: 500; font-size: 18px; line-height: 1.2; color: #060309;
 }
 .vt-evolve__item img { width: 24px; height: 24px; flex-shrink: 0; }
 @media (max-width: 760px) { .vt-evolve { flex-direction: column; align-items: stretch; } }
@@ -234,6 +247,9 @@
 @media (max-width: 1100px) { .isg-apps { flex-wrap: wrap; } .isg-apps .gov-card { flex: 1 1 150px; } }
 
 /* 4. POSITIONING TECHNOLOGIES (positioning-technologies) --------------------- */
+/* taller hero so more of the background photo stays visible below the copy */
+.hero--pt { min-height: 880px; }
+
 /* supported-technology rows — white media card left, copy + application chips right */
 .pt-row { display: flex; gap: 40px; align-items: center; width: 100%; }
 /* identical white frame for every row — artwork is letterboxed, never cropped,
@@ -284,21 +300,17 @@
 .ie-cards .photo-card { height: 269px; }
 @media (max-width: 1100px) { .ie-cards__row { flex-wrap: wrap; } }
 
-/* 50/50 split band — copy on pale blue, photo flush to the right edge */
-.ie-split { display: flex; align-items: stretch; background: var(--c-blue-pale); }
-.ie-split__copy {
-  flex: 1 1 0; min-width: 320px;
-  padding: 80px;
-  display: flex; flex-direction: column; gap: 40px; justify-content: center;
-}
-.ie-split__img { width: 50%; min-height: 384px; object-fit: cover; }
-/* tick + title + line of copy, stacked under the split-band intro */
-.ie-feats { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 20px; }
-.ie-feat { display: flex; gap: 12px; align-items: flex-start; }
-.ie-feat__copy { display: flex; flex-direction: column; gap: 4px; }
-.ie-feat__title { margin: 0; font: 700 18px/1.2 var(--f-body); color: var(--c-ink); }
-.ie-feat__text { margin: 0; font: 400 16px/1.2 var(--f-body); color: #5c616b; }
-@media (max-width: 960px) {
-  .ie-split { flex-direction: column; }
-  .ie-split__img { width: 100%; min-height: 0; height: 300px; }
+/* pale-blue band — photo + stacked-rows panel under a centred intro */
+.ie-panel { display: flex; width: 100%; height: 320px; background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.ie-panel__photo { position: relative; width: 400px; flex-shrink: 0; border-right: 1px solid rgba(6,3,9,.15); }
+.ie-panel__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ie-panel__rows { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+.ie-panel__row { flex: 1 1 0; padding: 24px 40px; display: flex; flex-direction: column; justify-content: center; }
+.ie-panel__row + .ie-panel__row { border-top: 1px solid rgba(6,3,9,.15); }
+.ie-panel__row h3 { margin: 0; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.ie-panel__row p { margin: 0; font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
+@media (max-width: 900px) {
+  .ie-panel { flex-direction: column; height: auto; }
+  .ie-panel__photo { width: 100%; height: 260px; border-right: 0; border-bottom: 1px solid rgba(6,3,9,.15); }
+  .ie-panel__row { padding: 16px 24px; }
 }

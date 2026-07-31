@@ -1,0 +1,252 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "iottag home" [ref=e3] [cursor=pointer]:
+      - /url: ../../index.html
+    - navigation "Primary" [ref=e15]:
+      - button "Solutions" [ref=e17]
+      - button "Platform" [ref=e19]
+      - button "Industries" [ref=e21]
+      - button "Technology" [ref=e23]
+      - button "Company" [ref=e25]
+    - generic [ref=e26]:
+      - link "Login" [ref=e27] [cursor=pointer]:
+        - /url: ../../company/contact/index.html
+      - link "Book Demo" [ref=e28] [cursor=pointer]:
+        - /url: ../../company/contact/index.html
+  - main [ref=e29]:
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - paragraph [ref=e34]: Operational Intelligence
+        - heading "Each System Sees Something. Atlas Sees the Whole Operation." [level=1] [ref=e35]: Each System Sees Something.Atlas Sees the Whole Operation.
+        - paragraph [ref=e36]: Modern operations rely on dozens of specialised systems, each providing only part of the operational picture. Atlas brings this information together to help teams understand what is happening, identify emerging risks and act with confidence.
+      - generic [ref=e37]:
+        - link "Request Demonstration" [ref=e38] [cursor=pointer]:
+          - /url: ../../company/contact/index.html
+        - link "Watch Platform Overview" [ref=e39] [cursor=pointer]:
+          - /url: ../../resources/video-library/index.html
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - heading "Every System Contributes Part Of The Picture" [level=2] [ref=e43]
+          - paragraph [ref=e44]: Operations already rely on specialised systems to monitor people, vehicles, assets, environmental conditions and production activity.
+        - generic [ref=e45]:
+          - paragraph [ref=e46]: Each system answers a specific operational question. Workforce systems show who is onsite and where they are located.
+          - paragraph [ref=e47]: Fleet systems monitor vehicle movement and traffic conditions. Asset platforms track equipment performance, while environmental and production systems report on changing site conditions and operational output.
+          - paragraph [ref=e48]: Individually, these systems provide valuable visibility. The challenge is that their information is often viewed separately, making it difficult to understand how changes in one area may affect another.
+          - paragraph [ref=e49]: Atlas brings these information sources together so teams can assess the operation as a connected whole rather than as a collection of isolated systems.
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - img "Two workers reviewing the Atlas operational dashboard on wall-mounted screens" [ref=e52]
+          - generic [ref=e53]: One Connected View
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - heading "Workforce Visibility" [level=3] [ref=e57]
+            - paragraph [ref=e58]: Understand who is onsite, where people are located, how workforce activity is changing and whether personnel are entering areas of increased operational exposure.
+          - generic [ref=e59]:
+            - heading "Fleet And Mobile Equipment" [level=3] [ref=e60]
+            - paragraph [ref=e61]: Monitor vehicle movement, traffic interactions, route activity, congestion and the influence of fleet behaviour on safety and production performance.
+          - generic [ref=e62]:
+            - heading "Assets And Infrastructure" [level=3] [ref=e63]
+            - paragraph [ref=e64]: Maintain visibility across equipment, fixed infrastructure, tools and critical assets, including their status, condition, utilisation and relationship to wider operational activity.
+          - generic [ref=e65]:
+            - heading "Environmental Conditions" [level=3] [ref=e66]
+            - paragraph [ref=e67]: Monitor atmospheric conditions, gases, dust, temperature, humidity, noise, weather and other environmental factors that may influence safety or site performance.
+          - generic [ref=e68]:
+            - heading "Production Activity" [level=3] [ref=e69]
+            - paragraph [ref=e70]: Understand the operational conditions influencing schedules, throughput, resource movement, bottlenecks and overall production performance.
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - heading "Explore Every Dimension Of The Operation" [level=2] [ref=e74]
+          - paragraph [ref=e75]: A single operational picture can be viewed through the priorities, systems and risks that matter most to each team.
+        - generic [ref=e76]:
+          - paragraph [ref=e77]: Atlas organises information from across the site into a connected operational environment. Teams can move between workforce, fleet, equipment, environmental, production, safety and automation views while retaining the context of the wider operation.
+          - paragraph [ref=e78]: This makes it possible to investigate a specific operational area without losing sight of the people, assets, conditions and dependencies surrounding it. Instead of moving between disconnected platforms, teams can explore how each part of the operation contributes to safety, productivity, reliability and performance. The result is not simply more data in one place.
+          - paragraph [ref=e79]: It is a structured way to examine the operation from multiple perspectives while maintaining one consistent source of operational truth.
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - paragraph [ref=e82]: Operational Intelligence Explorer
+          - paragraph [ref=e83]: Roll-over to discover system capabilities
+        - generic [ref=e84]:
+          - tablist "Operational Intelligence Explorer" [ref=e85]:
+            - tab "Workforce" [ref=e86] [cursor=pointer]
+            - tab "Fleet & Mobile Equipment" [ref=e88] [cursor=pointer]
+            - tab "Equipment Performance" [ref=e90] [cursor=pointer]
+            - tab "Assets & Infrastructure" [ref=e92] [cursor=pointer]
+            - tab "Environment" [ref=e94] [cursor=pointer]
+            - tab "Energy & Sustainability" [ref=e96] [cursor=pointer]
+            - tab "Production" [ref=e98] [cursor=pointer]
+            - tab "Safety & Risks" [ref=e100] [cursor=pointer]
+            - tab "Automation & Operation Control" [ref=e102] [cursor=pointer]
+            - tab "Intelligence and Reporting" [ref=e104] [cursor=pointer]
+          - tabpanel [ref=e106]:
+            - img "Illustrated site map showing every operational system connected across the operation" [ref=e108]
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - generic [ref=e111]:
+          - heading "Understand How One Change Affects The Wider Operation" [level=2] [ref=e112]
+          - paragraph [ref=e113]: Operational events rarely occur in isolation. A change in one system can influence people, equipment, environmental conditions, production and risk.
+        - generic [ref=e114]:
+          - paragraph [ref=e115]: "Traditional monitoring systems typically report each event separately: a fan has stopped, airflow has reduced, temperature has increased or gas levels have changed. Each alert may be accurate, but none explains the full operational consequence on its own."
+          - paragraph [ref=e116]: Atlas analyses these events in context. It connects the initial condition with the systems, areas and people that may be affected, helping teams understand how an operational issue is developing across the site.
+          - paragraph [ref=e117]: This allows decision-makers to move beyond isolated alarms and assess the wider cause, consequence and potential exposure before the situation becomes more difficult to control.
+      - generic [ref=e118]:
+        - generic [ref=e120]:
+          - strong [ref=e121]: Initial Event
+          - text: Ventilation fan failure
+        - generic [ref=e123]:
+          - strong [ref=e124]: Immediate Effect
+          - text: Airflow is reduced
+        - generic [ref=e126]:
+          - strong [ref=e127]: Environmental Change
+          - text: Temperature Increased
+        - generic [ref=e129]:
+          - strong [ref=e130]: Risk Condition
+          - text: Gas concentration rises
+        - generic [ref=e132]:
+          - strong [ref=e133]: Workforce Exposure
+          - text: Personnel remain downstream
+        - generic [ref=e135]:
+          - strong [ref=e136]: Operational Consequence
+          - text: Exposure and disruption increase
+      - generic [ref=e137]:
+        - heading "Connected Insight" [level=3] [ref=e138]
+        - paragraph [ref=e139]: Atlas does not simply report individual events. It reveals how changing conditions influence the wider operation, helping teams assess risk, coordinate a response and act before impacts escalate.
+    - generic [ref=e140]:
+      - generic [ref=e141]:
+        - generic [ref=e142]:
+          - generic [ref=e143]:
+            - heading "Turn Complex Conditions Into Clear Decisions" [level=2] [ref=e144]
+            - paragraph [ref=e145]: Modern operations generate thousands of events, alerts and changing conditions every day. The challenge is identifying which developments matter, how they are connected and where intervention is required.
+          - generic [ref=e146]:
+            - paragraph [ref=e147]: Atlas evaluates information across people, equipment, environmental conditions, production activity and site systems to create a concise view of the issue and its likely operational significance.
+            - paragraph [ref=e148]: Rather than presenting decision-makers with a collection of disconnected alerts, Atlas helps explain what has changed, why it matters, which areas are affected, what conditions are contributing and where action should be focused.
+            - paragraph [ref=e149]: This allows operators, supervisors, managers and executives to assess developing situations more quickly, apply specialist knowledge more effectively and coordinate action with greater confidence.
+        - generic [ref=e150]:
+          - generic [ref=e151]: What is happening?
+          - generic [ref=e153]: Why does it matter?
+          - generic [ref=e155]: Who and what may be affected?
+          - generic [ref=e157]: What conditions are contributing?
+          - generic [ref=e159]: Where should attention be focused?
+        - paragraph [ref=e161]: This helps operational teams, supervisors, management and executive stakeholders quickly understand changing conditions without requiring specialist interpretation.
+      - generic [ref=e162]:
+        - generic [ref=e163]:
+          - paragraph [ref=e164]: Example Intelligence Summary
+          - heading "Ventilation Failure — Zone 4" [level=3] [ref=e165]
+          - paragraph [ref=e166]: "- The primary ventilation system in Zone 4 has stopped operating.- Airflow has reduced across the affected area.- Environmental sensors indicate increasing temperature and gas concentrations downstream.- Twenty-three personnel remain within connected work areas.- Vehicle activity is continuing through adjacent haul routes.- Current conditions indicate increasing workforce exposure and potential production disruption if ventilation is not restored."
+        - generic [ref=e170]:
+          - heading "Recommended Response" [level=3] [ref=e171]
+          - paragraph [ref=e172]: "- Dispatch maintenance personnel to inspect the ventilation system.- Notify supervisors responsible for Zone 4 and connected downstream areas.- Review current workforce locations and adjust deployment where required.- Restrict access to affected areas until environmental conditions stabilise.- Monitor gas, temperature and airflow conditions during the response.- Escalate the event if environmental thresholds continue to deteriorate."
+    - generic [ref=e173]:
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - heading "One Source Of Intelligence. Better Decisions At Every Level." [level=2] [ref=e176]: One Source Of Intelligence.Better Decisions At Every Level.
+          - paragraph [ref=e177]: Atlas creates a consistent foundation for decision-making across the organisation while presenting each team with the information, priorities and level of detail relevant to its role.
+          - paragraph [ref=e178]: Frontline teams need immediate visibility of active conditions and emerging risks. Supervisors need to coordinate people, equipment and work areas. Managers need to understand performance, exceptions and developing constraints. Executives and asset owners require a broader view of risk, production, reliability and portfolio performance.
+          - paragraph [ref=e179]: Atlas supports each of these requirements through role-relevant dashboards and operational summaries built from the same connected information. This helps reduce conflicting interpretations, improves coordination between teams and creates greater confidence in decisions made across the organisation.
+        - generic [ref=e182]:
+          - img "Atlas safety status overview dashboard" [ref=e183]
+          - img "Atlas live site map dashboard" [ref=e184]
+          - img "Atlas operational performance dashboard" [ref=e185]
+      - generic [ref=e189]:
+        - generic [ref=e190]:
+          - img "Site worker in a white hard hat on the operations frontline" [ref=e192]
+          - heading "Operations" [level=3] [ref=e193]
+          - paragraph [ref=e194]:
+            - strong [ref=e195]: Immediate Situational Awareness
+          - paragraph [ref=e196]: See active conditions, alerts, workforce locations, equipment activity and site priorities relevant to the current shift.
+        - generic [ref=e201]:
+          - img "Supervisor in high-visibility clothing coordinating site activity" [ref=e203]
+          - heading "Supervisors" [level=3] [ref=e204]
+          - paragraph [ref=e205]:
+            - strong [ref=e206]: Coordinated Operational Response
+          - paragraph [ref=e207]: Understand how changing conditions affect people, equipment and work areas so activities and resources can be coordinated effectively.
+        - generic [ref=e212]:
+          - img "Site managers reviewing operational performance together" [ref=e214]
+          - heading "Managers" [level=3] [ref=e215]
+          - paragraph [ref=e216]:
+            - strong [ref=e217]: Performance and Exception Management
+          - paragraph [ref=e218]: Identify emerging risks, production constraints, operational deviations and performance trends requiring management attention.
+        - generic [ref=e223]:
+          - img "Executives reviewing the Atlas operational dashboard on large screens" [ref=e225]
+          - heading "Executives" [level=3] [ref=e226]
+          - paragraph [ref=e227]:
+            - strong [ref=e228]: Enterprise and Portfolio Oversight
+          - paragraph [ref=e229]: Maintain visibility across operational performance, material risks, major events and business priorities across one or multiple sites.
+        - generic [ref=e234]:
+          - img "Asset owners meeting around a boardroom table" [ref=e236]
+          - heading "Asset Owner" [level=3] [ref=e237]
+          - paragraph [ref=e238]:
+            - strong [ref=e239]: Risk, Reliability and Long-Term Value
+          - paragraph [ref=e240]: Understand asset health, utilisation, operational exposure and the conditions influencing long-term performance and investment decisions.
+    - generic [ref=e243]:
+      - heading "See Your Entire Operation More Clearly" [level=2] [ref=e244]
+      - paragraph [ref=e245]: Better decisions begin with a complete understanding of what is happening across people, equipment, assets, environmental conditions and production.Discover how Atlas brings operational information together, reveals the relationships that matter and helps teams identify risks, coordinate action and make better decisions across the organisation.
+      - generic [ref=e246]:
+        - link "Request Demonstration" [ref=e247] [cursor=pointer]:
+          - /url: ../../company/contact/index.html
+        - link "Speak With An Operational Intelligence Specialist" [ref=e248] [cursor=pointer]:
+          - /url: ../../company/contact/index.html
+  - contentinfo [ref=e249]:
+    - generic [ref=e250]:
+      - generic [ref=e251]:
+        - img "iottag logo" [ref=e252]
+        - generic [ref=e253]:
+          - generic [ref=e254]:
+            - heading "Solutions" [level=2] [ref=e255]
+            - link "Operational Digital Twin" [ref=e256] [cursor=pointer]:
+              - /url: ../../solutions/operational-digital-twin/index.html
+            - link "Fatal Risk Intelligence" [ref=e257] [cursor=pointer]:
+              - /url: ../../solutions/fatal-risk-intelligence/index.html
+            - link "Production Intelligence" [ref=e258] [cursor=pointer]:
+              - /url: ../../solutions/production-intelligence/index.html
+          - generic [ref=e259]:
+            - heading "Atlas Platform" [level=2] [ref=e260]
+            - link "Connected Workforce" [ref=e261] [cursor=pointer]:
+              - /url: ../../platform/workforce-visibility/index.html
+            - link "Connected Fleet" [ref=e262] [cursor=pointer]:
+              - /url: ../../platform/fleet-visibility/index.html
+            - link "Connected Assets" [ref=e263] [cursor=pointer]:
+              - /url: ../../platform/asset-visibility/index.html
+            - link "Connected Environment" [ref=e264] [cursor=pointer]:
+              - /url: ../../platform/environmental-intelligence/index.html
+            - link "Multi-site Analytics & Benchmarking" [ref=e265] [cursor=pointer]:
+              - /url: ../../platform/operational-analytics-benchmarking/index.html
+          - generic [ref=e266]:
+            - heading "Industries" [level=2] [ref=e267]
+            - link "Mining" [ref=e268] [cursor=pointer]:
+              - /url: ../../industries/mining/index.html
+            - link "Tunnelling" [ref=e269] [cursor=pointer]:
+              - /url: ../../industries/tunnelling/
+            - link "Construction & Infrastructure" [ref=e270] [cursor=pointer]:
+              - /url: ../../industries/construction-infrastructure/index.html
+            - link "Bridge Construction & Maintenance" [ref=e271] [cursor=pointer]:
+              - /url: ../../industries/bridge-construction-maintenance/index.html
+          - generic [ref=e272]:
+            - heading "Technology" [level=2] [ref=e273]
+            - link "Engineering" [ref=e274] [cursor=pointer]:
+              - /url: ../../technology/engineering-hardware/index.html
+            - link "Professional Services" [ref=e275] [cursor=pointer]:
+              - /url: ../../technology/positioning-technologies/index.html
+            - link "Operational Analytics &Optimisation" [ref=e276] [cursor=pointer]:
+              - /url: ../../technology/iot-security-governance/index.html
+          - generic [ref=e277]:
+            - heading "Resources" [level=2] [ref=e278]
+            - link "Case Studies" [ref=e279] [cursor=pointer]:
+              - /url: ../../resources/case-studies/index.html
+            - link "Articles & Insights" [ref=e280] [cursor=pointer]:
+              - /url: ../../resources/articles-insights/index.html
+            - link "Video Library" [ref=e281] [cursor=pointer]:
+              - /url: ../../resources/video-library/index.html
+          - generic [ref=e282]:
+            - heading "Company" [level=2] [ref=e283]
+            - link "About" [ref=e284] [cursor=pointer]:
+              - /url: ../../company/about/index.html
+            - link "Partnership" [ref=e285] [cursor=pointer]:
+              - /url: ../../company/partners/index.html
+            - link "Contact" [ref=e286] [cursor=pointer]:
+              - /url: ../../company/contact/index.html
+            - link "Career" [ref=e287] [cursor=pointer]:
+              - /url: ../../company/careers/index.html
+      - img "iottag certifications and accreditations" [ref=e288]
+    - generic [ref=e289]: © All Rights Reserved, iottag™ is a registered trademark 2026.

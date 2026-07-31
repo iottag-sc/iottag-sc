@@ -29,7 +29,7 @@ Clean directory URLs — add new pages by dropping a folder in, no restructuring
                bridge-construction-maintenance, critical-infrastructure
 /technology/ + vector-tag, positioning-technologies,
                iot-security-governance, integrations-ecosystem
-/resources/  + case-studies, video-library, articles-insights, white-papers
+/resources/  + case-studies, video-library, articles-insights
 /company/    + about, why-iottag, partners, careers, contact
 ```
 

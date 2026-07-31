@@ -209,19 +209,22 @@ function initTabs() {
   });
 }
 
-/* ---- ODT map explorer (sidebar tabs swap the site-map image) ----------- */
+/* ---- ODT map explorer (sidebar tabs toggle layered overlay views) ------ */
 function initMapExplorer() {
   document.querySelectorAll('[data-map-explorer]').forEach((root) => {
     const tabs = [...root.querySelectorAll('.odt3-x__tab')];
-    const img = root.querySelector('.odt3-x__panel img');
-    if (!img) return;
+    const panel = root.querySelector('.odt3-x__panel');
+    const views = [...root.querySelectorAll('.odt3-x__view')];
+    if (!panel || !views.length) return;
     const activate = (tab) => {
+      const key = tab ? tab.dataset.view : '';
       tabs.forEach((t) => {
         t.classList.toggle('is-active', t === tab);
         t.setAttribute('aria-selected', String(t === tab));
       });
-      img.src = tab ? tab.dataset.map : root.dataset.mapDefault;
-      img.alt = tab ? tab.dataset.alt : root.dataset.mapDefaultAlt;
+      views.forEach((v) => v.classList.toggle('is-active', v.dataset.view === key));
+      if (key) panel.dataset.active = key;
+      else delete panel.dataset.active;
     };
     const tablist = root.querySelector('.odt3-x__tabs');
     tabs.forEach((tab) => {
@@ -238,9 +241,10 @@ function initMapExplorer() {
     tablist.addEventListener('focusout', (e) => {
       if (!tablist.contains(e.relatedTarget)) activate(null);
     });
-    // warm the cache once the explorer is first approached so swaps are instant
+    // warm the cache once the explorer is first approached: lazy images inside
+    // display:none views never load until shown, so force-fetch them here
     root.addEventListener('pointerenter', () => {
-      tabs.forEach((t) => { new Image().src = t.dataset.map; });
+      root.querySelectorAll('.odt3-x__view img').forEach((im) => { new Image().src = im.src; });
     }, { once: true });
   });
 }

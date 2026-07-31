@@ -126,3 +126,10 @@
   /* Login yields its space to Book Demo */
   .nav-actions .btn--ghost { display: none; }
 }
+
+@media (max-width: 640px) {
+  /* ODT Operational Intelligence Explorer: the map is too small on phones for
+     the floating capability list / tooltip overlays — keep only the map and
+     the bouncing photo circle (both scale in % with the stage) */
+  .odt3-x__list, .odt3-x__tip { display: none; }
+}
