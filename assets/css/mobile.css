@@ -25,6 +25,11 @@
   /* --- 1. Coordinate system -------------------------------------------- */
   html { zoom: 1; }
   :root { --nav-h: 64px; }
+  /* vw-based full-bleed layers (.fri-dark__bg, .feat--bleed) include the
+     scrollbar width on desktop-style scrollbars, leaving a few px of
+     horizontal scroll — clip instead (clip, not hidden: no scroll container,
+     position:sticky keeps working) */
+  html, body { overflow-x: clip; }
 
   /* --- 2. Inline fixed-px kill-switches -------------------------------- */
   div[style*="width:"]:not(.d81-fit),
@@ -90,10 +95,32 @@
   .video-thumb--asset { width: 100%; }
   .hero__content--wide { width: 100%; }
   .vt-agnostic { width: 100%; }
-  .asset-stage { padding: 24px 20px 12px; }
+  /* chevron strip: 5 stages don't fit side-by-side on a phone (labels get
+     clipped by the notches) — stack them vertically with the chevron
+     rotated to point down, icon + label in a row */
+  .asset-strip { flex-direction: column; }
+  .asset-stage {
+    height: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 12px;
+    padding: 22px 24px 30px;
+    clip-path: polygon(0 0, 50% 14px, 100% 0, 100% calc(100% - 14px), 50% 100%, 0 calc(100% - 14px));
+  }
+  .asset-stage + .asset-stage { margin-left: 0; margin-top: -10px; }
   .approach-bar { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
   .approach-bar .d81-fit { margin-inline: auto; }
   .worldmap { min-width: 0; }
+  /* FRI "how Atlas works" step row: nowrap flex is 539px wide and gets cut
+     off on phones — let the steps wrap instead */
+  .fri-atlas__steps { flex-wrap: wrap; white-space: normal; justify-content: flex-start; gap: 8px 20px; }
+  /* industries safety grid: long single words at 24px ("Accountability") set
+     the 1fr tracks' min-content wider than the phone viewport, pushing the
+     grid off both edges — cap the tracks and step the type down */
+  .safety-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .safety-grid__cell { min-height: 140px; padding: 20px 16px; }
+  .safety-grid__cell h3, .safety-grid__cell--note p { font-size: 18px; }
 
   /* --- 8. Navigation ------------------------------------------------------ */
   /* the open sheet can exceed the viewport once a section is expanded */

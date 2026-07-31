@@ -477,6 +477,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .feature-card:hover { background: var(--c-blue-pale); }
 .feature-card + .feature-card { border-left: 1px solid var(--c-line); }
 .feature-card p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.25; color: var(--c-grey); }
+.feature-card .card__ic { width: 24px; height: 24px; }  /* match the ie-diagram chip icons */
 
 /* Bullet list (applications / outcomes) */
 .bullets { display: flex; flex-direction: column; }
@@ -1066,7 +1067,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .dv-cards { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
 .dv-card { min-height: 240px; background: #fff; padding: 40px 24px; display: flex; flex-direction: column; gap: 16px; }
 .dv-card + .dv-card { border-left: 1px solid var(--c-line); }
-.dv-card img { width: 32px; height: 32px; }
+.dv-card img { width: 24px; height: 24px; }
 .dv-card h3 { margin: 0 0 8px; font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
 .dv-card ul { margin: 0; padding: 0; list-style: none; }
 .dv-card li { display: flex; align-items: center; gap: 4px; font: 400 16px/1.2 var(--f-body); color: var(--c-grey); }

@@ -580,3 +580,19 @@
   .wp1-about { padding: 40px 24px; }
   .wp1-about h2 { font-size: 32px; }
 }
+
+/* the shared .stages chevron strip (platform.css) can't fit its 4-6 cells on
+   phones — labels get clipped by the chevron notches. Fold into full-width
+   icon + label rows (same treatment as the homepage asset strip). */
+@media (max-width: 640px) {
+  .stages { flex-wrap: wrap; height: auto; gap: 8px; }
+  .stages .stage {
+    flex: 1 1 100%; min-height: 0;
+    clip-path: none; border-radius: var(--r-md);
+    flex-direction: row; justify-content: flex-start; gap: 12px;
+    padding: 14px 16px;
+  }
+  .stages .stage + .stage { margin-left: 0; margin-top: 0; }
+  .stages .stage span { text-align: left; }
+  .stages .stage img { width: 24px; height: 24px; }
+}
