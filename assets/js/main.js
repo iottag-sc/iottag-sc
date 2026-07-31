@@ -269,17 +269,29 @@ function initDashCarousel() {
   });
 }
 
-/* ---- brand carousel dots (decorative) --------------------------------- */
-function initBrandDots() {
-  document.querySelectorAll('[data-dots]').forEach((group) => {
-    const dots = group.querySelectorAll('span');
-    dots.forEach((dot) => {
-      dot.style.cursor = 'pointer';
-      dot.addEventListener('click', () => {
-        dots.forEach((d) => d.classList.remove('is-active'));
-        dot.classList.add('is-active');
-      });
-    });
+/* ---- brand logo marquee ------------------------------------------------ */
+/* The CSS loop translates the track by -50%, which is only seamless while
+   half the track is at least as wide as the viewport. On very wide viewports
+   (e.g. the page zoomed far out) the two logo sets in the HTML aren't enough
+   and a gap appears, so keep doubling the logo cards until they are. */
+function initBrandMarquee() {
+  document.querySelectorAll('.brand-marquee__track').forEach((track) => {
+    const baseDuration = 40; // s, matches the CSS animation for the 2 HTML sets
+    let doublings = 0;
+    const fill = () => {
+      while (track.scrollWidth < window.innerWidth * 2 && doublings < 5) {
+        [...track.children].forEach((card) => {
+          const clone = card.cloneNode(true);
+          clone.setAttribute('aria-hidden', 'true');
+          track.appendChild(clone);
+        });
+        doublings += 1;
+        // twice the cards means twice the -50% travel; slow the loop to match
+        track.style.animationDuration = `${baseDuration * 2 ** doublings}s`;
+      }
+    };
+    fill();
+    window.addEventListener('resize', fill);
   });
 }
 
@@ -363,6 +375,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTabs();
   initMapExplorer();
   initDashCarousel();
-  initBrandDots();
+  initBrandMarquee();
   initWhitePaperGate();
 });

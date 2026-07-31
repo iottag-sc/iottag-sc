@@ -1,0 +1,128 @@
+/* ==========================================================================
+   iottag — mobile-only overrides
+   Loaded LAST on every page, after main.css and the section sheets.
+   Every rule lives inside a max-width media query, so rendering above
+   640px is untouched by this file.
+
+   Two jobs:
+   1. Put phones back in a 1:1 coordinate space (main.css renders the whole
+      site at zoom .8; media queries evaluate at true viewport width, so on
+      phones layout and breakpoints disagree — here zoom returns to 1 and
+      the type scale below compensates).
+   2. Neutralise the inline fixed-px styles in the page markup
+      (width:640px, min-width:320px, height:420px, padding:80px …).
+      Inline styles outrank stylesheet rules, so these overrides carry
+      !important. The attribute selectors deliberately target only
+      div/h1-h3/p — every harmful fixed width in the markup sits on one of
+      those; all small inline widths are <img> icons and must keep their
+      size. The 360° cradle viewer (.d81-fit / .d81-img) is excluded: its
+      inline left/top/width/height is crop geometry and the viewer
+      self-scales via JS (vectortag360.js).
+   ========================================================================== */
+
+@media (max-width: 640px) {
+
+  /* --- 1. Coordinate system -------------------------------------------- */
+  html { zoom: 1; }
+  :root { --nav-h: 64px; }
+
+  /* --- 2. Inline fixed-px kill-switches -------------------------------- */
+  div[style*="width:"]:not(.d81-fit),
+  h1[style*="width:"], h2[style*="width:"], h3[style*="width:"],
+  p[style*="width:"] {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-shrink: 1 !important;
+  }
+  /* columns whose floor was an inline width/min-width take a full row of
+     their (wrapping) flex parent instead of getting crushed side-by-side */
+  div[style*="min-width:"],
+  .row > div[style*="width:"]:not(.d81-fit) {
+    min-width: 0 !important;
+    flex-basis: 100% !important;
+  }
+  img[style*="height:"]:not(.d81-img) { height: auto !important; }
+
+  /* inline band/section padding (padding:80px, padding-top/bottom:100px) */
+  [style*="padding:80px"] { padding: 48px var(--pad-x) !important; }
+  [style*="padding-top:100px"] { padding-top: 48px !important; }
+  [style*="padding-bottom:100px"] { padding-bottom: 48px !important; }
+
+  /* --- 3. Section / band compression ----------------------------------- */
+  .section { padding: 48px var(--pad-x); }
+  .section--narrow { padding: 40px var(--pad-x); }
+
+  .hero { min-height: 0; padding: calc(var(--nav-h) + 40px) var(--pad-x) 48px; }
+  .hero--short { min-height: 0; }
+
+  .media-block { padding: 32px 24px; gap: 32px; }
+  .media-block--stack { padding: 32px 20px; }
+  .media-block .h2 { font-size: 26px; }
+  .media-block .body { font-size: 16px; }
+
+  .highlight { padding: 24px 20px; gap: 32px; }
+  .slider { padding: 20px; }
+
+  .cta-band { padding: 48px 20px; }
+  .cta-band .h2 { font-size: 28px; }
+  .cta-band p { font-size: 16px; }
+
+  /* --- 4. Type scale (compensates zoom 1 = 1.25x visual growth) --------- */
+  .h1, .hero .h1 { font-size: 34px; }
+  .h2 { font-size: 26px; }
+  .h3 { font-size: 20px; }
+  .lead, .body { font-size: 16px; }
+  .kicker, .eyebrow, .eyebrow--cond, .hero__kicker { font-size: 16px; }
+
+  /* --- 5. Gap compression ----------------------------------------------- */
+  .gap-80 { gap: 32px; }
+  .gap-60 { gap: 28px; }
+  .gap-40 { gap: 24px; }
+
+  /* --- 6. Flex guards ---------------------------------------------------- */
+  .row > * { min-width: 0; }
+  .minicard { flex: 1 1 100%; }
+  .info-card { flex-basis: 100%; }
+
+  /* --- 7. Components with baked px in CSS -------------------------------- */
+  .ie-diagram { zoom: 0.8; }
+  .video-thumb--asset { width: 100%; }
+  .hero__content--wide { width: 100%; }
+  .vt-agnostic { width: 100%; }
+  .asset-stage { padding: 24px 20px 12px; }
+  .approach-bar { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
+  .approach-bar .d81-fit { margin-inline: auto; }
+  .worldmap { min-width: 0; }
+
+  /* --- 8. Navigation ------------------------------------------------------ */
+  /* the open sheet can exceed the viewport once a section is expanded */
+  .nav.is-open {
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  /* keep CTA labels (main.css strips them to bare icons at 640px) —
+     shrink the buttons instead */
+  .nav-actions .btn span { display: inline; }
+  .nav-actions .btn { height: 38px; padding: 8px 12px; font-size: 14px; white-space: nowrap; }
+  .nav-actions .btn .icon { font-size: 20px; }
+
+  /* --- 9. Overflow escape hatches ---------------------------------------- */
+  table { display: block; overflow-x: auto; max-width: 100%; }
+
+  /* full-bleed layers sized as calc(100vw / 0.8) to compensate the desktop
+     zoom (solutions.css .fri-dark, platform.css .feat--bleed) — on phones
+     zoom is 1, so they are plain viewport-width bleeds */
+  .fri-dark__bg { width: 100vw; }
+  .fri-dark { min-height: min(50vw, 680px); }
+  .feat--bleed { width: 100vw; margin-left: calc(50% - 50vw); }
+}
+
+@media (max-width: 480px) {
+  .h1, .hero .h1 { font-size: 30px; }
+  .ie-diagram { zoom: 0.7; }
+  /* Login yields its space to Book Demo */
+  .nav-actions .btn--ghost { display: none; }
+}
