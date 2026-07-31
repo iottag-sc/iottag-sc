@@ -175,9 +175,13 @@ a { color: inherit; text-decoration: none; }
 /* blue section eyebrow — same style as .hero__kicker but on light backgrounds */
 .kicker {
   margin: 0;
-  font-family: var(--f-body); font-weight: 700; font-size: 20px; line-height: 1.5;
+  font-family: var(--f-body); font-weight: 400; font-size: 20px; line-height: 1.5;
   color: var(--c-blue);
 }
+[data-page="home"] .hero__kicker { font-weight: 400; }
+/* Ubuntu caps carry ~3px left side bearing at 56px — pull the h1 left so its ink
+   lines up optically with the kicker above it */
+[data-page="home"] .hero .h1 { margin-left: -3px; }
 .eyebrow--cond {
   font-family: var(--f-alt);
   font-weight: 500;

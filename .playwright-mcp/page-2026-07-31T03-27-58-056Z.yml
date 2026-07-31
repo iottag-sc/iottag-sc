@@ -1,0 +1,405 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "iottag home" [ref=e3] [cursor=pointer]:
+      - /url: index.html
+    - generic [ref=e15]:
+      - link "Login" [ref=e16] [cursor=pointer]:
+        - /url: company/contact/index.html
+      - link "Book Demo" [ref=e17] [cursor=pointer]:
+        - /url: company/contact/index.html
+      - button "Toggle menu" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: menu
+  - main [ref=e20]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - paragraph [ref=e24]: See More, Act Sooner
+        - heading "Operational Intelligence For Complex Operations" [level=1] [ref=e25]
+      - paragraph [ref=e26]: AI systems which continuously understands how changing operational conditions interact to predict risk, improve performance and support better decisions.
+      - generic [ref=e27]:
+        - link "Explore Platform" [ref=e28] [cursor=pointer]:
+          - /url: platform/operational-intelligence/index.html
+        - link "Book a Demonstration" [ref=e29] [cursor=pointer]:
+          - /url: company/contact/index.html
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e51]: Fleet
+        - generic [ref=e53]: Equipment
+        - generic [ref=e55]: Workforce
+        - generic [ref=e57]: Environment
+        - generic [ref=e59]: Safety
+        - generic [ref=e61]: Production
+        - generic [ref=e63]: Assets
+        - generic [ref=e65]: Energy
+        - generic [ref=e67]:
+          - generic [ref=e68]: Atlas Operational Model
+          - generic [ref=e69]: Defines how the operation should perform.
+      - generic [ref=e70]:
+        - paragraph [ref=e71]: Be Five Steps Ahead
+        - heading "Know How Your Operation Should Be Performing" [level=2] [ref=e72]: Know How Your OperationShould Be Performing
+        - paragraph [ref=e73]: Complex operations generate immense amounts of information, but individual systems only explain what is happening within their own area. They cannot determine whether the operation as a whole is performing as intended.
+        - paragraph [ref=e74]: Atlas establishes an operational model based on expected conditions, critical relationships, risk controls, performance requirements and operational objectives. This creates a reference for how the operation should perform safely, efficiently and productively.
+        - paragraph [ref=e75]: As live conditions change, Atlas compares actual performance against the model to detect deviations, understand their wider impact, predict likely consequences and recommend or automate corrective action.
+    - generic [ref=e77]:
+      - generic [ref=e78]:
+        - paragraph [ref=e79]: Site Wide Intelligence
+        - heading "See The Factors That Create Risk And Influence Performance" [level=2] [ref=e80]: See The Factors That Create RiskAnd Influence Performance
+      - generic [ref=e81]:
+        - generic [ref=e82] [cursor=pointer]:
+          - heading "Fatal Risk Intelligence" [level=3] [ref=e83]
+          - paragraph [ref=e84]: Predict and prevent critical operational risks before they become incidents.
+          - generic [ref=e85]:
+            - generic [ref=e86]:
+              - generic [ref=e87]: check
+              - text: Identify emerging risk patterns
+            - generic [ref=e89]:
+              - generic [ref=e90]: check
+              - text: Verify critical controls
+            - generic [ref=e92]:
+              - generic [ref=e93]: check
+              - text: Predict escalating operational exposure
+          - link "Learn More arrow_right_alt" [ref=e96]:
+            - /url: solutions/fatal-risk-intelligence/index.html
+            - generic [ref=e97]: Learn More
+            - generic [ref=e98]: arrow_right_alt
+        - generic [ref=e99] [cursor=pointer]:
+          - heading "Production Intelligence" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Improve operations by identifying the conditions that limit performance.
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - generic [ref=e104]: check
+              - text: Blast performance analysis
+            - generic [ref=e106]:
+              - generic [ref=e107]: check
+              - text: Fragmentation optimisation
+            - generic [ref=e109]:
+              - generic [ref=e110]: check
+              - text: Production performance insights
+          - link "Learn More arrow_right_alt" [ref=e113]:
+            - /url: solutions/production-intelligence/index.html
+            - generic [ref=e114]: Learn More
+            - generic [ref=e115]: arrow_right_alt
+        - generic [ref=e116] [cursor=pointer]:
+          - heading "Operational Intelligence" [level=3] [ref=e117]
+          - paragraph [ref=e118]: Connect operational information, identify relationships and gain the context needed for better decisions.
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - generic [ref=e121]: check
+              - text: Connected operational visibility
+            - generic [ref=e123]:
+              - generic [ref=e124]: check
+              - text: Operational context and relationships
+            - generic [ref=e126]:
+              - generic [ref=e127]: check
+              - text: Decision support and recommendations
+          - link "Learn More arrow_right_alt" [ref=e130]:
+            - /url: solutions/operational-digital-twin/index.html
+            - generic [ref=e131]: Learn More
+            - generic [ref=e132]: arrow_right_alt
+      - generic [ref=e134]:
+        - button "Play video 1" [ref=e137] [cursor=pointer]
+        - button "Play video 2" [ref=e140] [cursor=pointer]
+    - generic [ref=e143]:
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - generic [ref=e146]:
+            - paragraph [ref=e147]: Changing Operations Forever
+            - heading "Trusted In Environments Where Visibility Matters Most" [level=2] [ref=e148]: Trusted In EnvironmentsWhere Visibility Matters Most
+          - paragraph [ref=e149]: Designed for complex operational environments where visibility, coordination and informed decision-making are critical. Supporting owners, contractors, operators and project teams across mining, tunnelling, infrastructure and critical operations internationally.
+          - generic [ref=e150]:
+            - link "Explore Case Studies arrow_right_alt" [ref=e151] [cursor=pointer]:
+              - /url: resources/case-studies/index.html
+              - text: Explore Case Studies
+              - generic [ref=e152]: arrow_right_alt
+            - link "View Industries arrow_right_alt" [ref=e153] [cursor=pointer]:
+              - /url: industries/mining/index.html
+              - text: View Industries
+              - generic [ref=e154]: arrow_right_alt
+        - generic [ref=e155]:
+          - img "Global deployment map" [ref=e156]
+          - generic [ref=e157]: Canada
+          - generic [ref=e158]: USA
+          - generic [ref=e159]: Europe
+          - generic [ref=e160]: Africa
+          - generic [ref=e161]: Singapore
+          - generic [ref=e162]: Australia
+          - generic [ref=e163]: New Zealand
+      - generic [ref=e164]:
+        - generic [ref=e165]:
+          - generic [ref=e166]: Applications Include
+          - generic [ref=e167]:
+            - list [ref=e168]:
+              - listitem [ref=e169]: Major tunnel construction projects
+              - listitem [ref=e171]: Underground mining operations
+              - listitem [ref=e173]: Open-cut mining operations
+              - listitem [ref=e175]: Civil infrastructure projects
+            - list [ref=e177]:
+              - listitem [ref=e178]: Bridge construction and refurbishment
+              - listitem [ref=e180]: Airports and transport infrastructure
+              - listitem [ref=e182]: Healthcare and critical facilities
+              - listitem [ref=e184]: Heavy industrial operations
+        - blockquote [ref=e187]:
+          - paragraph [ref=e188]: “iottag delivered the mother of all operational intelligence systems, we are proud to see the ROI continue to compound across our projects.”
+          - generic [ref=e189]:
+            - generic [ref=e190]: "- Luke Stone"
+            - generic [ref=e191]: Taisei Corp
+      - generic [ref=e194]:
+        - img "BHP" [ref=e196]
+        - img "Rio Tinto" [ref=e198]
+        - img "CSCEC" [ref=e200]
+        - img "ACCIONA" [ref=e202]
+        - img "CIMIC" [ref=e204]
+        - img "CPB Contractors" [ref=e206]
+        - img "John Holland" [ref=e208]
+        - img "GS E&C" [ref=e210]
+        - img "Ghella" [ref=e212]
+        - img "UGL" [ref=e214]
+        - img "Webuild" [ref=e216]
+        - img "Taisei" [ref=e218]
+    - generic [ref=e231]:
+      - generic [ref=e232]:
+        - generic [ref=e233]:
+          - generic [ref=e234]:
+            - paragraph [ref=e235]: Breakthrough Solutions
+            - heading "Why Industry Leaders Choose iottag" [level=2] [ref=e236]
+          - generic [ref=e237]:
+            - paragraph [ref=e238]: Success depends on combining the right technology, operational understanding and industry expertise to deliver meaningful outcomes in the field.
+            - paragraph [ref=e239]: iottag is trusted by organisations operating in some of the world's most complex and demanding environments because we focus on solving real operational problems, not simply deploying technology.
+        - generic [ref=e240]:
+          - generic [ref=e241]:
+            - heading "Operational Intelligence First" [level=3] [ref=e242]
+            - paragraph [ref=e243]: Most systems provide visibility into a single operational domain, iottag helps organisations understand how workforce, assets, environment, and systems interact across the entire operation.
+          - generic [ref=e244]:
+            - heading "Engineered End-To-End" [level=3] [ref=e245]
+            - paragraph [ref=e246]: Most systems provide visibility into a single operational domain, iottag helps organisations understand how workforce, assets, environment, and systems interact across the entire operation.
+          - generic [ref=e247]:
+            - heading "Built For Complex Operations" [level=3] [ref=e248]
+            - paragraph [ref=e249]: Most systems provide visibility into a single operational domain, iottag helps organisations understand how workforce, assets, environment, and systems interact across the entire operation.
+          - generic [ref=e250]:
+            - heading "Open By Design" [level=3] [ref=e251]
+            - paragraph [ref=e252]: Most systems provide visibility into a single operational domain, iottag helps organisations understand how workforce, assets, environment, and systems interact across the entire operation.
+      - generic [ref=e254]:
+        - heading "Operational Understanding Meets Engineering Excellence" [level=2] [ref=e256]
+        - generic [ref=e257]:
+          - generic [ref=e258]:
+            - paragraph [ref=e259]: By combining engineering, data science, operational technology and field expertise, iottag helps organisations solve complex operational challenges with confidence.
+            - link "Why iottag arrow_right_alt" [ref=e260] [cursor=pointer]:
+              - /url: company/why-iottag/index.html
+              - text: Why iottag
+              - generic [ref=e261]: arrow_right_alt
+          - button "Play video" [ref=e264] [cursor=pointer]
+    - generic [ref=e265]:
+      - generic [ref=e266]:
+        - generic [ref=e267]:
+          - paragraph [ref=e268]: Versatile & Scalable
+          - heading "Delivering Value With Operational Intelligence" [level=2] [ref=e269]
+        - paragraph [ref=e271]: Every organisation has different priorities. Whether your focus is improving safety, increasing production, optimising assets or reducing operating costs, iottag transforms operational intelligence into measurable business outcomes across the entire operation.
+      - generic [ref=e272]:
+        - generic [ref=e274]:
+          - heading "Safety" [level=3] [ref=e275]
+          - list [ref=e276]:
+            - listitem [ref=e277]:
+              - generic [ref=e278]: check
+              - text: Fatal Risk Prevention
+            - listitem [ref=e279]:
+              - generic [ref=e280]: check
+              - text: Emergency Response
+            - listitem [ref=e281]:
+              - generic [ref=e282]: check
+              - text: Automated Compliance
+        - generic [ref=e284]:
+          - heading "Operation" [level=3] [ref=e285]
+          - list [ref=e286]:
+            - listitem [ref=e287]:
+              - generic [ref=e288]: check
+              - text: Production Optimisation
+            - listitem [ref=e289]:
+              - generic [ref=e290]: check
+              - text: Process Efficiency
+            - listitem [ref=e291]:
+              - generic [ref=e292]: check
+              - text: Energy Optimisation
+        - generic [ref=e294]:
+          - heading "Assets" [level=3] [ref=e295]
+          - list [ref=e296]:
+            - listitem [ref=e297]:
+              - generic [ref=e298]: check
+              - text: Predictive Maintenance
+            - listitem [ref=e299]:
+              - generic [ref=e300]: check
+              - text: Asset Utilisation
+            - listitem [ref=e301]:
+              - generic [ref=e302]: check
+              - text: Resource Planning
+        - generic [ref=e304]:
+          - heading "Business" [level=3] [ref=e305]
+          - list [ref=e306]:
+            - listitem [ref=e307]:
+              - generic [ref=e308]: check
+              - text: Executive Intelligence
+            - listitem [ref=e309]:
+              - generic [ref=e310]: check
+              - text: Operational Assurance
+            - listitem [ref=e311]:
+              - generic [ref=e312]: check
+              - text: Cost Reduction
+    - generic [ref=e313]:
+      - generic [ref=e314]:
+        - generic [ref=e315]:
+          - paragraph [ref=e316]: Tailored Architecture
+          - heading "Best-in-Class Technology. One Intelligent Platform." [level=2] [ref=e317]
+          - paragraph [ref=e318]: Atlas supports a wide ecosystem of best-in-class technologies, sensors and OEM solutions, enabling organisations to deploy the right technology for every operational challenge—from environmental monitoring and personnel safety to asset management, location intelligence and industrial automation.
+        - generic [ref=e319]:
+          - generic [ref=e320]: Ultra-Wideband
+          - generic [ref=e322]: Lorawan
+          - generic [ref=e324]: RFID
+          - generic [ref=e326]: GPS
+          - generic [ref=e328]: BLE
+          - generic [ref=e330]: QR Codes
+          - generic [ref=e332]: Wirepas
+          - generic [ref=e334]: Wi-fi
+      - generic [ref=e336]:
+        - generic [ref=e337]:
+          - heading "End-to-End Expertise" [level=3] [ref=e338]
+          - paragraph [ref=e339]: From solution design and technology selection through deployment, integration, maintenance and ongoing support, iottag delivers complete end-to-end Operational Intelligence solutions. Whether leveraging existing infrastructure or deploying new technologies, our experts ensure every component works together as one intelligent system.
+          - link "Explore Engineering & Hardware arrow_right_alt" [ref=e340] [cursor=pointer]:
+            - /url: technology/engineering-hardware/index.html
+            - text: Explore Engineering & Hardware
+            - generic [ref=e341]: arrow_right_alt
+        - generic [ref=e344]:
+          - img "iottag Vector Tag seated in its charging cradle, 360 degree rotating view"
+    - generic [ref=e345]:
+      - generic [ref=e346]:
+        - generic [ref=e347]:
+          - paragraph [ref=e348]: Complete Control
+          - heading "Built To Manage Every Operational Asset" [level=2] [ref=e349]
+          - paragraph [ref=e350]: From equipment and materials to tools and critical infrastructure, iottag creates a live operational understanding of every moving part across your operation. On and off site, above and below the ground.
+        - generic [ref=e351]:
+          - img "Preview of the iottag asset management video — illustrated warehouse with tagged racking, forklifts, equipment and personnel" [ref=e352]
+          - button "Play the iottag asset management video" [ref=e353] [cursor=pointer]
+      - generic [ref=e354]:
+        - paragraph [ref=e355]: Every Asset, Everywhere
+        - generic [ref=e356]:
+          - generic [ref=e357]: Vehicle & Machines
+          - generic [ref=e359]: Materials
+          - generic [ref=e361]: Tools & Equipment
+          - generic [ref=e363]: Personnel
+          - generic [ref=e365]: Fixed asset
+    - generic [ref=e367]:
+      - generic [ref=e368]:
+        - generic [ref=e369]:
+          - paragraph [ref=e370]: Owners Dashboard
+          - heading "Multi-Site Performance Benchmarking" [level=2] [ref=e371]
+          - paragraph [ref=e372]: While operational teams use iottag to manage daily activities, leadership teams gain access to portfolio-level dashboards that provide visibility across projects, sites, contractors and operational environments.
+          - paragraph [ref=e373]: Monitor safety performance, operational trends, production outcomes and critical KPIs through a consistent reporting framework that supports governance, benchmarking and strategic decision-making.
+        - img "Leadership team reviewing iottag portfolio dashboards during a boardroom presentation" [ref=e374]
+      - generic [ref=e375]:
+        - generic [ref=e376]:
+          - generic [ref=e377]: Multi-Site Visibility
+          - generic [ref=e378]:
+            - generic [ref=e379]:
+              - generic [ref=e380]: Compare site performance
+              - generic [ref=e382]: Monitor safety trends
+              - generic [ref=e384]: Understand production performance
+              - generic [ref=e386]: Identify emerging issues earlier
+            - generic [ref=e388]:
+              - generic [ref=e389]: Benchmark contractors
+              - generic [ref=e391]: Track operational KPIs
+              - generic [ref=e393]: Support executive reporting
+              - generic [ref=e395]: Improve governance and oversight
+        - generic [ref=e397]:
+          - generic [ref=e398]: Output For All Parties
+          - generic [ref=e399]:
+            - generic [ref=e400]:
+              - generic [ref=e401]: Mining
+              - generic [ref=e402]:
+                - generic [ref=e403]: Contractors
+                - generic [ref=e404]: →
+                - generic [ref=e405]: Site management
+                - generic [ref=e406]: →
+                - generic [ref=e407]: Corporate Leadership
+            - generic [ref=e408]:
+              - generic [ref=e409]: Tunnelling & Infrastructure
+              - generic [ref=e410]:
+                - generic [ref=e411]: Subcontractors
+                - generic [ref=e412]: →
+                - generic [ref=e413]: Main contractor / JV
+                - generic [ref=e414]: →
+                - generic [ref=e415]: Asset Owner
+      - link "Explore Operational Analytics arrow_right_alt" [ref=e416] [cursor=pointer]:
+        - /url: platform/operational-analytics-benchmarking/index.html
+        - text: Explore Operational Analytics
+        - generic [ref=e417]: arrow_right_alt
+    - generic [ref=e418]:
+      - generic [ref=e420]:
+        - heading "Ready To See Atlas In Action?" [level=2] [ref=e421]
+        - paragraph [ref=e422]: Book a personalised demonstration and see how Atlas helps organisations model their operations,identify emerging risks and improve operational performance.
+      - generic [ref=e423]:
+        - link "Request Demonstration" [ref=e424] [cursor=pointer]:
+          - /url: company/contact/index.html
+        - link "Speak With An Expert" [ref=e425] [cursor=pointer]:
+          - /url: company/contact/index.html
+  - contentinfo [ref=e426]:
+    - generic [ref=e427]:
+      - generic [ref=e428]:
+        - img "iottag logo" [ref=e429]
+        - generic [ref=e430]:
+          - generic [ref=e431]:
+            - heading "Solutions" [level=2] [ref=e432]
+            - link "Operational Digital Twin" [ref=e433] [cursor=pointer]:
+              - /url: solutions/operational-digital-twin/index.html
+            - link "Fatal Risk Intelligence" [ref=e434] [cursor=pointer]:
+              - /url: solutions/fatal-risk-intelligence/index.html
+            - link "Production Intelligence" [ref=e435] [cursor=pointer]:
+              - /url: solutions/production-intelligence/index.html
+          - generic [ref=e436]:
+            - heading "Atlas Platform" [level=2] [ref=e437]
+            - link "Connected Workforce" [ref=e438] [cursor=pointer]:
+              - /url: platform/workforce-visibility/index.html
+            - link "Connected Fleet" [ref=e439] [cursor=pointer]:
+              - /url: platform/fleet-visibility/index.html
+            - link "Connected Assets" [ref=e440] [cursor=pointer]:
+              - /url: platform/asset-visibility/index.html
+            - link "Connected Environment" [ref=e441] [cursor=pointer]:
+              - /url: platform/environmental-intelligence/index.html
+            - link "Multi-site Analytics & Benchmarking" [ref=e442] [cursor=pointer]:
+              - /url: platform/operational-analytics-benchmarking/index.html
+          - generic [ref=e443]:
+            - heading "Industries" [level=2] [ref=e444]
+            - link "Mining" [ref=e445] [cursor=pointer]:
+              - /url: industries/mining/index.html
+            - link "Tunnelling" [ref=e446] [cursor=pointer]:
+              - /url: industries/tunnelling/
+            - link "Construction & Infrastructure" [ref=e447] [cursor=pointer]:
+              - /url: industries/construction-infrastructure/index.html
+            - link "Bridge Construction & Maintenance" [ref=e448] [cursor=pointer]:
+              - /url: industries/bridge-construction-maintenance/index.html
+          - generic [ref=e449]:
+            - heading "Technology" [level=2] [ref=e450]
+            - link "Engineering" [ref=e451] [cursor=pointer]:
+              - /url: technology/engineering-hardware/index.html
+            - link "Professional Services" [ref=e452] [cursor=pointer]:
+              - /url: technology/positioning-technologies/index.html
+            - link "Operational Analytics &Optimisation" [ref=e453] [cursor=pointer]:
+              - /url: technology/iot-security-governance/index.html
+          - generic [ref=e454]:
+            - heading "Resources" [level=2] [ref=e455]
+            - link "Case Studies" [ref=e456] [cursor=pointer]:
+              - /url: resources/case-studies/index.html
+            - link "Articles & Insights" [ref=e457] [cursor=pointer]:
+              - /url: resources/articles-insights/index.html
+            - link "White Papers" [ref=e458] [cursor=pointer]:
+              - /url: resources/white-papers/index.html
+            - link "Video Library" [ref=e459] [cursor=pointer]:
+              - /url: resources/video-library/index.html
+          - generic [ref=e460]:
+            - heading "Company" [level=2] [ref=e461]
+            - link "About" [ref=e462] [cursor=pointer]:
+              - /url: company/about/index.html
+            - link "Partnership" [ref=e463] [cursor=pointer]:
+              - /url: company/partners/index.html
+            - link "Contact" [ref=e464] [cursor=pointer]:
+              - /url: company/contact/index.html
+            - link "Career" [ref=e465] [cursor=pointer]:
+              - /url: company/careers/index.html
+      - img "iottag certifications and accreditations" [ref=e466]
+    - generic [ref=e467]: © All Rights Reserved, iottag™ is a registered trademark 2026.
