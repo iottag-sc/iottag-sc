@@ -832,6 +832,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .vt-agnostic__ic {
   height: 60px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
+  opacity: .7; /* Figma: icon wrappers sit at 70% opacity for the grey look */
 }
 /* QR logo carries heavy padding — scale up and clip back to the 60px box */
 .vt-agnostic__ic--clip { width: 60px; overflow: hidden; }
