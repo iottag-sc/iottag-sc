@@ -448,7 +448,7 @@
 
 /* ---- 2026-07-16 contact redesign (Figma 10559:24050, prefix ct2-) ---------- */
 /* hero band carries only the blue kicker; the page H1 is the 40px intro title */
-.ct-hero__kicker { width: min(100%, var(--maxw)); margin: 0 auto; font: 700 20px/1.5 var(--f-body); color: #4cc4fe; }
+.ct-hero__kicker { width: min(100%, var(--maxw)); margin: 0 auto; font: 400 20px/1.5 var(--f-body); color: #4cc4fe; }
 
 /* intro column beside the floating form card */
 .ct2-intro { flex: 1 1 0; min-width: 320px; display: flex; flex-direction: column; gap: 40px; }

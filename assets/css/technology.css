@@ -77,10 +77,10 @@
 .cta-bullets li::before { content: "•"; }
 
 /* 2. VECTOR TAG (vector-tag) ------------------------------------------------ */
-/* blue section kicker (Ubuntu bold 20, brand blue) */
+/* blue section kicker (Ubuntu regular 20, brand blue) */
 .vt-kicker {
   margin: 0;
-  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
   letter-spacing: -.01em; color: var(--c-blue);
 }
 
