@@ -40,6 +40,9 @@
 @media (max-width: 1100px) { .hero-cards { width: 100%; } }
 /* --split: hero copy column sitting beside the .hero-cards grid (mining) */
 .hero__content--split { flex-direction: row; align-items: center; gap: 80px; }
+/* pin the card grid to the right edge of the 1312px container regardless of
+   the copy column's width (780px pages left a 52px gap on the right) */
+.hero__content--split .hero-cards { margin-left: auto; }
 @media (max-width: 1100px) {
   .hero__content--split { flex-direction: column; align-items: flex-start; gap: 40px; }
 }
