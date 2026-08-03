@@ -2,3 +2,13 @@
 # and logs are machine-generated working data — keep them out of the site repo.
 figma-watch/
 github-recovery-codes.txt
+
+# Password-protected article tooling: tools/content holds the real article
+# HTML that lives only in Firestore — it must NEVER be committed, or the
+# password gate is pointless (anyone could read it from the public repo).
+tools/
+
+# local test artifacts and personal files
+.playwright-mcp/
+Timesheet-*.xlsx
+assets/js/original.txt
