@@ -1,0 +1,330 @@
+- generic [active] [ref=f7e1]:
+  - banner [ref=f7e2]:
+    - link "iottag home" [ref=f7e3] [cursor=pointer]:
+      - /url: ../../index.html
+    - navigation "Primary" [ref=f7e15]:
+      - button "Solutions" [ref=f7e17]
+      - button "Platform" [ref=f7e19]
+      - button "Industries" [ref=f7e21]
+      - button "Technology" [ref=f7e23]
+      - button "Company" [ref=f7e25]
+    - generic [ref=f7e26]:
+      - link "Login" [ref=f7e27] [cursor=pointer]:
+        - /url: ../../company/contact/index.html
+      - link "Book Demo" [ref=f7e28] [cursor=pointer]:
+        - /url: ../../company/contact/index.html
+  - main [ref=f7e29]:
+    - generic [ref=f7e33]:
+      - generic [ref=f7e34]:
+        - paragraph [ref=f7e35]: Engineering & Hardware
+        - heading "Engineered For Demanding Operations" [level=1] [ref=f7e36]
+        - paragraph [ref=f7e37]: iottag designs, engineers, supports and maintains the core components, providing organisations with a single partner responsible for performance across the entire solution lifecycle.
+        - paragraph [ref=f7e38]: From industrial wearables and positioning infrastructure through to software, analytics and operational dashboards, every component is designed to work together as part of a unified operational ecosystem.
+      - link "Speak With An Engineer" [ref=f7e40] [cursor=pointer]:
+        - /url: ../../company/contact/index.html
+    - generic [ref=f7e41]:
+      - heading "End-To-End & Accountability System" [level=2] [ref=f7e42]
+      - generic [ref=f7e43]:
+        - generic [ref=f7e45]:
+          - heading "Many operational technology solutions rely on multiple vendors" [level=3] [ref=f7e46]
+          - paragraph [ref=f7e47]: While each component may perform independently, organisations are often left managing complexity, integration challenges and fragmented support models.
+        - generic [ref=f7e49]:
+          - heading "iottag takes a different approach" [level=3] [ref=f7e50]
+          - paragraph [ref=f7e51]: By designing, supporting and maintaining the core components of the solution, organisations benefit from tighter integration, stronger reliability and a single point of accountability throughout deployment, operation and ongoing support.
+    - generic [ref=f7e53]:
+      - generic [ref=f7e54]:
+        - generic [ref=f7e55]:
+          - heading "The Vector Tag" [level=2] [ref=f7e56]
+          - paragraph [ref=f7e57]: Purpose-Built For Workforce Visibility And Operational Awareness
+        - paragraph [ref=f7e58]: At the centre of the iottag technology ecosystem is the Vector Tag.
+        - paragraph [ref=f7e59]: A purpose-built industrial wearable designed specifically for demanding operational environments where workforce visibility, emergency response and operational awareness are critical.
+        - paragraph [ref=f7e60]: Unlike consumer-grade devices or repurposed hardware, the Vector Tag has been engineered for real-world deployment across mining, tunnelling, infrastructure and industrial environments.
+        - generic [ref=f7e61]:
+          - heading "Key capabilities" [level=3] [ref=f7e62]
+          - generic [ref=f7e63]:
+            - generic [ref=f7e64]:
+              - generic [ref=f7e65]: Granular Positioning
+              - generic [ref=f7e67]: SOS Emergency Activation
+              - generic [ref=f7e69]: Fall Detection
+              - generic [ref=f7e71]: Man Down
+            - generic [ref=f7e73]:
+              - generic [ref=f7e74]: Impact Detection
+              - generic [ref=f7e76]: Heat Stress
+              - generic [ref=f7e78]: Tap-On / Tap-Off
+              - generic [ref=f7e80]: Vehicle Proximity
+            - generic [ref=f7e82]:
+              - generic [ref=f7e83]: Remote Alarming
+              - generic [ref=f7e85]: Water Ingress
+              - generic [ref=f7e87]: Ultra-Long Battery Life
+      - generic [ref=f7e91]:
+        - img "iottag D81 Vector Tag seated in its charging cradle, 360 degree rotating view"
+    - generic [ref=f7e92]:
+      - generic [ref=f7e93]:
+        - generic [ref=f7e94]:
+          - paragraph [ref=f7e95]: Custom Architecture
+          - heading "Best-in-Class Technology. One Intelligent Platform." [level=2] [ref=f7e96]
+          - paragraph [ref=f7e97]: Atlas supports a wide ecosystem of best-in-class technologies, sensors and OEM solutions, enabling organisations to deploy the right technology for every operational challenge—from environmental monitoring and personnel safety to asset management, location intelligence and industrial automation.
+        - 'img "Diagram of the Atlas ecosystem: positioning, safety and sensing technologies arranged around one intelligent platform" [ref=f7e98]'
+      - generic [ref=f7e100]:
+        - heading "End-to-End Expertise" [level=3] [ref=f7e101]
+        - paragraph [ref=f7e102]: From solution design and technology selection through deployment, integration, maintenance and ongoing support, iottag delivers complete end-to-end Operational Intelligence solutions. Whether leveraging existing infrastructure or deploying new technologies, our experts ensure every component works together as one intelligent system.
+    - generic [ref=f7e103]:
+      - heading "Engineered To Support Critical Operations" [level=2] [ref=f7e104]
+      - generic [ref=f7e105]:
+        - generic [ref=f7e106]:
+          - generic [ref=f7e107]:
+            - heading "Granular Positioning" [level=3] [ref=f7e108]
+            - paragraph [ref=f7e109]: High-accuracy workforce visibility across complex operational environments.
+          - generic [ref=f7e110]:
+            - heading "Emergency Response" [level=3] [ref=f7e111]
+            - paragraph [ref=f7e112]: SOS activation with location awareness and operational context.
+          - generic [ref=f7e113]:
+            - heading "Fall & Man-Down Detection" [level=3] [ref=f7e114]
+            - paragraph [ref=f7e115]: Automated identification of workforce welfare events.
+          - generic [ref=f7e116]:
+            - heading "Vehicle Proximity Awareness" [level=3] [ref=f7e117]
+            - paragraph [ref=f7e118]: Supports workforce and vehicle interaction management.
+          - generic [ref=f7e119]:
+            - heading "Tap-On / Tap-Off Access Control" [level=3] [ref=f7e120]
+            - paragraph [ref=f7e121]: Seamless workforce accountability and location confirmation.
+        - img "Worker wearing the Vector Tag in an underground operational environment" [ref=f7e122]
+      - generic [ref=f7e123]:
+        - img "Vector Tag in use on site, supporting emergency response and alarming" [ref=f7e124]
+        - generic [ref=f7e125]:
+          - generic [ref=f7e126]:
+            - heading "Remote Alarming" [level=3] [ref=f7e127]
+            - paragraph [ref=f7e128]: Visual and audible alerts triggered centrally or automatically.
+          - generic [ref=f7e129]:
+            - heading "Impact Detection" [level=3] [ref=f7e130]
+            - paragraph [ref=f7e131]: Identification of sudden force events requiring investigation.
+          - generic [ref=f7e132]:
+            - heading "Rugged Industrial Design" [level=3] [ref=f7e133]
+            - paragraph [ref=f7e134]: Designed to perform in harsh operational environments.
+          - generic [ref=f7e135]:
+            - heading "Ultra-Long Battery Life" [level=3] [ref=f7e136]
+            - paragraph [ref=f7e137]: Minimises maintenance and operational disruption.
+          - generic [ref=f7e138]:
+            - heading "Supporting Statement" [level=3] [ref=f7e139]
+            - paragraph [ref=f7e140]: Designed for reliability where visibility and response matter most.
+    - generic [ref=f7e141]:
+      - generic [ref=f7e142]:
+        - generic [ref=f7e143]:
+          - heading "Enterprise Device Governance" [level=2] [ref=f7e144]
+          - paragraph [ref=f7e145]: Operational technology does not end with deployment.
+        - generic [ref=f7e146]:
+          - paragraph [ref=f7e147]: Managing devices throughout their lifecycle is critical to maintaining reliability, security and operational performance.
+          - paragraph [ref=f7e148]: iottag provides comprehensive device governance capabilities that help organisations maintain visibility and control across their technology fleet.
+      - generic [ref=f7e149]:
+        - generic [ref=f7e150]:
+          - heading "Device Health Monitoring" [level=3] [ref=f7e152]
+          - heading "Fleet-Wide Visibility" [level=3] [ref=f7e154]
+          - heading "Lifecycle Management" [level=3] [ref=f7e156]
+          - heading "Remote Administration" [level=3] [ref=f7e158]
+          - heading "Firmware Deployment" [level=3] [ref=f7e160]
+        - generic [ref=f7e161]:
+          - heading "Version Control" [level=3] [ref=f7e163]
+          - heading "Configuration Management" [level=3] [ref=f7e165]
+          - heading "Asset Accountability" [level=3] [ref=f7e167]
+          - generic [ref=f7e168]:
+            - generic [ref=f7e169]: diagnosis
+            - heading "Operational Diagnostics" [level=3] [ref=f7e170]
+    - generic [ref=f7e171]:
+      - generic [ref=f7e172]:
+        - heading "Security Built Into The Ecosystem" [level=2] [ref=f7e173]
+        - paragraph [ref=f7e174]: Operational environments depend on technology they can trust.
+        - paragraph [ref=f7e175]: Security considerations extend beyond software and include devices, communications, infrastructure and operational processes.The iottag ecosystem is designed to support secure operation throughout the technology lifecycle.
+      - generic [ref=f7e176]:
+        - heading "Areas Of Focus" [level=3] [ref=f7e177]
+        - generic [ref=f7e178]:
+          - generic [ref=f7e179]:
+            - generic [ref=f7e180]:
+              - generic [ref=f7e181]: shield_locked
+              - text: Secure device identity
+            - generic [ref=f7e183]: Controlled firmware deployment
+            - generic [ref=f7e185]:
+              - generic [ref=f7e186]: history
+              - text: Version governance
+          - generic [ref=f7e188]:
+            - generic [ref=f7e189]:
+              - generic [ref=f7e190]: encrypted
+              - text: Encrypted communications
+            - generic [ref=f7e192]: Infrastructure security
+            - generic [ref=f7e194]:
+              - generic [ref=f7e195]: lock
+              - text: Access control
+          - generic [ref=f7e197]:
+            - generic [ref=f7e198]: Operational auditability
+            - generic [ref=f7e200]: Lifecycle traceability
+      - heading "Security is not a feature. It is a design principle." [level=3] [ref=f7e204]
+    - generic [ref=f7e205]:
+      - generic [ref=f7e206]:
+        - generic [ref=f7e207]:
+          - heading "Built To Evolve" [level=2] [ref=f7e208]
+          - paragraph [ref=f7e209]: Operational environments change. Technology must evolve alongside them.
+          - generic [ref=f7e210]:
+            - paragraph [ref=f7e211]: Because iottag controls both hardware and software development, organisations benefit from a tightly integrated ecosystem capable of evolving as operational requirements change.
+            - paragraph [ref=f7e212]: The operational impact is experienced throughout the production chain. Each can create inefficiencies that influence production performance long after the blast has occurred. Understanding these impacts provides opportunities to improve efficiency, reduce variability and increase throughput.
+        - generic [ref=f7e214]:
+          - generic [ref=f7e215]: Faster innovation
+          - generic [ref=f7e216]: System-wide firmware updates
+          - generic [ref=f7e217]: Controlled technology roadmaps
+          - generic [ref=f7e218]: Long-term maintainability
+          - generic [ref=f7e219]: Consistent user experiences
+          - generic [ref=f7e220]: Future platform expansion
+          - generic [ref=f7e221]: Improved interoperability
+      - generic [ref=f7e222]:
+        - generic [ref=f7e223]: Hardware
+        - generic [ref=f7e225]: Platform
+        - generic [ref=f7e227]: Analytics
+        - generic [ref=f7e229]: Continuous Innovation
+    - generic [ref=f7e231]:
+      - generic [ref=f7e232]:
+        - heading "Supporting The Operational Intelligence Ecosystem" [level=2] [ref=f7e233]
+        - generic [ref=f7e234]:
+          - paragraph [ref=f7e235]: End points are one component of a broader Operational Intelligence platform.
+          - paragraph [ref=f7e236]: Together with positioning infrastructure, software, analytics and operational dashboards, it contributes to a shared operational understanding across the environment.
+      - generic [ref=f7e237]:
+        - img "Operational dashboards showing live workforce and fleet visibility across a site" [ref=f7e238]
+        - generic [ref=f7e239]:
+          - link [ref=f7e241] [cursor=pointer]:
+            - /url: ../../platform/workforce-visibility/index.html
+            - heading "Workforce Visibility" [level=3] [ref=f7e242]
+            - paragraph [ref=f7e243]: Know who is on site and where they are.
+          - link [ref=f7e245] [cursor=pointer]:
+            - /url: ../../platform/fleet-visibility/index.html
+            - heading "Fleet Visibility" [level=3] [ref=f7e246]
+            - paragraph [ref=f7e247]: Understand workforce and vehicle interactions.
+          - link [ref=f7e249] [cursor=pointer]:
+            - /url: ../../platform/asset-visibility/index.html
+            - heading "Asset Visibility" [level=3] [ref=f7e250]
+            - paragraph [ref=f7e251]: Monitor critical equipment and operational resources.
+          - link [ref=f7e253] [cursor=pointer]:
+            - /url: ../../platform/environmental-intelligence/index.html
+            - heading "Environmental Monitoring" [level=3] [ref=f7e254]
+            - paragraph [ref=f7e255]: Understand changing operational conditions.
+          - link [ref=f7e257] [cursor=pointer]:
+            - /url: ../../solutions/operational-digital-twin/index.html
+            - heading "Operational Digital Twin" [level=3] [ref=f7e258]
+            - paragraph [ref=f7e259]: Create a live operational understanding of the operation.
+      - generic [ref=f7e260]:
+        - generic [ref=f7e261]: IoT
+        - generic [ref=f7e263]: Operational Digital Twin
+        - generic [ref=f7e265]: Operational Intelligence
+        - generic [ref=f7e267]: Better Decisions
+    - generic [ref=f7e269]:
+      - heading "Designed For Demanding Industries" [level=2] [ref=f7e270]
+      - generic [ref=f7e271]:
+        - link [ref=f7e272] [cursor=pointer]:
+          - /url: ../../industries/mining/index.html
+          - img "Haul trucks operating in an open-pit mine" [ref=f7e273]
+          - heading "Mining" [level=3] [ref=f7e274]
+        - link [ref=f7e275] [cursor=pointer]:
+          - /url: ../../industries/tunnelling/index.html
+          - img "Crew working inside a tunnel under construction" [ref=f7e276]
+          - heading "Tunnelling" [level=3] [ref=f7e277]
+        - link [ref=f7e278] [cursor=pointer]:
+          - /url: ../../industries/construction-infrastructure/index.html
+          - img "Construction site with cranes and infrastructure works" [ref=f7e279]
+          - heading "Construction & Infrastructure" [level=3] [ref=f7e280]
+        - link [ref=f7e281] [cursor=pointer]:
+          - /url: ../../industries/bridge-construction-maintenance/index.html
+          - img "Bridge construction over water" [ref=f7e282]
+          - heading "Bridge Construction & Maintenance" [level=3] [ref=f7e283]
+        - generic [ref=f7e284]:
+          - img "Critical infrastructure facility at dusk" [ref=f7e285]
+          - heading "Critical Infrastructure" [level=3] [ref=f7e286]
+      - paragraph [ref=f7e287]: Where operational visibility matters, reliability matters.
+    - generic [ref=f7e288]:
+      - generic [ref=f7e289]:
+        - generic [ref=f7e290]:
+          - heading "More Than Hardware" [level=2] [ref=f7e291]
+          - paragraph [ref=f7e292]: Technology alone does not improve outcomes
+        - generic [ref=f7e293]:
+          - paragraph [ref=f7e294]: The value comes from combining engineering, operational expertise and data science to solve real-world operational challenges.
+          - paragraph [ref=f7e295]: The iottag ecosystem is designed to support safer operations, improved productivity and better decision-making by creating a clearer understanding of what is happening across the operation.
+      - generic [ref=f7e296]:
+        - generic [ref=f7e297]:
+          - generic [ref=f7e298]: Engineering
+          - generic [ref=f7e300]:
+            - generic [ref=f7e301]: groups
+            - generic [ref=f7e302]: Operational Expertise
+          - generic [ref=f7e303]:
+            - generic [ref=f7e304]: database_search
+            - generic [ref=f7e305]: Data Science
+        - generic [ref=f7e306]:
+          - img "iottag logo" [ref=f7e307]
+          - generic [ref=f7e308]: Operational Intelligence
+    - generic [ref=f7e309]:
+      - generic [ref=f7e311]:
+        - heading "Technology Designed For Real Operations" [level=2] [ref=f7e312]
+        - paragraph [ref=f7e313]: Discover how purpose-built technology, end-to-end accountability and Operational Intelligencehelp organisations improve visibility, safety and operational performance.
+      - generic [ref=f7e314]:
+        - link "Book A Demonstration" [ref=f7e315] [cursor=pointer]:
+          - /url: ../../company/contact/index.html
+        - link "Speak With An Engineer" [ref=f7e316] [cursor=pointer]:
+          - /url: ../../company/contact/index.html
+        - link "Explore The Vector Tag" [ref=f7e317] [cursor=pointer]:
+          - /url: "#vector-tag"
+  - contentinfo [ref=f7e318]:
+    - generic [ref=f7e319]:
+      - generic [ref=f7e320]:
+        - img "iottag logo" [ref=f7e321]
+        - generic [ref=f7e322]:
+          - generic [ref=f7e323]:
+            - heading "Solutions" [level=2] [ref=f7e324]
+            - link "Operational Digital Twin" [ref=f7e325] [cursor=pointer]:
+              - /url: ../../solutions/operational-digital-twin/index.html
+            - link "Fatal Risk Intelligence" [ref=f7e326] [cursor=pointer]:
+              - /url: ../../solutions/fatal-risk-intelligence/index.html
+            - link "Production Intelligence" [ref=f7e327] [cursor=pointer]:
+              - /url: ../../solutions/production-intelligence/index.html
+          - generic [ref=f7e328]:
+            - heading "Atlas Platform" [level=2] [ref=f7e329]
+            - link "Connected Workforce" [ref=f7e330] [cursor=pointer]:
+              - /url: ../../platform/workforce-visibility/index.html
+            - link "Connected Fleet" [ref=f7e331] [cursor=pointer]:
+              - /url: ../../platform/fleet-visibility/index.html
+            - link "Connected Assets" [ref=f7e332] [cursor=pointer]:
+              - /url: ../../platform/asset-visibility/index.html
+            - link "Connected Environment" [ref=f7e333] [cursor=pointer]:
+              - /url: ../../platform/environmental-intelligence/index.html
+            - link "Multi-site Analytics & Benchmarking" [ref=f7e334] [cursor=pointer]:
+              - /url: ../../platform/operational-analytics-benchmarking/index.html
+          - generic [ref=f7e335]:
+            - heading "Industries" [level=2] [ref=f7e336]
+            - link "Mining" [ref=f7e337] [cursor=pointer]:
+              - /url: ../../industries/mining/index.html
+            - link "Tunnelling" [ref=f7e338] [cursor=pointer]:
+              - /url: ../../industries/tunnelling/
+            - link "Construction & Infrastructure" [ref=f7e339] [cursor=pointer]:
+              - /url: ../../industries/construction-infrastructure/index.html
+            - link "Bridge Construction & Maintenance" [ref=f7e340] [cursor=pointer]:
+              - /url: ../../industries/bridge-construction-maintenance/index.html
+          - generic [ref=f7e341]:
+            - heading "Technology" [level=2] [ref=f7e342]
+            - link "Engineering" [ref=f7e343] [cursor=pointer]:
+              - /url: ../../technology/engineering-hardware/index.html
+            - link "Professional Services" [ref=f7e344] [cursor=pointer]:
+              - /url: ../../technology/positioning-technologies/index.html
+            - link "Operational Analytics &Optimisation" [ref=f7e345] [cursor=pointer]:
+              - /url: ../../technology/iot-security-governance/index.html
+          - generic [ref=f7e346]:
+            - heading "Resources" [level=2] [ref=f7e347]
+            - link "Case Studies" [ref=f7e348] [cursor=pointer]:
+              - /url: ../../resources/case-studies/index.html
+            - link "Articles & Insights" [ref=f7e349] [cursor=pointer]:
+              - /url: ../../resources/articles-insights/index.html
+            - link "Video Library" [ref=f7e350] [cursor=pointer]:
+              - /url: ../../resources/video-library/index.html
+          - generic [ref=f7e351]:
+            - heading "Company" [level=2] [ref=f7e352]
+            - link "About" [ref=f7e353] [cursor=pointer]:
+              - /url: ../../company/about/index.html
+            - link "Partnership" [ref=f7e354] [cursor=pointer]:
+              - /url: ../../company/partners/index.html
+            - link "Contact" [ref=f7e355] [cursor=pointer]:
+              - /url: ../../company/contact/index.html
+            - link "Career" [ref=f7e356] [cursor=pointer]:
+              - /url: ../../company/careers/index.html
+      - img "iottag certifications and accreditations" [ref=f7e357]
+    - generic [ref=f7e358]: © All Rights Reserved, iottag™ is a registered trademark 2026.
