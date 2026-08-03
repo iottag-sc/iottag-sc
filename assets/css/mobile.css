@@ -78,7 +78,9 @@
   .h2 { font-size: 26px; }
   .h3 { font-size: 20px; }
   .lead, .body { font-size: 16px; }
-  .kicker, .eyebrow, .eyebrow--cond, .hero__kicker { font-size: 16px; }
+  .kicker, .eyebrow, .eyebrow--cond, .hero__kicker, .hero__sub { font-size: 16px; }
+  /* justified hero copy leaves ugly word-rivers at phone widths */
+  .hero__text[style*="text-align:justify"] { text-align: left !important; }
 
   /* --- 5. Gap compression ----------------------------------------------- */
   .gap-80 { gap: 32px; }

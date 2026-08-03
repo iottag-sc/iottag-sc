@@ -24,6 +24,15 @@
 /* orange-tinted icon chip (End-To-End Accountability vendor list) */
 .sys-item__ic--orange { background: #fdf6e5; }
 
+/* dashboard mockup pane — white rounded card on the pale "Built Around Your
+   Operation" section (Figma 13303:42760) */
+.eh-pane {
+  width: 480px; max-width: 100%; flex-shrink: 0;
+  background: #fff; border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+}
+.eh-pane img { width: 100%; height: 320px; object-fit: contain; }
+
 /* "iottag takes a different approach" bar — pale blue, blue left rule, CTA right */
 .approach-bar {
   width: 100%;
@@ -77,23 +86,23 @@
 .cta-bullets li::before { content: "•"; }
 
 /* 2. VECTOR TAG (vector-tag) ------------------------------------------------ */
-/* blue section kicker (Ubuntu bold 20, brand blue) */
+/* blue section kicker — same style as homepage .kicker */
 .vt-kicker {
   margin: 0;
-  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
-  letter-spacing: -.01em; color: var(--c-blue);
+  font-family: var(--f-body); font-weight: 400; font-size: 20px; line-height: 1.5;
+  color: var(--c-blue);
 }
-/* bold dark lead line (Figma Text/Medium/Semi Bold) */
+/* bold dark-grey lead line (Figma Text/Medium/Semi Bold) */
 .vt-lead-strong {
   margin: 0;
   font-family: var(--f-body); font-weight: 700; font-size: 18px; line-height: 1.2;
-  color: #1a1a1a;
+  color: #4b5059;
 }
-/* dark H6 sub-heading ("Key capabilities") */
+/* dark-grey H6 sub-heading ("Key capabilities") */
 .vt-h6 {
   margin: 0;
   font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
-  letter-spacing: -.01em; color: #060309;
+  letter-spacing: -.01em; color: #4b5059;
 }
 /* Atlas ecosystem circular diagram (Best-in-Class section, Figma 13217:13110) */
 .vt-diagram { width: 480px; max-width: 100%; height: auto; flex-shrink: 0; }
@@ -148,7 +157,7 @@
    exact Figma dimensions inline because the source logos crop differently. */
 .vt-tagline {
   margin: 0;
-  font-family: var(--f-alt); font-weight: 700; font-size: 16px; line-height: 1.5;
+  font-family: var(--f-body); font-weight: 400; font-size: 16px; line-height: 1.5;
   color: var(--c-blue);
 }
 .vt-agnostic {
@@ -227,7 +236,7 @@
 /* keep the icon list on two columns at every desktop width: columns share the
    row equally and labels wrap inside (flex-wrap places lines by flex-basis, so
    any fixed basis or max-content width collapses to one column when narrow) */
-.feat--half .sys-grid { gap: 16px 40px; flex-wrap: nowrap; }
+.feat--half .sys-grid { gap: 16px 80px; flex-wrap: nowrap; }
 .feat--half .sys-grid__col { flex: 1 1 0; min-width: 0; }
 @media (max-width: 1240px) { .feat--half { gap: 40px; } }
 @media (max-width: 480px) {
@@ -247,33 +256,7 @@
 @media (max-width: 1100px) { .isg-apps { flex-wrap: wrap; } .isg-apps .gov-card { flex: 1 1 150px; } }
 
 /* 4. POSITIONING TECHNOLOGIES (positioning-technologies) --------------------- */
-/* taller hero so more of the background photo stays visible below the copy */
-.hero--pt { min-height: 880px; }
-
-/* supported-technology rows — white media card left, copy + application chips right */
-.pt-row { display: flex; gap: 40px; align-items: center; width: 100%; }
-/* identical white frame for every row — artwork is letterboxed, never cropped,
-   so mixed sources (logos, diagrams, product photos) all read as one set */
-.pt-row__img {
-  box-sizing: border-box;
-  width: 304px; height: 200px; flex-shrink: 0;
-  padding: 16px;
-  border: 1px solid var(--c-line); border-radius: var(--r-md);
-  object-fit: contain; background: #fff;
-}
-.pt-row__body { flex: 1 1 0; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
-.pt-row__title {
-  margin: 0;
-  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
-  letter-spacing: -.01em; color: #4b5059;
-}
-.pt-row__desc { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
-.pt-row__apps { display: flex; flex-direction: column; gap: 8px; }
-.pt-row__apps-label { margin: 0; font-family: var(--f-body); font-weight: 600; font-size: 16px; line-height: 1.4; color: var(--c-ink); }
-.pt-chips { display: flex; gap: 16px 60px; flex-wrap: wrap; }
-@media (max-width: 900px) { .pt-row { flex-wrap: wrap; } .pt-row__img { width: 100%; height: auto; aspect-ratio: 304 / 200; } }
-
-/* hybrid-environment flows — labelled chevron pair (chip grid → digital twin) */
+/* hybrid-environment flows — labelled chevron pair (chip grid → positioning intelligence) */
 .hpe { display: flex; flex-direction: column; gap: 20px; width: 100%; }
 .hpe__label { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.4; color: var(--c-ink); }
 .hpe-grid { display: grid; grid-template-columns: 1fr 1fr; width: 100%; max-width: 564px; }
