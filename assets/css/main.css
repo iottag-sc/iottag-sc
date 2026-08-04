@@ -1087,3 +1087,26 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   .dv-card:nth-child(even) { border-left: 0; }
   .dv-card + .dv-card { border-top: 1px solid var(--c-line); }
 }
+
+/* ===== FAQ accordion (home) ===== */
+.faq { width: 100%; max-width: 1000px; border-top: 1px solid var(--c-line); }
+.faq__item { border-bottom: 1px solid var(--c-line); }
+.faq__q {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  width: 100%; padding: 24px 4px; margin: 0;
+  background: none; border: 0; cursor: pointer; text-align: left;
+  font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.4;
+  color: #4b5059;
+}
+.faq__chev { flex-shrink: 0; color: #4b5059; transition: transform .3s ease; }
+.faq__item.is-open .faq__chev { transform: rotate(180deg); }
+.faq__a { overflow: hidden; max-height: 0; transition: max-height .35s ease; }
+.faq__a-inner { display: grid; gap: 12px; padding: 0 4px 24px; }
+.faq__a-inner p, .faq__a-inner li {
+  font-family: var(--f-body); font-weight: 400; font-size: 16px; line-height: 1.6;
+  color: var(--c-ink); margin: 0; text-align: left;
+}
+.faq__a-inner ul { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
+@media (max-width: 640px) {
+  .faq__q { font-size: 16px; padding: 20px 2px; gap: 16px; }
+}
