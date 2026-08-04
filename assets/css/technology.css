@@ -128,6 +128,9 @@
 .vt-feature__item a { text-decoration: none; color: inherit; }
 .vt-feature__item a:hover h3 { color: var(--c-blue); }
 .vt-feature__img { width: 480px; max-width: 100%; height: 520px; object-fit: cover; border-radius: var(--r-md); flex-shrink: 0; }
+/* white tab-menu panel — list sits on the pale section (Figma 10541:11100) */
+.vt-feature__list--panel { background: #fff; border-radius: var(--r-md); padding: 8px 24px; }
+.vt-feature__list--panel .vt-feature__item:last-child { border-bottom: 0; }
 .vt-feature--eco { gap: 60px; }
 .vt-feature--eco .vt-feature__list { flex: 0 0 520px; min-width: 280px; }
 .vt-feature--eco .vt-feature__img { width: auto; flex: 1 1 0; min-width: 320px; }

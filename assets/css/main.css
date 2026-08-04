@@ -850,8 +850,14 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 /* QR logo carries heavy padding — scale up and clip back to the 60px box */
 .vt-agnostic__ic--clip { width: 60px; overflow: hidden; }
 .vt-agnostic__ic img { display: block; object-fit: contain; }
+.vt-agnostic__note {
+  width: 100%; margin: 0;
+  font-family: var(--f-body); font-size: 14px; line-height: 1.2;
+  color: var(--c-ink);
+}
 @media (max-width: 1100px) {
   .vt-agnostic { width: 100%; justify-content: center; padding-top: 0; }
+  .vt-agnostic__note { text-align: center; }
 }
 
 /* "End-to-End Expertise" bar — pale blue panel with a blue left rule.
