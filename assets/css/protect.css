@@ -81,6 +81,14 @@ body.is-gate-open { overflow: hidden; }
 
 .pw-gate__form .btn { white-space: nowrap; }
 
+/* Figma: buttons in the gate are 40px tall (same as the input), 8/20 padding,
+   12px between label and icon — the global .btn is 44px with 10/24. */
+.pw-gate .btn {
+  height: 40px;
+  padding: 8px 20px;
+  gap: 12px;
+}
+
 .pw-gate__error {
   margin: -24px 0 0;
   font-family: var(--f-alt);
