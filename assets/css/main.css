@@ -459,11 +459,28 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .minicard__more .icon { font-size: 20px; }
 .minicard__more:hover .minicard__label { text-decoration: underline; }
 
-/* Feature card row (bordered grid) */
-/* "Why industry leaders choose iottag" — 500 / grow two-column (Figma 500|700, gap 80) */
-.why-cols { display: flex; align-items: center; gap: 80px; }
-.why-cols__head { width: 500px; flex-shrink: 0; }
-.why-cols__body { flex: 1; min-width: 0; }
+/* "Why industry leaders choose iottag" — copy 480 left, overlapping comparison cards
+   right (Figma 13357:17515: copy 480 | cards 720 = 400 + 400 overlapping 80) */
+.compare { display: flex; align-items: center; gap: 80px; }
+.compare__copy { width: 480px; flex-shrink: 0; }
+.compare__cards { display: flex; align-items: flex-end; justify-content: flex-end; flex: 1; min-width: 0; }
+.compare-card { width: 400px; max-width: 100%; background: var(--c-white); border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.compare-card--trad { margin-right: -80px; }  /* elevated card overlaps it */
+.compare-card--oi { position: relative; border-color: var(--c-blue-light); box-shadow: 0 12px 16px -4px rgba(0,0,0,.08), 0 4px 6px -2px rgba(0,0,0,.03); }
+.compare-card__head {
+  margin: 0; display: flex; align-items: center; height: 60px; padding: 0 20px;
+  background: #fdf6e5;
+  font-family: var(--f-alt); font-weight: 700; font-size: 18px; line-height: 1.2; color: #4b5059;
+}
+.compare-card--oi .compare-card__head { height: 72px; background: var(--c-blue-pale); }
+.compare-card__list { margin: 0; padding: 0; list-style: none; }
+.compare-card__list li {
+  display: flex; align-items: center; gap: 8px; height: 50px; padding: 0 16px;
+  font-family: var(--f-alt); font-weight: 700; font-size: 14px; line-height: 1.2; color: var(--c-grey);
+}
+.compare-card__list li + li { border-top: 1px solid var(--c-line); }
+.compare-card--oi .compare-card__list li { color: #4b5059; }
+.compare-card__ic { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 
 /* Executive Insight — text left, image right; stacks on mobile (no flex-wrap on desktop) */
 .exec-row { display: flex; align-items: center; gap: 40px; width: 100%; }
@@ -471,13 +488,6 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 /* Vector Tag field photo — source JPG is stored portrait; rotate 90° to show landscape.
    The wrapper holds the final landscape box; the img is sized swapped then rotated so it
    fills the box exactly (rotation alone doesn't reflow the layout). */
-
-.feature-row { display: flex; border-radius: var(--r-md); box-shadow: inset 0 0 0 1px var(--c-line); overflow: hidden; }
-.feature-card { flex: 1; padding: 40px 24px; display: flex; flex-direction: column; gap: 16px; transition: background .2s ease; }
-.feature-card:hover { background: var(--c-blue-pale); }
-.feature-card + .feature-card { border-left: 1px solid var(--c-line); }
-.feature-card p { margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.25; color: var(--c-grey); }
-.feature-card .card__ic { width: 24px; height: 24px; }  /* match the ie-diagram chip icons */
 
 /* Bullet list (applications / outcomes) */
 .bullets { display: flex; flex-direction: column; }
@@ -940,8 +950,9 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   .media-block, .highlight { flex-direction: column; gap: 40px; align-items: flex-start; }
   .video-thumb { width: 100%; }
   .lens { transform: scale(.8); transform-origin: top center; }
-  .why-cols { flex-direction: column; align-items: flex-start; gap: 24px; }
-  .why-cols__head { width: 100%; }
+  .compare { flex-direction: column; align-items: flex-start; gap: 40px; }
+  .compare__copy { width: 100%; }
+  .compare__cards { justify-content: flex-start; width: 100%; }
   .exec-row { flex-direction: column; align-items: flex-start; gap: 32px; }
   .exec-row img { width: 100%; height: auto; }
 }
@@ -949,8 +960,9 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   :root { --pad-x: 20px; }
   .h1, .hero .h1 { font-size: 40px; }
   .h2, .media-block .h2, .cta-band .h2 { font-size: 32px; }
-  .feature-row { flex-direction: column; }
-  .feature-card + .feature-card { border-left: 0; border-top: 1px solid var(--c-line); }
+  .compare__cards { flex-direction: column; align-items: stretch; gap: 16px; }
+  .compare-card { width: 100%; }
+  .compare-card--trad { margin-right: 0; }
   .nav-actions .btn span { display: none; }
   .info-card { padding: 24px; min-width: 100%; }
   .info-card__cols { flex-direction: column; gap: 0; }
@@ -1088,25 +1100,27 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   .dv-card + .dv-card { border-top: 1px solid var(--c-line); }
 }
 
-/* ===== FAQ accordion (home) ===== */
-.faq { width: 100%; max-width: 1000px; border-top: 1px solid var(--c-line); }
-.faq__item { border-bottom: 1px solid var(--c-line); }
+/* ===== FAQ accordion (home, Figma 13362:18058) — white rounded card on the pale band */
+.faq { width: 100%; border-radius: var(--r-md); overflow: hidden; }
+.faq__item { background: var(--c-white); }
+.faq__item + .faq__item { border-top: 1px solid var(--c-line); }
 .faq__q {
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  width: 100%; padding: 24px 4px; margin: 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  width: 100%; padding: 24px; margin: 0;
   background: none; border: 0; cursor: pointer; text-align: left;
-  font-family: var(--f-body); font-weight: 600; font-size: 18px; line-height: 1.4;
-  color: #4b5059;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -0.2px; color: #4b5059;
 }
 .faq__chev { flex-shrink: 0; color: #4b5059; transition: transform .3s ease; }
 .faq__item.is-open .faq__chev { transform: rotate(180deg); }
 .faq__a { overflow: hidden; max-height: 0; transition: max-height .35s ease; }
-.faq__a-inner { display: grid; gap: 12px; padding: 0 4px 24px; }
+.faq__a-inner { display: grid; gap: 12px; padding: 0 24px 24px; }
 .faq__a-inner p, .faq__a-inner li {
   font-family: var(--f-body); font-weight: 400; font-size: 16px; line-height: 1.6;
   color: var(--c-ink); margin: 0; text-align: left;
 }
 .faq__a-inner ul { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
 @media (max-width: 640px) {
-  .faq__q { font-size: 16px; padding: 20px 2px; gap: 16px; }
+  .faq__q { font-size: 16px; padding: 20px 16px; gap: 16px; }
+  .faq__a-inner { padding: 0 16px 20px; }
 }
