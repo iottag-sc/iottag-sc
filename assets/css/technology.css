@@ -204,6 +204,10 @@
 .stage span.icon { font-family: 'Material Symbols Outlined'; font-weight: 400; }
 
 /* 3. IOT SECURITY & GOVERNANCE (iot-security-governance) -------------------- */
+/* firmware lifecycle chevrons — icons match the homepage asset-strip (24px),
+   overriding the 40px base in platform.css */
+.stages--isg .stage img { width: 24px; height: 24px; }
+
 /* hero overlay — Figma OVL layer: brand gradient tint over the photo */
 .hero__ovl--isg {
   position: absolute; inset: 0; z-index: 1;
