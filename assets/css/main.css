@@ -879,11 +879,18 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   letter-spacing: -.01em; color: var(--c-blue);
 }
 .approach-bar__text { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
-/* The product shot on the right is the .d81-fit 360 viewer (see above), sized
-   to the 240x320 slot in the design via an inline width. */
+/* OEM systems ring diagram on the right of the bar (markup request Aug 2026,
+   replaced the .d81-fit 360 product shot) */
+.oem-ring { flex: 0 0 auto; width: min(420px, 100%); align-self: center; }
+.oem-ring svg { display: block; width: 100%; height: auto; }
+.oem-ring circle { fill: none; stroke: #99a0b3; stroke-width: 1.5; }
+.oem-ring text {
+  font-family: var(--f-alt); font-weight: 700; font-size: 19px;
+  fill: #2b3346; text-anchor: middle;   /* dark slate label from the mockup */
+}
 @media (max-width: 960px) {
   .approach-bar { flex-wrap: wrap; gap: 24px; }
-  .approach-bar .d81-fit { margin-inline: auto; }
+  .approach-bar .oem-ring { margin-inline: auto; }
 }
 
 /* Final CTA band */
