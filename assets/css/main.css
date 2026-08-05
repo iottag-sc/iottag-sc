@@ -1139,3 +1139,10 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   .faq__q { font-size: 16px; padding: 20px 16px; gap: 16px; }
   .faq__a-inner { padding: 0 16px 20px; }
 }
+
+/* ===== LinkedIn post embeds (home) — three iframes side by side */
+.li-embeds { display: flex; gap: 20px; align-items: flex-start; width: 100%; }
+.li-embeds iframe {
+  flex: 1 1 0; min-width: 0; height: 620px;
+  border: 0; border-radius: var(--r-md); background: var(--c-white);
+}

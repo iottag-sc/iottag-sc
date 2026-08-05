@@ -147,6 +147,10 @@
   .fri-dark__bg { width: 100vw; }
   .fri-dark { min-height: min(50vw, 680px); }
   .feat--bleed { width: 100vw; margin-left: calc(50% - 50vw); }
+
+  /* LinkedIn embeds stack vertically on phones */
+  .li-embeds { flex-direction: column; }
+  .li-embeds iframe { width: 100%; flex: 0 0 auto; height: 560px; }
 }
 
 @media (max-width: 480px) {
