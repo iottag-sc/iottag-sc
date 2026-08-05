@@ -462,7 +462,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 /* "Why industry leaders choose iottag" — copy 480 left, overlapping comparison cards
    right (Figma 13357:17515: copy 480 | cards 720 = 400 + 400 overlapping 80) */
 .compare { display: flex; align-items: center; gap: 80px; }
-.compare__copy { width: 480px; flex-shrink: 0; }
+.compare__head { flex: 1 1 0; min-width: 0; justify-content: center; }
 .compare__cards { display: flex; align-items: flex-end; justify-content: flex-end; flex: 1; min-width: 0; }
 .compare-card { width: 400px; max-width: 100%; background: var(--c-white); border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
 .compare-card--trad { margin-right: -80px; }  /* elevated card overlaps it */
@@ -959,7 +959,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   .video-thumb { width: 100%; }
   .lens { transform: scale(.8); transform-origin: top center; }
   .compare { flex-direction: column; align-items: flex-start; gap: 40px; }
-  .compare__copy { width: 100%; }
+  .compare__head { width: 100%; }
   .compare__cards { justify-content: flex-start; width: 100%; }
   .exec-row { flex-direction: column; align-items: flex-start; gap: 32px; }
   .exec-row img { width: 100%; height: auto; }
