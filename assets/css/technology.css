@@ -254,7 +254,7 @@
 /* joined photo strip — 240px cards, 1px seams, container-level radius */
 .isg-strip { display: flex; gap: 1px; width: 100%; border-radius: var(--r-md); overflow: hidden; }
 .isg-strip .photo-card { border-radius: 0; height: 240px; padding: 20px; }
-.isg-strip .photo-card__title { font-weight: 400; }
+.isg-strip .photo-card__title { font-weight: 400; font-size: 20px;}
 @media (max-width: 1100px) { .isg-strip { flex-wrap: wrap; } .isg-strip .photo-card { min-width: 240px; } }
 
 /* application mini-cards — single row of 8 pale-blue gov-cards */

@@ -852,9 +852,11 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .vt-agnostic__ic img { display: block; object-fit: contain; }
 .vt-agnostic__note {
   width: 100%; margin: 0;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
   font-family: var(--f-body); font-size: 14px; line-height: 1.2;
-  color: var(--c-ink);
+  color: var(--c-ink); text-align: center;
 }
+.vt-agnostic__note .icon { font-size: 20px; color: var(--c-orange); }
 @media (max-width: 1100px) {
   .vt-agnostic { width: 100%; justify-content: center; padding-top: 0; }
   .vt-agnostic__note { text-align: center; }
@@ -1117,7 +1119,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
   letter-spacing: -0.2px; color: #4b5059;
 }
-.faq__chev { flex-shrink: 0; color: #4b5059; transition: transform .3s ease; }
+.faq__chev { flex-shrink: 0; color: var(--c-blue); transition: transform .3s ease; }
 .faq__item.is-open .faq__chev { transform: rotate(180deg); }
 .faq__a { overflow: hidden; max-height: 0; transition: max-height .35s ease; }
 .faq__a-inner { display: grid; gap: 12px; padding: 0 24px 24px; }
