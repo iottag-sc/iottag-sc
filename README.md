@@ -23,14 +23,14 @@ Clean directory URLs — add new pages by dropping a folder in, no restructuring
 /solutions/operational-digital-twin/
 /solutions/fatal-risk-intelligence/
 /solutions/production-intelligence/
-/platform/  + operational-intelligence, workforce-visibility, fleet-visibility,
+/platform/  + workforce-visibility, fleet-visibility,
               asset-visibility, environmental-monitoring, executive-visibility
 /industries/ + mining, tunnelling, construction-infrastructure,
                bridge-construction-maintenance, critical-infrastructure
 /technology/ + vector-tag, positioning-technologies,
                iot-security-governance, integrations-ecosystem
 /resources/  + case-studies, video-library, articles-insights
-/company/    + about, why-iottag, partners, careers, contact
+/company/    + about, partners, careers, contact
 ```
 
 Each section has an **overview** (`/<section>/`) plus **detail pages**
