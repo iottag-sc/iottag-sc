@@ -458,6 +458,13 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 }
 .minicard__more .icon { font-size: 20px; }
 .minicard__more:hover .minicard__label { text-decoration: underline; }
+/* Active (selected) card — solid iottag blue with white text (markup request Aug 2026) */
+.minicard--active { background: var(--c-blue); }
+.minicard--active .h3,
+.minicard--active p,
+.minicard--active .checklist__item,
+.minicard--active .minicard__more { color: #fff; }
+.minicard--active .checklist__box { background: #fff; border-color: #fff; }
 
 /* "Why industry leaders choose iottag" — copy 480 left, overlapping comparison cards
    right (Figma 13357:17515: copy 480 | cards 720 = 400 + 400 overlapping 80) */
@@ -881,6 +888,9 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .approach-bar__text { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 /* OEM systems ring diagram on the right of the bar (markup request Aug 2026,
    replaced the .d81-fit 360 product shot) */
+/* home-only variant: wider inner margins around the copy (markup request Aug 2026) */
+.approach-bar--oem { padding: 40px 80px 40px 120px; justify-content: space-between; }
+.approach-bar--oem .approach-bar__copy { max-width: 560px; }
 .oem-ring { flex: 0 0 auto; width: min(420px, 100%); align-self: center; }
 .oem-ring svg { display: block; width: 100%; height: auto; }
 .oem-ring circle { fill: none; stroke: #99a0b3; stroke-width: 1.5; }
@@ -1123,7 +1133,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   width: 100%; padding: 24px; margin: 0;
   background: none; border: 0; cursor: pointer; text-align: left;
-  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  font-family: var(--f-alt); font-weight: 400; font-size: 20px; line-height: 1.4;
   letter-spacing: -0.2px; color: #4b5059;
 }
 .faq__chev { flex-shrink: 0; color: var(--c-blue); transition: transform .3s ease; }
