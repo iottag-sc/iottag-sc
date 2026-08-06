@@ -898,6 +898,21 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   font-family: var(--f-alt); font-weight: 700; font-size: 19px;
   fill: #2b3346; text-anchor: middle;   /* dark slate label from the mockup */
 }
+/* slow spin (markup request Aug 2026); labels counter-rotate to stay upright */
+.oem-ring__orbit {
+  animation: oem-spin 60s linear infinite;
+  transform-origin: 360px 360px;
+}
+.oem-ring__orbit text {
+  animation: oem-spin-reverse 60s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes oem-spin { to { transform: rotate(360deg); } }
+@keyframes oem-spin-reverse { to { transform: rotate(-360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .oem-ring__orbit, .oem-ring__orbit text { animation: none; }
+}
 @media (max-width: 960px) {
   .approach-bar { flex-wrap: wrap; gap: 24px; }
   .approach-bar .oem-ring { margin-inline: auto; }
