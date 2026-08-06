@@ -891,19 +891,25 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 /* home-only variant: wider inner margins around the copy (markup request Aug 2026) */
 .approach-bar--oem { padding: 40px 80px 40px 120px; justify-content: space-between; }
 .approach-bar--oem .approach-bar__copy { max-width: 560px; }
-.oem-ring { flex: 0 0 auto; width: min(420px, 100%); align-self: center; }
+.oem-ring { position: relative; flex: 0 0 auto; width: min(560px, 100%); align-self: center; }
 .oem-ring svg { display: block; width: 100%; height: auto; }
-.oem-ring circle { fill: none; stroke: #99a0b3; stroke-width: 1.5; }
+.oem-ring svg.oem-ring__logo {   /* beats `.oem-ring svg` above */
+  position: absolute; top: 50%; left: 50%;
+  width: 11.44%; height: auto;              /* 91.5 / 800 of the wheel */
+  transform: translate(-50%, -50%);
+}
+.oem-ring circle { fill: var(--c-white); stroke: var(--c-blue-tint); stroke-width: 1.5; }
 .oem-ring text {
   font-family: var(--f-alt); font-weight: 700; font-size: 19px;
-  fill: #2b3346; text-anchor: middle;   /* dark slate label from the mockup */
+  fill: var(--c-blue); text-anchor: middle;
 }
-/* slow spin (markup request Aug 2026); labels counter-rotate to stay upright */
-.oem-ring__orbit {
+/* slow spin (markup request Aug 2026); labels counter-rotate to stay upright.
+   The WHOLE wheel svg rotates (never an inner group — Chromium mis-renders the
+   clip-path patch under an animated ancestor group). */
+.oem-ring__wheel {
   animation: oem-spin 60s linear infinite;
-  transform-origin: 360px 360px;
 }
-.oem-ring__orbit text {
+.oem-ring__wheel text {
   animation: oem-spin-reverse 60s linear infinite;
   transform-box: fill-box;
   transform-origin: center;
@@ -911,7 +917,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 @keyframes oem-spin { to { transform: rotate(360deg); } }
 @keyframes oem-spin-reverse { to { transform: rotate(-360deg); } }
 @media (prefers-reduced-motion: reduce) {
-  .oem-ring__orbit, .oem-ring__orbit text { animation: none; }
+  .oem-ring__wheel, .oem-ring__wheel text { animation: none; }
 }
 @media (max-width: 960px) {
   .approach-bar { flex-wrap: wrap; gap: 24px; }
