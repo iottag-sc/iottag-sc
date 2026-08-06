@@ -397,10 +397,9 @@ p { text-align: left; }
   transition: box-shadow .2s ease, transform .2s ease;
 }
 a.card:hover { box-shadow: 0 14px 28px -10px rgba(6,3,9,.16), inset 0 0 0 1px var(--c-blue); transform: translateY(-3px); }
-/* Pale variant — blue-tinted card on a white section (Executive Insight) */
-.card--pale { background: var(--c-blue-pale); box-shadow: none; }
-.card--pale .checklist__box { background: #fff; }
-.card--pale .role-pill { background: #fff; border: .8px solid rgba(29,162,216,.12); border-radius: 8px; }
+/* Borderless white card on the pale Executive Insight band (Figma 12359:9829) */
+.card--on-pale { box-shadow: none; }
+.card--on-pale .role-pill { background: #fff; border: .8px solid rgba(29,162,216,.12); border-radius: 8px; }
 .card__icon { font-size: 40px; color: var(--c-blue); }
 .card__ic { width: 40px; height: 40px; display: block; }   /* SVG icons keep their own baked-in colours */
 
@@ -1116,6 +1115,8 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 }
 .asset-stage + .asset-stage { margin-left: -16px; }
 .asset-stage span { font: 600 16px/1.2 var(--f-body); color: #4B5059; }
+/* on a white section the chevrons fill pale blue instead (Figma 10584:15443) */
+.asset-strip--on-white .asset-stage { background: var(--c-blue-pale); }
 
 /* ---- "Delivering Value" pale band (Figma 12781:9687) ------------------ */
 /* header row: 500px title + copy column */
@@ -1147,7 +1148,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 }
 
 /* ===== FAQ accordion (home, Figma 13362:18058) — white rounded card on the pale band */
-.faq { width: 100%; border-radius: var(--r-md); overflow: hidden; }
+.faq { width: 100%; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
 .faq__item { background: var(--c-white); }
 .faq__item + .faq__item { border-top: 1px solid var(--c-line); }
 .faq__q {
@@ -1175,7 +1176,10 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
    Each iframe keeps LinkedIn's native 504px layout at its full post height
    (data-h on the wrapper) and main.js scales it down to the column width,
    so no part of a post is ever clipped. */
-.li-embeds { display: flex; gap: 20px; align-items: flex-start; width: 100%; }
+/* strip runs 40% wider than the section content, spilling into the page
+   margins but always keeping a small viewport gutter (no horizontal scroll).
+   125vw ≈ the real viewport width in layout px under html{zoom:.8}. */
+.li-embeds { display: flex; gap: 20px; align-items: flex-start; width: min(140%, calc(125vw - 48px)); align-self: center; }
 .li-embed { flex: 1 1 0; min-width: 0; overflow: hidden; border-radius: var(--r-md); }
 .li-embed iframe {
   display: block; border: 0; transform-origin: 0 0;
