@@ -1165,9 +1165,13 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   .faq__a-inner { padding: 0 16px 20px; }
 }
 
-/* ===== LinkedIn post embeds (home) — three iframes side by side */
+/* ===== LinkedIn post embeds (home) — three iframes side by side.
+   Each iframe keeps LinkedIn's native 504px layout at its full post height
+   (data-h on the wrapper) and main.js scales it down to the column width,
+   so no part of a post is ever clipped. */
 .li-embeds { display: flex; gap: 20px; align-items: flex-start; width: 100%; }
-.li-embeds iframe {
-  flex: 1 1 0; min-width: 0; height: 620px;
-  border: 0; border-radius: var(--r-md); background: var(--c-white);
+.li-embed { flex: 1 1 0; min-width: 0; overflow: hidden; border-radius: var(--r-md); }
+.li-embed iframe {
+  display: block; border: 0; transform-origin: 0 0;
+  background: var(--c-white);
 }

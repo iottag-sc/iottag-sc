@@ -367,6 +367,33 @@ function initWhitePaperGate() {
   }
 }
 
+/* ---- LinkedIn embeds: scale native-size iframes to their column --------- */
+/* A cross-origin iframe cannot grow to fit its content, so a fluid-width
+   embed clips whatever exceeds its fixed CSS height. Instead each embed keeps
+   LinkedIn's native 504px layout at its full post height (data-h on the
+   .li-embed wrapper) and is scaled down to the column width — the content
+   never rewraps, so the height stays valid and nothing is cut off at any
+   viewport size. */
+function initLinkedInEmbeds() {
+  const wraps = document.querySelectorAll('.li-embed');
+  if (!wraps.length) return;
+  const NATIVE_W = 504;
+  const fit = () => {
+    wraps.forEach((wrap) => {
+      const frame = wrap.querySelector('iframe');
+      if (!frame) return;
+      const h = parseInt(wrap.dataset.h, 10) || 1200;
+      const scale = wrap.clientWidth / NATIVE_W;
+      frame.style.width = `${NATIVE_W}px`;
+      frame.style.height = `${h}px`;
+      frame.style.transform = `scale(${scale})`;
+      wrap.style.height = `${h * scale}px`;
+    });
+  };
+  fit();
+  window.addEventListener('resize', fit);
+}
+
 /* ---- boot ------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', async () => {
   await injectPartials();   // nav/footer must exist before wiring the hooks below
@@ -381,4 +408,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   initDashCarousel();
   initBrandMarquee();
   initWhitePaperGate();
+  initLinkedInEmbeds();
 });
