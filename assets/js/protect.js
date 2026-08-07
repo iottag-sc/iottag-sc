@@ -78,11 +78,10 @@ function init() {
       if (!snap.exists()) throw new Error(`missing articles/${docId}`);
       target.innerHTML = snap.data().content;
       hideGate();
-      /* the listing page's download-gate modal arrives with the content, after
-         main.js already booted — wire it up now (it no-opped on page load) */
-      if (target.querySelector('[data-wp-gate]') && window.initWhitePaperGate) {
-        window.initWhitePaperGate();
-      }
+      /* the listing page's white-paper download buttons arrive with the
+         content, after main.js already booted — wire them up now (they
+         no-opped on page load) */
+      if (window.initWhitePaperGate) window.initWhitePaperGate();
     } catch (err) {
       loaded = false;
       showGate();
