@@ -890,7 +890,8 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 /* home-only variant: wider inner margins around the copy (markup request Aug 2026) */
 .approach-bar--oem { padding: 40px 80px 40px 120px; justify-content: space-between; }
 .approach-bar--oem .approach-bar__copy { max-width: 560px; }
-.oem-ring { position: relative; flex: 0 0 auto; width: min(560px, 100%); align-self: center; }
+/* 25% smaller than the original 560px (markup request Aug 2026) */
+.oem-ring { position: relative; flex: 0 0 auto; width: min(420px, 100%); align-self: center; }
 .oem-ring svg { display: block; width: 100%; height: auto; }
 .oem-ring svg.oem-ring__logo {   /* beats `.oem-ring svg` above */
   position: absolute; top: 50%; left: 50%;
@@ -899,7 +900,9 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 }
 .oem-ring circle { fill: var(--c-white); stroke: var(--c-blue-tint); stroke-width: 1.5; }
 .oem-ring text {
-  font-family: var(--f-alt); font-weight: 700; font-size: 19px;
+  /* viewBox units — the wheel renders at 420/800, so 28u ≈ 14.7px on screen
+     (was 19u at 560/800 ≈ 13.3px): smaller ring, slightly larger labels */
+  font-family: var(--f-alt); font-weight: 700; font-size: 28px;
   fill: var(--c-blue); text-anchor: middle;
 }
 /* slow spin (markup request Aug 2026); labels counter-rotate to stay upright.

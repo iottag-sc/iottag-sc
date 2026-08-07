@@ -508,6 +508,12 @@
 .fri-intro__copy p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 @media (max-width: 960px) { .fri-intro { flex-wrap: wrap; } .fri-intro__head { width: 100%; } }
 
+/* chevron strip with the smaller 24px icons used on the home page cards
+   (base .stage img is 40px in platform.css) */
+.stages--sm { height: 120px; }          /* shorter strip to match the 24px icons */
+.stages--sm .stage img { width: 24px; height: 24px; }
+.stages--sm.stages--align .stage { padding-top: 24px; }
+
 /* 18px body text used across this page (Figma text-medium, lh 1.2) */
 .fri-copy { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: var(--c-ink); }
 .fri-copy--semi { font-weight: 600; }
