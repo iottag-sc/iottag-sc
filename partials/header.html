@@ -27,22 +27,21 @@
       <button type="button" class="nav__link" data-nav="solutions" aria-expanded="false">Solutions<span class="nav__caret icon" aria-hidden="true">chevron_right</span></button>
       <div class="megamenu">
         <div class="megamenu__inner">
-          <a class="megamenu__opt" href="/solutions/operational-digital-twin/index.html"><strong>Operational Intelligence</strong><span>A Live Understanding Of The Operation</span></a>
+          <a class="megamenu__opt megamenu__opt--atlas" href="/solutions/operational-digital-twin/index.html"><strong>Atlas Core</strong><span>A Live Understanding Of The Operation</span></a>
           <a class="megamenu__opt" href="/solutions/fatal-risk-intelligence/index.html"><strong>Fatal Risk Intelligence</strong><span>Predicting Risk Before It Escalates</span></a>
           <a class="megamenu__opt" href="/solutions/production-intelligence/index.html"><strong>Production Intelligence</strong><span>Understanding The Factors Influencing Operational Performance</span></a>
         </div>
-      </div>
-    </div>
-
-    <div class="nav__item">
-      <button type="button" class="nav__link" data-nav="platform" aria-expanded="false">Platform<span class="nav__caret icon" aria-hidden="true">chevron_right</span></button>
-      <div class="megamenu">
-        <div class="megamenu__inner">
-          <a class="megamenu__opt" href="/platform/workforce-visibility/index.html"><strong>Connected Workforce</strong><span>See personnel activity and accountability</span></a>
-          <a class="megamenu__opt" href="/platform/fleet-visibility/index.html"><strong>Connected Fleet</strong><span>Understand vehicle movement and interaction</span></a>
-          <a class="megamenu__opt" href="/platform/asset-visibility/index.html"><strong>Connected Assets</strong><span>Track critical assets and resources</span></a>
-          <a class="megamenu__opt" href="/platform/environmental-intelligence/index.html"><strong>Connected Environment</strong><span>Understand changing site conditions</span></a>
-          <a class="megamenu__opt" href="/platform/operational-analytics-benchmarking/index.html"><strong>Multi-site Analytics &amp; Benchmarking</strong><span>Portfolio-level dashboards and KPIs</span></a>
+        <!-- second level: revealed when Atlas Core is rolled over (see .megamenu__sub
+             in main.css). On mobile it is always open inside the accordion — it is
+             the only route to the /platform/ pages now that Platform left the nav. -->
+        <div class="megamenu__sub">
+          <div class="megamenu__inner">
+            <a class="megamenu__opt" href="/platform/workforce-visibility/index.html"><strong>Connected Workforce</strong><span>See personnel activity and accountability</span></a>
+            <a class="megamenu__opt" href="/platform/fleet-visibility/index.html"><strong>Connected Fleet</strong><span>Understand vehicle movement and interaction</span></a>
+            <a class="megamenu__opt" href="/platform/asset-visibility/index.html"><strong>Connected Assets</strong><span>Track critical assets and resources</span></a>
+            <a class="megamenu__opt" href="/platform/environmental-intelligence/index.html"><strong>Connected Environment</strong><span>Understand changing site conditions</span></a>
+            <a class="megamenu__opt" href="/platform/operational-analytics-benchmarking/index.html"><strong>Multi-site Analytics &amp; Benchmarking</strong><span>Portfolio-level dashboards and KPIs</span></a>
+          </div>
         </div>
       </div>
     </div>

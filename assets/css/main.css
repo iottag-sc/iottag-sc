@@ -357,6 +357,30 @@ p { text-align: left; }
 .megamenu__opt:hover { border-left-color: #1e729c; }
 .megamenu__opt:hover strong { color: #4b5059; }
 
+/* Second level: rolling over "Atlas Core" opens its capabilities in a row
+   underneath, and the panel grows to fit. The gap above the sub-row is PADDING,
+   not margin, so the hover target is continuous with the option above it — a
+   margin would leave a dead strip that flickers the row shut on the way down
+   (the options already overhang their row by 8px via their negative margins).
+   The divider is drawn inside that padding by ::before. */
+.megamenu__sub {
+  display: none;
+  position: relative;
+  max-width: 1312px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+.megamenu__sub::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 20px;
+  border-top: 1px solid rgba(75, 80, 89, .16);
+}
+/* open on Atlas Core hover, stay open while the pointer is in the sub-row,
+   and stay open for keyboard users the whole time focus is inside the menu */
+.megamenu:has(.megamenu__opt--atlas:hover, .megamenu__sub:hover) .megamenu__sub,
+.nav__item:focus-within .megamenu__sub { display: block; }
+
 .nav-actions { display: flex; align-items: center; gap: 8px; justify-content: flex-end; flex-grow: 1; }
 .site-header--scrolled .btn--ghost,
 .site-header--solid .btn--ghost { color: #4b5059; }
@@ -981,6 +1005,12 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   /* the sheet stacks the options, so drop the desktop bleed margins entirely */
   .nav.is-open .megamenu__opt { padding: 10px 0 10px 12px; margin: 0; background: none; }
   .nav.is-open .megamenu__opt span { display: none; }  /* descriptions are noise on a narrow sheet */
+  /* no hover on a touch sheet — the Atlas Core sub-links are always listed,
+     indented under the solutions, as the only route to the /platform/ pages */
+  .nav.is-open .megamenu__sub { display: block; padding-top: 0; }
+  .nav.is-open .megamenu__sub::before { display: none; }
+  .nav.is-open .megamenu__sub .megamenu__opt { padding-left: 28px; }
+  .nav.is-open .megamenu__sub .megamenu__opt strong { font-size: 15px; opacity: .85; }
   /* the desktop options sit on a light panel; on mobile they sit on the nav
      sheet, so they take the sheet's foreground colour instead of --c-grey */
   .nav.is-open .megamenu__opt strong {

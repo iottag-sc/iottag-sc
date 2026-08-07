@@ -37,10 +37,14 @@ async function injectPartials() {
 }
 
 /* ---- active nav ------------------------------------------------------- */
+/* the /platform/ pages sit under Solutions → Atlas Core now that Platform has
+   left the top-level nav, so their data-page highlights Solutions instead */
+const NAV_ALIAS = { platform: 'solutions' };
+
 function setActiveNav() {
   const page = document.body.dataset.page;
   if (!page) return;
-  const link = document.querySelector(`.nav__link[data-nav="${page}"]`);
+  const link = document.querySelector(`.nav__link[data-nav="${NAV_ALIAS[page] || page}"]`);
   if (link) link.setAttribute('aria-current', 'page');
 }
 
