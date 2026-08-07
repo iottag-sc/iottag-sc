@@ -270,3 +270,59 @@
    154.67px columns of 140px tiles, 8px gaps, staggered 20 / 10 / 0 from the top */
 .acc-tiles--photo.acc-tiles--h140 .acc-tile { height: 140px; }
 .acc-tiles__col--o10 { padding-top: 10px; }
+
+/* ── Tunnelling · Recent Projects (Figma 13464:10953) ───────────────────────
+   Three-up card grid, 20px gutters, 360px tall cards: a flexible photo area
+   over a fixed 120px caption block (24px / 20px padding). Card chrome is the
+   1px #d9d9da hairline + 8px radius from the design's Video component. */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+.proj-card {
+  display: flex;
+  flex-direction: column;
+  height: 360px;
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.proj-card__img { flex: 1 1 0; min-height: 0; width: 100%; height: 100%; object-fit: cover; }
+.proj-card__body {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 20px 24px;
+}
+.proj-card__title {
+  margin: 0;
+  font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
+  letter-spacing: -.01em; color: #4b5059;   /* site heading ink, not the design's raw #060309 */
+}
+.proj-card__loc {
+  margin: 0;
+  font-family: var(--f-alt); font-size: 18px; line-height: 1.2; color: var(--c-grey);
+}
+
+/* "View more" / "View less" toggle — Figma 13464:11216 (collapsed, more_horiz)
+   and 13464:11241 (expanded, chevron-up). The extra cards live in the markup
+   and are revealed in place, so the grid reflows into a third row. */
+.proj-card--more[hidden] { display: none; }
+.proj-more { min-width: 140px; gap: 12px; font-weight: 700; }
+.proj-more__ic { width: 24px; height: 24px; }
+.proj-more__ic--less,
+.proj-more[aria-expanded="true"] .proj-more__ic--more { display: none; }
+.proj-more[aria-expanded="true"] .proj-more__ic--less { display: block; }
+
+@media (max-width: 1000px) { .proj-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px)  {
+  .proj-grid { grid-template-columns: minmax(0, 1fr); }
+  .proj-card { height: 320px; }
+  .proj-card__title { font-size: 18px; }
+  .proj-card__loc { font-size: 16px; }
+}

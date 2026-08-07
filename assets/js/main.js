@@ -394,6 +394,26 @@ function initLinkedInEmbeds() {
   window.addEventListener('resize', fit);
 }
 
+/* ---- "View more" card reveal (Tunnelling · Recent Projects) ------------ */
+/* The overflow cards ship in the HTML behind [hidden] so crawlers still see
+   them; the button flips them on and relabels itself View more / View less. */
+function initCardReveal() {
+  document.querySelectorAll('[data-proj-toggle]').forEach((btn) => {
+    const grid = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!grid) return;
+    const extras = grid.querySelectorAll('.proj-card--more');
+    if (!extras.length) return;
+    const label = btn.querySelector('.proj-more__label');
+
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      extras.forEach((card) => { card.hidden = open; });
+      btn.setAttribute('aria-expanded', String(!open));
+      if (label) label.textContent = open ? 'View more' : 'View less';
+    });
+  });
+}
+
 /* ---- boot ------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', async () => {
   await injectPartials();   // nav/footer must exist before wiring the hooks below
@@ -407,6 +427,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initMapExplorer();
   initDashCarousel();
   initBrandMarquee();
+  initCardReveal();
   initWhitePaperGate();
   initLinkedInEmbeds();
 });
