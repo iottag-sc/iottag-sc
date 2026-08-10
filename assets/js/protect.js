@@ -110,7 +110,7 @@ function buildGate() {
       <p class="pw-gate__error" data-pw-error hidden>Incorrect password. Please try again.</p>
       <div class="pw-gate__actions">
         <button type="button" class="btn btn--secondary" data-pw-back><span class="icon" aria-hidden="true">arrow_back</span> Go back</button>
-        <a class="btn btn--secondary" href="${base}company/contact/index.html"><span class="icon" aria-hidden="true">support_agent</span> Contact Us</a>
+        <a class="btn btn--secondary" href="${base}company/contact/"><span class="icon" aria-hidden="true">support_agent</span> Contact Us</a>
       </div>
     </div>`;
   return gate;
