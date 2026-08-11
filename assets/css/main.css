@@ -919,8 +919,16 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .oem-ring svg { display: block; width: 100%; height: auto; }
 .oem-ring svg.oem-ring__logo {   /* beats `.oem-ring svg` above */
   position: absolute; top: 50%; left: 50%;
-  width: 11.44%; height: auto;              /* 91.5 / 800 of the wheel */
-  transform: translate(-50%, -50%);
+  width: 8.5%; height: auto;                /* shrunk from 11.44% (markup request Aug 2026) */
+  transform: translate(-50%, calc(-100% - 4px));  /* sits just above the centre label */
+}
+/* "Intelligence Layer" label under the centre logo (markup request Aug 2026) */
+.oem-ring__label {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, 4px);
+  font-family: var(--f-alt); font-weight: 700; font-size: 15px; line-height: 1.2;
+  color: var(--c-blue);
+  text-align: center;
 }
 .oem-ring circle { fill: var(--c-white); stroke: var(--c-blue-tint); stroke-width: 1.5; }
 .oem-ring text {
@@ -1120,6 +1128,19 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 }
 .ie-core__name { font: 600 18px/1.2 var(--f-body); color: #4B5059; }
 .ie-core__sub  { font: 400 12px/1.2 var(--f-body); color: var(--c-grey); }
+/* revolving factor label under the core title — fast fade in/out, text swapped by JS */
+.ie-core__cycle {
+  min-height: 34px;               /* reserve two lines so the core doesn't jiggle */
+  max-width: 150px;               /* long factors wrap inside the 190px circle */
+  font: 600 14px/1.2 var(--f-body);
+  color: var(--c-blue);
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+.ie-core__cycle.is-in { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .ie-core__cycle { transition: none; }
+}
 /* copy column: sizes per Figma (Text/Medium 18px), colours follow the site's body-text palette */
 .ie-copy { font: 400 18px/1.2 var(--f-body); color: var(--c-ink); margin: 0; }
 .ie-copy--lead { font-weight: 600; color: var(--c-ink); }

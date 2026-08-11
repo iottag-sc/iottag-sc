@@ -1,6 +1,10 @@
 # Figma design-watch tooling: runs locally on a schedule; baseline, reports
 # and logs are machine-generated working data — keep them out of the site repo.
 figma-watch/
+
+# LinkedIn post crawler: contains a logged-in LinkedIn session (state.json) —
+# must NEVER be committed or deployed with the static site.
+linkedin-watch/
 github-recovery-codes.txt
 
 # Password-protected article tooling: tools/content holds the real article

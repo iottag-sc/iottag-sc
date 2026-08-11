@@ -374,6 +374,40 @@ function initCardReveal() {
   });
 }
 
+/* ---- home: intelligence-engines core — revolving factor text ----------- */
+/* Cycles the operational factors Atlas understands through the centre of the
+   ie-diagram with a fast fade in / fade out (content request Aug 2026). */
+const IE_FACTORS = [
+  'Fatigue & Alertness', 'Shift Duration', 'Personnel Location',
+  'Vehicle Proximity', 'Vehicle Speed', 'Traffic Congestion', 'Visibility',
+  'Temperature', 'Humidity', 'Gas Concentrations', 'Oxygen Level',
+  'DPM & Particulates', 'Ventilation Performance', 'Airflow Direction',
+  'Equipment Condition', 'Fire Detection Status', 'Restricted Zones',
+  'Work Activity & Task', 'Simultaneous Operations',
+  'Competency & Authorisation', 'PPE Status', 'Communications Availability',
+  'Emergency Route Availability', 'Muster Status', 'Weather Conditions',
+  'Noise Exposure', 'Blasting & Performance', 'Fragmentation', 'Work Permits',
+  'Identified Hazards', 'Ground Stability', 'Maintenance', 'WHS Regulations',
+];
+function initIeCycle() {
+  const el = document.querySelector('[data-ie-cycle]');
+  if (!el) return;
+  const words = IE_FACTORS;
+  const FADE = 200;   /* ms — matches the CSS opacity transition */
+  const HOLD = 1200;  /* ms visible before fading out */
+  let i = 0;
+  el.textContent = words[0];
+  el.classList.add('is-in');
+  setInterval(() => {
+    el.classList.remove('is-in');
+    setTimeout(() => {
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      el.classList.add('is-in');
+    }, FADE);
+  }, HOLD + FADE);
+}
+
 /* ---- boot ------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', async () => {
   await injectPartials();   // nav/footer must exist before wiring the hooks below
@@ -390,4 +424,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   initCardReveal();
   initWhitePaperGate();
   initLinkedInEmbeds();
+  initIeCycle();
 });
