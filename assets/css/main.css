@@ -919,20 +919,20 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .oem-ring svg { display: block; width: 100%; height: auto; }
 .oem-ring svg.oem-ring__logo {   /* beats `.oem-ring svg` above */
   position: absolute; top: 50%; left: 50%;
-  width: 8.5%; height: auto;                /* shrunk from 11.44% (markup request Aug 2026) */
+  width: 6.4%; height: auto;                /* shrunk 25% from 8.5% (markup request Aug 2026) */
   transform: translate(-50%, calc(-100% - 4px));  /* sits just above the centre label */
 }
 /* "Intelligence Layer" label under the centre logo (markup request Aug 2026) */
 .oem-ring__label {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, 4px);
-  font-family: var(--f-alt); font-weight: 700; font-size: 15px; line-height: 1.2;
+  font-family: var(--f-alt); font-weight: 400; font-size: 15px; line-height: 1.2;
   color: var(--c-blue);
   text-align: center;
 }
 .oem-ring circle { fill: var(--c-white); stroke: var(--c-blue-tint); stroke-width: 1.5; }
 /* connector lines centre-hub → system circles (markup request Aug 2026) */
-.oem-ring__spokes line { stroke: #4CC4FE; stroke-opacity: .9; stroke-width: 3; }
+.oem-ring__spokes line { stroke: #4CC4FE; stroke-opacity: .6; stroke-width: 3; }  /* .9 − 35% */
 .oem-ring text {
   /* viewBox units — the wheel renders at 420/800, so 28u ≈ 14.7px on screen
      (was 19u at 560/800 ≈ 13.3px): smaller ring, slightly larger labels */
@@ -1128,7 +1128,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   justify-content: center;
   text-align: center;
 }
-.ie-core__name { font: 600 18px/1.2 var(--f-body); color: #4B5059; }
+.ie-core__name { font: 600 15px/1.2 var(--f-body); color: #4B5059; }  /* 18→15px: keeps "Understands Factors" inside the circle */
 .ie-core__sub  { font: 400 12px/1.2 var(--f-body); color: var(--c-grey); }
 /* revolving factor label under the core title — fast fade in/out, text swapped by JS */
 .ie-core__cycle {
