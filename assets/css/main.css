@@ -931,6 +931,8 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   text-align: center;
 }
 .oem-ring circle { fill: var(--c-white); stroke: var(--c-blue-tint); stroke-width: 1.5; }
+/* connector lines centre-hub → system circles (markup request Aug 2026) */
+.oem-ring__spokes line { stroke: #4CC4FE; stroke-opacity: .9; stroke-width: 3; }
 .oem-ring text {
   /* viewBox units — the wheel renders at 420/800, so 28u ≈ 14.7px on screen
      (was 19u at 560/800 ≈ 13.3px): smaller ring, slightly larger labels */

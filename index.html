@@ -516,6 +516,22 @@ Supporting owners, contractors, operators and project teams across mining, tunne
             <!-- clip radius = circle r + full stroke + AA margin, so the patch also
                  covers the outer half of SAP's stroke inside the overlap -->
             <clipPath id="oem-clip-sap"><circle cx="248" cy="163" r="101"/></clipPath>
+            <!-- spokes from the centre hub to every system circle — drawn FIRST so the
+                 white-filled circles (hub + ring) paint over the line ends -->
+            <g class="oem-ring__spokes">
+              <line x1="400" y1="400" x2="400" y2="118"/>
+              <line x1="400" y1="400" x2="552" y2="163"/>
+              <line x1="400" y1="400" x2="657" y2="283"/>
+              <line x1="400" y1="400" x2="679" y2="440"/>
+              <line x1="400" y1="400" x2="613" y2="585"/>
+              <line x1="400" y1="400" x2="479" y2="671"/>
+              <line x1="400" y1="400" x2="321" y2="671"/>
+              <line x1="400" y1="400" x2="187" y2="585"/>
+              <line x1="400" y1="400" x2="121" y2="440"/>
+              <line x1="400" y1="400" x2="144" y2="283"/>
+              <line x1="400" y1="400" x2="248" y2="163"/>
+            </g>
+            <circle class="oem-ring__hub" cx="400" cy="400" r="110"/>
             <circle cx="400" cy="118" r="98"/><text x="400" y="118" dy=".35em">ERP</text>
             <circle cx="552" cy="163" r="98"/><text x="552" y="163" dy=".35em">SCADA</text>
             <circle cx="657" cy="283" r="98"/><text x="657" y="283" dy=".35em">CMMS</text>
