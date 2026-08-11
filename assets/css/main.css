@@ -258,7 +258,7 @@ p { text-align: left; }
   background: rgba(255,255,255,.96);
   backdrop-filter: blur(10px);
 }
-.brand { display: flex; align-items: center; gap: 9px; flex-grow: 1; }
+.brand { display: flex; align-items: center; gap: 9px; flex: 1 1 0; }
 .brand__logo { display: block; height: 36px; width: auto; flex-shrink: 0; color: #fff; transition: color .2s ease; }
 .site-header--scrolled .brand__logo,
 .site-header--solid .brand__logo { color: #000; }
@@ -381,7 +381,7 @@ p { text-align: left; }
 .megamenu:has(.megamenu__opt--atlas:hover, .megamenu__sub:hover) .megamenu__sub,
 .nav__item:focus-within .megamenu__sub { display: block; }
 
-.nav-actions { display: flex; align-items: center; gap: 8px; justify-content: flex-end; flex-grow: 1; }
+.nav-actions { display: flex; align-items: center; gap: 8px; justify-content: flex-end; flex: 1 1 0; }
 .site-header--scrolled .btn--ghost,
 .site-header--solid .btn--ghost { color: #4b5059; }
 .site-header--scrolled .btn--ghost:hover,
