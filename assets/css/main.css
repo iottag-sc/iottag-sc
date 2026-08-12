@@ -307,8 +307,8 @@ p { text-align: left; }
   box-shadow: 0 24px 40px -16px rgba(0,0,0,.28);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-8px);
-  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  transform: translateY(-16px);
+  transition: opacity .25s ease, transform .3s cubic-bezier(.22,.9,.3,1), visibility .3s ease;
   z-index: 40;
 }
 .nav__item:hover .megamenu,
@@ -324,18 +324,24 @@ p { text-align: left; }
   grid-template-columns: repeat(auto-fill, 424px);
   gap: 40px 20px;
 }
+/* in the menu with a capabilities band, push the band's hairline 16px below
+   the tier-1 descriptions — exactly the options' 16px bottom overhang, so the
+   Atlas tile's fill still meets the band with no grey strip between them */
+.megamenu:has(.megamenu__sub) > .megamenu__inner { padding-bottom: 16px; }
 .megamenu__inner--4 { grid-template-columns: repeat(4, 1fr); }
 .megamenu__opt {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  /* hover = 2px #1e729c bar + 12px gap left of the text (no fill — the white
-     panel was removed 2026-07-27). The 8px padding is cancelled by matching
-     negative margins; the -14px left margin hangs the bar in the column gap.
-     Net effect: hovering paints, it never shifts the grid. */
-  padding: 8px 0 8px 12px;
+  /* Figma option box: 16px vertical / 20px horizontal padding, so the hover
+     fill and the Atlas tile get real air around the text. The padding is
+     cancelled by matching negative margins (left also absorbs the 2px hover
+     bar: 20+2=22) so the grid rhythm — and the text's 424px measure — never
+     shifts: hovering only paints. Boxes overhang into the 20px column gap;
+     harmless, the fills just meet edge-to-edge like the Figma tiles. */
+  padding: 16px 20px;
   border-left: 2px solid transparent;
-  margin: -8px 0 -8px -14px;
+  margin: -16px -20px -16px -22px;
   transition: border-color .15s ease, background-color .15s ease;
 }
 .megamenu__opt strong {
@@ -356,30 +362,92 @@ p { text-align: left; }
 }
 .megamenu__opt:hover { border-left-color: #1e729c; }
 .megamenu__opt:hover strong { color: #4b5059; }
+/* light-blue block marks Atlas Core (and its capabilities row below) as one
+   group — only while hovered / while its row is open, not painted statically.
+   The background-color transition on .megamenu__opt fades it in and out. */
+.megamenu:has(.megamenu__opt--atlas:hover, .megamenu__sub:hover) .megamenu__opt--atlas,
+.nav__item:focus-within .megamenu__opt--atlas { background: var(--c-blue-pale); }
+/* the tile's title darkens to the same grey as the other options' hover, and
+   the tile has no hover bar — its fill + rounded top corners do the marking */
+.megamenu:has(.megamenu__opt--atlas:hover, .megamenu__sub:hover) .megamenu__opt--atlas strong,
+.nav__item:focus-within .megamenu__opt--atlas strong { color: #4b5059; }
+.megamenu__opt--atlas {
+  border-radius: 8px 8px 0 0;
+  /* the tile's fill is visible (unlike the other options') — pull its right
+     edge back so the blue never crosses the next option's hover-bar line
+     (that bar hangs 22px into the gap: 20px overhang + 2px bar width) */
+  margin-right: 2px;
+  /* paint the tile's fill over the band's top border so the two read as one
+     continuous block (the options overhang their row by 8px) */
+  position: relative;
+  z-index: 1;
+}
+.megamenu__opt--atlas:hover { border-left-color: transparent; }
+/* down arrow on Atlas Core — signals the capabilities row underneath.
+   chevron_right rotated 90deg (expand_more is not in the icon subset).
+   The title becomes a flex row so the arrow sits right after the text.
+   Descendant selector so it beats the `.megamenu__opt span` description
+   styles, which would otherwise override the icon font. */
+.megamenu__opt--atlas strong {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.megamenu__opt .megamenu__caret {
+  display: inline-block;
+  font-family: "Material Symbols Outlined";
+  font-size: 24px;
+  line-height: 1;
+  color: var(--c-blue);
+  transform: rotate(90deg);
+  transition: transform .25s ease;
+}
 
 /* Second level: rolling over "Atlas Core" opens its capabilities in a row
-   underneath, and the panel grows to fit. The gap above the sub-row is PADDING,
-   not margin, so the hover target is continuous with the option above it — a
+   underneath, and the panel grows to fit. It slides open (max-height) and
+   fades in rather than snapping. The gap above the sub-row is PADDING, not
+   margin, so the hover target is continuous with the option above it — a
    margin would leave a dead strip that flickers the row shut on the way down
    (the options already overhang their row by 8px via their negative margins).
-   The divider is drawn inside that padding by ::before. */
+   The band bleeds through the panel's 64px side and 40px bottom padding
+   (cancelled by its own padding) so the light blue runs the full panel
+   width and down to the panel's bottom edge — no grey gaps around it.
+   The bleed also gives the options' negative-margin hover bars room
+   inside overflow:hidden.
+   NOTE: the vertical paddings live in the OPEN state — max-height can't
+   compress padding, so any padding left on the closed state would keep
+   holding layout space and make this panel taller than the others. */
 .megamenu__sub {
-  display: none;
-  position: relative;
-  max-width: 1312px;
-  margin: 0 auto;
-  padding-top: 40px;
-}
-.megamenu__sub::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 20px;
-  border-top: 1px solid rgba(75, 80, 89, .16);
+  margin: 0 -64px 0;            /* bottom bleed only applies once open */
+  padding: 0 64px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  background: var(--c-blue-pale);  /* same light blue as the Atlas Core tile */
+  /* Figma: a hairline separates the band from the tier-1 row — width lives
+     in the OPEN state so the closed (0-height) strip shows no 1px line */
+  border-top: 0 solid #d9d9da;
+  transition: max-height .3s ease, padding .3s ease, margin .3s ease,
+              border-top-width .3s ease, opacity .25s ease;
 }
 /* open on Atlas Core hover, stay open while the pointer is in the sub-row,
-   and stay open for keyboard users the whole time focus is inside the menu */
+   and stay open for keyboard users the whole time focus is inside the menu.
+   The band sits DIRECTLY under the tier-1 row (no grey gap) so the Atlas
+   Core tile's fill runs into it, per the Figma dropdown. */
 .megamenu:has(.megamenu__opt--atlas:hover, .megamenu__sub:hover) .megamenu__sub,
-.nav__item:focus-within .megamenu__sub { display: block; }
+.nav__item:focus-within .megamenu__sub {
+  max-height: 460px;
+  border-top-width: 1px;
+  /* 36px minus the options' 16px overhang = 20px of visible air between the
+     hairline / panel edge and each row's hover zone */
+  padding-top: 36px;
+  padding-bottom: 36px;
+  margin-bottom: -40px;         /* band reaches the panel's bottom edge */
+  opacity: 1;
+}
+/* flip the Atlas Core arrow while its row is open */
+.megamenu:has(.megamenu__opt--atlas:hover, .megamenu__sub:hover) .megamenu__caret,
+.nav__item:focus-within .megamenu__caret { transform: rotate(-90deg); }
 
 .nav-actions { display: flex; align-items: center; gap: 8px; justify-content: flex-end; flex: 1 1 0; }
 .site-header--scrolled .btn--ghost,
@@ -1016,9 +1084,16 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   .nav.is-open .megamenu__opt { padding: 10px 0 10px 12px; margin: 0; background: none; }
   .nav.is-open .megamenu__opt span { display: none; }  /* descriptions are noise on a narrow sheet */
   /* no hover on a touch sheet — the Atlas Core sub-links are always listed,
-     indented under the solutions, as the only route to the /platform/ pages */
-  .nav.is-open .megamenu__sub { display: block; padding-top: 0; }
-  .nav.is-open .megamenu__sub::before { display: none; }
+     indented under the solutions, as the only route to the /platform/ pages
+     (undo the desktop slide-open collapse: full height, visible, no clip pads) */
+  .nav.is-open .megamenu__sub {
+    display: block; max-height: none;
+    margin: 0; padding: 0; opacity: 1; overflow: visible; transition: none;
+    background: none; border-radius: 0; border: 0;
+  }
+  .nav.is-open .megamenu__caret { display: none; }  /* sub is always open here */
+  /* long selector out-specifies the desktop hover/focus tint rules */
+  .nav.is-open .nav__item .megamenu .megamenu__opt--atlas { background: none; }
   .nav.is-open .megamenu__sub .megamenu__opt { padding-left: 28px; }
   .nav.is-open .megamenu__sub .megamenu__opt strong { font-size: 15px; opacity: .85; }
   /* the desktop options sit on a light panel; on mobile they sit on the nav
