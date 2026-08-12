@@ -1311,7 +1311,13 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
    margins but always keeping a small viewport gutter (no horizontal scroll).
    125vw ≈ the real viewport width in layout px under html{zoom:.8}. */
 .li-embeds { display: flex; gap: 20px; align-items: flex-start; width: min(140%, calc(125vw - 48px)); align-self: center; }
+/* heading block mirrors the strip's width so both share the same left edge */
+.li-head { width: min(140%, calc(125vw - 48px)); align-self: center; }
 .li-embed { flex: 1 1 0; min-width: 0; overflow: hidden; border-radius: var(--r-md); }
+/* flex-basis 20px = one strip gap, so the video spans exactly the width two
+   post columns (and the gap between them) used to occupy */
+.yt-embed { flex: 2 1 20px; min-width: 0; overflow: hidden; border-radius: var(--r-md); }
+.yt-embed iframe { display: block; border: 0; width: 100%; aspect-ratio: 16 / 9; background: var(--c-white); }
 .li-embed iframe {
   display: block; border: 0; transform-origin: 0 0;
   background: var(--c-white);

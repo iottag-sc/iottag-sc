@@ -732,19 +732,21 @@ Supporting owners, contractors, operators and project teams across mining, tunne
 
     <!-- ===== LINKEDIN POSTS ===== -->
     <section class="section section--pale stack gap-40">
-      <div class="stack gap-8">
+      <div class="stack gap-8 li-head">
         <p class="kicker">Follow iottag</p>
         <h2 class="h2">Latest From Our LinkedIn</h2>
       </div>
       <!-- data-h = full post height in px at LinkedIn's native 504px embed width
            (the height attribute in each post's "Embed this post" snippet). The
            iframe renders at 504px and is scaled to the column by main.js, so the
-           content never rewraps and never gets cut off. Extra height just shows
-           as white. Swap a post -> update its data-h. -->
+           content never rewraps and never gets cut off. Swap a post -> update
+           its data-h.
+           data-match="yt" caps the visible height to match the YouTube box
+           beside it; the rest of the post scrolls inside the iframe, so
+           scrolling must NOT be disabled on that iframe. -->
       <div class="li-embeds">
-        <div class="li-embed" data-h="1250"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7485644915817852928" title="LinkedIn post — QME operational intelligence and mining safety" loading="lazy" scrolling="no" allowfullscreen></iframe></div>
-        <div class="li-embed" data-h="1450"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7460915128843091969" title="LinkedIn post — A new breed of safety wearables" loading="lazy" scrolling="no" allowfullscreen></iframe></div>
-        <div class="li-embed" data-h="1400"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7460506980986646528" title="LinkedIn post — WTC2026 AI predictive safety" loading="lazy" scrolling="no" allowfullscreen></iframe></div>
+        <div class="li-embed" data-h="1250" data-match="yt"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7485644915817852928" title="LinkedIn post — QME operational intelligence and mining safety" loading="lazy" allowfullscreen></iframe></div>
+        <div class="yt-embed"><iframe src="https://www.youtube.com/embed/jMTpcdNyPnk" title="Safety Intelligence Powered by Atlas at Cross Island Line" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
       </div>
     </section>
 

@@ -339,15 +339,23 @@ function initLinkedInEmbeds() {
   if (!wraps.length) return;
   const NATIVE_W = 504;
   const fit = () => {
+    /* the 16:9 YouTube box's rendered height, for data-match="yt" posts */
+    const yt = document.querySelector('.li-embeds .yt-embed');
+    const ytH = yt ? (yt.clientWidth * 9) / 16 : 0;
     wraps.forEach((wrap) => {
       const frame = wrap.querySelector('iframe');
       if (!frame) return;
       const h = parseInt(wrap.dataset.h, 10) || 1200;
       const scale = wrap.clientWidth / NATIVE_W;
+      /* data-match="yt" caps the visible height to the YouTube box beside it;
+         the rest of the post scrolls inside the iframe (its scrolling
+         attribute must not be "no") */
+      let view = h;
+      if (wrap.dataset.match === 'yt' && ytH) view = Math.min(h, ytH / scale);
       frame.style.width = `${NATIVE_W}px`;
-      frame.style.height = `${h}px`;
+      frame.style.height = `${view}px`;
       frame.style.transform = `scale(${scale})`;
-      wrap.style.height = `${h * scale}px`;
+      wrap.style.height = `${view * scale}px`;
     });
   };
   fit();
