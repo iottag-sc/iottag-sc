@@ -325,12 +325,12 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 .oab-tiers { width: 100%; background: #fff; border-radius: var(--r-md); overflow: hidden; }
 .oab-tiers__row { display: flex; align-items: center; gap: 40px; padding: 40px; }
 .oab-tiers__row + .oab-tiers__row { border-top: 1px solid var(--c-line); }
-.oab-tiers__label { margin: 0; width: 240px; flex-shrink: 0; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #060309; }
+.oab-tiers__label { margin: 0; width: 240px; flex-shrink: 0; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
 .oab-tiers__cols { flex: 1 1 0; min-width: 0; display: flex; gap: 20px; }
 .oab-tiers__cell { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 .oab-tiers__cell:last-child { flex: 0 1 280px; }
 .oab-tiers__cell:last-child .oab-hier__ring::after { background: transparent; }
-.oab-tiers__cell p { margin: 0; font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #060309; }
+.oab-tiers__cell p { margin: 0; font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #5c616b; }
 @media (max-width: 960px) {
   .oab-tiers__row { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
   .oab-tiers__label { width: auto; }

@@ -151,9 +151,9 @@
 .vt-acc__body h3 {
   margin: 0;
   font-family: var(--f-alt); font-weight: 700; font-size: 20px; line-height: 1.4;
-  letter-spacing: -.01em; color: #060309;
+  letter-spacing: -.01em; color: #4b5059;
 }
-.vt-acc__body p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.2; color: #060309; }
+.vt-acc__body p { margin: 0; font-family: var(--f-body); font-size: 18px; line-height: 1.5; color: #5c616b; }
 
 /* Technology Agnostic Eco-System — 4-up logo grid beside the copy
    (Figma 13171:29838). Logo boxes are 60px tall; each <img> carries the
@@ -172,7 +172,7 @@
   width: 120px;
   display: flex; flex-direction: column; align-items: center; gap: 10px;
   font-family: var(--f-body); font-size: 14px; line-height: 1.2;
-  color: #060309; text-align: center;
+  color: var(--c-ink); text-align: center;
 }
 .vt-agnostic__ic {
   height: 60px; flex-shrink: 0;
@@ -191,7 +191,7 @@
 .vt-evolve__item {
   display: flex; align-items: center; gap: 4px;
   padding: 4px 0;
-  font-family: var(--f-body); font-weight: 500; font-size: 18px; line-height: 1.2; color: #060309;
+  font-family: var(--f-body); font-weight: 500; font-size: 18px; line-height: 1.2; color: var(--c-ink);
 }
 .vt-evolve__item img { width: 24px; height: 24px; flex-shrink: 0; }
 @media (max-width: 760px) { .vt-evolve { flex-direction: column; align-items: stretch; } }

@@ -940,7 +940,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   width: 120px;
   display: flex; flex-direction: column; align-items: center; gap: 10px;
   font-family: var(--f-body); font-size: 14px; line-height: 1.2;
-  color: #060309; text-align: center;
+  color: var(--c-ink); text-align: center;
 }
 .vt-agnostic__ic {
   height: 60px; flex-shrink: 0;
