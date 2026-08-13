@@ -366,11 +366,11 @@ p { text-align: left; }
    group — only while hovered / while its row is open, not painted statically.
    The background-color transition on .megamenu__opt fades it in and out. */
 .megamenu:has(.megamenu__opt--atlas:hover, .megamenu__sub:hover) .megamenu__opt--atlas,
-.nav__item:focus-within .megamenu__opt--atlas { background: var(--c-blue-pale); }
+.nav__item:has(:focus-visible) .megamenu__opt--atlas { background: var(--c-blue-pale); }
 /* the tile's title darkens to the same grey as the other options' hover, and
    the tile has no hover bar — its fill + rounded top corners do the marking */
 .megamenu:has(.megamenu__opt--atlas:hover, .megamenu__sub:hover) .megamenu__opt--atlas strong,
-.nav__item:focus-within .megamenu__opt--atlas strong { color: #4b5059; }
+.nav__item:has(:focus-visible) .megamenu__opt--atlas strong { color: #4b5059; }
 .megamenu__opt--atlas {
   border-radius: 8px 8px 0 0;
   /* the tile's fill is visible (unlike the other options') — pull its right
@@ -431,11 +431,13 @@ p { text-align: left; }
               border-top-width .3s ease, opacity .25s ease;
 }
 /* open on Atlas Core hover, stay open while the pointer is in the sub-row,
-   and stay open for keyboard users the whole time focus is inside the menu.
+   and stay open for KEYBOARD users the whole time focus is inside the menu.
+   :has(:focus-visible), not :focus-within — a mouse click on any option
+   (Fatal Risk, Production…) also focuses it, and must NOT pop the band open.
    The band sits DIRECTLY under the tier-1 row (no grey gap) so the Atlas
    Core tile's fill runs into it, per the Figma dropdown. */
 .megamenu:has(.megamenu__opt--atlas:hover, .megamenu__sub:hover) .megamenu__sub,
-.nav__item:focus-within .megamenu__sub {
+.nav__item:has(:focus-visible) .megamenu__sub {
   max-height: 460px;
   border-top-width: 1px;
   /* 36px minus the options' 16px overhang = 20px of visible air between the
@@ -447,7 +449,7 @@ p { text-align: left; }
 }
 /* flip the Atlas Core arrow while its row is open */
 .megamenu:has(.megamenu__opt--atlas:hover, .megamenu__sub:hover) .megamenu__caret,
-.nav__item:focus-within .megamenu__caret { transform: rotate(-90deg); }
+.nav__item:has(:focus-visible) .megamenu__caret { transform: rotate(-90deg); }
 
 .nav-actions { display: flex; align-items: center; gap: 8px; justify-content: flex-end; flex: 1 1 0; }
 .site-header--scrolled .btn--ghost,
