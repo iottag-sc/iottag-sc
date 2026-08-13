@@ -391,12 +391,10 @@ const IE_FACTORS = [
   'Traffic Congestion', 'Temperature & Humidity', 'Gas Concentrations',
   'Oxygen Level', 'DPM & Particulates', 'Ventilation Performance',
   'Airflow Direction', 'Equipment Condition', 'Fire Detection Status',
-  'Restricted Zones', 'Simultaneous Operations',
-  'Competency & Authorisation', 'Training & Inductions', 'PPE Status',
-  'Communications Availability', 'Emergency Route Availability',
+  'Restricted Zones', 'Competency & Authorisation', 'Training & Inductions', 'PPE Status',
+  'Communication Systems', 'Emergency Route Availability',
   'Evacuation Readiness', 'Muster Status', 'Weather Conditions',
-  'Noise Exposure', 'Blasting Schedule', 'Blasting & Performance',
-  'Fragmentation', 'Work Permits', 'Identified Hazards', 'Ground Stability',
+  'Noise Exposure', 'Blasting Schedule', 'Fragmentation', 'Work Permits', 'Identified Hazards', 'Ground Stability',
   'Ground Movement', 'Shutdowns', 'Maintenance', 'WHS Regulations',
 ];
 function initIeCycle() {
