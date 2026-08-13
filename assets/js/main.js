@@ -387,15 +387,17 @@ function initCardReveal() {
    ie-diagram with a fast fade in / fade out (content request Aug 2026). */
 const IE_FACTORS = [
   'Fatigue & Alertness', 'Shift Duration', 'Personnel Location',
-  'Vehicle Proximity', 'Vehicle Speed', 'Traffic Congestion', 'Visibility',
-  'Temperature', 'Humidity', 'Gas Concentrations', 'Oxygen Level',
-  'DPM & Particulates', 'Ventilation Performance', 'Airflow Direction',
-  'Equipment Condition', 'Fire Detection Status', 'Restricted Zones',
-  'Work Activity & Task', 'Simultaneous Operations',
-  'Competency & Authorisation', 'PPE Status', 'Communications Availability',
-  'Emergency Route Availability', 'Muster Status', 'Weather Conditions',
-  'Noise Exposure', 'Blasting & Performance', 'Fragmentation', 'Work Permits',
-  'Identified Hazards', 'Ground Stability', 'Maintenance', 'WHS Regulations',
+  'Situational Awareness', 'Vehicle Proximity', 'Vehicle Speed',
+  'Traffic Congestion', 'Temperature & Humidity', 'Gas Concentrations',
+  'Oxygen Level', 'DPM & Particulates', 'Ventilation Performance',
+  'Airflow Direction', 'Equipment Condition', 'Fire Detection Status',
+  'Restricted Zones', 'Simultaneous Operations',
+  'Competency & Authorisation', 'Training & Inductions', 'PPE Status',
+  'Communications Availability', 'Emergency Route Availability',
+  'Evacuation Readiness', 'Muster Status', 'Weather Conditions',
+  'Noise Exposure', 'Blasting Schedule', 'Blasting & Performance',
+  'Fragmentation', 'Work Permits', 'Identified Hazards', 'Ground Stability',
+  'Ground Movement', 'Shutdowns', 'Maintenance', 'WHS Regulations',
 ];
 function initIeCycle() {
   const el = document.querySelector('[data-ie-cycle]');
