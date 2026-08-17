@@ -362,6 +362,36 @@ function initLinkedInEmbeds() {
   window.addEventListener('resize', fit);
 }
 
+/* ---- LinkedIn feed widget: whole-post click-through --------------------- */
+/* The Common Ninja feed widget has no "open post on LinkedIn" setting — only
+   its like/share anchors link out. It renders in an OPEN shadow root, so a
+   composed click on the host can be retargeted: any click on a post card
+   (article.feed-content-item) opens that post's LinkedIn URL, unless the
+   click landed on one of the widget's own links/buttons. */
+function initLinkedInFeedClick() {
+  const host = document.querySelector('.li-feed .commonninja_component');
+  if (!host) return;
+  host.addEventListener('click', (e) => {
+    const path = e.composedPath();
+    if (path.some((n) => n.tagName === 'A' || n.tagName === 'BUTTON')) return;
+    const card = path.find((n) => n.classList && n.classList.contains('feed-content-item'));
+    const link = card && card.querySelector('a[href*="linkedin.com/posts/"]');
+    if (link) window.open(link.href, '_blank', 'noopener');
+  });
+  /* cursor hint on cards — the widget rebuilds its shadow content on load, so
+     wait until the first card exists before appending the style tag */
+  const poll = setInterval(() => {
+    const sr = host.shadowRoot;
+    if (sr && sr.querySelector('.feed-content-item')) {
+      const style = document.createElement('style');
+      style.textContent = 'article.feed-content-item, article.feed-content-item * { cursor: pointer !important; }';
+      sr.appendChild(style);
+      clearInterval(poll);
+    }
+  }, 500);
+  setTimeout(() => clearInterval(poll), 30000);
+}
+
 /* ---- "View more" card reveal (Tunnelling · Recent Projects) ------------ */
 /* The overflow cards ship in the HTML behind [hidden] so crawlers still see
    them; the button flips them on and relabels itself View more / View less. */
@@ -432,5 +462,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   initCardReveal();
   initWhitePaperGate();
   initLinkedInEmbeds();
+  initLinkedInFeedClick();
   initIeCycle();
 });
