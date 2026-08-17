@@ -115,6 +115,9 @@
 /* blue-tinted icon chip (Areas Of Focus list on a white section) */
 .sys-item__ic--blue { background: var(--c-blue-pale); }
 
+/* bare icon, no chip (Security Built Into The Ecosystem list) */
+.sys-item__ic--bare { width: 24px; height: 24px; border-radius: 0; background: none; }
+
 /* feature split — static tab-style list beside a tall rounded photo */
 .vt-feature { display: flex; gap: 80px; align-items: center; width: 100%; }
 .vt-feature__list { flex: 1 1 0; min-width: 320px; }
@@ -208,8 +211,9 @@
 
 /* 3. IOT SECURITY & GOVERNANCE (iot-security-governance) -------------------- */
 /* firmware lifecycle chevrons — icons match the homepage asset-strip (24px),
-   overriding the 40px base in platform.css */
-.stages--isg .stage img { width: 24px; height: 24px; }
+   overriding the 40px base in platform.css (also used on engineering-hardware) */
+.stages--isg .stage img,
+.stages--eh .stage img { width: 24px; height: 24px; }
 
 /* hero overlay — Figma OVL layer: brand gradient tint over the photo */
 .hero__ovl--isg {
