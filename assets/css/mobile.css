@@ -150,7 +150,7 @@
 
   /* LinkedIn embeds stack vertically on phones (main.js sizes the iframes) */
   .li-embeds { flex-direction: column; }
-  .li-embed, .yt-embed { width: 100%; flex: 0 0 auto; }
+  .li-feed, .li-embed, .yt-embed { width: 100%; flex: 0 0 auto; }
 }
 
 @media (max-width: 480px) {

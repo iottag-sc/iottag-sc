@@ -735,16 +735,13 @@
         <p class="kicker">Follow iottag</p>
         <h2 class="h2">Latest From Our LinkedIn</h2>
       </div>
-      <!-- data-h = full post height in px at LinkedIn's native 504px embed width
-           (the height attribute in each post's "Embed this post" snippet). The
-           iframe renders at 504px and is scaled to the column by main.js, so the
-           content never rewraps and never gets cut off. Swap a post -> update
-           its data-h.
-           data-match="yt" caps the visible height to match the YouTube box
-           beside it; the rest of the post scrolls inside the iframe, so
-           scrolling must NOT be disabled on that iframe. -->
       <div class="li-embeds">
-        <div class="li-embed" data-h="1117" data-match="yt"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7493179712232476672" title="LinkedIn post — Communication gap leads to dozer truck collision" loading="lazy" allowfullscreen></iframe></div>
+        <!-- Elfsight LinkedIn Feed — auto-updating feed of the iottag company page,
+             managed in the Elfsight dashboard (layout, post count, refresh). -->
+        <div class="li-feed">
+          <script src="https://elfsightcdn.com/platform.js" async></script>
+          <div class="elfsight-app-daa6a7e2-d1d2-4484-81e6-ccdb368819ca" data-elfsight-app-lazy></div>
+        </div>
         <div class="yt-embed"><iframe src="https://www.youtube.com/embed/jMTpcdNyPnk" title="Safety Intelligence Powered by Atlas at Cross Island Line" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
       </div>
     </section>
