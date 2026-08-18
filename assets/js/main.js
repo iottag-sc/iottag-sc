@@ -110,7 +110,6 @@ function initVideoButtons() {
     btn.addEventListener('click', () => {
       if (video) {
         thumb.classList.add('is-playing');
-        video.controls = true;
         video.play();
       } else if (thumb && thumb.dataset.embed) {
         const frame = document.createElement('iframe');
@@ -140,15 +139,17 @@ function initVideoCarousel() {
     let index = 0;
     let timer = null;
 
-    const isPlaying = () =>
+    // engaged = an embed is open, or a <video> is playing OR was started and
+    // paused mid-way — in all cases the carousel must not auto-advance
+    const isEngaged = () =>
       !!carousel.querySelector('iframe') ||
-      [...carousel.querySelectorAll('video')].some((v) => !v.paused);
+      [...carousel.querySelectorAll('video')].some((v) => !v.paused || (v.currentTime > 0 && !v.ended));
     const stopVideos = () => {
       slides.forEach((slide) => {
         const frame = slide.querySelector('iframe');
         if (frame) frame.remove();
         const vid = slide.querySelector('video');
-        if (vid) { vid.pause(); vid.controls = false; }
+        if (vid) { vid.pause(); vid.currentTime = 0; }
         slide.classList.remove('is-playing');
       });
     };
@@ -160,7 +161,7 @@ function initVideoCarousel() {
     };
     const startAuto = () => {
       clearInterval(timer);
-      timer = setInterval(() => { if (!isPlaying()) goTo(index + 1); }, AUTO_MS);
+      timer = setInterval(() => { if (!isEngaged()) goTo(index + 1); }, AUTO_MS);
     };
 
     tabs.forEach((tab) => {
@@ -176,7 +177,6 @@ function initVideoCarousel() {
       const vid = slide.querySelector('video');
       btn.addEventListener('click', () => {
         if (vid) {
-          vid.controls = true;
           vid.play();
         } else if (slide.dataset.embed) {
           const frame = document.createElement('iframe');
@@ -193,6 +193,145 @@ function initVideoCarousel() {
     carousel.addEventListener('mouseenter', () => clearInterval(timer));
     carousel.addEventListener('mouseleave', startAuto);
     startAuto();
+  });
+}
+
+/* ---- custom video controls --------------------------------------------- */
+/* One shared control bar (play/pause · time · seek · volume · fullscreen)
+   injected into every video wrapper. Replaces the browser's native controls
+   so the player looks the same in Chrome/Firefox/Safari and matches the
+   site palette. Bar shows once the overlay play button starts the video
+   (`.is-playing` on the wrapper) and fades out while playing + pointer idle. */
+function initCustomVideoControls() {
+  const fmt = (s) => {
+    if (!isFinite(s) || s < 0) return '0:00';
+    return `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  };
+
+  /* inline SVGs — the site's Material Symbols subset (icon_names=…) doesn't
+     include the player glyphs, so the bar carries its own icons */
+  const ICON = {
+    play:    'M8 5v14l11-7z',
+    pause:   'M6 19h4V5H6v14zm8-14v14h4V5h-4z',
+    replay:  'M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z',
+    vol:     'M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z',
+    mute:    'M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3 3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4 9.91 6.09 12 8.18V4z',
+    fs:      'M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z',
+    fsExit:  'M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z',
+  };
+  const svg = (key) =>
+    `<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="${ICON[key]}"/></svg>`;
+
+  document.querySelectorAll('.video-thumb video, .video-carousel__slide video').forEach((video) => {
+    const box = video.closest('.video-thumb, .video-carousel__slide');
+    if (!box || box.querySelector('.vctl')) return;
+    video.removeAttribute('controls');
+
+    const bar = document.createElement('div');
+    bar.className = 'vctl';
+    bar.innerHTML = `
+      <button type="button" class="vctl__btn vctl__toggle" aria-label="Pause">${svg('pause')}</button>
+      <span class="vctl__time">0:00 / 0:00</span>
+      <div class="vctl__track" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
+        <div class="vctl__fill"></div><div class="vctl__dot"></div>
+      </div>
+      <button type="button" class="vctl__btn vctl__mute" aria-label="Mute">${svg('vol')}</button>
+      <input class="vctl__vol" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+      <button type="button" class="vctl__btn vctl__fs" aria-label="Full screen">${svg('fs')}</button>`;
+    box.appendChild(bar);
+
+    const toggleBtn = bar.querySelector('.vctl__toggle');
+    const timeEl    = bar.querySelector('.vctl__time');
+    const track     = bar.querySelector('.vctl__track');
+    const fill      = bar.querySelector('.vctl__fill');
+    const dot       = bar.querySelector('.vctl__dot');
+    const muteBtn   = bar.querySelector('.vctl__mute');
+    const volInput  = bar.querySelector('.vctl__vol');
+    const fsBtn     = bar.querySelector('.vctl__fs');
+
+    const setIcon = (btn, key, label) => {
+      btn.innerHTML = svg(key);
+      btn.setAttribute('aria-label', label);
+    };
+
+    /* progress + time readout */
+    const paint = () => {
+      const dur = video.duration;
+      const pct = isFinite(dur) && dur > 0 ? (video.currentTime / dur) * 100 : 0;
+      fill.style.width = `${pct}%`;
+      dot.style.left = `${pct}%`;
+      timeEl.textContent = `${fmt(video.currentTime)} / ${fmt(dur)}`;
+      track.setAttribute('aria-valuemax', isFinite(dur) ? Math.round(dur) : 0);
+      track.setAttribute('aria-valuenow', Math.round(video.currentTime));
+      track.setAttribute('aria-valuetext', `${fmt(video.currentTime)} of ${fmt(dur)}`);
+    };
+    video.addEventListener('timeupdate', paint);
+    video.addEventListener('loadedmetadata', paint);
+    video.addEventListener('durationchange', paint);
+
+    /* auto-hide while playing and the pointer is idle */
+    let hideTimer = null;
+    function wake() {
+      bar.classList.remove('vctl--hide');
+      clearTimeout(hideTimer);
+      if (!video.paused) hideTimer = setTimeout(() => {
+        if (!video.paused && !bar.matches(':hover, :focus-within')) bar.classList.add('vctl--hide');
+      }, 2600);
+    }
+    box.addEventListener('pointermove', wake);
+    bar.addEventListener('focusin', wake);
+
+    /* play / pause / replay */
+    const toggle = () => (video.paused ? video.play() : video.pause());
+    toggleBtn.addEventListener('click', toggle);
+    video.addEventListener('click', () => { if (box.classList.contains('is-playing')) toggle(); });
+    video.addEventListener('play',  () => { setIcon(toggleBtn, 'pause', 'Pause'); wake(); });
+    video.addEventListener('pause', () => { setIcon(toggleBtn, video.ended ? 'replay' : 'play', video.ended ? 'Replay' : 'Play'); wake(); });
+
+    /* seek: click / drag / arrow keys */
+    const seekTo = (clientX) => {
+      const r = track.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+      if (isFinite(video.duration)) video.currentTime = p * video.duration;
+      paint();
+    };
+    track.addEventListener('pointerdown', (e) => {
+      seekTo(e.clientX);
+      try { track.setPointerCapture(e.pointerId); } catch { /* synthetic events have no active pointer */ }
+    });
+    track.addEventListener('pointermove', (e) => { if (track.hasPointerCapture(e.pointerId)) seekTo(e.clientX); });
+    track.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      const step = e.key === 'ArrowRight' ? 5 : -5;
+      video.currentTime = Math.min(video.duration || 0, Math.max(0, video.currentTime + step));
+    });
+
+    /* volume */
+    const paintVolume = () => {
+      const off = video.muted || video.volume === 0;
+      setIcon(muteBtn, off ? 'mute' : 'vol', off ? 'Unmute' : 'Mute');
+      volInput.value = video.muted ? 0 : video.volume;
+    };
+    muteBtn.addEventListener('click', () => { video.muted = !video.muted; });
+    volInput.addEventListener('input', () => {
+      video.volume = Number(volInput.value);
+      video.muted = video.volume === 0;
+    });
+    video.addEventListener('volumechange', paintVolume);
+
+    /* fullscreen on the wrapper so the custom bar stays visible */
+    fsBtn.addEventListener('click', () => {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else if (box.requestFullscreen) box.requestFullscreen();
+    });
+    document.addEventListener('fullscreenchange', () => {
+      const on = document.fullscreenElement === box;
+      setIcon(fsBtn, on ? 'fsExit' : 'fs', on ? 'Exit full screen' : 'Full screen');
+    });
+
+    paint();
+    paintVolume();
   });
 }
 
@@ -455,6 +594,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initHeaderScroll();
   initVideoButtons();
   initVideoCarousel();
+  initCustomVideoControls();
   initTabs();
   initMapExplorer();
   initDashCarousel();
