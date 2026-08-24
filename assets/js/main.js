@@ -559,7 +559,7 @@ const IE_FACTORS = [
   'Situational Awareness', 'Vehicle Proximity', 'Vehicle Speed',
   'Traffic Congestion', 'Temperature & Humidity', 'Gas Concentrations',
   'Oxygen Level', 'DPM & Particulates', 'Ventilation Performance',
-  'Airflow Direction', 'Equipment Condition', 'Fire Detection Status',
+  'Airflow Direction', 'Equipment Condition', 'Energy', 'Fire Detection Status',
   'Restricted Zones', 'Competency & Authorisation', 'Training & Inductions', 'PPE Status',
   'Communication Systems', 'Emergency Route Availability',
   'Evacuation Readiness', 'Muster Status', 'Weather Conditions',

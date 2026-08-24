@@ -1185,7 +1185,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
    ====================================================================== */
 
 /* ---- "Monitor. Compare. Predict. Optimise." circular diagram (12359:8324) */
-.ie-diagram { position: relative; width: 420px; height: 420px; flex-shrink: 0; }
+.ie-diagram { position: relative; width: 420px; height: 420px; flex-shrink: 0; zoom: 1.2; } /* zoom scales the fixed-px svg + chip positions uniformly */
 .ie-diagram__ring { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: visible; }
 /* bright segment travelling around the circular ring */
 .ie-glow-ring {
@@ -1220,8 +1220,12 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 }
 .ie-chip {
   position: absolute;
-  width: 88px;
-  height: 88px;
+  /* 102px (up from 88px) so the longest label (Communication) clears the curve
+     at the standard 12px size; negative margin keeps the original 88px-grid
+     centres, so the chips stay on the ring without repositioning them all */
+  width: 102px;
+  height: 102px;
+  margin: -7px 0 0 -7px;
   background: #fff;
   border: 2px solid var(--c-blue-tint);
   border-radius: 50%;
@@ -1232,8 +1236,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   align-items: center;
   justify-content: center;
 }
-.ie-chip span { font: 600 12px/1.2 var(--f-body); color: #4B5059; }
-.ie-core {
+.ie-chip span { font: 600 12px/1.2 var(--f-body); color: #4B5059; }.ie-core {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1273,6 +1276,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .ie-list__item { display: flex; align-items: center; gap: 4px; font: 400 18px/1.2 var(--f-body); color: var(--c-ink); }
 .ie-list__item .icon { font-size: 16px; color: var(--c-blue); }
 @media (max-width: 1100px) { .ie-diagram { margin-inline: auto; } }
+@media (max-width: 600px) { .ie-diagram { zoom: 1; } } /* small screens: back to the 420px footprint */
 
 /* ---- asset chevron strip ("Built to Manage Every Operational Asset") - */
 .asset-strip__label { margin: 0; font: 600 18px/1.2 var(--f-body); color: #4B5059; }
