@@ -731,7 +731,7 @@
 
     <!-- ===== LINKEDIN POSTS ===== -->
     <section class="section section--pale stack gap-40">
-      <div class="stack gap-8 li-head">
+      <div class="stack center gap-8 li-head" style="text-align:center;">
         <p class="kicker">Follow iottag</p>
         <h2 class="h2">Latest From Our LinkedIn</h2>
       </div>
@@ -746,7 +746,44 @@
           <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
           <div class="commonninja_component pid-7b008245-9c27-4c2c-9a73-de21cfbab39e"></div>
         </div>
-        <div class="yt-embed"><iframe src="https://www.youtube.com/embed/jMTpcdNyPnk" title="Safety Intelligence Powered by Atlas at Cross Island Line" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="li-col">
+          <div class="li-col__group">
+            <h3 class="li-col__title">Project Reel - Singapore CR105</h3>
+            <div class="yt-embed"><iframe src="https://www.youtube.com/embed/jMTpcdNyPnk" title="Safety Intelligence Powered by Atlas at Cross Island Line" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+          </div>
+          <div class="li-col__group">
+          <h3 class="li-col__title">Proactive Risk Intelligence Information Pack</h3>
+          <!-- Book-a-meeting card (Figma 13704:10677) -->
+          <div class="li-book" id="book-meeting">
+            <h3 class="li-book__title">Book a meeting with Iottag team</h3>
+            <form class="li-book__form" method="post" action="#book-meeting">
+              <div class="li-book__row">
+                <div class="li-book__field">
+                  <label for="bk-name">Name</label>
+                  <input type="text" id="bk-name" name="name" autocomplete="name" required>
+                </div>
+                <div class="li-book__field">
+                  <label for="bk-company">Company</label>
+                  <input type="text" id="bk-company" name="company" autocomplete="organization">
+                </div>
+              </div>
+              <div class="li-book__row">
+                <div class="li-book__field">
+                  <label for="bk-email">Email</label>
+                  <input type="email" id="bk-email" name="email" autocomplete="email" required>
+                </div>
+                <div class="li-book__field">
+                  <label for="bk-date">Date</label>
+                  <input type="date" id="bk-date" name="date">
+                </div>
+              </div>
+              <div class="li-book__foot">
+                <button class="btn btn--primary" type="submit">Book a meeting</button>
+              </div>
+            </form>
+          </div>
+          </div>
+        </div>
       </div>
     </section>
 

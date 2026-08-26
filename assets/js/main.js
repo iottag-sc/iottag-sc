@@ -517,13 +517,21 @@ function initLinkedInFeedClick() {
     const link = card && card.querySelector('a[href*="linkedin.com/posts/"]');
     if (link) window.open(link.href, '_blank', 'noopener');
   });
-  /* cursor hint on cards — the widget rebuilds its shadow content on load, so
-     wait until the first card exists before appending the style tag */
+  /* cursor hint + card restyle — the widget rebuilds its shadow content on
+     load, so wait until the first card exists before appending the style tag.
+     Restyle lives here (not Common Ninja's Custom CSS — locked on this plan):
+     transparent wrapper, white card matching the site's 8px-radius cards, and
+     overflow:hidden so the square-cornered footer can't poke past the radius. */
   const poll = setInterval(() => {
     const sr = host.shadowRoot;
     if (sr && sr.querySelector('.feed-content-item')) {
       const style = document.createElement('style');
-      style.textContent = 'article.feed-content-item, article.feed-content-item * { cursor: pointer !important; }';
+      style.textContent = [
+        'article.feed-content-item, article.feed-content-item * { cursor: pointer !important; }',
+        '.plugin-wrapper { background: transparent !important; padding: 0 !important; }',
+        '.feed-content-item { background: #fff !important; border-radius: 8px !important; overflow: hidden !important; }',
+        '.feed-footer { background: transparent !important; }',
+      ].join('\n');
       sr.appendChild(style);
       clearInterval(poll);
     }
