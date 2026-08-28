@@ -663,3 +663,172 @@ a.em-doc:hover span { color: var(--c-blue); }
   .wv-grid { grid-template-columns: 1fr 1fr; }
   .wv-safe { grid-template-columns: 1fr; }
 }
+
+/* 14. DPM EXPOSURE INTELLIGENCE (dpm-exposure-intelligence, Figma 13935:22477) */
+/* Built 2026-08-28 from "Ready to Dev" — hero reuses .hero--photo +
+   .hero__overlay--em; sections reuse .em-h2 / .kicker / .cta-band. */
+
+/* section header: title (+ bold sub) left, free-flow copy right */
+.dpm-title { display: flex; gap: 80px; align-items: flex-end; width: 100%; }
+.dpm-title__t { flex-shrink: 0; display: flex; flex-direction: column; gap: 4px; }
+.dpm-title__sub { margin: 0; font: 600 18px/1.2 var(--f-body); color: var(--c-ink); }
+.dpm-title__d { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+/* --half: right copy column starts exactly at the table's 50% column line,
+   its text indented 16px like the table cells, so both line up vertically */
+.dpm-title--half { gap: 0; align-items: center; }
+.dpm-title--half .dpm-title__t { flex: 0 0 50%; }
+.dpm-title--half .dpm-title__d { padding-left: 17px; }
+@media (max-width: 1100px) {
+  .dpm-title { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .dpm-title--half .dpm-title__t { flex: 0 0 auto; }
+  .dpm-title--half .dpm-title__d { padding-left: 0; }
+}
+
+/* small label above tables / diagrams */
+.dpm-label { margin: 0; font: 600 18px/1.2 var(--f-body); color: #4b5059; }
+.dpm-label--reg { font-weight: 400; }
+
+/* 5-col factor grid feeding the hub card (same 1.25px line-collapse as .em-grid) */
+.dpm-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25px;
+  width: 100%;
+  background: var(--c-line);
+  border: 1.25px solid var(--c-line); border-radius: var(--r-md);
+  overflow: hidden;
+}
+.dpm-cell {
+  min-height: 214px; padding: 24px;
+  background: #fff;
+  display: flex; flex-direction: column; justify-content: center; gap: 20px;
+}
+.dpm-cell img { width: 32px; height: 32px; }
+.dpm-cell h3 { margin: 0; font: 700 18px/1.2 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.dpm-cell ul { margin: 8px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 2px; }
+/* one line per item so every cell's icon + title sit on the same rows */
+.dpm-cell li { font: 400 16px/1.2 var(--f-body); color: var(--c-ink); white-space: nowrap; }
+@media (max-width: 1100px) {
+  .dpm-grid { grid-template-columns: repeat(2, 1fr); }
+  .dpm-cell { min-height: 160px; }
+  .dpm-cell li { white-space: normal; }
+}
+
+/* elbow connectors from the five cells down to the hub card */
+.dpm-hub { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.dpm-hub__links { display: block; width: 100%; height: 97px; }
+.dpm-hub__links polyline { fill: none; stroke: #a9d4ed; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.dpm-hub__card {
+  width: 600px; max-width: 100%;
+  background: var(--c-blue-pale);
+  border: 1px solid var(--c-blue); border-radius: var(--r-md);
+  padding: 41px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  text-align: center;
+}
+.dpm-hub__card img { width: 40px; height: 40px; }
+.dpm-hub__card h3 { margin: 0; font: 700 24px/1.3 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.dpm-hub__card p { margin: 0; font: 400 18px/1.2 var(--f-body); color: var(--c-ink); text-align: center; }
+@media (max-width: 1100px) { .dpm-hub__links { display: none; } .dpm-hub { padding-top: 24px; } }
+
+/* hotspot-diagnosis steps: white card, 5 columns split by thin chevrons;
+   each column = icon row with a trailing hairline, then title + question */
+.dpm-steps { display: flex; width: 100%; background: #fff; border-radius: var(--r-md); overflow: hidden; }
+.dpm-step { flex: 1 1 0; min-width: 0; padding: 40px 20px 40px 24px; display: flex; flex-direction: column; gap: 16px; }
+.dpm-step__hd { display: flex; align-items: center; gap: 8px; height: 80px; }
+.dpm-step__hd img { width: 32px; height: 32px; flex-shrink: 0; }
+/* hairline runs through the column's 20px padding and 23px into the separator,
+   so it terminates exactly on the chevron's kink */
+.dpm-step__hd::after { content: ""; flex: 1; height: 1px; margin-right: -43px; background: var(--c-blue-pale); }
+.dpm-step:last-child .dpm-step__hd::after { margin-right: 0; }
+.dpm-step h3 { margin: 0; font: 700 18px/1.2 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.dpm-step p { margin: 0; font: 400 16px/1.2 var(--f-body); color: var(--c-grey); }
+/* separator = fixed 80px top leg + flexible bottom leg, so the kink always
+   sits at the icon-row hairline (40px padding + half the 80px icon row) */
+.dpm-sep { flex: 0 0 24px; align-self: stretch; display: flex; flex-direction: column; }
+.dpm-sep svg { width: 100%; display: block; }
+.dpm-sep__top { flex: 0 0 80px; }
+.dpm-sep__bot { flex: 1 1 0; min-height: 0; }
+@media (max-width: 1100px) {
+  .dpm-steps { flex-direction: column; }
+  .dpm-sep { display: none; }
+  .dpm-step { padding: 24px; }
+  .dpm-step__hd { height: auto; }
+  .dpm-step__hd::after { margin-right: 0; }
+}
+
+/* live-map figure with overlaid zone tooltips */
+.dpm-map { position: relative; width: 100%; display: flex; justify-content: center; padding-block: 12px; }
+.dpm-map > img { width: 78%; height: auto; border: 1px solid var(--c-line); border-radius: var(--r-md); }
+.dpm-tip {
+  position: absolute; z-index: 1;
+  background: #fff; border: 1.5px solid var(--c-line); border-radius: 12px;
+  padding: 16px;
+  display: flex; flex-direction: column; gap: 6px;
+  box-shadow: 0 24px 42px rgba(0,0,0,.14);
+}
+.dpm-tip--medium { left: 1%; top: 30%; width: 240px; }
+.dpm-tip--over { left: 3.5%; top: 63%; width: 280px; }
+.dpm-tip h3 { margin: 0; font: 700 16px/1.2 var(--f-alt); color: #4b5059; }
+.dpm-tip ul { margin: 0; padding-left: 22px; }
+.dpm-tip li { font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
+.dpm-tip__tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.dpm-pill {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 5px 10px; border-radius: 99px;
+  font: 700 12px/1.2 var(--f-alt); color: #fff;
+}
+.dpm-pill img { width: 16px; height: 16px; }
+.dpm-pill--green { background: #34c759; padding-left: 3px; }
+.dpm-pill--orange { background: #e36821; }
+@media (max-width: 900px) {
+  .dpm-map { flex-direction: column; gap: 16px; }
+  .dpm-map > img { width: 100%; }
+  .dpm-tip { position: static; width: auto; }
+}
+
+/* bordered data tables (TARP states, causes/controls, affected personnel) */
+.dpm-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--c-blue-tint); border-radius: var(--r-sm); }
+.dpm-table th, .dpm-table td { height: 48px; padding: 8px 16px; border: 1px solid var(--c-blue-tint); text-align: left; vertical-align: middle; }
+.dpm-table thead th { background: #1e729c; font: 700 16px/1.2 var(--f-body); color: #fff; }
+.dpm-table tbody th[scope="row"] { font: 700 16px/1.2 var(--f-body); color: #4b5059; }
+.dpm-table td { font: 400 16px/1.2 var(--f-body); color: var(--c-ink); }
+.dpm-table tr.is-warn th[scope="row"], .dpm-table tr.is-warn td, .dpm-table .is-warn { background: #fdf6e5; }
+@media (max-width: 900px) {
+  .dpm-table-scroll { width: 100%; overflow-x: auto; }
+  .dpm-table-scroll .dpm-table { min-width: 720px; }
+}
+
+/* connected-process flow: label row split by chevrons + takeaway note row */
+.dpm-flow { width: 100%; border-left: 2px solid var(--c-blue); }
+.dpm-flow__row { display: flex; align-items: stretch; gap: 24px; min-height: 80px; padding: 0 40px; background: #fff; }
+.dpm-flow__cell {
+  flex: 1 1 0; min-width: 0;
+  display: flex; align-items: center; justify-content: center;
+  font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; text-align: center;
+}
+.dpm-flow__sep { flex: 0 0 24px; align-self: stretch; }
+.dpm-flow__sep svg { width: 100%; height: 100%; display: block; }
+.dpm-flow__note { margin: 0; padding: 40px; background: #fff; border-top: 1.25px solid var(--c-blue-tint); font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; text-align: center; white-space: pre-line; }
+.dpm-flow__note strong { font-weight: 700; }
+/* on-white variant: bordered rounded card, pale takeaway band */
+.dpm-flow--card { border: 1px solid var(--c-blue-tint); border-left: 2px solid var(--c-blue); border-radius: 0 var(--r-md) var(--r-md) 0; overflow: hidden; }
+.dpm-flow--card .dpm-flow__note { background: var(--c-blue-pale); }
+@media (max-width: 900px) {
+  .dpm-flow__row { flex-wrap: wrap; gap: 8px 24px; padding: 16px 24px; }
+  .dpm-flow__sep { display: none; }
+  .dpm-flow__cell { flex: 1 1 40%; }
+  .dpm-flow__note { padding: 24px; }
+}
+
+/* "Atlas helps your engineering team answer" strip: 6 question cells + takeaway */
+.dpm-ask { width: 100%; background: var(--c-line); border: 1.25px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; display: flex; flex-direction: column; gap: 1.25px; }
+.dpm-ask__row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.25px; }
+.dpm-ask__cell {
+  min-height: 200px; padding: 24px;
+  background: #fff;
+  display: flex; flex-direction: column; gap: 16px; justify-content: center;
+}
+.dpm-ask__cell img { width: 32px; height: 32px; }
+.dpm-ask__cell span { font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
+.dpm-ask__note { margin: 0; background: var(--c-blue-pale); padding: 24px; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: var(--c-blue); text-align: center; }
+@media (max-width: 1100px) { .dpm-ask__row { grid-template-columns: repeat(3, 1fr); } .dpm-ask__cell { min-height: 150px; } }
+@media (max-width: 640px)  { .dpm-ask__row { grid-template-columns: 1fr 1fr; } }
