@@ -153,9 +153,9 @@
   display: flex; flex-direction: column; justify-content: center; gap: 16px;
   border-right: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line);
 }
-.safety-grid__cell img { width: 44px; height: 44px; }
+.safety-grid__cell img { width: 32px; height: 32px; }
 .safety-grid__cell h3 {
-  margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 24px;
+  margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px;
   line-height: 1.4; letter-spacing: -.01em; color: #4b5059;
 }
 /* wide highlight cell — icon beside the note on web-orange lightest */
@@ -191,7 +191,10 @@
 /* solution rows reuse the home .faq accordion (faq.js); the row is a title +
    one-line summary stacked, chevron pinned right */
 .tn-faq { max-width: 1312px; }
-.tn-faq .faq__q { padding: 20px 24px; gap: 8px; }
+.tn-faq .faq__q { padding: 20px 24px; gap: 8px; transition: background-color .2s ease; }
+.tn-faq .faq__item:hover .faq__q { background: var(--c-blue-pale); }
+.tn-faq .faq__item:hover .tn-faq__title { color: var(--c-blue); }
+.tn-faq__title { transition: color .2s ease; }
 .tn-faq__t { display: flex; flex-direction: column; min-width: 0; }
 .tn-faq__title { font: 400 18px/1.2 var(--f-alt); color: #4b5059; }
 .tn-faq__sub { font: 400 16px/1.2 var(--f-alt); color: var(--c-ink); }
@@ -224,30 +227,40 @@
   padding: 60px 40px;
   display: flex; flex-direction: column; align-items: center; gap: 80px;
 }
-/* hub-and-spoke diagram: fixed 1120×496 canvas (positions inline on the pills)
-   with an SVG of spokes behind the pills and the centre node */
-.tn-ics__diagram { position: relative; width: 1120px; max-width: 100%; height: 496px; }
+/* hub-and-spoke diagram. The design is a 1120×496 canvas; each pill carries
+   its design-px --x/--y inline and everything (positions, sizes, type) is
+   multiplied by --u = 1/1120 of the diagram's rendered width, so the whole
+   drawing scales as one unit. The SVG of spokes shares the same viewBox. */
+.tn-ics__diagram {
+  position: relative; width: 100%; max-width: 1120px; aspect-ratio: 1120 / 496;
+  container-type: inline-size;
+  --u: calc(100cqw / 1120);
+}
 .tn-ics__links { position: absolute; inset: 0; width: 100%; height: 100%; }
-.tn-ics__links line { stroke: #fff; stroke-width: 2; }
+.tn-ics__links line { stroke: #fff; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.tn-pill, .tn-ics__node {
+  position: absolute;
+  left: calc(var(--x) * var(--u)); top: calc(var(--y) * var(--u));
+}
 .tn-pill {
-  position: absolute; width: 280px; height: 80px; padding: 20px;
+  width: calc(280 * var(--u)); height: calc(80 * var(--u)); padding: 0 calc(20 * var(--u));
   background: #fff; border-radius: 99px;
-  display: flex; align-items: center; justify-content: center; gap: 12px;
+  display: flex; align-items: center; justify-content: center; gap: calc(12 * var(--u));
 }
-.tn-pill--wide { width: 400px; }
-.tn-pill img { width: 24px; height: 24px; flex-shrink: 0; }
-.tn-pill span { font: 700 18px/1.2 var(--f-alt); color: #4b5059; white-space: nowrap; }
+.tn-pill--wide { width: calc(400 * var(--u)); }
+.tn-pill img { width: calc(24 * var(--u)); height: calc(24 * var(--u)); flex-shrink: 0; }
+.tn-pill span { font: 700 calc(18 * var(--u)) / 1.2 var(--f-alt); color: #4b5059; white-space: nowrap; }
 .tn-ics__node {
-  position: absolute; left: 420px; top: 116px; width: 280px; height: 280px;
-  background: #fff; border: 1px solid var(--c-blue); border-radius: 48px;
+  width: calc(280 * var(--u)); height: calc(280 * var(--u));
+  background: #fff; border: 1px solid var(--c-blue); border-radius: calc(48 * var(--u));
   box-shadow: 0 4px 8px -2px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.06);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-  padding: 0 10px 0 8px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: calc(8 * var(--u));
+  padding: 0 calc(10 * var(--u)) 0 calc(8 * var(--u));
 }
-.tn-ics__node img { width: 122px; height: 120px; object-fit: cover; }
+.tn-ics__node img { width: calc(122 * var(--u)); height: calc(120 * var(--u)); object-fit: cover; }
 .tn-ics__node-title {
   margin: 0; text-align: center;
-  font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059;
+  font: 700 calc(20 * var(--u)) / 1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059;
 }
 /* three-column requirements card */
 .tn-ics__cols {
@@ -259,15 +272,14 @@
 .tn-ics__col h3 { margin: 0; padding: 20px 24px 0; font: 700 18px/1.2 var(--f-alt); color: #4b5059; }
 .tn-ics__col p { margin: 0; padding: 20px 24px 0; font: 400 16px/1.2 var(--f-alt); color: var(--c-ink); }
 .tn-ics__col p:last-child { padding-bottom: 20px; }
-/* nested sub-system accordions: pale rounded rows, chevron on the left;
-   an open row turns into a white bordered card with a pale header */
+/* nested sub-system accordions: outlined rows, chevron on the left */
 .tn-sub.faq { border: 0; border-radius: 0; overflow: visible; display: flex; flex-direction: column; gap: 4px; padding: 20px; }
-.tn-sub .faq__item { background: none; border: 1px solid transparent; border-radius: var(--r-sm); overflow: hidden; }
-.tn-sub .faq__item + .faq__item { border-top: 1px solid transparent; }
+.tn-sub .faq__item { background: none; border: 1px solid var(--c-line); border-radius: var(--r-sm); overflow: hidden; }
+.tn-sub .faq__item + .faq__item { border-top: 1px solid var(--c-line); }
 .tn-sub .faq__item.is-open { background: #fff; border-color: var(--c-line); }
 .tn-sub .faq__q {
   justify-content: flex-start; gap: 10px; padding: 12px 8px 12px 12px;
-  background: var(--c-blue-pale);
+  background: transparent;
   font: 700 16px/1.2 var(--f-alt); letter-spacing: 0; color: #4b5059;
 }
 .tn-sub .faq__chev { width: 16px; height: 16px; }
@@ -282,15 +294,19 @@
   background: url("../icon/tn-ics-dot.svg") center / 15px no-repeat;
 }
 .tn-sub__list strong { font-weight: 700; color: #4b5059; }
-@media (max-width: 1200px) {
-  /* below the fixed canvas width the diagram reflows as a wrapped pill cloud
-     with the node first; spokes only make sense at the fixed layout */
-  .tn-ics__diagram { height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+@media (max-width: 640px) {
+  /* phones: the scaled canvas gets too small to read, so reflow into a grid —
+     node on its own row, pills two-up, spokes hidden */
+  .tn-ics__diagram { aspect-ratio: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .tn-ics__links { display: none; }
-  .tn-pill, .tn-pill--wide, .tn-ics__node { position: static; width: auto; }
-  .tn-pill { flex: 0 1 auto; height: 64px; padding: 16px 24px; }
-  .tn-pill span { white-space: normal; }
-  .tn-ics__node { order: -1; width: 100%; max-width: 280px; height: auto; padding: 24px 16px; margin-bottom: 12px; }
+  .tn-pill, .tn-pill--wide, .tn-ics__node { position: static; width: auto; height: auto; }
+  .tn-pill { min-height: 56px; padding: 12px 14px; gap: 8px; border-radius: 99px; }
+  .tn-pill img { width: 20px; height: 20px; }
+  .tn-pill span { font-size: 14px; white-space: normal; text-align: center; }
+  .tn-pill--wide { grid-column: span 2; }
+  .tn-ics__node { order: -1; grid-column: span 2; justify-self: center; width: 100%; max-width: 280px; padding: 24px 16px; margin-bottom: 8px; border-radius: 32px; gap: 8px; }
+  .tn-ics__node img { width: 122px; height: 120px; }
+  .tn-ics__node-title { font-size: 20px; }
 }
 @media (max-width: 1100px) {
   .tn-ics { padding: 40px 20px; gap: 40px; }
