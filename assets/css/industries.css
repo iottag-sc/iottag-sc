@@ -127,10 +127,7 @@
 }
 
 /* 5. TUNNELLING (tunnelling) --------------------------------------------------- */
-/* hero cards — the tunnelling design uses 150px rows and Ubuntu Regular labels
-   (mining's are 160px / bold), so override just those two on this page */
-.hero-cards--tn .hero-card { height: 150px; }
-.hero-cards--tn .hero-card__title { font-weight: 400; }
+/* (hero side cards were removed from the tunnelling design — hidden in Figma 10575:4637) */
 
 /* the project-environment photo grid reuses .acc-tiles--photo (§2); its former
    tile labels now live in this two-column tick list beside the copy */
@@ -179,6 +176,131 @@
 
 /* shorter applications strip (180px cells) */
 .track-strip--s .track-strip__cell { min-height: 180px; }
+
+/* --- Integrated Solutions for Tunnelling & Mining (Figma 13897:18890) ----- */
+.tn-sol { display: flex; flex-direction: column; gap: 80px; align-items: center; }
+.tn-intro { display: flex; align-items: center; gap: 40px; width: 100%; max-width: 1312px; }
+.tn-intro__t { flex: 0 0 560px; max-width: 100%; display: flex; flex-direction: column; gap: 8px; }
+.tn-intro__sub { margin: 0; font: 700 18px/1.2 var(--f-alt); color: #4b5059; }
+.tn-intro__d { flex: 1 1 0; min-width: 0; margin: 0; font: 400 18px/1.2 var(--f-alt); color: var(--c-ink); }
+@media (max-width: 1100px) {
+  .tn-sol { gap: 40px; }
+  .tn-intro { flex-direction: column; align-items: flex-start; }
+  .tn-intro__t { flex-basis: auto; }
+}
+/* solution rows reuse the home .faq accordion (faq.js); the row is a title +
+   one-line summary stacked, chevron pinned right */
+.tn-faq { max-width: 1312px; }
+.tn-faq .faq__q { padding: 20px 24px; gap: 8px; }
+.tn-faq__t { display: flex; flex-direction: column; min-width: 0; }
+.tn-faq__title { font: 400 18px/1.2 var(--f-alt); color: #4b5059; }
+.tn-faq__sub { font: 400 16px/1.2 var(--f-alt); color: var(--c-ink); }
+.tn-faq .faq__chev { width: 24px; height: 24px; }
+/* open row (Figma 13910:19404): pale header, bold title, body split into
+   Solution / How-it-works copy and a blue-ruled "Core Benefit" callout */
+.tn-faq .faq__item.is-open .faq__q { background: var(--c-blue-pale); }
+.tn-faq .faq__item.is-open .tn-faq__title { font-weight: 700; }
+.tn-faq .faq__a-inner { padding: 20px 24px; gap: 20px; }
+.tn-faq__body { display: flex; flex-direction: column; gap: 4px; }
+.tn-faq__body p, .tn-faq__body li, .tn-faq__benefit p { font: 400 16px/1.2 var(--f-alt); color: var(--c-ink); margin: 0; }
+.tn-faq__body strong { font-weight: 700; color: #4b5059; }
+.tn-faq__body ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 4px; }
+.tn-faq__h { margin: 0; font: 700 16px/1.2 var(--f-alt); color: var(--c-blue); }
+.tn-faq__body h3.tn-faq__h:not(:first-child) { margin-top: 16px; }
+.tn-faq__benefit {
+  display: flex; flex-direction: column; gap: 8px; padding: 20px;
+  background: var(--c-blue-pale); border-left: 2px solid var(--c-blue);
+}
+.tn-faq__benefit p:not(.tn-faq__h) { font-weight: 700; color: #4b5059; }
+.tn-faq__benefit .tn-faq__h { font-weight: 700; color: var(--c-blue); }
+@media (max-width: 640px) { .tn-faq .faq__q { padding: 16px; } .tn-faq .faq__a-inner { padding: 16px; } }
+
+/* --- Integrated Communication Node (Figma 13935:22254) ---------------------- */
+/* the whole block is one pale rounded card inside the page gutters */
+.tn-ics-wrap { padding-top: 0; }
+.tn-ics {
+  width: 100%; max-width: 1312px; margin: 0 auto;
+  background: var(--c-blue-pale); border-radius: var(--r-md);
+  padding: 60px 40px;
+  display: flex; flex-direction: column; align-items: center; gap: 80px;
+}
+/* hub-and-spoke diagram: fixed 1120×496 canvas (positions inline on the pills)
+   with an SVG of spokes behind the pills and the centre node */
+.tn-ics__diagram { position: relative; width: 1120px; max-width: 100%; height: 496px; }
+.tn-ics__links { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tn-ics__links line { stroke: #fff; stroke-width: 2; }
+.tn-pill {
+  position: absolute; width: 280px; height: 80px; padding: 20px;
+  background: #fff; border-radius: 99px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.tn-pill--wide { width: 400px; }
+.tn-pill img { width: 24px; height: 24px; flex-shrink: 0; }
+.tn-pill span { font: 700 18px/1.2 var(--f-alt); color: #4b5059; white-space: nowrap; }
+.tn-ics__node {
+  position: absolute; left: 420px; top: 116px; width: 280px; height: 280px;
+  background: #fff; border: 1px solid var(--c-blue); border-radius: 48px;
+  box-shadow: 0 4px 8px -2px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.06);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  padding: 0 10px 0 8px;
+}
+.tn-ics__node img { width: 122px; height: 120px; object-fit: cover; }
+.tn-ics__node-title {
+  margin: 0; text-align: center;
+  font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059;
+}
+/* three-column requirements card */
+.tn-ics__cols {
+  display: flex; width: 100%;
+  background: #fff; border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden;
+}
+.tn-ics__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+.tn-ics__col + .tn-ics__col { border-left: 1px solid var(--c-line); }
+.tn-ics__col h3 { margin: 0; padding: 20px 24px 0; font: 700 18px/1.2 var(--f-alt); color: #4b5059; }
+.tn-ics__col p { margin: 0; padding: 20px 24px 0; font: 400 16px/1.2 var(--f-alt); color: var(--c-ink); }
+.tn-ics__col p:last-child { padding-bottom: 20px; }
+/* nested sub-system accordions: pale rounded rows, chevron on the left;
+   an open row turns into a white bordered card with a pale header */
+.tn-sub.faq { border: 0; border-radius: 0; overflow: visible; display: flex; flex-direction: column; gap: 4px; padding: 20px; }
+.tn-sub .faq__item { background: none; border: 1px solid transparent; border-radius: var(--r-sm); overflow: hidden; }
+.tn-sub .faq__item + .faq__item { border-top: 1px solid transparent; }
+.tn-sub .faq__item.is-open { background: #fff; border-color: var(--c-line); }
+.tn-sub .faq__q {
+  justify-content: flex-start; gap: 10px; padding: 12px 8px 12px 12px;
+  background: var(--c-blue-pale);
+  font: 700 16px/1.2 var(--f-alt); letter-spacing: 0; color: #4b5059;
+}
+.tn-sub .faq__chev { width: 16px; height: 16px; }
+.tn-sub .faq__a-inner { padding: 16px 4px 16px 9px; gap: 16px; }
+.tn-sub__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.tn-sub__list li {
+  position: relative; padding-left: 23px;
+  font: 400 16px/1.2 var(--f-alt); color: var(--c-ink);
+}
+.tn-sub__list li::before {
+  content: ""; position: absolute; left: 0; top: 1.5px; width: 15px; height: 15px;
+  background: url("../icon/tn-ics-dot.svg") center / 15px no-repeat;
+}
+.tn-sub__list strong { font-weight: 700; color: #4b5059; }
+@media (max-width: 1200px) {
+  /* below the fixed canvas width the diagram reflows as a wrapped pill cloud
+     with the node first; spokes only make sense at the fixed layout */
+  .tn-ics__diagram { height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .tn-ics__links { display: none; }
+  .tn-pill, .tn-pill--wide, .tn-ics__node { position: static; width: auto; }
+  .tn-pill { flex: 0 1 auto; height: 64px; padding: 16px 24px; }
+  .tn-pill span { white-space: normal; }
+  .tn-ics__node { order: -1; width: 100%; max-width: 280px; height: auto; padding: 24px 16px; margin-bottom: 12px; }
+}
+@media (max-width: 1100px) {
+  .tn-ics { padding: 40px 20px; gap: 40px; }
+  .tn-ics__cols { flex-direction: column; }
+  .tn-ics__col + .tn-ics__col { border-left: 0; border-top: 1px solid var(--c-line); }
+}
+@media (max-width: 640px) {
+  .tn-ics { padding: 32px 16px; }
+  .tn-pill span { font-size: 16px; }
+}
 
 /* 6. BRIDGE CONSTRUCTION & MAINTENANCE (bridge-construction-maintenance) ------ */
 /* hero: 832px copy column beside the 400px tile panel (1312 − 400 − 80 gap),
