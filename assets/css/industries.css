@@ -129,8 +129,15 @@
 /* 5. TUNNELLING (tunnelling) --------------------------------------------------- */
 /* (hero side cards were removed from the tunnelling design — hidden in Figma 10575:4637) */
 
-/* the project-environment photo grid reuses .acc-tiles--photo (§2); its former
-   tile labels now live in this two-column tick list beside the copy */
+/* Supporting Workforce Safety (Figma 10575:4729) — white band: section title
+   on the left, the two-column tick list (14006:11309) on the right, grid below */
+.tn-safety__head { width: 100%; display: flex; align-items: center; gap: 20px; }
+.tn-safety__t { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.tn-safety__sub { margin: 0; font: 700 18px/1.2 var(--f-alt); color: #4b5059; }
+.tn-checks--side { flex-shrink: 0; gap: 40px; }  /* design pads this 24px, but our 1200px container needs the room for the title */
+@media (max-width: 1100px) {
+  .tn-safety__head { flex-direction: column; align-items: flex-start; gap: 24px; }
+}
 .tn-checks { display: flex; gap: 80px; flex-wrap: wrap; }
 .tn-checks__col { display: flex; flex-direction: column; gap: 8px; }
 .tn-check {
@@ -153,7 +160,7 @@
   display: flex; flex-direction: column; justify-content: center; gap: 16px;
   border-right: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line);
 }
-.safety-grid__cell img { width: 32px; height: 32px; }
+.safety-grid__cell img { display: block; }  /* sized by the markup: 40px hard-hat/construction, 48px Material glyphs (Figma) */
 .safety-grid__cell h3 {
   margin: 0; font-family: var(--f-alt); font-weight: 400; font-size: 20px;
   line-height: 1.4; letter-spacing: -.01em; color: #4b5059;
@@ -181,7 +188,7 @@
 .tn-sol { display: flex; flex-direction: column; gap: 80px; align-items: center; }
 .tn-intro { display: flex; align-items: center; gap: 40px; width: 100%; max-width: 1312px; }
 .tn-intro__t { flex: 0 0 560px; max-width: 100%; display: flex; flex-direction: column; gap: 8px; }
-.tn-intro__sub { margin: 0; font: 700 18px/1.2 var(--f-alt); color: #4b5059; }
+.tn-intro__sub { margin: 0; font: 400 18px/1.2 var(--f-alt); color: #4b5059; }  /* un-bolded (markup request Sep 2026) */
 .tn-intro__d { flex: 1 1 0; min-width: 0; margin: 0; font: 400 18px/1.2 var(--f-alt); color: var(--c-ink); }
 @media (max-width: 1100px) {
   .tn-sol { gap: 40px; }
@@ -214,17 +221,20 @@
   display: flex; flex-direction: column; gap: 8px; padding: 20px;
   background: var(--c-blue-pale); border-left: 2px solid var(--c-blue);
 }
-.tn-faq__benefit p:not(.tn-faq__h) { font-weight: 700; color: #4b5059; }
+.tn-faq__benefit p:not(.tn-faq__h) { font-weight: 400; color: #4b5059; }  /* un-bolded (markup request Sep 2026) */
 .tn-faq__benefit .tn-faq__h { font-weight: 700; color: var(--c-blue); }
 @media (max-width: 640px) { .tn-faq .faq__q { padding: 16px; } .tn-faq .faq__a-inner { padding: 16px; } }
 
 /* --- Integrated Communication Node (Figma 13935:22254) ---------------------- */
-/* the whole block is one pale rounded card inside the page gutters */
-.tn-ics-wrap { padding-top: 0; }
+/* full-bleed pale band (Figma frame 565 is 1440 wide, 60px top/bottom) — the
+   tint comes from .section--pale's edge-to-edge box-shadow */
+.tn-ics-wrap {
+  padding: 60px var(--pad-x);
+  background: var(--c-blue-pale);
+  box-shadow: 0 0 0 100vmax var(--c-blue-pale); clip-path: inset(0 -100vmax);
+}
 .tn-ics {
   width: 100%; max-width: 1312px; margin: 0 auto;
-  background: var(--c-blue-pale); border-radius: var(--r-md);
-  padding: 60px 40px;
   display: flex; flex-direction: column; align-items: center; gap: 80px;
 }
 /* hub-and-spoke diagram. The design is a 1120×496 canvas; each pill carries
@@ -260,7 +270,7 @@
 .tn-ics__node img { width: calc(122 * var(--u)); height: calc(120 * var(--u)); object-fit: cover; }
 .tn-ics__node-title {
   margin: 0; text-align: center;
-  font: 700 calc(20 * var(--u)) / 1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059;
+  font: 400 calc(20 * var(--u)) / 1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059;  /* un-bolded (markup request Sep 2026) */
 }
 /* three-column requirements card */
 .tn-ics__cols {
@@ -309,12 +319,13 @@
   .tn-ics__node-title { font-size: 20px; }
 }
 @media (max-width: 1100px) {
-  .tn-ics { padding: 40px 20px; gap: 40px; }
+  .tn-ics-wrap { padding-block: 40px; }
+  .tn-ics { gap: 40px; }
   .tn-ics__cols { flex-direction: column; }
   .tn-ics__col + .tn-ics__col { border-left: 0; border-top: 1px solid var(--c-line); }
 }
 @media (max-width: 640px) {
-  .tn-ics { padding: 32px 16px; }
+  .tn-ics-wrap { padding-block: 32px; }
   .tn-pill span { font-size: 16px; }
 }
 

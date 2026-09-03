@@ -1035,7 +1035,7 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 .oem-ring svg { display: block; width: 100%; height: auto; }
 .oem-ring svg.oem-ring__logo {   /* beats `.oem-ring svg` above */
   position: absolute; top: 50%; left: 50%;
-  width: 6.4%; height: auto;                /* shrunk 25% from 8.5% (markup request Aug 2026) */
+  width: 4.5%; height: auto;                /* shrunk 30% from 6.4% (markup request Sep 2026) */
   transform: translate(-50%, calc(-100% - 4px));  /* sits just above the centre label */
 }
 /* "Intelligence Layer" label under the centre logo (markup request Aug 2026) */
@@ -1385,7 +1385,6 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   font-size: 18px; line-height: 1.2; color: #4b5059;
 }
 .li-book__form { display: flex; flex-direction: column; gap: 20px; }
-.li-book__row { display: flex; gap: 20px; }
 .li-book__field { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 .li-book__field label { font-family: var(--f-alt); font-size: 16px; line-height: 1.2; color: var(--c-ink); }
 .li-book__field input {
@@ -1397,4 +1396,14 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
   outline: none; border-color: var(--c-blue);
   box-shadow: 0 0 0 1px var(--c-blue);
 }
-.li-book__foot { display: flex; justify-content: flex-end; }
+.li-book__foot { display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
+/* typeform-style stepper (markup request Sep 2026): main.js adds the --steps
+   class and reveals one field at a time; no-JS renders all fields stacked */
+.li-book__form--steps .li-book__field { display: none; }
+.li-book__form--steps .li-book__field.is-active { display: flex; }
+.li-book__progress { margin-right: auto; font-family: var(--f-alt); font-size: 14px; color: #7a8089; }
+.li-book__back {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font-family: var(--f-alt); font-size: 16px; color: var(--c-blue);
+}
+.li-book__back:hover { text-decoration: underline; }

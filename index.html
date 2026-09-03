@@ -752,33 +752,28 @@
             <div class="yt-embed"><iframe src="https://www.youtube.com/embed/jMTpcdNyPnk" title="Safety Intelligence Powered by Atlas at Cross Island Line" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
           </div>
           <div class="li-col__group">
-          <h3 class="li-col__title">Proactive Risk Intelligence Information Pack</h3>
-          <!-- Book-a-meeting card (Figma 13704:10677) -->
+          <!-- Info-pack request card (markup request Sep 2026) — typeform-style
+               stepper: JS in main.js shows one field at a time; without JS the
+               fields render stacked and the form still works. -->
           <div class="li-book" id="book-meeting">
-            <h3 class="li-book__title">Book a meeting with Iottag team</h3>
-            <form class="li-book__form" method="post" action="#book-meeting">
-              <div class="li-book__row">
-                <div class="li-book__field">
-                  <label for="bk-name">Name</label>
-                  <input type="text" id="bk-name" name="name" autocomplete="name" required>
-                </div>
-                <div class="li-book__field">
-                  <label for="bk-company">Company</label>
-                  <input type="text" id="bk-company" name="company" autocomplete="organization">
-                </div>
+            <h3 class="li-book__title">Proactive Risk Intelligence Information Pack</h3>
+            <form class="li-book__form" method="post" action="#book-meeting" data-infopack>
+              <div class="li-book__field" data-step>
+                <label for="bk-name">Name</label>
+                <input type="text" id="bk-name" name="name" autocomplete="name" required>
               </div>
-              <div class="li-book__row">
-                <div class="li-book__field">
-                  <label for="bk-email">Email</label>
-                  <input type="email" id="bk-email" name="email" autocomplete="email" required>
-                </div>
-                <div class="li-book__field">
-                  <label for="bk-date">Date</label>
-                  <input type="date" id="bk-date" name="date">
-                </div>
+              <div class="li-book__field" data-step>
+                <label for="bk-company">Company</label>
+                <input type="text" id="bk-company" name="company" autocomplete="organization">
+              </div>
+              <div class="li-book__field" data-step>
+                <label for="bk-email">Email</label>
+                <input type="email" id="bk-email" name="email" autocomplete="email" required>
               </div>
               <div class="li-book__foot">
-                <button class="btn btn--primary" type="submit">Book a meeting</button>
+                <span class="li-book__progress" aria-hidden="true"></span>
+                <button class="li-book__back" type="button" hidden>Back</button>
+                <button class="btn btn--primary" type="submit">Request Info Pack</button>
               </div>
             </form>
           </div>

@@ -152,7 +152,6 @@
   .li-embeds { flex-direction: column; }
   .li-feed, .li-embed, .yt-embed, .li-col { width: 100%; flex: 0 0 auto; }
   .li-book { padding: 24px; }
-  .li-book__row { flex-direction: column; }
 }
 
 @media (max-width: 480px) {

@@ -473,6 +473,56 @@ function initWhitePaperGate() {
    .li-embed wrapper) and is scaled down to the column width — the content
    never rewraps, so the height stays valid and nothing is cut off at any
    viewport size. */
+/* ---- home: info-pack request form — typeform-style, one field at a time ---- */
+function initInfoPackForm() {
+  const form = document.querySelector('form[data-infopack]');
+  if (!form) return;
+  const steps = Array.from(form.querySelectorAll('[data-step]'));
+  const back = form.querySelector('.li-book__back');
+  const progress = form.querySelector('.li-book__progress');
+  const submit = form.querySelector('button[type="submit"]');
+  if (steps.length < 2 || !back || !progress || !submit) return;
+  const finalLabel = submit.textContent;
+  let i = 0;
+
+  const show = (n, focus) => {
+    i = n;
+    steps.forEach((s, k) => s.classList.toggle('is-active', k === i));
+    back.hidden = i === 0;
+    progress.textContent = `${i + 1} of ${steps.length}`;
+    submit.textContent = i < steps.length - 1 ? 'Next' : finalLabel;
+    if (focus) {
+      const input = steps[i].querySelector('input');
+      if (input) input.focus();
+    }
+  };
+
+  form.classList.add('li-book__form--steps');
+  form.noValidate = true;   // native validation would block on hidden fields; we validate per step
+  show(0, false);
+
+  back.addEventListener('click', () => show(i - 1, true));
+  form.addEventListener('submit', (e) => {
+    const input = steps[i].querySelector('input');
+    if (input && !input.reportValidity()) { e.preventDefault(); return; }
+    if (i < steps.length - 1) {             // Enter or "Next" advances instead
+      e.preventDefault();
+      show(i + 1, true);
+      return;
+    }
+    // last step: re-check earlier fields (user may have gone Back and cleared one)
+    const bad = steps.findIndex((s) => {
+      const inp = s.querySelector('input');
+      return inp && !inp.checkValidity();
+    });
+    if (bad !== -1 && bad !== i) {
+      e.preventDefault();
+      show(bad, true);
+      steps[bad].querySelector('input').reportValidity();
+    }
+  });
+}
+
 function initLinkedInEmbeds() {
   const wraps = document.querySelectorAll('.li-embed');
   if (!wraps.length) return;
@@ -609,6 +659,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initBrandMarquee();
   initCardReveal();
   initWhitePaperGate();
+  initInfoPackForm();
   initLinkedInEmbeds();
   initLinkedInFeedClick();
   initIeCycle();
