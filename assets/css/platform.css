@@ -819,16 +819,7 @@ a.em-doc:hover span { color: var(--c-blue); }
   .dpm-flow__note { padding: 24px; }
 }
 
-/* "Atlas helps your engineering team answer" strip: 6 question cells + takeaway */
-.dpm-ask { width: 100%; background: var(--c-line); border: 1.25px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; display: flex; flex-direction: column; gap: 1.25px; }
-.dpm-ask__row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.25px; }
-.dpm-ask__cell {
-  min-height: 200px; padding: 24px;
-  background: #fff;
-  display: flex; flex-direction: column; gap: 16px; justify-content: center;
-}
-.dpm-ask__cell img { width: 32px; height: 32px; }
-.dpm-ask__cell span { font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
-.dpm-ask__note { margin: 0; background: var(--c-blue-pale); padding: 24px; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: var(--c-blue); text-align: center; }
-@media (max-width: 1100px) { .dpm-ask__row { grid-template-columns: repeat(3, 1fr); } .dpm-ask__cell { min-height: 150px; } }
-@media (max-width: 640px)  { .dpm-ask__row { grid-template-columns: 1fr 1fr; } }
+/* "Close the loop" (Figma 13947:26685): the hotspot step row wrapped in a bordered card with a pale takeaway band */
+.dpm-steps-card { width: 100%; border: 1px solid var(--c-blue-tint); border-radius: var(--r-md); overflow: hidden; background: #fff; }
+.dpm-steps-card .dpm-steps { border-radius: 0; }
+.dpm-steps-card__note { margin: 0; background: var(--c-blue-pale); padding: 24px; font: 700 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: var(--c-blue); text-align: center; }

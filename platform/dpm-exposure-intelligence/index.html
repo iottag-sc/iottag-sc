@@ -183,9 +183,18 @@ Atlas connects that reading with where people are, what plant is operating and h
         <p class="dpm-label">Exposure Hotspot Diagnosis</p>
         <div class="dpm-steps">
           <div class="dpm-step">
+            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-pin-drop.svg" alt="" width="32" height="32" loading="lazy"></div>
+            <h3>Where</h3>
+            <p>Where are conditions changing?</p>
+          </div>
+          <div class="dpm-sep" aria-hidden="true">
+            <svg class="dpm-sep__top" viewBox="0 0 24 80" preserveAspectRatio="none"><line x1="1" y1="0" x2="23" y2="80" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+            <svg class="dpm-sep__bot" viewBox="0 0 24 100" preserveAspectRatio="none"><line x1="23" y1="0" x2="1" y2="100" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+          </div>
+          <div class="dpm-step">
             <div class="dpm-step__hd"><img src="../../assets/icon/dpm-user.svg" alt="" width="32" height="32" loading="lazy"></div>
             <h3>Who</h3>
-            <p>Which personnel are within the affected area?</p>
+            <p>Who is within the affected area?</p>
           </div>
           <div class="dpm-sep" aria-hidden="true">
             <svg class="dpm-sep__top" viewBox="0 0 24 80" preserveAspectRatio="none"><line x1="1" y1="0" x2="23" y2="80" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
@@ -193,17 +202,8 @@ Atlas connects that reading with where people are, what plant is operating and h
           </div>
           <div class="dpm-step">
             <div class="dpm-step__hd"><img src="../../assets/icon/dpm-truck2.svg" alt="" width="32" height="32" loading="lazy"></div>
-            <h3>What</h3>
-            <p>What plant and vehicles are operating nearby?</p>
-          </div>
-          <div class="dpm-sep" aria-hidden="true">
-            <svg class="dpm-sep__top" viewBox="0 0 24 80" preserveAspectRatio="none"><line x1="1" y1="0" x2="23" y2="80" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
-            <svg class="dpm-sep__bot" viewBox="0 0 24 100" preserveAspectRatio="none"><line x1="23" y1="0" x2="1" y2="100" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
-          </div>
-          <div class="dpm-step">
-            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-timer.svg" alt="" width="32" height="32" loading="lazy"></div>
-            <h3>How Long</h3>
-            <p>How long have personnel and emission sources occupied the zone?</p>
+            <h3>Plant</h3>
+            <p>What equipment is operating nearby?</p>
           </div>
           <div class="dpm-sep" aria-hidden="true">
             <svg class="dpm-sep__top" viewBox="0 0 24 80" preserveAspectRatio="none"><line x1="1" y1="0" x2="23" y2="80" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
@@ -212,16 +212,16 @@ Atlas connects that reading with where people are, what plant is operating and h
           <div class="dpm-step">
             <div class="dpm-step__hd"><img src="../../assets/icon/dpm-fan.svg" alt="" width="32" height="32" loading="lazy"></div>
             <h3>Ventilation</h3>
-            <p>What airflow and fan conditions exist?</p>
+            <p>What are the current airflow conditions?</p>
           </div>
           <div class="dpm-sep" aria-hidden="true">
             <svg class="dpm-sep__top" viewBox="0 0 24 80" preserveAspectRatio="none"><line x1="1" y1="0" x2="23" y2="80" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
             <svg class="dpm-sep__bot" viewBox="0 0 24 100" preserveAspectRatio="none"><line x1="23" y1="0" x2="1" y2="100" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
           </div>
           <div class="dpm-step">
-            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-bulb.svg" alt="" width="32" height="32" loading="lazy"></div>
-            <h3>Source</h3>
-            <p>Is congestion, idling or particular plant contributing?</p>
+            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-chart-line.svg" alt="" width="32" height="32" loading="lazy"></div>
+            <h3>Trends</h3>
+            <p>Are conditions improving or deteriorating?</p>
           </div>
         </div>
       </div>
@@ -259,11 +259,12 @@ Atlas connects that reading with where people are, what plant is operating and h
     <section class="section--pale section stack" style="gap:60px;">
       <div class="dpm-title">
         <div class="dpm-title__t">
-          <h2 class="em-h2">From Monitoring To TARP Action</h2>
-          <p class="dpm-title__sub">Turn changing DPM conditions into a structured operational response.</p>
+          <p class="kicker">What Do We Do About It?</p>
+          <h2 class="em-h2">From Detection To TARP Action</h2>
+          <p class="dpm-title__sub">Connect changing conditions with your site's defined response.</p>
         </div>
         <div class="dpm-title__d">
-          <p class="body">Atlas can support the site's existing Trigger Action Response Plan (TARP) by bringing the information required to understand a trigger and coordinate the defined response into one operational view.</p>
+          <p class="body">Atlas brings together the operational information needed to identify a trigger, understand the conditions surrounding it and support the appropriate site-defined response.</p>
         </div>
       </div>
       <div class="dpm-table-scroll">
@@ -271,35 +272,35 @@ Atlas connects that reading with where people are, what plant is operating and h
           <thead>
             <tr>
               <th scope="col" style="width:200px;">TARP State</th>
-              <th scope="col">What Atlas Identifies</th>
+              <th scope="col">Atlas Identifies</th>
               <th scope="col">Site-Defined Response</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">Normal</th>
-              <td>DPM and controls within expected operating conditions</td>
-              <td>Continue operations and monitor</td>
+              <td>Conditions operating as expected</td>
+              <td>Continue and monitor</td>
             </tr>
             <tr>
               <th scope="row">Elevated</th>
-              <td>Increasing DPM trend or emerging hotspot</td>
-              <td>Investigate source, personnel exposure and control performance</td>
+              <td>Emerging trend or hotspot</td>
+              <td>Investigate conditions and controls</td>
             </tr>
             <tr class="is-warn">
               <th scope="row">Action</th>
-              <td>Site-defined trigger reached or control degraded</td>
-              <td>Apply defined engineering / operational controls</td>
+              <td>Site-defined trigger reached</td>
+              <td>Apply defined controls</td>
             </tr>
             <tr class="is-warn">
               <th scope="row">Escalation</th>
               <td>Conditions continue to deteriorate</td>
-              <td>Escalate, restrict activity or remove personnel as defined by the TARP</td>
+              <td>Escalate or restrict activity as required</td>
             </tr>
             <tr class="is-warn">
               <th scope="row">Recovery</th>
-              <td>Conditions return within site-defined recovery criteria</td>
-              <td>Verify controls and return according to site procedure</td>
+              <td>Conditions return within defined criteria</td>
+              <td>Verify and return according to procedure</td>
             </tr>
           </tbody>
         </table>
@@ -458,42 +459,67 @@ Atlas connects that reading with where people are, what plant is operating and h
 
     <!-- ===== MONITORING TO INTELLIGENCE (Figma 13947:26685) ===== -->
     <section class="section stack gap-40">
-      <div class="stack center gap-24 text-center">
-        <p class="kicker">Close The Loop</p>
-        <h2 class="em-h2">From environmental monitoring to coordinated operational response.</h2>
-        <div class="stack gap-4">
-          <p class="body">A monitoring system tells you: &ldquo;exposure is elevated.&rdquo;</p>
-          <p class="body">Atlas helps your engineering team</p>
+      <div class="stack center gap-20 text-center">
+        <div class="stack center gap-8 text-center">
+          <p class="kicker">Close The Loop</p>
+          <h2 class="em-h2">From environmental monitoring<br>to coordinated operational response</h2>
         </div>
+        <p class="body">A monitoring system tells you: &ldquo;Exposure is elevated.&rdquo; Atlas helps your engineering team:</p>
       </div>
-      <div class="dpm-ask">
-        <div class="dpm-ask__row">
-          <div class="dpm-ask__cell">
-            <img src="../../assets/icon/dpm-pin.svg" alt="" width="32" height="32" loading="lazy">
-            <span>Where?</span>
+      <div class="dpm-steps-card">
+        <div class="dpm-steps">
+          <div class="dpm-step">
+            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-monitor-play.svg" alt="" width="32" height="32" loading="lazy"></div>
+            <h3>Monitor</h3>
+            <p>Detect changing conditions</p>
           </div>
-          <div class="dpm-ask__cell">
-            <img src="../../assets/icon/dpm-user2.svg" alt="" width="32" height="32" loading="lazy">
-            <span>Who is affected?</span>
+          <div class="dpm-sep" aria-hidden="true">
+            <svg class="dpm-sep__top" viewBox="0 0 24 80" preserveAspectRatio="none"><line x1="1" y1="0" x2="23" y2="80" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+            <svg class="dpm-sep__bot" viewBox="0 0 24 100" preserveAspectRatio="none"><line x1="23" y1="0" x2="1" y2="100" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
           </div>
-          <div class="dpm-ask__cell">
-            <img src="../../assets/icon/dpm-question.svg" alt="" width="32" height="32" loading="lazy">
-            <span>What's causing it?</span>
+          <div class="dpm-step">
+            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-pin-drop.svg" alt="" width="32" height="32" loading="lazy"></div>
+            <h3>Locate</h3>
+            <p>Identify affected areas and personnel</p>
           </div>
-          <div class="dpm-ask__cell">
-            <img src="../../assets/icon/dpm-settings.svg" alt="" width="32" height="32" loading="lazy">
-            <span>What controls are available?</span>
+          <div class="dpm-sep" aria-hidden="true">
+            <svg class="dpm-sep__top" viewBox="0 0 24 80" preserveAspectRatio="none"><line x1="1" y1="0" x2="23" y2="80" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+            <svg class="dpm-sep__bot" viewBox="0 0 24 100" preserveAspectRatio="none"><line x1="23" y1="0" x2="1" y2="100" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
           </div>
-          <div class="dpm-ask__cell">
-            <img src="../../assets/icon/dpm-feedback.svg" alt="" width="32" height="32" loading="lazy">
-            <span>Respond</span>
+          <div class="dpm-step">
+            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-checklist.svg" alt="" width="32" height="32" loading="lazy"></div>
+            <h3>Understand</h3>
+            <p>Connect plant, activity and ventilation</p>
           </div>
-          <div class="dpm-ask__cell">
-            <img src="../../assets/icon/dpm-rotate.svg" alt="" width="32" height="32" loading="lazy">
-            <span>Continue Monitoring</span>
+          <div class="dpm-sep" aria-hidden="true">
+            <svg class="dpm-sep__top" viewBox="0 0 24 80" preserveAspectRatio="none"><line x1="1" y1="0" x2="23" y2="80" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+            <svg class="dpm-sep__bot" viewBox="0 0 24 100" preserveAspectRatio="none"><line x1="23" y1="0" x2="1" y2="100" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+          </div>
+          <div class="dpm-step">
+            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-settings-remote.svg" alt="" width="32" height="32" loading="lazy"></div>
+            <h3>Trigger</h3>
+            <p>Identify the site-defined TARP state</p>
+          </div>
+          <div class="dpm-sep" aria-hidden="true">
+            <svg class="dpm-sep__top" viewBox="0 0 24 80" preserveAspectRatio="none"><line x1="1" y1="0" x2="23" y2="80" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+            <svg class="dpm-sep__bot" viewBox="0 0 24 100" preserveAspectRatio="none"><line x1="23" y1="0" x2="1" y2="100" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+          </div>
+          <div class="dpm-step">
+            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-feedback.svg" alt="" width="32" height="32" loading="lazy"></div>
+            <h3>Respond</h3>
+            <p>Apply the appropriate control</p>
+          </div>
+          <div class="dpm-sep" aria-hidden="true">
+            <svg class="dpm-sep__top" viewBox="0 0 24 80" preserveAspectRatio="none"><line x1="1" y1="0" x2="23" y2="80" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+            <svg class="dpm-sep__bot" viewBox="0 0 24 100" preserveAspectRatio="none"><line x1="23" y1="0" x2="1" y2="100" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+          </div>
+          <div class="dpm-step">
+            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-verified-user.svg" alt="" width="32" height="32" loading="lazy"></div>
+            <h3>Verify</h3>
+            <p>Confirm conditions improve</p>
           </div>
         </div>
-        <p class="dpm-ask__note">Actively manage the conditions that create exposure.</p>
+        <p class="dpm-steps-card__note">Actively manage the conditions that create exposure.</p>
       </div>
     </section>
 
