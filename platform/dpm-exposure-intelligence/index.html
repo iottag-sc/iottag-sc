@@ -234,7 +234,15 @@ Atlas connects that reading with where people are, what plant is operating and h
         <h2 class="em-h2">Continue Safe Operations</h2>
       </div>
       <div class="dpm-map">
-        <img src="../../assets/img/platform/dpm-map.jpg" alt="Atlas live map showing DPM exposure zones, vehicle positions and ventilation status across an underground operation" width="1400" height="780" loading="lazy">
+        <div class="dpm-map__img-wrap">
+          <img src="../../assets/img/platform/dpm-map.jpg" alt="Atlas live map showing DPM exposure zones, vehicle positions and ventilation status across an underground operation" width="1400" height="780" loading="lazy">
+          <div class="dpm-truck-marker" aria-label="Vehicle in over exposure zone">
+            <img src="../../assets/img/platform/dpm-map-truck.svg" alt="" width="14" height="10" loading="lazy">
+            <img class="dpm-truck-marker__arrow" src="../../assets/img/platform/dpm-map-truck-arrow.svg" alt="" width="7" height="3" loading="lazy">
+          </div>
+        </div>
+        <img class="dpm-map__connector dpm-map__connector--medium" src="../../assets/img/platform/dpm-map-medium-connector.svg" alt="" aria-hidden="true">
+        <img class="dpm-map__connector dpm-map__connector--over" src="../../assets/img/platform/dpm-map-over-connector.svg" alt="" aria-hidden="true">
         <div class="dpm-tip dpm-tip--medium">
           <h3>Medium Exposure Zone</h3>
           <div class="dpm-tip__tags">
@@ -496,7 +504,7 @@ Atlas connects that reading with where people are, what plant is operating and h
             <svg class="dpm-sep__bot" viewBox="0 0 24 100" preserveAspectRatio="none"><line x1="23" y1="0" x2="1" y2="100" stroke="#d3e8f3" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
           </div>
           <div class="dpm-step">
-            <div class="dpm-step__hd"><img src="../../assets/icon/dpm-settings-remote.svg" alt="" width="32" height="32" loading="lazy"></div>
+            <div class="dpm-step__hd"><img src="../../assets/icon/ads_click.svg" alt="" width="32" height="32" loading="lazy"></div>
             <h3>Trigger</h3>
             <p>Identify the site-defined TARP state</p>
           </div>

@@ -757,7 +757,14 @@ a.em-doc:hover span { color: var(--c-blue); }
 
 /* live-map figure with overlaid zone tooltips */
 .dpm-map { position: relative; width: 100%; display: flex; justify-content: center; padding-block: 12px; }
-.dpm-map > img { width: 78%; height: auto; border: 1px solid var(--c-line); border-radius: var(--r-md); }
+.dpm-map__img-wrap { position: relative; width: 78%; }
+.dpm-map__img-wrap > img { width: 100%; height: auto; display: block; border: 1px solid var(--c-line); border-radius: var(--r-md); }
+.dpm-truck-marker { position: absolute; z-index: 2; left: 29.2%; top: 57%; transform: translate(-50%, -50%); width: 20px; height: 18px; display: grid; place-items: center; background: #ff3b30; border: 1px solid #ff3b30; border-radius: 3px; box-shadow: 0 2px 5px rgba(0,0,0,.2); }
+.dpm-truck-marker img:first-child { width: 14px; height: auto; }
+.dpm-truck-marker__arrow { position: absolute; left: 50%; top: 100%; transform: translateX(-50%); width: 7px !important; height: 3px; }
+.dpm-map__connector { position: absolute; z-index: 1; top: 0; left: 0; pointer-events: none; }
+.dpm-map__connector--medium { width: 3.4%; top: 38.2%; left: 17%; transform-origin: top left; }
+.dpm-map__connector--over { width: 9.4%; top: 70.7%; left: 23.8%; transform: rotate(-73deg); transform-origin: top left; }
 .dpm-tip {
   position: absolute; z-index: 1;
   background: #fff; border: 1.5px solid var(--c-line); border-radius: 12px;
@@ -781,7 +788,8 @@ a.em-doc:hover span { color: var(--c-blue); }
 .dpm-pill--orange { background: #e36821; }
 @media (max-width: 900px) {
   .dpm-map { flex-direction: column; gap: 16px; }
-  .dpm-map > img { width: 100%; }
+  .dpm-map__img-wrap { width: 100%; }
+  .dpm-map__connector { display: none; }
   .dpm-tip { position: static; width: auto; }
 }
 
