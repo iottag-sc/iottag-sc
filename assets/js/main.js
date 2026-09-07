@@ -608,14 +608,33 @@ function initLinkedInFeedClick() {
       style.textContent = [
         'article.feed-content-item, article.feed-content-item * { cursor: pointer !important; }',
         '.plugin-wrapper { background: transparent !important; padding: 0 !important; }',
-        '.feed-content-item { background: #fff !important; border-radius: 8px !important; overflow: hidden !important; }',
+        '.feed-content-item { background: #fff !important; border-radius: 8px !important; overflow: hidden !important; position: relative !important; }',
         '.feed-footer { background: transparent !important; }',
+        '.iot-li-badge { position: absolute; top: 20px; right: 0px; height: 28px; width: auto; pointer-events: none; z-index: 5; }',
       ].join('\n');
       sr.appendChild(style);
+      addLinkedInBadges(sr);
+      /* Common Ninja lazy-loads more posts on scroll, each a fresh
+         .feed-content-item with no badge — keep watching and tag new ones. */
+      new MutationObserver(() => addLinkedInBadges(sr)).observe(sr, { childList: true, subtree: true });
       clearInterval(poll);
     }
   }, 500);
   setTimeout(() => clearInterval(poll), 30000);
+}
+
+/* Common Ninja has no setting to brand its cards, so each post card gets a
+   small LinkedIn logo injected straight into the widget's shadow DOM. */
+function addLinkedInBadges(shadowRoot) {
+  shadowRoot.querySelectorAll('.feed-content-item').forEach((card) => {
+    if (card.dataset.iotLiBadge) return;
+    card.dataset.iotLiBadge = '1';
+    const badge = document.createElement('img');
+    badge.className = 'iot-li-badge';
+    badge.src = '/assets/img/linkedin_logo.png';
+    badge.alt = '';
+    card.appendChild(badge);
+  });
 }
 
 /* ---- "View more" card reveal (Tunnelling · Recent Projects) ------------ */
