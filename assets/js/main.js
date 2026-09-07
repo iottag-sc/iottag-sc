@@ -497,16 +497,25 @@ function initInfoPackForm() {
     }
   };
 
+  const status = form.querySelector('.li-book__status');
+  const setStatus = (text, ok) => {
+    if (!status) return;
+    status.hidden = !text;
+    status.textContent = text;
+    status.classList.toggle('is-error', ok === false);
+    status.classList.toggle('is-ok', ok === true);
+  };
+
   form.classList.add('li-book__form--steps');
   form.noValidate = true;   // native validation would block on hidden fields; we validate per step
   show(0, false);
 
   back.addEventListener('click', () => show(i - 1, true));
   form.addEventListener('submit', (e) => {
+    e.preventDefault();     // site is static (no POST endpoint) — submit is handled via fetch below
     const input = steps[i].querySelector('input');
-    if (input && !input.reportValidity()) { e.preventDefault(); return; }
+    if (input && !input.reportValidity()) return;
     if (i < steps.length - 1) {             // Enter or "Next" advances instead
-      e.preventDefault();
       show(i + 1, true);
       return;
     }
@@ -516,10 +525,30 @@ function initInfoPackForm() {
       return inp && !inp.checkValidity();
     });
     if (bad !== -1 && bad !== i) {
-      e.preventDefault();
       show(bad, true);
       steps[bad].querySelector('input').reportValidity();
+      return;
     }
+
+    submit.disabled = true;
+    setStatus('Sending…', undefined);
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setStatus('Thanks — your information pack request has been sent.', true);
+          form.reset();
+          show(0, false);
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      })
+      .catch(() => setStatus('Something went wrong — please try again.', false))
+      .finally(() => { submit.disabled = false; });
   });
 }
 

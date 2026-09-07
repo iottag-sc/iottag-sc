@@ -1398,12 +1398,23 @@ button.minicard__watch { background: none; border: 0; padding: 0; cursor: pointe
 }
 .li-book__foot { display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
 /* typeform-style stepper (markup request Sep 2026): main.js adds the --steps
-   class and reveals one field at a time; no-JS renders all fields stacked */
-.li-book__form--steps .li-book__field { display: none; }
+   class and reveals one field at a time; no-JS renders all fields stacked.
+   Grid puts the active field in col 1 and the Next/Submit button beside it
+   in col 2, with the "x of y" progress on its own row, right-aligned below. */
+.li-book__form--steps {
+  display: grid; grid-template-columns: 1fr auto; column-gap: 16px; align-items: end;
+}
+.li-book__form--steps .li-book__field { display: none; grid-column: 1; }
 .li-book__form--steps .li-book__field.is-active { display: flex; }
-.li-book__progress { margin-right: auto; font-family: var(--f-alt); font-size: 14px; color: #7a8089; }
+.li-book__form--steps .li-book__foot { grid-column: 2; }
+.li-book__form--steps .li-book__progress { grid-column: 1 / -1; justify-self: end; }
+.li-book__form--steps .li-book__status { grid-column: 1 / -1; }
+.li-book__progress { font-family: var(--f-alt); font-size: 14px; color: #7a8089; }
 .li-book__back {
   background: none; border: 0; padding: 0; cursor: pointer;
   font-family: var(--f-alt); font-size: 16px; color: var(--c-blue);
 }
 .li-book__back:hover { text-decoration: underline; }
+.li-book__status { margin: 0; font-family: var(--f-alt); font-size: 14px; }
+.li-book__status.is-ok { color: #1a7f37; }
+.li-book__status.is-error { color: #c0392b; }

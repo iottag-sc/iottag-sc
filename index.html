@@ -756,8 +756,13 @@
                stepper: JS in main.js shows one field at a time; without JS the
                fields render stacked and the form still works. -->
           <div class="li-book" id="book-meeting">
-            <h3 class="li-book__title">Proactive Risk Intelligence Information Pack</h3>
-            <form class="li-book__form" method="post" action="#book-meeting" data-infopack>
+            <h3 class="li-book__title">Request Information Pack</h3>
+            <form class="li-book__form" method="post" action="https://api.web3forms.com/submit" data-infopack>
+              <input type="hidden" name="access_key" value="c95f75ad-9450-4eab-bbc4-4718cd2adfca">
+              <input type="hidden" name="subject" value="New Information Pack request — iottag.com">
+              <input type="hidden" name="from_name" value="iottag.com Information Pack form">
+              <!-- honeypot: bots fill this, humans never see it -->
+              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
               <div class="li-book__field" data-step>
                 <label for="bk-name">Name</label>
                 <input type="text" id="bk-name" name="name" autocomplete="name" required>
@@ -771,10 +776,11 @@
                 <input type="email" id="bk-email" name="email" autocomplete="email" required>
               </div>
               <div class="li-book__foot">
-                <span class="li-book__progress" aria-hidden="true"></span>
                 <button class="li-book__back" type="button" hidden>Back</button>
                 <button class="btn btn--primary" type="submit">Request Info Pack</button>
               </div>
+              <span class="li-book__progress" aria-hidden="true"></span>
+              <p class="li-book__status" role="status" aria-live="polite" hidden></p>
             </form>
           </div>
           </div>
