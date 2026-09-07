@@ -668,3 +668,4 @@
   .wi-levels__col { flex: 1 1 40%; min-width: 220px; }
   .wi-levels__ring::before, .wi-levels__ring::after { background: transparent; }
 }
+.li-head__logo { display: inline-block; height: 1.05em; width: auto; vertical-align: -.16em; margin-left: .05em; }
