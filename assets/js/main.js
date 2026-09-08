@@ -552,6 +552,45 @@ function initInfoPackForm() {
   });
 }
 
+/* ---- company/contact: enquiry form — plain fetch submit (no stepper) ---- */
+function initContactForm() {
+  const form = document.querySelector('form[data-contact-form]');
+  if (!form) return;
+  const submit = form.querySelector('button[type="submit"]');
+  const status = form.querySelector('.li-book__status');
+  const setStatus = (text, ok) => {
+    if (!status) return;
+    status.hidden = !text;
+    status.textContent = text;
+    status.classList.toggle('is-error', ok === false);
+    status.classList.toggle('is-ok', ok === true);
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();     // site is static (no POST endpoint) — submit is handled via fetch below
+    if (!form.reportValidity()) return;
+
+    submit.disabled = true;
+    setStatus('Sending…', undefined);
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setStatus('Thanks — we\u2019ll be in touch shortly.', true);
+          form.reset();
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      })
+      .catch(() => setStatus('Something went wrong — please try again.', false))
+      .finally(() => { submit.disabled = false; });
+  });
+}
+
 function initLinkedInEmbeds() {
   const wraps = document.querySelectorAll('.li-embed');
   if (!wraps.length) return;
@@ -708,6 +747,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initCardReveal();
   initWhitePaperGate();
   initInfoPackForm();
+  initContactForm();
   initLinkedInEmbeds();
   initLinkedInFeedClick();
   initIeCycle();

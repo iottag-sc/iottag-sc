@@ -102,7 +102,12 @@
           <p class="ct2-copy">Whether you&rsquo;re improving safety, production performance or operational visibility, we&rsquo;re here to help.</p>
         </div>
         <div class="ct-card" id="contact-form">
-          <form class="ct-form" method="post" action="#contact-form">
+          <form class="ct-form" method="post" action="https://api.web3forms.com/submit" data-contact-form>
+            <input type="hidden" name="access_key" value="c95f75ad-9450-4eab-bbc4-4718cd2adfca">
+            <input type="hidden" name="subject" value="New Contact form submission — iottag.com">
+            <input type="hidden" name="from_name" value="iottag.com Contact form">
+            <!-- honeypot: bots fill this, humans never see it -->
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
             <div class="ct-form__rows">
               <div class="ct-form__row">
                 <div class="ct-field">
@@ -146,6 +151,7 @@
               </div>
               <button class="btn btn--primary" type="submit">Submit</button>
             </div>
+            <p class="li-book__status" role="status" aria-live="polite" hidden></p>
           </form>
         </div>
       </div>
