@@ -677,7 +677,7 @@ a.em-doc:hover span { color: var(--c-blue); }
 /* timesheets row: chip list left, briefing photo right */
 .wv-ts { display: flex; gap: 40px; align-items: center; width: 100%; }
 .wv-ts__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
-.wv-ts__img { width: 520px; max-width: 100%; height: auto; flex-shrink: 0; border-radius: var(--r-md); }
+.wv-ts__img { width: 520px; max-width: 100%; height: auto; flex-shrink: 0; border-radius: var(--r-md); object-fit: cover; }
 
 @media (max-width: 1100px) {
   .wv-mtt, .wv-ts { flex-direction: column; align-items: flex-start; }
