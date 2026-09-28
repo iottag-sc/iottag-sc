@@ -603,8 +603,33 @@ a.em-doc:hover span { color: var(--c-blue); }
 .wv-mtt__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
 .wv-mtt__img { width: 440px; max-width: 100%; height: auto; flex-shrink: 0; }
 
-/* unified-platform chevrons: white cells on the pale band */
-.stages--wv .stage { background: #fff; }
+/* unified-platform trio: Safety/Compliance/Utilisation aren't sequential
+   steps, so swap the shared chevron-arrow shape for circular nodes joined
+   by a connecting line — reads as "these work together", not a pipeline */
+.stages--wv { height: auto; opacity: 1; position: relative; gap: 0; }
+.stages--wv::before {
+  content: ""; position: absolute; top: 32px; left: 16.6667%; right: 16.6667%;
+  height: 2px; background: var(--c-blue-tint); z-index: 0;
+}
+.stages--wv .stage {
+  flex: 1 1 0; clip-path: none; background: transparent;
+  flex-direction: column; gap: 12px; padding: 0; position: relative;
+}
+.stages--wv .stage + .stage { margin-left: 0; }
+.stages--wv .stage__node {
+  width: 64px; height: 64px; border-radius: 50%; background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+}
+.stages--wv .stage__node img { width: 32px; height: 32px; }
+@media (max-width: 640px) {
+  .stages--wv { flex-direction: column; align-items: center; gap: 24px; }
+  .stages--wv::before {
+    top: 32px; bottom: 32px; left: 50%; right: auto; width: 2px; height: auto;
+    transform: translateX(-1px);
+  }
+}
 
 /* workforce-management header: fixed 440px title column + free-flow copy */
 .wv-intro { display: flex; gap: 80px; align-items: center; width: 100%; }
