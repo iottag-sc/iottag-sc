@@ -209,6 +209,11 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 /* dashboard rows: a 16:9 screenshot kept at its natural aspect only reaches
    ~260px beside the 740px copy, so trade copy width for image width */
 .feat--dash .feat__copy { width: 620px; }
+/* longer-copy rows (extra intro + closing paragraph) run taller than the
+   fixed 420px image, dropping the last line below the photo — stretch the
+   image to match the copy's height instead */
+.feat--stretch { align-items: stretch; }
+.feat--stretch .feat__img { height: auto; align-self: stretch; }
 @media (max-width: 1240px) {
   .feat, .feat--flip { flex-direction: column; align-items: flex-start; }
   .feat__copy { width: 100%; }
