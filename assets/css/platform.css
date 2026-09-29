@@ -17,7 +17,7 @@
      11. Operational analytics & benchmarking (tinted role-structure bands)
      12. Environmental intelligence (hero overlay, 40px h2, monitoring grid,
          technical-resources doc list)
-     13. Connected Workforce redesign (workforce-visibility, Figma 10584:13913):
+     13. Integrated Workforce redesign (workforce-visibility, Figma 10584:13913):
          question list, bordered 5-col label grid, safety card grid, tagline
          note bars, timesheet icon rows
    ========================================================================== */
@@ -171,7 +171,7 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 
 /* 9. FLEET VISIBILITY (fleet-visibility) ------------------------------------ */
 /* Rebuilt 2026-07-21 from Figma 10584:14765 ("FLEET OPERATIONS", "Ready to
-   Dev" canvas): photo hero (Connected Fleet), icon-list intro row with the
+   Dev" canvas): photo hero (Integrated Fleet), icon-list intro row with the
    blue-rule callout (.oab-note, §11), collision-avoidance .track-strip. */
 
 /* anchor the crop low so the truck + workers stay visible on wide viewports */
@@ -235,7 +235,7 @@ a.layer-card:hover { background: #fff; transform: translateY(-3px); box-shadow: 
 
 /* 10. WORKFORCE VISIBILITY (workforce-visibility) ---------------------------- */
 /* Rebuilt 2026-07-21 from Figma 10584:13913 ("WORKFORCE OPERATIONS", "Ready to
-   Dev" canvas) — "Connected Workforce". Page components live in §13; the
+   Dev" canvas) — "Integrated Workforce". Page components live in §13; the
    timesheet tiles below stay for resources/video-library (.ts-tiles--vl). */
 
 /* hero: the OVL wash is baked into wv-hero-bg.jpg (Figma render of 10584:13915)
