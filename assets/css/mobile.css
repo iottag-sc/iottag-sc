@@ -60,6 +60,7 @@
 
   .hero { min-height: 0; padding: calc(var(--nav-h) + 40px) var(--pad-x) 48px; }
   .hero--short { min-height: 0; }
+  .hero__bg--home { opacity: .45; }
 
   .media-block { padding: 32px 24px; gap: 32px; }
   .media-block--stack { padding: 32px 20px; }
