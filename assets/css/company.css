@@ -518,7 +518,7 @@
 }
 .ct2-sws__cell:nth-child(3n) { border-right: 0; }
 .ct2-sws__cell:nth-child(n+7) { border-bottom: 0; }
-.ct2-sws__cell img { width: 40px; height: 40px; }
+.ct2-sws__cell img { width: 20px; height: 20px; }
 .ct2-sws__cell span { font: 400 20px/1.4 var(--f-alt); letter-spacing: -.01em; color: #4b5059; }
 .ct2-sws__shots { flex: 1 1 31%; min-width: 280px; display: flex; flex-direction: column; gap: 20px; }
 .ct2-sws__shots img { flex: 1 1 0; min-height: 0; width: 100%; height: 200px; object-fit: cover; border-radius: var(--r-md); }
